@@ -1,0 +1,117 @@
+package br.com.projedata.arcturus.teste.metodosgenericos;
+
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.botaoAbrirIdiomas;
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.botaoRecarregarMensagemConfirmacao;
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.idiomaPortugues;
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.janelaAlterarIdioma;
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.mensagemConfirmacaoIdiomaPortugues;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import br.com.projedata.arcturus.teste.recursos.AcoesDriver;
+import br.com.projedata.arcturus.teste.recursos.Espera;
+import br.com.projedata.arcturus.teste.recursos.Mensagem;
+import br.com.projedata.arcturus.teste.recursos.Teclado;
+import br.com.projedata.arcturus.teste.recursos.TesteGenerico;
+
+public class LoginMetodos {
+
+	private TesteGenerico teste;
+	private WebDriver webDriver = null;
+	private AcoesDriver acao;
+	private Mensagem msg;
+	private Teclado teclado;
+	private Espera espera;
+
+	public LoginMetodos(TesteGenerico teste) {
+		this.teste = teste;
+		this.acao = teste.acao;
+		this.teclado = teste.teclado;
+		this.webDriver = teste.webDriver;
+		this.msg = teste.msg;
+		this.espera = teste.espera;
+	}
+
+	public By campoUsuario = By.id("inputLogin");
+	public By campoSenha = By.id("inputSenha");
+	public By campoBase = By.id("inputBase");
+	public By botaoAcessar = By.id("botaoEntrar");
+	public By erroLogar = By.xpath("//*[(text()='Usuário e/ou senha inválidos.')]");
+	public By logado = By.xpath("//input[@placeholder='Localizar' or @placeholder='Search']");
+	public By botaoNovaSessao = By.xpath("//button[contains(@class,'btn-nova') or @data-type='nova']");
+	public By sessoesAtivasUsuarioComum = By.xpath("//div[contains(text(),'Sessões Ativas')]");
+	public By botaoFinalizarSessoesAtivasUsuarioComum = By.xpath("//button[contains(text(),'Finalizar Todas')]");
+
+	public void logar(String usuario, String senha, String base) {
+		try {
+			preencherCamposLogin(usuario, senha, base);
+			WebElement elementoVisivel = espera.aguardarElementoEstarVisivel(logado, botaoNovaSessao, sessoesAtivasUsuarioComum);
+			if (webDriver.findElements(botaoNovaSessao).contains(elementoVisivel)) {
+				acao.clicarNoElemento(botaoNovaSessao);
+			} else {
+				if (webDriver.findElements(sessoesAtivasUsuarioComum).contains(elementoVisivel)) {
+					acao.clicarNoElemento(botaoFinalizarSessoesAtivasUsuarioComum);
+				}
+			}
+			espera.aguardarElementoEstarVisivel(logado);
+			espera.aguardarSistemaCarregar();
+			verificarIdiomaPortugues();
+		} catch (TimeoutException e) {
+
+		}
+	}
+
+	public void logarInvalido(String usuario, String senha, String base) {
+		preencherCamposLogin(usuario, senha, base);
+		espera.aguardarElementoEstarVisivel(erroLogar);
+		msg.fecharMensagemNotificacao();
+	}
+
+	private void preencherCamposLogin(String usuario, String senha, String base) {
+		aguardarTelaLogin();
+		//acao.limpar(campoUsuario);
+		acao.escreverNoElemento(campoUsuario, usuario);
+		acao.limpar(campoSenha);
+		acao.escreverNoElemento(campoSenha, senha);
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		acao.limpar(campoBase);
+		acao.escreverNoElemento(campoBase, base);
+		acao.clicarNoElemento(botaoAcessar);
+	}
+
+	public void logarSemValidacao(String usuario, String senha, String base) {
+		aguardarTelaLogin();
+		acao.limpar(campoUsuario);
+		acao.escreverNoElemento(campoUsuario, usuario);
+		acao.limpar(campoSenha);
+		acao.escreverNoElemento(campoSenha, senha);
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		acao.limpar(campoBase);
+		acao.escreverNoElemento(campoBase, base);
+		acao.clicarNoElemento(botaoAcessar);
+	}
+
+	public void aguardarTelaLogin() {
+		WebDriverWait wait = new WebDriverWait(teste.webDriver, 20);
+		wait.until(ExpectedConditions.visibilityOfElementLocated((By.id("inputLogin"))));
+	}
+
+	public void verificarIdiomaPortugues() {
+		teste.abrirMenuConfiguracoes();
+		acao.clicarNoElemento(botaoAbrirIdiomas);
+		espera.aguardarElementoEstarVisivel(janelaAlterarIdioma);
+		acao.clicarNoElemento(idiomaPortugues);
+		espera.aguardarElementoDesaparecer(janelaAlterarIdioma);
+		espera.aguardarElementoEstarVisivel(mensagemConfirmacaoIdiomaPortugues);
+		acao.clicarNoElemento(botaoRecarregarMensagemConfirmacao);
+		espera.aguardarElementoDesaparecer(mensagemConfirmacaoIdiomaPortugues);
+		espera.aguardarSistemaCarregar();
+	}
+
+}

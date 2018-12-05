@@ -1,0 +1,61 @@
+package br.com.projedata.teste.util.recursos;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class Mensagem {
+
+	public final WebDriver webDriver;
+
+	public final Teclado teclado;
+
+	public Mensagem(WebDriver driver, Teclado teclado) {
+		this.webDriver = driver;
+		this.teclado = teclado;
+	}
+
+	public static final By mensagemSalvarAlteracoesPendentes = By.xpath("//*[text()='Deseja salvar as alterações pendentes?']");
+	public static final By mensagemRegistrosAlterados = By.xpath("//*[contains(text(),'registros alterados')]");
+	public static final By simConfirmacao = By
+			.xpath("//button[@class='btn-sim atalho-s' or @data-type='sim' or contains(@class,'btn-yes')]");
+	private By fecharMensagemNotificacao = By.xpath(
+			"//div[contains(@class,'arcbox arcbox-notificacao') or contains(@class,'arcbox-notify-msg')]//following::*[@class='btn-fechar' or @class='arcbox-close']");
+	private By mensagemNotificacao = By.xpath("//div[contains(@id,'arcbox')]");
+
+	public void fecharMensagemNotificacao() {
+		WebDriverWait wait = new WebDriverWait(webDriver, 10);
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(fecharMensagemNotificacao));
+		WebElement element = webDriver.findElement(fecharMensagemNotificacao);
+		try {
+			element.click();
+		} catch (Exception e) {
+			teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		}
+		if (!webDriver.findElements(mensagemNotificacao).isEmpty()) {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(mensagemNotificacao));
+		}
+	}
+
+	public void fecharMensagemConfirmacaoTeclandoN() {
+		teclado.pressionarTeclaAlfanumerica("N");
+	}
+
+	public void aguardarMensagemEstarVisivel(String mensagem) {
+		WebDriverWait wait = new WebDriverWait(webDriver, 10);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'" + mensagem + "')]")));
+	}
+
+	public void aguardarMensagemDesaparecer(String mensagem) {
+		WebDriverWait wait = new WebDriverWait(webDriver, 10);
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[contains(text(),'" + mensagem + "')]")));
+	}
+
+	public By retornarMensagemNotificacao(String mensagem) {
+		return By.xpath("//*[contains(text(),'" + mensagem + "')]");
+	}
+
+}

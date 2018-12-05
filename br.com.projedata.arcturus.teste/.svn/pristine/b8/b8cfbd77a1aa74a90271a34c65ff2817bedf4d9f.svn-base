@@ -1,0 +1,46 @@
+package br.com.projedata.arcturus.teste.recursos;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class Mouse {
+
+	WebDriver webDriver = null;
+
+	public Mouse(WebDriver driver) {
+		this.webDriver = driver;
+	}
+
+	public void moverCursorParaElemento(By elemento) {
+		Actions action = new Actions(webDriver);
+		action.moveToElement(webDriver.findElement(elemento)).build().perform();
+	}
+
+	public void doubleClick(By elemento) {
+		Actions action = new Actions(webDriver);
+		action.moveToElement(webDriver.findElement(elemento)).doubleClick().perform();
+	}
+	
+	public void click(By elemento) {
+		Actions action = new Actions(webDriver);
+		action.moveToElement(webDriver.findElement(elemento)).click().perform();
+	}
+
+	public void scrollParaElemento(By elemento) {
+		((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();",
+				webDriver.findElement(elemento));
+	}
+
+	public void scrollDown() {
+		JavascriptExecutor jse = (JavascriptExecutor) webDriver;
+		jse.executeScript("scroll(0, 250)");
+	}
+
+	public void scrollUp() {
+		JavascriptExecutor jse = (JavascriptExecutor) webDriver;
+		jse.executeScript("scroll(-10, 0)");
+	}
+
+}

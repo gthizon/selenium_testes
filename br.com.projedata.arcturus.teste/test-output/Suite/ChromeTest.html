@@ -1,0 +1,1339 @@
+<html>
+<head>
+<title>TestNG:  ChromeTest</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>ChromeTest</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>25/2/61</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Nov 21 10:00:37 BRST 2018</td>
+</tr>
+<tr><td>Total time:</td><td>111 seconds (111438 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.consultarRegistroPorCodigo()'><b>consultarRegistroPorCodigo</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for br.com.projedata.teste.util.recursos.Espera$11@428760e2 (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:19:58.91Z&apos;
+System info: host: &apos;gustavo-184&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;4.15.0-39-generic&apos;, java.version: &apos;1.8.0_172&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.38.552522 (437e6fbedfa876..., userDataDir: /tmp/.org.chromium.Chromium...}, cssSelectorsEnabled: true, databaseEnabled: false, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 66.0.3359.139, webStorageEnabled: true}
+Session ID: 4b9ed6d45c4ecc95f0a5e8f16c776b70
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:113)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:283)
+	at br.com.projedata.teste.util.recursos.Espera.aguardarAtributoDoElementoConterOValor(Espera.java:306)
+	at br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.consultarRegistroPorCodigo(TesteRotinaTeste02.java:148)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 10 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace183800465", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace183800465'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for br.com.projedata.teste.util.recursos.Espera$11@428760e2 (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:19:58.91Z&apos;
+System info: host: &apos;gustavo-184&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;4.15.0-39-generic&apos;, java.version: &apos;1.8.0_172&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.38.552522 (437e6fbedfa876..., userDataDir: /tmp/.org.chromium.Chromium...}, cssSelectorsEnabled: true, databaseEnabled: false, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 66.0.3359.139, webStorageEnabled: true}
+Session ID: 4b9ed6d45c4ecc95f0a5e8f16c776b70
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:113)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:283)
+	at br.com.projedata.teste.util.recursos.Espera.aguardarAtributoDoElementoConterOValor(Espera.java:306)
+	at br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.consultarRegistroPorCodigo(TesteRotinaTeste02.java:148)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:645)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>10</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc001.criarRegistroComASetaDoTeclado()'><b>criarRegistroComASetaDoTeclado</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc001</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for br.com.projedata.teste.util.recursos.Espera$8@2e670469 (tried for 10 second(s) with 100 milliseconds interval)
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:19:58.91Z&apos;
+System info: host: &apos;gustavo-184&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;4.15.0-39-generic&apos;, java.version: &apos;1.8.0_172&apos;
+Driver info: driver.version: unknown
+	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:315)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:283)
+	at br.com.projedata.teste.util.recursos.Espera.aguardarElementoEstarVisivel(Espera.java:229)
+	at br.com.projedata.teste.util.recursos.Espera.aguardarElementoEstarVisivel(Espera.java:218)
+	at br.com.projedata.arcturus.teste.testes.TesteParc001.criarRegistroComASetaDoTeclado(TesteParc001.java:366)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 10 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace269562209", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace269562209'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for br.com.projedata.teste.util.recursos.Espera$8@2e670469 (tried for 10 second(s) with 100 milliseconds interval)
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:19:58.91Z&apos;
+System info: host: &apos;gustavo-184&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;4.15.0-39-generic&apos;, java.version: &apos;1.8.0_172&apos;
+Driver info: driver.version: unknown
+	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:315)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:283)
+	at br.com.projedata.teste.util.recursos.Espera.aguardarElementoEstarVisivel(Espera.java:229)
+	at br.com.projedata.teste.util.recursos.Espera.aguardarElementoEstarVisivel(Espera.java:218)
+	at br.com.projedata.arcturus.teste.testes.TesteParc001.criarRegistroComASetaDoTeclado(TesteParc001.java:366)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:645)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>12</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc001.abrirOutraRotina()'><b>abrirOutraRotina</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc001</td>
+<td></td>
+<td>3</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.abrirRotinaTeste02()'><b>abrirRotinaTeste02</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02<br>Parameters: http://arcturus-teste.prj:8881, usuario, usuario, desenvolvimento</td>
+<td></td>
+<td>5</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc007.cadastrarNovoFiltro()'><b>cadastrarNovoFiltro</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc007<br>Parameters: usuario, usuario, desenvolvimento, http://arcturus-teste.prj:8881</td>
+<td></td>
+<td>7</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc007@2c9f9fb0</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc001.cancelarAberturaDeRotina()'><b>cancelarAberturaDeRotina</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc001</td>
+<td></td>
+<td>2</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.cancelarRegistroSemAlteracao()'><b>cancelarRegistroSemAlteracao</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td></td>
+<td>1</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.cancelarRegistroSemAlteracaoOpcaoCancelar()'><b>cancelarRegistroSemAlteracaoOpcaoCancelar</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td></td>
+<td>1</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.cancelarRegistroSemAlteracaoOpcaoSim()'><b>cancelarRegistroSemAlteracaoOpcaoSim</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td></td>
+<td>2</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc007.consultarFiltros()'><b>consultarFiltros</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc007</td>
+<td></td>
+<td>1</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc007@2c9f9fb0</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc001.copiarAcessoUsuarioArc001()'><b>copiarAcessoUsuarioArc001</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc001</td>
+<td></td>
+<td>7</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.criarRegistroSemAlteracao()'><b>criarRegistroSemAlteracao</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td></td>
+<td>1</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc007.excluirFiltro()'><b>excluirFiltro</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc007</td>
+<td></td>
+<td>4</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc007@2c9f9fb0</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc007.excluirFiltroArcturus()'><b>excluirFiltroArcturus</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc007</td>
+<td></td>
+<td>1</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc007@2c9f9fb0</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.excluirRegistro()'><b>excluirRegistro</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td></td>
+<td>0</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc001.filtrarLovComVariosTextosSimultaneos()'><b>filtrarLovComVariosTextosSimultaneos</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc001</td>
+<td></td>
+<td>1</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.limparRegistro()'><b>limparRegistro</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td></td>
+<td>0</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc001.mostrarRotinaAberta()'><b>mostrarRotinaAberta</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc001</td>
+<td></td>
+<td>2</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc001.naoPermitirSairDoRegistroQuandoInvalido()'><b>naoPermitirSairDoRegistroQuandoInvalido</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc001</td>
+<td></td>
+<td>3</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc001.naoPermitirSairDoRegistroQuandoInvalidoClicandoNaBarraDeRolagem()'><b>naoPermitirSairDoRegistroQuandoInvalidoClicandoNaBarraDeRolagem</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc001</td>
+<td></td>
+<td>0</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.salvarRegistroSemAlteracao()'><b>salvarRegistroSemAlteracao</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td></td>
+<td>0</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc001.selecionarValorEmBrancoComboBox()'><b>selecionarValorEmBrancoComboBox</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc001<br>Parameters: usuario, usuario, desenvolvimento</td>
+<td></td>
+<td>12</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc001.teclarF4EmBlocoComRegistroInvalido()'><b>teclarF4EmBlocoComRegistroInvalido</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc001</td>
+<td></td>
+<td>0</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc001.teclarF6EmBlocoComRegistroInvalido()'><b>teclarF6EmBlocoComRegistroInvalido</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc001</td>
+<td></td>
+<td>0</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc007.testarCriacaoDeFiltroEmCliente()'><b>testarCriacaoDeFiltroEmCliente</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc007<br>Parameters: http://arcturus-teste-homo.prj:8881</td>
+<td></td>
+<td>10</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc007@2c9f9fb0</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.testarEventoAposAbrirTela()'><b>testarEventoAposAbrirTela</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td></td>
+<td>0</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc001.verificarSeNaoPermiteSairDoCampoInvalido()'><b>verificarSeNaoPermiteSairDoCampoInvalido</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc001</td>
+<td></td>
+<td>3</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.abrirLovEmModoConsulta()'><b>abrirLovEmModoConsulta</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TesteRotinaTeste02.abrirLovEmModoConsulta()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace308388046", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace308388046'><pre>java.lang.Throwable: Method TesteRotinaTeste02.abrirLovEmModoConsulta()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.abrirModal()'><b>abrirModal</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TesteRotinaTeste02.abrirModal()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1684091078", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1684091078'><pre>java.lang.Throwable: Method TesteRotinaTeste02.abrirModal()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc001.acessarSistemaComUsuarioDesbloqueado()'><b>acessarSistemaComUsuarioDesbloqueado</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc001</td>
+<td><div><pre>java.lang.Throwable: Method TesteParc001.acessarSistemaComUsuarioDesbloqueado()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace703569263", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace703569263'><pre>java.lang.Throwable: Method TesteParc001.acessarSistemaComUsuarioDesbloqueado()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc001.adicionarImagemArc001()'><b>adicionarImagemArc001</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc001</td>
+<td><div><pre>java.lang.Throwable: Method TesteParc001.adicionarImagemArc001()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1383176632", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1383176632'><pre>java.lang.Throwable: Method TesteParc001.adicionarImagemArc001()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.blocoNaoPermiteAlteracao()'><b>blocoNaoPermiteAlteracao</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TesteRotinaTeste02.blocoNaoPermiteAlteracao()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace39158407", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace39158407'><pre>java.lang.Throwable: Method TesteRotinaTeste02.blocoNaoPermiteAlteracao()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.blocoNaoPermiteExclusao()'><b>blocoNaoPermiteExclusao</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TesteRotinaTeste02.blocoNaoPermiteExclusao()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2143454187", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2143454187'><pre>java.lang.Throwable: Method TesteRotinaTeste02.blocoNaoPermiteExclusao()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.blocoNaoPermiteInclusao()'><b>blocoNaoPermiteInclusao</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TesteRotinaTeste02.blocoNaoPermiteInclusao()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1146743085", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1146743085'><pre>java.lang.Throwable: Method TesteRotinaTeste02.blocoNaoPermiteInclusao()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc001.bloquearUsuarioPorExcessoDetentativasDeAcesso()'><b>bloquearUsuarioPorExcessoDetentativasDeAcesso</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc001</td>
+<td><div><pre>java.lang.Throwable: Method TesteParc001.bloquearUsuarioPorExcessoDetentativasDeAcesso()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1365404616", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1365404616'><pre>java.lang.Throwable: Method TesteParc001.bloquearUsuarioPorExcessoDetentativasDeAcesso()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.campoObrigatorio()'><b>campoObrigatorio</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TesteRotinaTeste02.campoObrigatorio()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1750867694", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1750867694'><pre>java.lang.Throwable: Method TesteRotinaTeste02.campoObrigatorio()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.campoObrigatorioTabelaDinamica()'><b>campoObrigatorioTabelaDinamica</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TesteRotinaTeste02.campoObrigatorioTabelaDinamica()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1955071579", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1955071579'><pre>java.lang.Throwable: Method TesteRotinaTeste02.campoObrigatorioTabelaDinamica()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.consultarRegistroPorCodigoDetalhe()'><b>consultarRegistroPorCodigoDetalhe</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TesteRotinaTeste02.consultarRegistroPorCodigoDetalhe()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1263312428", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1263312428'><pre>java.lang.Throwable: Method TesteRotinaTeste02.consultarRegistroPorCodigoDetalhe()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.consultarRegistroPorCodigoTabelaDinamica()'><b>consultarRegistroPorCodigoTabelaDinamica</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TesteRotinaTeste02.consultarRegistroPorCodigoTabelaDinamica()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2017331848", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2017331848'><pre>java.lang.Throwable: Method TesteRotinaTeste02.consultarRegistroPorCodigoTabelaDinamica()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.consultarTodosRegistros()'><b>consultarTodosRegistros</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TesteRotinaTeste02.consultarTodosRegistros()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace570252081", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace570252081'><pre>java.lang.Throwable: Method TesteRotinaTeste02.consultarTodosRegistros()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc001.desbloquearUsuario()'><b>desbloquearUsuario</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc001</td>
+<td><div><pre>java.lang.Throwable: Method TesteParc001.desbloquearUsuario()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2127123178", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2127123178'><pre>java.lang.Throwable: Method TesteParc001.desbloquearUsuario()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.excluirRegistroInserido()'><b>excluirRegistroInserido</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TesteRotinaTeste02.excluirRegistroInserido()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace55808869", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace55808869'><pre>java.lang.Throwable: Method TesteRotinaTeste02.excluirRegistroInserido()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.fecharRotinaModal()'><b>fecharRotinaModal</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TesteRotinaTeste02.fecharRotinaModal()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1981976561", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1981976561'><pre>java.lang.Throwable: Method TesteRotinaTeste02.fecharRotinaModal()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.fecharRotinaPrincipal()'><b>fecharRotinaPrincipal</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TesteRotinaTeste02.fecharRotinaPrincipal()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1635162067", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1635162067'><pre>java.lang.Throwable: Method TesteRotinaTeste02.fecharRotinaPrincipal()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.inserirRegistro()'><b>inserirRegistro</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TesteRotinaTeste02.inserirRegistro()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1100898723", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1100898723'><pre>java.lang.Throwable: Method TesteRotinaTeste02.inserirRegistro()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.inseririValorNoCampoUtilizandoCtrlE()'><b>inseririValorNoCampoUtilizandoCtrlE</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TesteRotinaTeste02.inseririValorNoCampoUtilizandoCtrlE()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace334655888", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace334655888'><pre>java.lang.Throwable: Method TesteRotinaTeste02.inseririValorNoCampoUtilizandoCtrlE()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.naoPermitirAlterarCampoNaoEditavelPeloCtrlE()'><b>naoPermitirAlterarCampoNaoEditavelPeloCtrlE</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TesteRotinaTeste02.naoPermitirAlterarCampoNaoEditavelPeloCtrlE()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace876146568", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace876146568'><pre>java.lang.Throwable: Method TesteRotinaTeste02.naoPermitirAlterarCampoNaoEditavelPeloCtrlE()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.navegarPaginaAnterior()'><b>navegarPaginaAnterior</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TesteRotinaTeste02.navegarPaginaAnterior()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1490104201", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1490104201'><pre>java.lang.Throwable: Method TesteRotinaTeste02.navegarPaginaAnterior()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.navegarProximaPagina()'><b>navegarProximaPagina</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TesteRotinaTeste02.navegarProximaPagina()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace520902973", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace520902973'><pre>java.lang.Throwable: Method TesteRotinaTeste02.navegarProximaPagina()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.navegarProximoRegistro()'><b>navegarProximoRegistro</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TesteRotinaTeste02.navegarProximoRegistro()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace849371629", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace849371629'><pre>java.lang.Throwable: Method TesteRotinaTeste02.navegarProximoRegistro()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.navegarRegistroAnterior()'><b>navegarRegistroAnterior</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TesteRotinaTeste02.navegarRegistroAnterior()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace790929441", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace790929441'><pre>java.lang.Throwable: Method TesteRotinaTeste02.navegarRegistroAnterior()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.perguntarSeDesejaSairSemSalvarCampoEditavelPeloCtrlE()'><b>perguntarSeDesejaSairSemSalvarCampoEditavelPeloCtrlE</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TesteRotinaTeste02.perguntarSeDesejaSairSemSalvarCampoEditavelPeloCtrlE()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace458433231", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace458433231'><pre>java.lang.Throwable: Method TesteRotinaTeste02.perguntarSeDesejaSairSemSalvarCampoEditavelPeloCtrlE()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.permitirAlterarCampoEditavelPeloCtrlE()'><b>permitirAlterarCampoEditavelPeloCtrlE</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TesteRotinaTeste02.permitirAlterarCampoEditavelPeloCtrlE()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2044212062", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2044212062'><pre>java.lang.Throwable: Method TesteRotinaTeste02.permitirAlterarCampoEditavelPeloCtrlE()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc001.removerImagemArc001()'><b>removerImagemArc001</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc001</td>
+<td><div><pre>java.lang.Throwable: Method TesteParc001.removerImagemArc001()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace601149439", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace601149439'><pre>java.lang.Throwable: Method TesteParc001.removerImagemArc001()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.selecionarDataPeloCalendarioEVerificarEventoViaComando()'><b>selecionarDataPeloCalendarioEVerificarEventoViaComando</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TesteRotinaTeste02.selecionarDataPeloCalendarioEVerificarEventoViaComando()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1237177913", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1237177913'><pre>java.lang.Throwable: Method TesteRotinaTeste02.selecionarDataPeloCalendarioEVerificarEventoViaComando()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.tentarFecharRotinaComModalAberto()'><b>tentarFecharRotinaComModalAberto</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TesteRotinaTeste02.tentarFecharRotinaComModalAberto()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace85173023", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace85173023'><pre>java.lang.Throwable: Method TesteRotinaTeste02.tentarFecharRotinaComModalAberto()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc001.testarBloqueioDeAcessoDiasDaSemana()'><b>testarBloqueioDeAcessoDiasDaSemana</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc001</td>
+<td><div><pre>java.lang.Throwable: Method TesteParc001.testarBloqueioDeAcessoDiasDaSemana()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1119845451", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1119845451'><pre>java.lang.Throwable: Method TesteParc001.testarBloqueioDeAcessoDiasDaSemana()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.testarConsultaComMacroCampoData()'><b>testarConsultaComMacroCampoData</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TesteRotinaTeste02.testarConsultaComMacroCampoData()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1153789280", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1153789280'><pre>java.lang.Throwable: Method TesteRotinaTeste02.testarConsultaComMacroCampoData()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.testarConsultaComOperadorDiferente()'><b>testarConsultaComOperadorDiferente</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TesteRotinaTeste02.testarConsultaComOperadorDiferente()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1598862925", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1598862925'><pre>java.lang.Throwable: Method TesteRotinaTeste02.testarConsultaComOperadorDiferente()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.testarConsultaComOperadorMaior()'><b>testarConsultaComOperadorMaior</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TesteRotinaTeste02.testarConsultaComOperadorMaior()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1616446154", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1616446154'><pre>java.lang.Throwable: Method TesteRotinaTeste02.testarConsultaComOperadorMaior()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.testarConsultaComOperadorMaiorOuIgual()'><b>testarConsultaComOperadorMaiorOuIgual</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TesteRotinaTeste02.testarConsultaComOperadorMaiorOuIgual()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace763972764", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace763972764'><pre>java.lang.Throwable: Method TesteRotinaTeste02.testarConsultaComOperadorMaiorOuIgual()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.testarConsultaComOperadorMenor()'><b>testarConsultaComOperadorMenor</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TesteRotinaTeste02.testarConsultaComOperadorMenor()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace927234258", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace927234258'><pre>java.lang.Throwable: Method TesteRotinaTeste02.testarConsultaComOperadorMenor()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.testarConsultaComOperadorMenorOuIgual()'><b>testarConsultaComOperadorMenorOuIgual</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TesteRotinaTeste02.testarConsultaComOperadorMenorOuIgual()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace789548136", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace789548136'><pre>java.lang.Throwable: Method TesteRotinaTeste02.testarConsultaComOperadorMenorOuIgual()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc001.testarControleAcessoBloquearDataFim()'><b>testarControleAcessoBloquearDataFim</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc001</td>
+<td><div><pre>java.lang.Throwable: Method TesteParc001.testarControleAcessoBloquearDataFim()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1046355971", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1046355971'><pre>java.lang.Throwable: Method TesteParc001.testarControleAcessoBloquearDataFim()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc001.testarControleAcessoBloquearDataInicio()'><b>testarControleAcessoBloquearDataInicio</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc001</td>
+<td><div><pre>java.lang.Throwable: Method TesteParc001.testarControleAcessoBloquearDataInicio()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2091293310", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2091293310'><pre>java.lang.Throwable: Method TesteParc001.testarControleAcessoBloquearDataInicio()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc001.testarControleAcessoBloquearHoraFim()'><b>testarControleAcessoBloquearHoraFim</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc001</td>
+<td><div><pre>java.lang.Throwable: Method TesteParc001.testarControleAcessoBloquearHoraFim()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2137953976", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2137953976'><pre>java.lang.Throwable: Method TesteParc001.testarControleAcessoBloquearHoraFim()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc001.testarControleAcessoBloquearHoraInicio()'><b>testarControleAcessoBloquearHoraInicio</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc001</td>
+<td><div><pre>java.lang.Throwable: Method TesteParc001.testarControleAcessoBloquearHoraInicio()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace877639903", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace877639903'><pre>java.lang.Throwable: Method TesteParc001.testarControleAcessoBloquearHoraInicio()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc001.testarControleAcessoLiberarHoraFim()'><b>testarControleAcessoLiberarHoraFim</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc001</td>
+<td><div><pre>java.lang.Throwable: Method TesteParc001.testarControleAcessoLiberarHoraFim()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1066527824", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1066527824'><pre>java.lang.Throwable: Method TesteParc001.testarControleAcessoLiberarHoraFim()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc001.testarControleAcessoLiberarHoraInicio()'><b>testarControleAcessoLiberarHoraInicio</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc001</td>
+<td><div><pre>java.lang.Throwable: Method TesteParc001.testarControleAcessoLiberarHoraInicio()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace575031275", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace575031275'><pre>java.lang.Throwable: Method TesteParc001.testarControleAcessoLiberarHoraInicio()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.testarPassagemDeFocoTabelaDinamica()'><b>testarPassagemDeFocoTabelaDinamica</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TesteRotinaTeste02.testarPassagemDeFocoTabelaDinamica()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1109571207", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1109571207'><pre>java.lang.Throwable: Method TesteRotinaTeste02.testarPassagemDeFocoTabelaDinamica()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc001.testarPassagemDeRegistroComFocoNoComboBox()'><b>testarPassagemDeRegistroComFocoNoComboBox</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc001</td>
+<td><div><pre>java.lang.Throwable: Method TesteParc001.testarPassagemDeRegistroComFocoNoComboBox()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace270537095", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace270537095'><pre>java.lang.Throwable: Method TesteParc001.testarPassagemDeRegistroComFocoNoComboBox()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc001.testarPermissaoDeAcesso()'><b>testarPermissaoDeAcesso</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc001</td>
+<td><div><pre>java.lang.Throwable: Method TesteParc001.testarPermissaoDeAcesso()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace331429686", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace331429686'><pre>java.lang.Throwable: Method TesteParc001.testarPermissaoDeAcesso()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc001.testarUsuarioSemPermissaoDeAcesso()'><b>testarUsuarioSemPermissaoDeAcesso</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc001</td>
+<td><div><pre>java.lang.Throwable: Method TesteParc001.testarUsuarioSemPermissaoDeAcesso()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace322789764", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace322789764'><pre>java.lang.Throwable: Method TesteParc001.testarUsuarioSemPermissaoDeAcesso()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.textAreaExpansivel()'><b>textAreaExpansivel</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TesteRotinaTeste02.textAreaExpansivel()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace333961987", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace333961987'><pre>java.lang.Throwable: Method TesteRotinaTeste02.textAreaExpansivel()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.utilizacaoCtrlE()'><b>utilizacaoCtrlE</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TesteRotinaTeste02.utilizacaoCtrlE()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace21451764", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace21451764'><pre>java.lang.Throwable: Method TesteRotinaTeste02.utilizacaoCtrlE()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.valorCampoNumericoApenasDecimal()'><b>valorCampoNumericoApenasDecimal</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TesteRotinaTeste02.valorCampoNumericoApenasDecimal()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace910214795", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace910214795'><pre>java.lang.Throwable: Method TesteRotinaTeste02.valorCampoNumericoApenasDecimal()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.valorCampoNumericoApenasDecimalComPonto()'><b>valorCampoNumericoApenasDecimalComPonto</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TesteRotinaTeste02.valorCampoNumericoApenasDecimalComPonto()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace501401073", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace501401073'><pre>java.lang.Throwable: Method TesteRotinaTeste02.valorCampoNumericoApenasDecimalComPonto()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.valorCampoNumericoComMilhar()'><b>valorCampoNumericoComMilhar</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TesteRotinaTeste02.valorCampoNumericoComMilhar()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1581184948", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1581184948'><pre>java.lang.Throwable: Method TesteRotinaTeste02.valorCampoNumericoComMilhar()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.valorCampoNumericoComPonto()'><b>valorCampoNumericoComPonto</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TesteRotinaTeste02.valorCampoNumericoComPonto()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1529317512", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1529317512'><pre>java.lang.Throwable: Method TesteRotinaTeste02.valorCampoNumericoComPonto()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.valorCampoNumericoDecimalComPonto()'><b>valorCampoNumericoDecimalComPonto</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TesteRotinaTeste02.valorCampoNumericoDecimalComPonto()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1998523742", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1998523742'><pre>java.lang.Throwable: Method TesteRotinaTeste02.valorCampoNumericoDecimalComPonto()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.valorCampoNumericoMilharComPonto()'><b>valorCampoNumericoMilharComPonto</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TesteRotinaTeste02.valorCampoNumericoMilharComPonto()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace788811787", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace788811787'><pre>java.lang.Throwable: Method TesteRotinaTeste02.valorCampoNumericoMilharComPonto()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.valorCampoNumericoMilharComVirgual()'><b>valorCampoNumericoMilharComVirgual</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TesteRotinaTeste02.valorCampoNumericoMilharComVirgual()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace614779739", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace614779739'><pre>java.lang.Throwable: Method TesteRotinaTeste02.valorCampoNumericoMilharComVirgual()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.verificarFocoAposAbrirCampoLov()'><b>verificarFocoAposAbrirCampoLov</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TesteRotinaTeste02.verificarFocoAposAbrirCampoLov()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1701164183", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1701164183'><pre>java.lang.Throwable: Method TesteRotinaTeste02.verificarFocoAposAbrirCampoLov()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.verificarSeComponenteBotaoAbreComEnter()'><b>verificarSeComponenteBotaoAbreComEnter</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TesteRotinaTeste02.verificarSeComponenteBotaoAbreComEnter()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1670649419", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1670649419'><pre>java.lang.Throwable: Method TesteRotinaTeste02.verificarSeComponenteBotaoAbreComEnter()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.verificarSeComponenteBotaoAbreComEspaco()'><b>verificarSeComponenteBotaoAbreComEspaco</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TesteRotinaTeste02.verificarSeComponenteBotaoAbreComEspaco()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace705852144", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace705852144'><pre>java.lang.Throwable: Method TesteRotinaTeste02.verificarSeComponenteBotaoAbreComEspaco()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02.verificarSeMarcaRegistroComoAlteradoUtilizandoCtrlE()'><b>verificarSeMarcaRegistroComoAlteradoUtilizandoCtrlE</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TesteRotinaTeste02.verificarSeMarcaRegistroComoAlteradoUtilizandoCtrlE()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace32075051", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace32075051'><pre>java.lang.Throwable: Method TesteRotinaTeste02.verificarSeMarcaRegistroComoAlteradoUtilizandoCtrlE()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02@1324409e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc001.verificarSeNaoBloqueiaUsuarioToken()'><b>verificarSeNaoBloqueiaUsuarioToken</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc001</td>
+<td><div><pre>java.lang.Throwable: Method TesteParc001.verificarSeNaoBloqueiaUsuarioToken()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace31002773", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace31002773'><pre>java.lang.Throwable: Method TesteParc001.verificarSeNaoBloqueiaUsuarioToken()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc001.verificarSituacaoUsuarioBloqueado()'><b>verificarSituacaoUsuarioBloqueado</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc001</td>
+<td><div><pre>java.lang.Throwable: Method TesteParc001.verificarSituacaoUsuarioBloqueado()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78] depends on not successfully finished methods
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 3 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2141303895", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2141303895'><pre>java.lang.Throwable: Method TesteParc001.verificarSituacaoUsuarioBloqueado()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc001@6537cf78] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+</table><p>
+</body>
+</html>

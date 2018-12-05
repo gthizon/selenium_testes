@@ -1,0 +1,210 @@
+package br.com.projedata.arcturus.teste.testes;
+
+import static br.com.projedata.arcturus.teste.webelements.AtualizadorElementos.atalhoFerramentas;
+import static br.com.projedata.arcturus.teste.webelements.AtualizadorElementos.botaoAcessarAtualizador;
+import static br.com.projedata.arcturus.teste.webelements.AtualizadorElementos.botaoAplicarAtualizacoes;
+import static br.com.projedata.arcturus.teste.webelements.AtualizadorElementos.botaoDesenvolver;
+import static br.com.projedata.arcturus.teste.webelements.AtualizadorElementos.botaoPausarAplicacao;
+import static br.com.projedata.arcturus.teste.webelements.AtualizadorElementos.botaoSalvar;
+import static br.com.projedata.arcturus.teste.webelements.AtualizadorElementos.botaoSincronizarFilaAplicacao;
+import static br.com.projedata.arcturus.teste.webelements.AtualizadorElementos.botaoVoltar;
+import static br.com.projedata.arcturus.teste.webelements.AtualizadorElementos.descricaoCliente;
+import static br.com.projedata.arcturus.teste.webelements.AtualizadorElementos.descricaoClienteAba;
+import static br.com.projedata.arcturus.teste.webelements.AtualizadorElementos.descricaoTecnica;
+import static br.com.projedata.arcturus.teste.webelements.AtualizadorElementos.descricaoTecnicaAba;
+import static br.com.projedata.arcturus.teste.webelements.AtualizadorElementos.descricaoTestes;
+import static br.com.projedata.arcturus.teste.webelements.AtualizadorElementos.descricaoTestesAba;
+import static br.com.projedata.arcturus.teste.webelements.AtualizadorElementos.dificuldade;
+import static br.com.projedata.arcturus.teste.webelements.AtualizadorElementos.idAtualizacao;
+import static br.com.projedata.arcturus.teste.webelements.AtualizadorElementos.janelaConfirmacao;
+import static br.com.projedata.arcturus.teste.webelements.AtualizadorElementos.lancarAtualizacao;
+import static br.com.projedata.arcturus.teste.webelements.AtualizadorElementos.mensagemSucesso;
+import static br.com.projedata.arcturus.teste.webelements.AtualizadorElementos.menuAtualizacoes;
+import static br.com.projedata.arcturus.teste.webelements.AtualizadorElementos.menuServiços;
+import static br.com.projedata.arcturus.teste.webelements.AtualizadorElementos.prioridade;
+import static br.com.projedata.arcturus.teste.webelements.AtualizadorElementos.simConfirmacao;
+import static br.com.projedata.arcturus.teste.webelements.AtualizadorElementos.situacaoSincronizarFilaEmExecucao;
+import static br.com.projedata.arcturus.teste.webelements.AtualizadorElementos.versaoGerada;
+import static br.com.projedata.arcturus.teste.webelements.Parc102Elementos.campoCodigoAtualizacaoFilaAplicacao;
+import static br.com.projedata.arcturus.teste.webelements.Parc102Elementos.campoCodigoClienteFilaAplicacao;
+import static br.com.projedata.arcturus.teste.webelements.Parc102Elementos.campoDataPrevista;
+
+import java.awt.AWTException;
+
+import org.openqa.selenium.Keys;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import br.com.projedata.arcturus.teste.metodosgenericos.AtualizadorMetodos;
+import br.com.projedata.arcturus.teste.metodosgenericos.LoginMetodos;
+import br.com.projedata.arcturus.teste.recursos.Rotina;
+import br.com.projedata.arcturus.teste.recursos.TesteGenerico;
+
+public class teste extends TesteGenerico {
+
+	public static String numeroAtualizacao;
+	public static String numeroAtualizacaoDependente;
+	private String versaoAtualizacaoLancada;
+	private static String idDependente;
+	private static String mensagemAtualizacaoComOsVinculada;
+	String anexo1Linux = "Anexo1.txt";
+	String anexo2Linux = "processo_testes'@#$~^áà.png";
+	String anexo1Windows = "\\\\arquivos.prj\\qualidade\\Plano de Testes\\Plano_de_Testes.pdf";
+	String anexo2Windows = "\\\\arquivos.prj\\qualidade\\Diversos\\processo_testes'@#$~^áà.png";
+	String urlAdmin;
+
+	Rotina rotina;
+	String elementoFocado;
+	LoginMetodos login;
+	AtualizadorMetodos atualiza;
+
+	@Parameters(value = { "login", "senha", "base" })
+	@Test(testName = "id: 33 - Verificar se esta sendo possivel limpar o valor da combobox selecionando valor em branco")
+	public void login(String usuario, String senha, String base) {
+		login = new LoginMetodos(this);
+		login.logar(usuario, senha, base);
+		rotina = new Rotina(webDriver);
+		atualiza = new AtualizadorMetodos(this);
+	}
+
+	public void cadastrarAtualizacao() {
+
+		espera.aguardarElementoEstarVisivel(menuAtualizacoes);
+		try {
+		acao.clicarNoElemento(menuAtualizacoes);
+		}catch(Exception e) {
+			acao.clicarNoElemento(menuAtualizacoes);
+		}
+		espera.aguardarElementoEstarVisivel(idAtualizacao);
+		acao.selecionarNoElementoPeloValor(dificuldade, "B");
+		acao.selecionarNoElementoPeloValor(prioridade, "B");
+		acao.clicarNoElemento(descricaoTecnicaAba);
+		acao.escreverNoElemento(descricaoTecnica, "Este é um teste de automação.");
+		acao.clicarNoElemento(descricaoTestesAba);
+		acao.escreverNoElemento(descricaoTestes, "Este é um teste de automação.");
+		acao.clicarNoElemento(descricaoClienteAba);
+		acao.escreverNoElemento(descricaoCliente, "Este é um teste de automação.");
+		acao.clicarNoElemento(botaoSalvar);
+		espera.aguardarElementoEstarVisivel(mensagemSucesso);
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		espera.aguardarElementoDesaparecer(mensagemSucesso);
+
+		numeroAtualizacao = rotina.buscarElemento(idAtualizacao).getAttribute("value");
+	}
+
+	public void realizarRepasseLancarAtualizacao() {
+		atualiza.realizarRepasseFilaUnica("Lançar Atualização");
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+	}
+
+	public void testeLancarAtualizacao() {
+		msg.fecharNotificacaoCantoDaTela();
+		mouse.scrollParaElemento(botaoDesenvolver);
+		acao.clicarNoElemento(botaoDesenvolver);
+		msg.fecharNotificacaoCantoDaTela();
+		espera.aguardarElementoEstarVisivel(lancarAtualizacao);
+		acao.clicarNoElemento(lancarAtualizacao);
+		espera.aguardarElementoEstarVisivel(janelaConfirmacao);
+		acao.clicarNoElemento(simConfirmacao);
+		espera.aguardarElementoEstarVisivel(mensagemSucesso);
+		msg.fecharMensagemNotificacao();
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+	}
+
+	public void verificarVersaoGerada() {
+
+		espera.aguardarElementoEstarVisivel(botaoVoltar);
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		acao.clicarNoElemento(botaoVoltar);
+		versaoAtualizacaoLancada = rotina.buscarElemento(versaoGerada).getText();
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+	}
+
+	public void acessarAtualizador() {
+		acao.clicarNoElemento(menuConfiguracoes);
+		espera.aguardarElementoEstarVisivel(botaoAcessarAtualizador);
+		espera.aguardarElementoEstarVisivel(menuConfiguracoesAberto);
+		acao.clicarNoElemento(botaoAcessarAtualizador);
+		navegador.trocarDeAba();
+		espera.aguardarElementoEstarVisivel(atalhoFerramentas);
+	}
+
+	@Parameters(value = { "url" })
+	@Test(testName = "Adicionar atualizacao na fila de aplicacao parc102", dependsOnMethods = { "login" }, priority = 0, enabled = true)
+	public void adicionarAtualizacaoCriadaNaFilaAtualizacao(String url) throws AWTException, InterruptedException {
+		acessarAtualizador();
+		cadastrarAtualizacao();
+		realizarRepasseLancarAtualizacao();
+		testeLancarAtualizacao();
+		urlAdmin = navegador.retornarUrlAtual();
+		navegador.alterarUrl(url);
+		rotina.selecionarRotina("arc102", "p");
+		acao.clicarNoElemento(rotina.botaoNovo);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElemento(campoCodigoAtualizacaoFilaAplicacao, 1, numeroAtualizacao);
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElemento(campoCodigoClienteFilaAplicacao, 1, "201");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		rotina.salvarEAguardarMensagemRegistrosAlterados();
+		testar.passouSeAtributoDoElementoContem(campoDataPrevista, 0, "value", "Não disponível");
+	}
+
+	@Parameters(value = { "url", "url2" })
+	@Test(testName = "Abrir a tela de servicos e sincronizar as atualizacoes pendentes", dependsOnMethods = {
+			"adicionarAtualizacaoCriadaNaFilaAtualizacao" }, enabled = true)
+	public void sincronizarFilaDeAtualizacoes(String url, String url2) throws AWTException, InterruptedException {
+		navegador.alterarUrl(url2);
+		login.logar("gustavo.projedata", "Gustavo1!", "homologacao");
+		navegador.alterarUrl("http://arcturus-homo.prj/#/admin");
+		espera.aguardarElementoEstarVisivel(atalhoFerramentas);
+		espera.aguardarElementoEstarVisivel(menuServiços);
+		try {
+		acao.clicarNoElemento(menuServiços);
+		}catch(Exception e) {
+			acao.clicarNoElemento(menuServiços);
+		}
+		Thread.sleep(1000);
+		espera.aguardarElementoEstarVisivel(botaoSincronizarFilaAplicacao);
+		acao.clicarNoElemento(botaoSincronizarFilaAplicacao);
+		espera.aguardarElementoEstarVisivel(situacaoSincronizarFilaEmExecucao);
+		Thread.sleep(2000);
+		navegador.alterarUrl(url);
+		rotina.selecionarRotina("arc102", "p");
+		acao.clicarNoElemento(rotina.botaoLimparConsulta);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElemento(campoCodigoAtualizacaoFilaAplicacao, 0, numeroAtualizacao);
+		acao.clicarNoElemento(rotina.botaoConsultar);
+		rotina.aguardarProcessarRotina();
+		testar.passouSeAtributoDoElementoContem(campoDataPrevista, 0, "value", "Não automático");
+	}
+	
+	
+	@Parameters(value = { "url", "url2" })
+	@Test(testName = "Aplicar Atualizacao e verificar na arc102 se foi aplicada", dependsOnMethods = {
+			"sincronizarFilaDeAtualizacoes" }, enabled = true)
+	public void aplicarAtualizacaoNaBaseHomo(String url, String url2) throws AWTException, InterruptedException {
+		navegador.alterarUrl("http://arcturus-homo.prj/#/admin");
+		espera.aguardarElementoEstarVisivel(atalhoFerramentas);
+		espera.aguardarElementoEstarVisivel(menuServiços);
+		acao.clicarNoElemento(menuServiços);
+		Thread.sleep(1000);
+		espera.aguardarElementoEstarVisivel(botaoSincronizarFilaAplicacao);
+		mouse.scrollParaElemento(botaoAplicarAtualizacoes);
+		acao.clicarNoElemento(botaoAplicarAtualizacoes);
+		//espera.aguardarElementoEstarVisivel(logAtualizacoesAplicadas);
+		Thread.sleep(3000);
+		acao.clicarNoElemento(botaoPausarAplicacao);
+		navegador.alterarUrl(url);
+		rotina.selecionarRotina("arc102", "p");
+		acao.clicarNoElemento(rotina.botaoLimparConsulta);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElemento(campoCodigoAtualizacaoFilaAplicacao, 0, numeroAtualizacao);
+		acao.clicarNoElemento(rotina.botaoConsultar);
+		rotina.aguardarProcessarRotina();
+		testar.passouSeValorContem("rgba(161, 195, 165, 1)", 
+				rotina.retornarBackGroundColorDeUmElemento(campoCodigoAtualizacaoFilaAplicacao, 0));
+	}
+
+}

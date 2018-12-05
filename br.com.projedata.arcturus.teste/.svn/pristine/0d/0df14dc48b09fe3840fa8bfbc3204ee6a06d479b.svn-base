@@ -1,0 +1,930 @@
+package br.com.projedata.arcturus.teste.testes;
+
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.botaoAbrirCalendarioFinal;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.botaoAbrirCalendarioInicial;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.campoDelimitadorCsv;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.faixaPeriodoFinal;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.faixaPeriodoInicial;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.informarAnoCalendarioInicial;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.paginaDeEdicaoDoRelatorio;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.selecionarDataFinal;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.selecionarDataInicial;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.tipoSaidaRelatorio;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.abrirLovCodigoAcessoUsuario;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.barraRolagemProximoRelatorio;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.barraRolagemProximoRelatorioDesabilitada;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.barraRolagemRelatorioAnteriorDesabilitada;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.botaoAdicionarSerie1;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.botaoAdicionarSerie2;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.botaoBloquearDesabilitado;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.botaoBloquearHabilitado;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.botaoCancelarVersao;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.botaoClonarDesabilitado;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.botaoClonarHabilitado;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.botaoConfirmarClonar;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.botaoCriarNovoRelatorio;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.botaoEditarDesabilitado;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.botaoEditarHabilitado;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.botaoExcluirDesabilitado;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.botaoExcluirGrupoAcesso;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.botaoExcluirHabilitado;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.botaoExcluirRotina;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.botaoExecutarHabilitado;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.botaoFecharModalClonar;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.botaoLiberarRelatorio;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.botaoLovSerie2;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.botaoNovoRelatorio;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.botaoRemoverSerie2;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.campoCodigoAcessoGrupo;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.campoCodigoAcessoUsuario;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.campoCodigoAcessoUsuarioInformarPosicao;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.campoCodigoRelatorio;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.campoDescricaoAcessoUsuario;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.campoDescricaoRelatorioCriarNovo;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.campoNomeRelatorio;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.campoNomeRelatorioCriarNovo;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.campoNomeUsuarioGrupoAcesso;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.campoPermissaoAcessoGrupo;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.campoPermissaoAcessoUsuario;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.campoSerie1;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.campoSerie2;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.estaProcessando;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.fecharJanelaEmissaoRelatorio;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.filtroPeriodoInicial;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.janelaCriarRotina;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.lovUsuarios;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.mensagemConfirmaLiberarRelatorio;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.mensagemExcluirRotina;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.mensagemRotinaExcluidaComSucesso;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.modalClonarRelatorio;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.modalClonarRelatorioCampoDescricao;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.modalClonarRelatorioCampoNome;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.pdfDoRelatorioGerado;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.relatorioFocado;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.selecionarRelatorioNaLov;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.*;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import org.apache.pdfbox.pdmodel.encryption.InvalidPasswordException;
+import org.openqa.selenium.ElementNotVisibleException;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import br.com.projedata.arcturus.teste.metodosgenericos.LoginMetodos;
+import br.com.projedata.arcturus.teste.metodosgenericos.PortalMetodos;
+import br.com.projedata.arcturus.teste.recursos.Rotina;
+import br.com.projedata.arcturus.teste.recursos.TesteGenerico;
+
+public class TestePger001 extends TesteGenerico {
+
+	private String codigoRelatorioClone;
+	private String codigoNovoRelatorio;
+	private int i = 0;
+	private int j = -1;
+	private String paginaPortal;
+	LoginMetodos login;
+	Rotina rotina;
+	PortalMetodos portal;
+
+	@Parameters(value = { "login", "senha", "base" })
+	@Test(testName = "id: 1 - Abrir rotina pger001")
+	public void abrirPger001(String usuario, String senha, String base) {
+		login = new LoginMetodos(this);
+		rotina = new Rotina(webDriver);
+		login.logar(usuario, senha, base);
+		espera.aguardarSistemaCarregar();
+		rotina.selecionarRotina("ger001");
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(rotina.botaoConsultar);
+		espera.aguardarElementoNaoEstarVazio(campoCodigoRelatorio, 0, "value");
+		rotina.aguardarProcessarRotina();
+		paginaPortal = navegador.pegarPaginaAtual();
+	}
+
+	@Test(testName = "id: 2 - Selecionar relatorio para edicao", dependsOnMethods = { "abrirPger001" })
+	public void selecionarRelatorioEdicao() {
+		selecionarRelatorioParaEdicao("rger307");
+	}
+
+	@Test(testName = "id: 3 - Bloquear relatorio para ser editado.", dependsOnMethods = { "selecionarRelatorioEdicao" })
+	public void bloquearRelatorioParaEdicao() {
+		if (rotina.buscarElemento(botaoLiberarRelatorio).isDisplayed()) {
+			acao.clicarNoElemento(botaoLiberarRelatorio);
+			espera.aguardarElementoEstarVisivel(mensagemConfirmaLiberarRelatorio);
+			acao.clicarNoElemento(botaoCancelarVersao);
+			espera.aguardarElementoDesaparecer(mensagemConfirmaLiberarRelatorio);
+			espera.aguardarElementoEstarVisivel(botaoBloquearHabilitado);
+		}
+		acao.clicarNoElemento(botaoBloquearHabilitado);
+		msg.aguardarMensagem("Selecione o tipo de bloqueio");
+		acao.clicarNoElemento(botaoBloquearTotal);
+		espera.aguardarElementoDesaparecer(botaoBloquearTotal);
+		rotina.aguardarProcessarRotina();
+		espera.aguardarElementoEstarVisivel(botaoLiberarRelatorio);
+	}
+
+	@Test(testName = "id: 4 - Abrir relatorio no construtor de relatorios", dependsOnMethods = {
+			"bloquearRelatorioParaEdicao" })
+	public void abrirEditorDoRelatorio() {
+		espera.aguardarElementoEstarVisivel(botaoEditarHabilitado);
+		acao.clicarNoElemento(botaoEditarHabilitado);
+		rotina.aguardarProcessarRotina();
+		navegador.trocarDeAba();
+		aguardaProcessarGeradorRelatorios();
+		espera.aguardarElementoEstarVisivel(paginaDeEdicaoDoRelatorio);
+		retornarPaginaPger001();
+	}
+
+	@Test(testName = "id: 5 - Abrir lista de relatorios pela barra de ferramentas", dependsOnMethods = {
+			"abrirEditorDoRelatorio" })
+	public void testarLovListaRelatorios() throws InterruptedException {
+		rotina.aguardarProcessarRotina();
+		rotina.limparCampoERealizarNovaConsulta();
+		espera.aguardarElementoNaoEstarVazio(campoCodigoRelatorio, 0, "value");
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		espera.aguardarElementoDesaparecer(msg.fecharMensagemNotificacao);
+		acao.clicarNoElemento(rotina.botaoListar);
+		rotina.aguardarProcessarRotina();
+		espera.aguardarElementoEstarVisivel(rotina.lov);
+		acao.escreverNoElemento(rotina.filtrarLov, "rger308");
+		acao.clicarNoElemento(selecionarRelatorioNaLov);
+		espera.aguardarElementoDesaparecer(rotina.lov);
+		rotina.aguardarProcessarRotina();
+		testar.passouSeAtributoDoElementoForIgualA(campoCodigoRelatorio, 0, "value", "rger308");
+		testar.passouSeAtributoDoElementoForNulo(campoCodigoRelatorio, 1, "value");
+	}
+
+	@Test(testName = "id: 6 - Testar a clonagem do relatorio", dependsOnMethods = { "testarLovListaRelatorios" })
+	public void clonarRelatorio() {
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		espera.aguardarElementoDesaparecer(msg.mensagemRegistrosAlterados);
+		selecionarRelatorioParaEdicao("rger330");
+		acao.clicarNoElemento(botaoClonarHabilitado);
+		espera.aguardarElementoEstarVisivel(modalClonarRelatorio);
+		String nomeClone = "Teste clonagem";
+		acao.limpar(modalClonarRelatorioCampoNome);
+		acao.escreverNoElemento(modalClonarRelatorioCampoNome, nomeClone);
+		acao.limpar(modalClonarRelatorioCampoDescricao);
+		acao.escreverNoElemento(modalClonarRelatorioCampoDescricao, "Descrição teste Clonagem");
+		acao.clicarNoElemento(botaoConfirmarClonar);
+		rotina.aguardarProcessarRotina();
+		navegador.trocarDeAba();
+		aguardaProcessarGeradorRelatorios();
+		espera.aguardarElementoEstarVisivel(paginaDeEdicaoDoRelatorio);
+		retornarPaginaPger001();
+		espera.aguardarElementoEstarVisivel(msg.mensagemRegistrosAlterados);
+		testar.passouSeAtributoDoElementoForIgualA(campoNomeRelatorio, 0, "value", nomeClone);
+		codigoRelatorioClone = webDriver.findElements(campoCodigoRelatorio).get(0).getAttribute("value");
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		espera.aguardarElementoDesaparecer(msg.mensagemRegistrosAlterados);
+	}
+
+	@Test(testName = "id: 7 - Dar permissao de execucao para outro usuario", dependsOnMethods = { "clonarRelatorio" })
+	public void permissaoExecucao() {
+		rotina.aguardarProcessarRotina();
+		espera.aguardarElementoSerClicavel(botaoLiberarRelatorio);
+		acao.clicarNoElemento(botaoLiberarRelatorio);
+		espera.aguardarElementoEstarVisivel(mensagemConfirmaLiberarRelatorio);
+		acao.clicarNoElemento(botaoCancelarVersao);
+		espera.aguardarElementoDesaparecer(mensagemConfirmaLiberarRelatorio);
+		espera.aguardarElementoEstarVisivel(botaoBloquearHabilitado);
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(campoCodigoAcessoUsuario, 0);
+		rotina.aguardarProcessarRotina();
+		teclado.pressionarTeclaDeControle(Keys.F6);
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(abrirLovCodigoAcessoUsuario, 1);
+		espera.aguardarElementoEstarVisivel(lovUsuarios);
+		acao.escreverNoElemento(rotina.filtrarLov, "TESTE ARCTURUS");
+		acao.clicarNoElemento(rotina.selecionarValorLov("TESTE ARCTURUS"));
+		espera.aguardarAtributoDoElementoConterOValor(campoDescricaoAcessoUsuario, 1, "value", "TESTE ARCTURUS");
+		acao.selecionarNoElemento(campoPermissaoAcessoUsuario, 1, "Execução");
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(rotina.botaoSalvar);
+		espera.aguardarElementoEstarVisivel(msg.mensagemRegistrosAlterados);
+		msg.fecharMensagemNotificacao();
+	}
+
+	@Test(testName = "id: 8 - Verificar se a permissao de execucao esta funcionando corretamente", dependsOnMethods = {
+			"permissaoExecucao" })
+	public void testarPermissaoExecucaoConcedida() {
+		rotina.aguardarProcessarRotina();
+		sairPortal();
+		login.logar("teste", "guth055", "FONTES");
+		rotina.selecionarRotina("ger001");
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(rotina.botaoConsultar);
+		espera.aguardarElementoNaoEstarVazio(campoCodigoRelatorio, 0, "value");
+		rotina.aguardarProcessarRotina();
+		selecionarRelatorioParaEdicao(codigoRelatorioClone);
+		testar.passouSeElementoEstiverHabilitado(botaoExecutarHabilitado);
+		testar.passouSeElementoEstiverHabilitado(botaoNovoRelatorio);
+		testar.passouSeElementoEstiverDesabilitado(botaoBloquearDesabilitado);
+		testar.passouSeElementoEstiverDesabilitado(botaoClonarDesabilitado);
+		testar.passouSeElementoEstiverDesabilitado(botaoEditarDesabilitado);
+		testar.passouSeElementoEstiverDesabilitado(botaoExcluirDesabilitado);
+	}
+
+	@Test(testName = "id: 9 - Verificar se nao permite alterar permissoes do relatorio com permissao apenas de execucao", dependsOnMethods = {
+			"testarPermissaoExecucaoConcedida" })
+	public void tentarEditarRelatorioComPermissaoExecucaoConcedida() {
+		rotina.aguardarProcessarRotina();
+		testar.passouSeAtributoDoElementoForDiferenteDe(campoCodigoAcessoUsuario, 0, "readonly", "readonly");
+	}
+
+	@Test(testName = "id: 10 - Dar permissao total para outro usuario", dependsOnMethods = {
+			"tentarEditarRelatorioComPermissaoExecucaoConcedida" })
+	public void permissaoTotal() {
+		sairPortal();
+		login.logar("gustavo.projedata", "guth055", "FONTES");
+		rotina.selecionarRotina("ger001");
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(rotina.botaoConsultar);
+		espera.aguardarElementoNaoEstarVazio(campoCodigoRelatorio, 0, "value");
+		selecionarRelatorioParaEdicao(codigoRelatorioClone);
+		rotina.aguardarProcessarRotina();
+		int contador = 0;
+		while (!acao.buscarObjetoTipoSelect(campoPermissaoAcessoUsuario, contador).getFirstSelectedOption()
+				.getAttribute("value").equals("E")) {
+			contador++;
+		}
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(campoCodigoAcessoUsuarioInformarPosicao, contador);
+		rotina.aguardarProcessarRotina();
+		acao.selecionarNoElemento(campoPermissaoAcessoUsuario, contador, "Total");
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(rotina.botaoSalvar);
+		espera.aguardarElementoEstarVisivel(msg.mensagemRegistrosAlterados);
+		msg.fecharMensagemNotificacao();
+	}
+
+	@Test(testName = "id: 11 - Verificar permissao total concedida", dependsOnMethods = { "permissaoTotal" })
+	public void testarPermissaoTotalConcedida() {
+		sairPortal();
+		login.logar("teste", "guth055", "FONTES");
+		rotina.selecionarRotina("ger001", "p");
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(rotina.botaoConsultar);
+		espera.aguardarElementoNaoEstarVazio(campoCodigoRelatorio, 0, "value");
+		selecionarRelatorioParaEdicao(codigoRelatorioClone);
+		testar.passouSeElementoEstiverHabilitado(botaoBloquearHabilitado);
+		testar.passouSeElementoEstiverHabilitado(botaoClonarHabilitado);
+		testar.passouSeElementoEstiverHabilitado(botaoExecutarHabilitado);
+		testar.passouSeElementoEstiverHabilitado(botaoNovoRelatorio);
+		testar.passouSeElementoEstiverDesabilitado(botaoEditarDesabilitado);
+		testar.passouSeElementoEstiverDesabilitado(botaoExcluirDesabilitado);
+	}
+
+	@Test(testName = "id: 12 - Testar a exclusao do relatorio", dependsOnMethods = { "testarPermissaoTotalConcedida" })
+	public void excluirRelatorioClone() {
+		excluirRelatorio(codigoRelatorioClone);
+	}
+
+	@Test(testName = "id: 13 - Testar a criacao de um novo relatorio", dependsOnMethods = {
+			"excluirRelatorioClone" }, enabled = true)
+	public void criarNovoRelatorio() {
+		acao.clicarNoElemento(campoCodigoRelatorio, 0);
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(botaoNovoRelatorio);
+		espera.aguardarElementoEstarVisivel(janelaCriarRotina);
+		String nomeNovoRel = "Novo relatório teste Automação";
+		acao.limpar(campoNomeRelatorioCriarNovo);
+		acao.escreverNoElemento(campoNomeRelatorioCriarNovo, nomeNovoRel);
+		acao.limpar(campoDescricaoRelatorioCriarNovo);
+		acao.escreverNoElemento(campoDescricaoRelatorioCriarNovo, "Novo relatório teste Automação");
+		acao.clicarNoElemento(botaoCriarNovoRelatorio);
+		rotina.aguardarProcessarRotina();
+		navegador.trocarDeAba();
+		aguardaProcessarGeradorRelatorios();
+		retornarPaginaPger001();
+		testar.passouSeAtributoDoElementoForIgualA(campoNomeRelatorio, 0, "value", nomeNovoRel);
+		codigoNovoRelatorio = rotina.buscarElementos(campoCodigoRelatorio).get(0).getAttribute("value");
+	}
+
+	@Test(testName = "id: 14 - Conceder permissao Execucao para grupo de usuarios", dependsOnMethods = {
+			"criarNovoRelatorio" }, enabled = true)
+	public void permissaoExecucaoParaGrupo() {
+		msg.fecharMensagemNotificacao();
+		espera.aguardarElementoDesaparecer(msg.mensagemNotificacao);
+		acao.clicarNoElemento(botaoLiberarRelatorio);
+		espera.aguardarElementoEstarVisivel(mensagemConfirmaLiberarRelatorio);
+		acao.clicarNoElemento(botaoCancelarVersao);
+		rotina.aguardarProcessarRotina();
+		espera.aguardarElementoDesaparecer(botaoCancelarVersao);
+		espera.aguardarElementoEstarVisivel(botaoBloquearHabilitado);
+		acao.clicarNoElemento(campoCodigoAcessoGrupo);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElemento(campoCodigoAcessoGrupo, "27");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.selecionarNoElemento(campoPermissaoAcessoGrupo, "Execução");
+		acao.clicarNoElemento(rotina.botaoSalvar);
+		espera.aguardarElementoEstarVisivel(msg.mensagemRegistrosAlterados);
+		msg.fecharMensagemNotificacao();
+	}
+
+	@Test(testName = "id: 15 - Verificar acesso de permissao de execucao por grupo", dependsOnMethods = {
+			"permissaoExecucaoParaGrupo" }, enabled = true)
+	public void verificarAcessoPermissaoExecucaoParaGrupo() {
+		sairPortal();
+		login.logar("teste", "guth055", "FONTES");
+		rotina.selecionarRotina("ger001");
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(rotina.botaoConsultar);
+		espera.aguardarElementoNaoEstarVazio(campoCodigoRelatorio, 0, "value");
+		selecionarRelatorioParaEdicao(codigoNovoRelatorio);
+		testar.passouSeElementoEstiverHabilitado(botaoNovoRelatorio);
+		testar.passouSeElementoEstiverHabilitado(botaoExecutarHabilitado);
+		testar.passouSeElementoEstiverDesabilitado(botaoExcluirDesabilitado);
+		testar.passouSeElementoEstiverDesabilitado(botaoEditarDesabilitado);
+		testar.passouSeElementoEstiverDesabilitado(botaoBloquearDesabilitado);
+		testar.passouSeElementoEstiverDesabilitado(botaoClonarDesabilitado);
+	}
+
+	@Test(testName = "id: 16 - Conceder permissao total para o grupo", dependsOnMethods = {
+			"verificarAcessoPermissaoExecucaoParaGrupo" }, enabled = true)
+	public void permissaoTotalParaGrupo() {
+		sairPortal();
+		login.logar("gustavo.projedata", "guth055", "FONTES");
+		rotina.selecionarRotina("ger001");
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(rotina.botaoConsultar);
+		espera.aguardarElementoNaoEstarVazio(campoCodigoRelatorio, 0, "value");
+		selecionarRelatorioParaEdicao(codigoNovoRelatorio);
+		acao.clicarNoElemento(campoCodigoAcessoGrupo);
+		rotina.aguardarProcessarRotina();
+		acao.selecionarNoElemento(campoPermissaoAcessoGrupo, "Total");
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(rotina.botaoSalvar);
+		espera.aguardarElementoEstarVisivel(msg.mensagemRegistrosAlterados);
+	}
+
+	@Test(testName = "id: 17 - Verificar permissao total concedida para o grupo", dependsOnMethods = {
+			"permissaoTotalParaGrupo" }, enabled = true)
+	public void verificarAcessoPermissaoTotalParaGrupo() {
+		sairPortal();
+		login.logar("teste", "guth055", "FONTES");
+		rotina.selecionarRotina("ger001");
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(rotina.botaoConsultar);
+		espera.aguardarElementoNaoEstarVazio(campoCodigoRelatorio, 0, "value");
+		selecionarRelatorioParaEdicao(codigoNovoRelatorio);
+		testar.passouSeElementoEstiverHabilitado(botaoBloquearHabilitado);
+		testar.passouSeElementoEstiverHabilitado(botaoClonarHabilitado);
+		testar.passouSeElementoEstiverHabilitado(botaoNovoRelatorio);
+		testar.passouSeElementoEstiverHabilitado(botaoExecutarHabilitado);
+		testar.passouSeElementoEstiverDesabilitado(botaoExcluirDesabilitado);
+		testar.passouSeElementoEstiverDesabilitado(botaoEditarDesabilitado);
+	}
+
+	@Test(testName = "id: 18 - Testar a exclusao do novo relatorio criado", dependsOnMethods = {
+			"verificarAcessoPermissaoTotalParaGrupo" })
+	public void excluirRelatorioNovo() {
+		excluirRelatorio(codigoNovoRelatorio);
+	}
+
+	@Test(testName = "id: 19 - Verificar se nao permite editar/inserir registros no bloco que está como nao permite inclusao", dependsOnMethods = {
+			"excluirRelatorioNovo" })
+	public void verificarSeNaoPermiteEdicaoNoBlocoSemPermissaoDeAlteracao() {
+		rotina.aguardarProcessarRotina();
+		selecionarRelatorioParaEdicao("rger311");
+		acao.clicarNoElemento(campoCodigoAcessoUsuarioInformarPosicao, 0);
+		rotina.aguardarProcessarRotina();
+		testar.passouSeAtributoDoElementoForDiferenteDe(campoCodigoAcessoUsuarioInformarPosicao, 0, "readonly",
+				"readonly");
+	}
+
+	@Test(testName = "id: 20 - Verificar se apos limpar o bloco (ctrl q) nao permite alteracao", dependsOnMethods = {
+			"verificarSeNaoPermiteEdicaoNoBlocoSemPermissaoDeAlteracao" })
+	public void verificarSeNaoPermiteInclusaoNoBlocoAposCtrlQ() {
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(campoCodigoAcessoUsuarioInformarPosicao, 0);
+		teclado.pressionarConjuntoDeTeclas(Keys.CONTROL, "q");
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElemento(campoCodigoAcessoUsuarioInformarPosicao, 0, "305");
+		testar.passouSeAtributoDoElementoForNulo(campoCodigoAcessoUsuarioInformarPosicao, 0, "value");
+		acao.clicarNoElemento(rotina.botaoConsultar);
+		rotina.aguardarProcessarRotina();
+	}
+
+	@Test(testName = "id: 21 - Testar filtro periodo do relatorio", dependsOnMethods = {
+			"verificarSeNaoPermiteInclusaoNoBlocoAposCtrlQ" })
+	public void testarFiltroPeriodo() throws InvalidPasswordException, IOException {
+		selecionarRelatorioParaEdicao("rger330");
+		acao.clicarNoElemento(botaoExecutarHabilitado);
+		espera.aguardarElementoEstarVisivel(rotina.botaoProcessarFiltros);
+		rotina.aguardarProcessarRotina();
+		acao.limpar(faixaPeriodoInicial);
+		acao.escreverNoElemento(faixaPeriodoInicial, "01082017");
+		acao.limpar(faixaPeriodoFinal);
+		acao.escreverNoElemento(faixaPeriodoFinal, "24082017");
+		acao.clicarNoElemento(rotina.botaoProcessarFiltros);
+		espera.aguardarElementoDesaparecer(rotina.botaoProcessarFiltros);
+		testar.passouSeValorContem(rotina.retornarConteudoDoPdf(), "3,00");
+		testar.passouSeValorContem(rotina.retornarConteudoDoPdf(), "01/08/2017 - 24/08/2017");
+		acao.clicarNoElemento(fecharJanelaEmissaoRelatorio);
+		espera.aguardarElementoDesaparecer(fecharJanelaEmissaoRelatorio);
+	}
+
+	@Test(testName = "id: 22 - Verificar se a navegacao com page down page up esta funcionando", dependsOnMethods = {
+			"testarFiltroPeriodo" })
+	public void testarNavegacaoComPageDownPageUpBlocoPrincipal() {
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(campoCodigoRelatorio, 0);
+		rotina.aguardarProcessarRotina();
+		while (webDriver.findElements(barraRolagemRelatorioAnteriorDesabilitada).size() == 0) {
+			teclado.pressionarTeclaDeControle(Keys.PAGE_UP);
+			rotina.aguardarProcessarRotina();
+		}
+		selecionarRelatorioParaEdicao("rger001");
+		rotina.aguardarProcessarRotina();
+		while (webDriver.findElements(barraRolagemProximoRelatorioDesabilitada).size() == 0) {
+			teclado.pressionarTeclaDeControle(Keys.PAGE_DOWN);
+			rotina.aguardarProcessarRotina();
+		}
+		teclado.pressionarTeclaDeControle(Keys.PAGE_UP);
+		rotina.aguardarProcessarRotina();
+		teclado.pressionarTeclaDeControle(Keys.PAGE_DOWN);
+		rotina.aguardarProcessarRotina();
+		Assert.assertTrue(rotina.posicaoRegistro().trim().equals(rotina.totalRegistros().trim()));
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+	}
+
+	@Test(testName = "id: 23 - Verificar se a navegacao com page down page up esta funcionando", dependsOnMethods = {
+			"testarNavegacaoComPageDownPageUpBlocoPrincipal" })
+	public void testarNavegacaoComPageDownPageUpBlocoDetalhes() {
+		teclado.pressionarTeclaDeControle(Keys.PAGE_UP);
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(campoCodigoRelatorio, 0);
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(campoNomeUsuarioGrupoAcesso);
+		rotina.aguardarProcessarRotina();
+		while (rotina.posicaoRegistro().trim() != rotina.totalRegistros().trim()) {
+			i = Integer.parseInt(rotina.posicaoRegistro());
+			if (i == j) {
+				break;
+			}
+			teclado.pressionarTeclaDeControle(Keys.PAGE_DOWN);
+			j = i;
+		}
+		if (rotina.posicaoRegistro().equals(rotina.totalRegistros())) {
+			Assert.assertTrue(true);
+		} else {
+			while (Integer.parseInt(rotina.posicaoRegistro()) != 1) {
+				teclado.pressionarTeclaDeControle(Keys.PAGE_UP);
+			}
+			while (Integer.parseInt(rotina.posicaoRegistro()) != Integer.parseInt(rotina.totalRegistros())) {
+				teclado.pressionarTeclaDeControle(Keys.PAGE_DOWN);
+			}
+		}
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+	}
+
+	@Test(testName = "id: 24 - Verificar foco ao teclar shift F6 num campo com valor invalido", dependsOnMethods = {
+			"testarNavegacaoComPageDownPageUpBlocoDetalhes" })
+	public void teclarShiftF6NumCampoComValorInvalido() {
+		selecionarRelatorioParaEdicao("rger307");
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(campoCodigoAcessoUsuarioInformarPosicao, 1);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElemento(campoCodigoAcessoUsuarioInformarPosicao, 1, "9999");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		espera.aguardarElementoDesaparecer(msg.fecharMensagemNotificacao);
+		acao.clicarNoElemento(campoCodigoAcessoUsuarioInformarPosicao, 1);
+		rotina.aguardarProcessarRotina();
+		teclado.pressionarConjuntoDeTeclasDeControle(Keys.SHIFT, Keys.F6);
+		rotina.aguardarProcessarRotina();
+		testar.passouSeElementoFocadoFor(campoCodigoAcessoUsuarioInformarPosicao, 0);
+	}
+
+	@Test(testName = "id: 25 - Verificar se setas de navegacao da barra de ferramentas estao desabilitando", dependsOnMethods = {
+			"teclarShiftF6NumCampoComValorInvalido" })
+	public void setasDeNavegacaoAnteriorDesabilitadas() {
+		selecionarRelatorioParaEdicao("rger313");
+		acao.clicarNoElemento(campoNomeUsuarioGrupoAcesso, 0);
+		rotina.aguardarProcessarRotina();
+		while (!rotina.posicaoRegistro().equals(rotina.totalRegistros())) {
+			teclado.pressionarTeclaDeControle(Keys.ARROW_DOWN);
+		}
+		espera.aguardarElementoEstarDesabilitado(rotina.buscarElemento(rotina.botaoProximoRegistro));
+		testar.passouSeAtributoDoElementoContem(rotina.botaoProximoRegistro, "class", "desabilitado");
+		testar.passouSeAtributoDoElementoContem(rotina.botaoProximaPagina, "class", "desabilitado");
+	}
+
+	@Test(testName = "id: 26 - Verificar se setas de navegacao da barra de ferramentas estao desabilitando", dependsOnMethods = {
+			"setasDeNavegacaoAnteriorDesabilitadas" })
+	public void setasDeNavegacaoSeguinteDesabilitadas() {
+		acao.clicarNoElemento(campoNomeUsuarioGrupoAcesso, 0);
+		rotina.aguardarProcessarRotina();
+		while (!rotina.posicaoRegistro().equals("1")) {
+			teclado.pressionarTeclaDeControle(Keys.ARROW_UP);
+		}
+		espera.aguardarElementoEstarDesabilitado(rotina.buscarElemento(rotina.botaoRegistroAnterior));
+		testar.passouSeAtributoDoElementoContem(rotina.botaoRegistroAnterior, "class", "desabilitado");
+		testar.passouSeAtributoDoElementoContem(rotina.botaoPaginaAnterior, "class", "desabilitado");
+	}
+
+	@Test(testName = "id: 27 - Testar se esta sendo possivel selecionar uma data corretamente no componente calendario", dependsOnMethods = {
+			"setasDeNavegacaoSeguinteDesabilitadas" })
+	public void componenteCalendarioNoFiltroDoRelatorio() throws InvalidPasswordException, IOException {
+		selecionarRelatorioParaEdicao("rger307");
+		acao.clicarNoElemento(botaoExecutarHabilitado);
+		espera.aguardarElementoEstarVisivel(rotina.botaoProcessarFiltros);
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(botaoAbrirCalendarioInicial);
+		espera.aguardarElementoEstarVisivel(informarAnoCalendarioInicial);
+		acao.clicarNoElemento(informarAnoCalendarioInicial);
+		acao.escreverNoElemento(informarAnoCalendarioInicial, "2017");
+		acao.clicarNoElemento(selecionarDataInicial);
+		acao.clicarNoElemento(botaoAbrirCalendarioFinal);
+		acao.clicarNoElemento(selecionarDataFinal);
+		acao.clicarNoElemento(rotina.botaoProcessarFiltros);
+		espera.aguardarElementoDesaparecer(rotina.botaoProcessarFiltros);
+		testar.passouSeValorContem(rotina.retornarConteudoDoPdf(), "10/01/2017 - 19/07/2017");
+		acao.clicarNoElemento(fecharJanelaEmissaoRelatorio);
+		espera.aguardarElementoDesaparecer(fecharJanelaEmissaoRelatorio);
+	}
+
+	@Test(testName = "id: 28 - Verificar se exibe tolltip no componente botao", dependsOnMethods = {
+			"componenteCalendarioNoFiltroDoRelatorio" }, enabled = false)
+	public void testarTolltipComponenteBotao() {
+		portal = new PortalMetodos(this);
+		rotina.aguardarProcessarRotina();
+		selecionarRelatorioParaEdicao("rger001");
+		mouse.moverCursorParaElemento(botaoExcluirGrupoAcesso);
+		espera.aguardarElementoEstarVisivel(portal.dicaDeCampo("Excluir grupo de acesso."));
+	}
+
+	@Test(testName = "id: 29 - Abrir os filtros utilizando Shift+F2", dependsOnMethods = {
+			"componenteCalendarioNoFiltroDoRelatorio" })
+	public void abrirFiltroPeloShiftF2() {
+		selecionarRelatorioParaEdicao("rger307");
+		acao.clicarNoElemento(botaoExecutarHabilitado);
+		espera.aguardarElementoEstarVisivel(rotina.botaoProcessarFiltros);
+		rotina.aguardarProcessarRotina();
+		teclado.pressionarConjuntoDeTeclasDeControle(Keys.SHIFT, Keys.F2);
+		espera.aguardarElementoDesaparecer(rotina.botaoProcessarFiltros);
+		teclado.pressionarConjuntoDeTeclasDeControle(Keys.SHIFT, Keys.F2);
+		espera.aguardarElementoEstarVisivel(rotina.botaoProcessarFiltros);
+	}
+
+	@Test(testName = "id: 30 - Executar relatorio pelo F2", dependsOnMethods = { "abrirFiltroPeloShiftF2" })
+	public void executarPeloF2() throws InvalidPasswordException, IOException {
+		teclado.pressionarTeclaDeControle(Keys.F2);
+		rotina.aguardarProcessarRotina();
+		espera.aguardarElementoDesaparecer(rotina.botaoProcessarFiltros);
+		testar.passouSeValorContem(rotina.retornarConteudoDoPdf(), "10/01/2017 - 19/07/2017");
+		acao.clicarNoElemento(fecharJanelaEmissaoRelatorio);
+		espera.aguardarElementoDesaparecer(fecharJanelaEmissaoRelatorio);
+	}
+
+	@Test(testName = "id: 31 - Testar passagem de foco filtro periodo", dependsOnMethods = { "executarPeloF2" })
+	public void passagemDeFocoFiltroPeriodo() {
+		selecionarRelatorioParaEdicao("rger307");
+		acao.clicarNoElemento(botaoExecutarHabilitado);
+		espera.aguardarElementoEstarVisivel(rotina.botaoProcessarFiltros);
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(filtroPeriodoInicial);
+		rotina.aguardarProcessarRotina();
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		testar.passouSeAtributoDoElementoFocadoFor("id", rotina.elementoAtualFocado());
+		acao.clicarNoElemento(fecharJanelaEmissaoRelatorio);
+		espera.aguardarElementoDesaparecer(fecharJanelaEmissaoRelatorio);
+	}
+
+	@Test(testName = "id: 32 - Teclar F4 num bloco somente leitura", dependsOnMethods = {
+			"passagemDeFocoFiltroPeriodo" })
+	public void tentarIncluirRegistroPeloF4EmBlocoSomenteLeitura() {
+		rotina.aguardarProcessarRotina();
+		selecionarRelatorioParaEdicao("rger001");
+		teclado.pressionarTeclaDeControle(Keys.F4);
+		espera.aguardarElementoEstarVisivel(msg.mensagemOperacaoNaoPermitida);
+		msg.fecharMensagemNotificacao();
+		espera.aguardarElementoDesaparecer(msg.mensagemOperacaoNaoPermitida);
+	}
+
+	@Test(testName = "id: 33 - Teclar F6 num bloco somente leitura", dependsOnMethods = {
+			"tentarIncluirRegistroPeloF4EmBlocoSomenteLeitura" })
+	public void tentarIncluirRegistroPeloF6EmBlocoSomenteLeitura() {
+		teclado.pressionarTeclaDeControle(Keys.F6);
+		espera.aguardarElementoEstarVisivel(msg.mensagemOperacaoNaoPermitida);
+		msg.fecharMensagemNotificacao();
+		espera.aguardarElementoDesaparecer(msg.mensagemOperacaoNaoPermitida);
+	}
+
+	@Test(testName = "id: 34 - Clicar no relatorio em segundo plano e verificar se a rotina passara a ser focada", dependsOnMethods = {
+			"tentarIncluirRegistroPeloF6EmBlocoSomenteLeitura" }, enabled = false)
+	public void clicarNoPdfEmSegundoPlano() {
+		selecionarRelatorioParaEdicao("rger307");
+		acao.clicarNoElemento(botaoExecutarHabilitado);
+		espera.aguardarElementoEstarVisivel(rotina.botaoProcessarFiltros);
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(rotina.botaoProcessarFiltros);
+		espera.aguardarElementoDesaparecer(rotina.botaoProcessarFiltros);
+		rotina.aguardarProcessarRotina();
+		int width = rotina.buscarElemento(pdfDoRelatorioGerado).getSize().getWidth();
+		rotina.selecionarRotina("arc011", "p");
+		Actions act = new Actions(webDriver);
+		act.moveToElement(rotina.buscarElemento(pdfDoRelatorioGerado)).moveByOffset((width / 2) - 1, 0).click()
+				.perform();
+		rotina.aguardarProcessarRotina();
+		testar.passouSeElementoEstiverVisivel(relatorioFocado);
+	}
+
+	@Test(testName = "id: 35 - Selecionar mais de um valor no filtro de campo multivalorado e verificar se ao abrir novamente se o valor sera mantido", dependsOnMethods = {
+			"tentarIncluirRegistroPeloF4EmBlocoSomenteLeitura" })
+	public void testeCampoMultiValorado() {
+		sairPortal();
+		login.logar("gustavo.projedata", "guth055", "FONTES");
+		rotina.selecionarRotina("ger001");
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(rotina.botaoConsultar);
+		espera.aguardarElementoNaoEstarVazio(campoCodigoRelatorio, 0, "value");
+		rotina.aguardarProcessarRotina();
+		paginaPortal = navegador.pegarPaginaAtual();
+		selecionarRelatorioParaEdicao("rger310");
+		acao.clicarNoElemento(botaoExecutarHabilitado);
+		espera.aguardarElementoEstarVisivel(rotina.botaoProcessarFiltros);
+		rotina.aguardarProcessarRotina();
+		rotina.posicionarFocoNoElemento(campoSerie1);
+		acao.escreverNoElemento(campoSerie1, "CTE2");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(botaoAdicionarSerie1);
+		espera.aguardarElementoEstarVisivel(botaoAdicionarSerie2);
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(botaoLovSerie2);
+		espera.aguardarElementoEstarVisivel(rotina.lov);
+		acao.clicarNoElemento(selecionarSerieNaLov);
+		espera.aguardarElementoDesaparecer(rotina.lov);
+		acao.clicarNoElemento(rotina.botaoProcessarFiltros);
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(fecharJanelaEmissaoRelatorio);
+		espera.aguardarElementoDesaparecer(fecharJanelaEmissaoRelatorio);
+		acao.clicarNoElemento(botaoExecutarHabilitado);
+		rotina.aguardarProcessarRotina();
+		espera.aguardarElementoEstarVisivel(campoSerie1);
+		testar.passouSeAtributoDoElementoForIgualA(campoSerie1, "value", "CTE2");
+		testar.passouSeAtributoDoElementoForIgualA(campoSerie2, "value", "CTE");
+	}
+
+	@Test(testName = "id: 36 - Remover os valores dos campos multivalorado e verificar se mantera vazio", dependsOnMethods = {
+			"testeCampoMultiValorado" })
+	public void removerValoresCampoMultiValorado() {
+		acao.clicarNoElemento(botaoRemoverSerie2);
+		espera.aguardarElementoDesaparecer(botaoRemoverSerie2);
+		acao.limpar(campoSerie1);
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(rotina.botaoProcessarFiltros);
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(fecharJanelaEmissaoRelatorio);
+		espera.aguardarElementoDesaparecer(fecharJanelaEmissaoRelatorio);
+		acao.clicarNoElemento(botaoExecutarHabilitado);
+		rotina.aguardarProcessarRotina();
+		espera.aguardarElementoEstarVisivel(campoSerie1);
+		testar.passouSeAtributoDoElementoForNulo(campoSerie1, "value");
+		acao.clicarNoElemento(fecharJanelaEmissaoRelatorio);
+		rotina.aguardarProcessarRotina();
+	}
+
+	@Test(testName = "id: 37 - Verificar se a passagem de foco na janela modal nao esta retornado para a janela principal", dependsOnMethods = {
+			"removerValoresCampoMultiValorado" })
+	public void testarPassagemDeFocoJanelaModal() {
+		selecionarRelatorioParaEdicao("rger308");
+		acao.clicarNoElemento(botaoClonarHabilitado);
+		espera.aguardarElementoEstarVisivel(modalClonarRelatorio);
+		rotina.posicionarFocoNoElemento(modalClonarRelatorioCampoNome);
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		testar.passouSeAtributoDoElementoFocadoFor("id", "botaoClonarRelatorio-1-0");
+		acao.clicarNoElemento(botaoFecharModalClonar);
+		espera.aguardarElementoDesaparecer(modalClonarRelatorio);
+	}
+
+	@Test(testName = "id: 38 - Verificar delimitador CSV", dependsOnMethods = { "testarPassagemDeFocoJanelaModal" })
+	public void verificarDelimitadorCsv() {
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(botaoExecutarHabilitado);
+		espera.aguardarElementoEstarVisivel(rotina.botaoProcessarFiltros);
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(tipoSaidaRelatorio);
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+
+		Select tipoSaida = new Select(webDriver.findElement(tipoSaidaRelatorio));
+		while (!tipoSaida.getFirstSelectedOption().getText().equals("CSV")) {
+			teclado.pressionarTeclaDeControle(Keys.ARROW_DOWN);
+			rotina.aguardarProcessarRotina();
+		}
+		espera.aguardarElementoEstarVisivel(campoDelimitadorCsv);
+		acao.selecionarNoElemento(tipoSaidaRelatorio, "PDF");
+		espera.aguardarElementoDesaparecer(campoDelimitadorCsv);
+	}
+
+	@Test(testName = "id: 39 - Bloquear um relatorio parcialmente e verificar se permite emitir.", dependsOnMethods = {
+			"verificarDelimitadorCsv" })
+	public void testarBloqueioParcialRelatorio() {
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(fecharJanelaEmissaoRelatorio);
+		espera.aguardarElementoDesaparecer(fecharJanelaEmissaoRelatorio);
+		selecionarRelatorioParaEdicao("rger493");
+		try {
+			acao.clicarNoElemento(botaoBloquearHabilitado);
+		} catch (ElementNotVisibleException e) {
+			acao.clicarNoElemento(botaoLiberarRelatorio);
+			rotina.aguardarProcessarRotina();
+			acao.clicarNoElemento(botaoBloquearHabilitado);
+		}
+		msg.aguardarMensagem("Selecione o tipo de bloqueio");
+		acao.clicarNoElemento(botaoBloquearParcial);
+		espera.aguardarElementoDesaparecer(botaoBloquearParcial);
+		rotina.aguardarProcessarRotina();
+		espera.aguardarElementoEstarVisivel(botaoLiberarRelatorio);
+		rotina.aguardarProcessarRotina();
+		sairPortal();
+		login.logar("testegeral", "guth055", "fontes");
+		rotina.selecionarRotina("ger001", "p");
+		selecionarRelatorioParaEdicao("rger493");
+		testar.passouSeAtributoDoElementoContem(campoExibeTipoBloqueio, "value", "Bloqueio Parcial");
+		testar.passouSeElementoEstiverVisivel(botaoBloquearDesabilitado);
+		testar.passouSeElementoEstiverVisivel(botaoEditarDesabilitado);
+		testar.passouSeElementoEstiverVisivel(botaoClonarDesabilitado);
+		testar.passouSeElementoEstiverVisivel(botaoExcluirDesabilitado);
+		testar.passouSeElementoEstiverVisivel(botaoNovoRelatorio);
+		testar.passouSeElementoEstiverVisivel(botaoExecutarHabilitado);
+		acao.clicarNoElemento(botaoExecutarHabilitado);
+		rotina.aguardarProcessarRotina();
+		espera.aguardarElementoEstarVisivel(rotina.botaoProcessarFiltros);
+		acao.clicarNoElemento(fecharJanelaEmissaoRelatorio);
+		rotina.aguardarProcessarRotina();
+	}
+
+	@Test(testName = "id: 40 - Bloquear um relatorio parcialmente e verificar se permite emitir.", dependsOnMethods = {
+			"testarBloqueioParcialRelatorio" })
+	public void testarBloqueioTotalRelatorio() {
+		sairPortal();
+		login.logar("gustavo.projedata", "guth055", "fontes");
+		rotina.selecionarRotina("ger001", "p");
+		selecionarRelatorioParaEdicao("rger493");
+		desbloquearRelatorio();
+		acao.clicarNoElemento(botaoBloquearHabilitado);
+		msg.aguardarMensagem("Selecione o tipo de bloqueio");
+		acao.clicarNoElemento(botaoBloquearTotal);
+		espera.aguardarElementoDesaparecer(botaoBloquearTotal);
+		rotina.aguardarProcessarRotina();
+		espera.aguardarElementoEstarVisivel(botaoLiberarRelatorio);
+		rotina.aguardarProcessarRotina();
+		selecionarRelatorioParaEdicao("rger493");
+		testar.passouSeAtributoDoElementoContem(campoExibeTipoBloqueio, "value", "Bloqueio Total");
+		sairPortal();
+		login.logar("testegeral", "guth055", "fontes");
+		rotina.selecionarRotina("ger001", "p");
+		selecionarRelatorioParaEdicao("rger493");
+		testar.passouSeElementoEstiverVisivel(botaoBloquearDesabilitado);
+		testar.passouSeElementoEstiverVisivel(botaoEditarDesabilitado);
+		testar.passouSeElementoEstiverVisivel(botaoClonarDesabilitado);
+		testar.passouSeElementoEstiverVisivel(botaoExcluirDesabilitado);
+		testar.passouSeElementoEstiverVisivel(botaoNovoRelatorio);
+		testar.passouSeElementoEstiverVisivel(botaoExecutarDesabilitado);
+		sairPortal();
+		login.logar("gustavo.projedata", "guth055", "fontes");
+		rotina.selecionarRotina("ger001", "p");
+		selecionarRelatorioParaEdicao("rger493");
+	}
+
+	@Test(testName = "id: 41 - Verificar se usuario com acesso total nao conseguira emitir relatorio bloqueado.", dependsOnMethods = {
+			"testarBloqueioParcialRelatorio" })
+	public void testarBloqueioTotalRelatorioParaUsuarioComAcessoTotal() {
+		acao.selecionarNoElemento(campoPermissaoAcessoUsuario, 1, "Total");
+		rotina.salvarEAguardarMensagemRegistrosAlterados();
+		sairPortal();
+		login.logar("testegeral", "guth055", "fontes");
+		rotina.selecionarRotina("ger001", "p");
+		selecionarRelatorioParaEdicao("rger493");
+		testar.passouSeElementoEstiverVisivel(botaoBloquearDesabilitado);
+		testar.passouSeElementoEstiverVisivel(botaoEditarDesabilitado);
+		testar.passouSeElementoEstiverVisivel(botaoClonarDesabilitado);
+		testar.passouSeElementoEstiverVisivel(botaoExcluirDesabilitado);
+		testar.passouSeElementoEstiverVisivel(botaoNovoRelatorio);
+		testar.passouSeElementoEstiverVisivel(botaoExecutarDesabilitado);
+		sairPortal();
+		login.logar("gustavo.projedata", "guth055", "fontes");
+		rotina.selecionarRotina("ger001", "p");
+		selecionarRelatorioParaEdicao("rger493");
+		acao.selecionarNoElemento(campoPermissaoAcessoUsuario, 1, "Execução");
+		rotina.salvarEAguardarMensagemRegistrosAlterados();
+		desbloquearRelatorio();
+	}
+
+	@Test(testName = "id: 42 - Testar componente imagem do relatorio.", dependsOnMethods = {
+			"testarBloqueioTotalRelatorioParaUsuarioComAcessoTotal" })
+	public void testarComponenteImagemDoRelatorio() throws InvalidPasswordException, IOException {
+		selecionarRelatorioParaEdicao("rger501");
+		acao.clicarNoElemento(botaoExecutarHabilitado);
+		espera.aguardarElementoEstarVisivel(rotina.botaoProcessarFiltros);
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(rotina.botaoProcessarFiltros);
+		ArrayList<Integer> relatorios = new ArrayList<>();
+		relatorios = rotina.verificarSeConteudoDoPdfPossuiImagens();
+		for (int i = 0; i <= relatorios.size(); i++) {
+			int tamanhoRelatorio = relatorios.get(i);
+			if (tamanhoRelatorio == 252717) {
+				testar.testePassou();
+				break;
+			} else {
+				testar.testeFalhou();
+			}
+		}
+	}
+
+	public void retornarPaginaPger001() {
+		webDriver.close();
+		webDriver.switchTo().window(paginaPortal);
+		espera.aguardarElementoEstarVisivel(menuConfiguracoes);
+	}
+
+	public void selecionarRelatorioParaEdicao(String relatorio) {
+		rotina = new Rotina(webDriver);
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(campoCodigoRelatorio, 0);
+		rotina.aguardarProcessarRotina();
+		rotina.limparCampoERealizarNovaConsulta();
+		int posicao = 0;
+		while (!rotina.buscarElementos(campoCodigoRelatorio).get(posicao).getAttribute("value").equals(relatorio)) {
+			if (rotina.buscarElementos(barraRolagemProximoRelatorioDesabilitada).size() == 0) {
+				acao.clicarNoElemento(barraRolagemProximoRelatorio);
+				rotina.aguardarProcessarRotina();
+				posicao = -1;
+			}
+			posicao++;
+		}
+		acao.clicarNoElemento(campoCodigoRelatorio, posicao);
+		rotina.aguardarProcessarRotina();
+	}
+
+	public void excluirRelatorio(String relatorio) {
+		login = new LoginMetodos(this);
+		sairPortal();
+		login.logar("gustavo.projedata", "guth055", "FONTES");
+		rotina.selecionarRotina("ger001");
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(rotina.botaoConsultar);
+		espera.aguardarElementoNaoEstarVazio(campoCodigoRelatorio, 0, "value");
+		selecionarRelatorioParaEdicao(relatorio);
+		acao.clicarNoElemento(botaoBloquearHabilitado);
+		msg.aguardarMensagem("Selecione o tipo de bloqueio");
+		acao.clicarNoElemento(botaoBloquearTotal);
+		espera.aguardarElementoDesaparecer(botaoBloquearTotal);
+		rotina.aguardarProcessarRotina();
+		espera.aguardarElementoEstarVisivel(botaoLiberarRelatorio);
+		espera.aguardarElementoEstarVisivel(botaoExcluirHabilitado);
+		acao.clicarNoElemento(botaoExcluirHabilitado);
+		espera.aguardarElementoEstarVisivel(mensagemExcluirRotina);
+		acao.clicarNoElemento(botaoExcluirRotina);
+		espera.aguardarElementoDesaparecer(mensagemExcluirRotina);
+		espera.aguardarElementoEstarVisivel(mensagemRotinaExcluidaComSucesso);
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		espera.aguardarElementoDesaparecer(mensagemRotinaExcluidaComSucesso);
+	}
+
+	public void aguardaProcessarGeradorRelatorios() {
+
+		try {
+			if (webDriver.findElements(estaProcessando).size() != 0) {
+				WebDriverWait wait = new WebDriverWait(webDriver, 10);
+				wait.until(ExpectedConditions.invisibilityOfElementLocated(estaProcessando));
+			}
+		} catch (TimeoutException e) {
+			navegador.atualizarBrowser();
+			aguardaProcessarGeradorRelatorios();
+		}
+	}
+
+	public void desbloquearRelatorio() {
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(botaoLiberarRelatorio);
+		rotina.aguardarProcessarRotina();
+		if (rotina.buscarElementos(mensagemConfirmaLiberarRelatorio).size() > 0) {
+			espera.aguardarElementoEstarVisivel(mensagemConfirmaLiberarRelatorio);
+			acao.clicarNoElemento(botaoCancelarVersao);
+			rotina.aguardarProcessarRotina();
+			espera.aguardarElementoDesaparecer(mensagemConfirmaLiberarRelatorio);
+			espera.aguardarElementoEstarVisivel(botaoBloquearHabilitado);
+		}
+	}
+
+}

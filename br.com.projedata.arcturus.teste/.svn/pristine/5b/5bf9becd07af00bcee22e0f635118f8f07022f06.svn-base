@@ -1,0 +1,188 @@
+package br.com.projedata.arcturus.teste.testes;
+
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.botaoAbrirRecuperarLoginESenha;
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.botaoAlterarSenha;
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.botaoAlterarSenhaJanelaAlterarSenha;
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.botaoRecuperar;
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.campoConfirmacaoSenhaJanelaAlteracaoDeSenha;
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.campoEmailRecuperacao;
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.campoLoginJanelaAlteracaoDeSenha;
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.campoRecuperarLogin;
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.campoSenhaJanelaAlteracaoDeSenha;
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.confirmarNovaSenha;
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.janelaAlterarSenha;
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.janelaRecuperarSenha;
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.mensagemInformeUmaSenhaDiferente;
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.mensagemSenhaAlterada;
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.mensagemUsuarioNaoLocalizado;
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.mensagemVerifiqueSeuEmail;
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.novaSenha;
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.radioBoxRecuperarLogin;
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.radioBoxRecuperarSenha;
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.salvarNovaSenha;
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.senhaAtual;
+
+import java.awt.AWTException;
+
+import javax.mail.Store;
+
+import org.openqa.selenium.Keys;
+import org.testng.Assert;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import br.com.projedata.arcturus.teste.metodosgenericos.LoginMetodos;
+import br.com.projedata.arcturus.teste.recursos.TesteGenerico;
+import br.com.projedata.teste.util.email.MailReader;
+
+public class TesteSenhaDeAcesso extends TesteGenerico {
+	LoginMetodos login;
+	
+	@Parameters(value = { "login2", "senha", "base" })
+	@Test(testName = "id: 1 - Recuperacao de login por email")
+	public void enviarEmailRecuperarLogin(String usuario, String senha, String base) throws InterruptedException {
+		login = new LoginMetodos(this);
+		login.logar(usuario, senha, base);
+		sairPortal();
+		espera.aguardarElementoEstarVisivel(botaoAbrirRecuperarLoginESenha);
+		acao.clicarNoElemento(botaoAbrirRecuperarLoginESenha);
+		espera.aguardarElementoEstarVisivel(janelaRecuperarSenha);
+		acao.clicarNoElemento(radioBoxRecuperarLogin);
+		acao.escreverNoElemento(campoEmailRecuperacao, "gustavo@projedata.com.br");
+		acao.clicarNoElemento(botaoRecuperar);
+		espera.aguardarElementoEstarVisivel(mensagemVerifiqueSeuEmail);
+		msg.fecharMensagemNotificacao();
+	}
+
+	@Test(testName = "id: 2 - Acessar o email e verificar se o login enviado esta correto", dependsOnMethods = {
+			"enviarEmailRecuperarLogin" })
+	public static void recuperarLoginEnviadoPorEmail() throws Exception {
+		MailReader mailReader = new MailReader("imap", "webmail.projedata.com.br", 143, false);
+		Store store = mailReader.connect("gustavo@projedata.com.br", "kamila");
+		Thread.sleep(2000);
+		int i = 0;
+		while (i <= 300) {
+			String login = mailReader.recuperarLoginOuSenha(store, null);
+			if (login.length() > 0) {
+				Assert.assertTrue(login.equals("usuario2"));
+				break;
+			}
+			i++;
+		}
+	}
+
+	@Test(testName = "id: 3 - Recuperacao de senha por email", dependsOnMethods = { "recuperarLoginEnviadoPorEmail" })
+	public void enviarEmailRecuperarSenha() {
+		espera.aguardarElementoEstarVisivel(botaoAbrirRecuperarLoginESenha);
+		acao.clicarNoElemento(botaoAbrirRecuperarLoginESenha);
+		espera.aguardarElementoEstarVisivel(janelaRecuperarSenha);
+		acao.clicarNoElemento(radioBoxRecuperarSenha);
+		espera.aguardarElementoEstarVisivel(campoRecuperarLogin);
+		acao.escreverNoElemento(campoRecuperarLogin, "usuario2");
+		acao.escreverNoElemento(campoEmailRecuperacao, "gustavo@projedata.com.br");
+		acao.clicarNoElemento(botaoRecuperar);
+		espera.aguardarElementoEstarVisivel(mensagemVerifiqueSeuEmail);
+		msg.fecharMensagemNotificacao();
+	}
+
+	@Test(testName = "id: 4 - Acessar o email e verificar se o login enviado esta correto", dependsOnMethods = {
+			"enviarEmailRecuperarSenha" })
+	public void acessarUrlrecuperarSenhaEnviadoPorEmail() throws AWTException, InterruptedException {
+		MailReader mailReader = new MailReader("imap", "webmail.projedata.com.br", 143, false);
+		Store store = mailReader.connect("gustavo@projedata.com.br", "kamila");
+		Thread.sleep(2000);
+		int i = 0;
+		while (i <= 300) {
+			String link = mailReader.recuperarLoginOuSenha(store, null);
+			if (link.length() > 0 || !link.equals(null)) {
+				navegador.irParaNovaUrlEmNovaAba(link);
+				break;
+			}
+			i++;
+		}
+	}
+
+	@Test(testName = "id: 5 - Tentar alterar senha informando outro usuario", dependsOnMethods = {
+			"acessarUrlrecuperarSenhaEnviadoPorEmail" })
+	public void alterarSenhaUsuarioIncorreto() {
+		espera.aguardarElementoEstarVisivel(campoLoginJanelaAlteracaoDeSenha);
+		acao.escreverNoElemento(campoLoginJanelaAlteracaoDeSenha, "teste");
+		acao.escreverNoElemento(campoSenhaJanelaAlteracaoDeSenha, "teste");
+		acao.escreverNoElemento(campoConfirmacaoSenhaJanelaAlteracaoDeSenha, "teste");
+		acao.clicarNoElemento(botaoAlterarSenhaJanelaAlterarSenha);
+		espera.aguardarElementoEstarVisivel(mensagemUsuarioNaoLocalizado);
+		msg.fecharMensagemNotificacao();
+	}
+
+	@Test(testName = "id: 6 - Senha e confirmar senha diferentes", dependsOnMethods = {
+			"alterarSenhaUsuarioIncorreto" })
+	public void senhaConfirmarSenhaDiferentes() {
+		acao.limparElemento(campoLoginJanelaAlteracaoDeSenha);
+		acao.limparElemento(campoSenhaJanelaAlteracaoDeSenha);
+		acao.limparElemento(campoConfirmacaoSenhaJanelaAlteracaoDeSenha);
+		acao.escreverNoElemento(campoLoginJanelaAlteracaoDeSenha, "teste");
+		acao.escreverNoElemento(campoSenhaJanelaAlteracaoDeSenha, "teste");
+		acao.escreverNoElemento(campoConfirmacaoSenhaJanelaAlteracaoDeSenha, "teste");
+		espera.aguardarElementoEstarHabilitado(botaoAlterarSenhaJanelaAlterarSenha);
+	}
+
+	@Test(testName = "id: 7 - Informar a senha atual", dependsOnMethods = { "senhaConfirmarSenhaDiferentes" })
+	public void informarSenhaAtual() {
+		acao.limparElemento(campoLoginJanelaAlteracaoDeSenha);
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		acao.limparElemento(campoSenhaJanelaAlteracaoDeSenha);
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		acao.limparElemento(campoConfirmacaoSenhaJanelaAlteracaoDeSenha);
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		acao.escreverNoElemento(campoLoginJanelaAlteracaoDeSenha, "usuario2");
+		acao.escreverNoElemento(campoSenhaJanelaAlteracaoDeSenha, "usuario");
+		acao.escreverNoElemento(campoConfirmacaoSenhaJanelaAlteracaoDeSenha, "usuario");
+		acao.clicarNoElemento(botaoAlterarSenhaJanelaAlterarSenha);
+		espera.aguardarElementoEstarVisivel(mensagemInformeUmaSenhaDiferente);
+		msg.fecharMensagemNotificacao();
+	}
+
+	@Test(testName = "id: 8 - Realizar alteracao da senha", dependsOnMethods = { "informarSenhaAtual" })
+	public void alterarSenhaParaUmaNova() {
+		acao.clicarNoElemento(campoLoginJanelaAlteracaoDeSenha);
+		acao.limparElemento(campoLoginJanelaAlteracaoDeSenha);
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		acao.limparElemento(campoSenhaJanelaAlteracaoDeSenha);
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		acao.limparElemento(campoConfirmacaoSenhaJanelaAlteracaoDeSenha);
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		acao.escreverNoElemento(campoLoginJanelaAlteracaoDeSenha, "usuario2");
+		acao.escreverNoElemento(campoSenhaJanelaAlteracaoDeSenha, "gustavo");
+		acao.escreverNoElemento(campoConfirmacaoSenhaJanelaAlteracaoDeSenha, "gustavo");
+		acao.clicarNoElemento(botaoAlterarSenhaJanelaAlterarSenha);
+		espera.aguardarElementoEstarVisivel(mensagemSenhaAlterada);
+		msg.fecharMensagemNotificacao();
+		login.aguardarTelaLogin();
+	}
+	
+	@Test(testName = "id: 9 - Acessar portal com nova senha", dependsOnMethods = { "alterarSenhaParaUmaNova" })
+	public void acessarPortalComNovaSenha() throws Exception {
+		login.logar("usuario2", "gustavo", "desenvolvimento");
+		abrirMenuConfiguracoes();
+		acao.clicarNoElemento(botaoAlterarSenha);
+		espera.aguardarElementoEstarVisivel(janelaAlterarSenha);
+		acao.escreverNoElemento(senhaAtual, "gustavo");
+		acao.escreverNoElemento(novaSenha, "usuario");
+		acao.escreverNoElemento(confirmarNovaSenha, "usuario");
+		acao.clicarNoElemento(salvarNovaSenha);
+		espera.aguardarElementoEstarVisivel(mensagemSenhaAlterada);
+		msg.fecharMensagemNotificacao();
+		espera.aguardarElementoNaoEstarVisivel(janelaAlterarSenha);
+		sairPortal();
+	}
+
+	@Test(testName = "id: 10 - Acesso ao sistema com senha diaria", dependsOnMethods = {
+			"acessarPortalComNovaSenha" }, enabled = false)
+	public void acessarSistemaComSenhaDiaria() {
+		String cpf = "05509522925";
+		String senha = rotina.recuperarSenhaDiaria(cpf);
+		login.logar(cpf, senha, "desenvolvimento");
+		espera.aguardarElementoEstarVisivel(login.logado);
+	}
+
+}

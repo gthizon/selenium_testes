@@ -1,0 +1,315 @@
+package br.com.projedata.arcturus.teste.testes;
+
+import static br.com.projedata.arcturus.teste.webelements.AgendadorElementos.abaExecucoes;
+import static br.com.projedata.arcturus.teste.webelements.AgendadorElementos.abaRelatorio;
+import static br.com.projedata.arcturus.teste.webelements.AgendadorElementos.baseAgendamento;
+import static br.com.projedata.arcturus.teste.webelements.AgendadorElementos.botaoAbrirConfiguracaoRelatorio;
+import static br.com.projedata.arcturus.teste.webelements.AgendadorElementos.botaoAbrirConfiguracoesPeriodo;
+import static br.com.projedata.arcturus.teste.webelements.AgendadorElementos.botaoAplicarPeriodo;
+import static br.com.projedata.arcturus.teste.webelements.AgendadorElementos.botaoExcluirAgendamento;
+import static br.com.projedata.arcturus.teste.webelements.AgendadorElementos.botaoExecutarAgendamento;
+import static br.com.projedata.arcturus.teste.webelements.AgendadorElementos.campoAcao;
+import static br.com.projedata.arcturus.teste.webelements.AgendadorElementos.campoCodigoRelatorio;
+import static br.com.projedata.arcturus.teste.webelements.AgendadorElementos.campoDetalhesExecucao;
+import static br.com.projedata.arcturus.teste.webelements.AgendadorElementos.campoEmailUsuarioRecebedor;
+import static br.com.projedata.arcturus.teste.webelements.AgendadorElementos.campoUsuarioRecebedor;
+import static br.com.projedata.arcturus.teste.webelements.AgendadorElementos.dataFimAgendamento;
+import static br.com.projedata.arcturus.teste.webelements.AgendadorElementos.dataInicioAgendamento;
+import static br.com.projedata.arcturus.teste.webelements.AgendadorElementos.detalhesAgendamento;
+import static br.com.projedata.arcturus.teste.webelements.AgendadorElementos.estadoAgendamento;
+import static br.com.projedata.arcturus.teste.webelements.AgendadorElementos.frequenciaACadaSegundo;
+import static br.com.projedata.arcturus.teste.webelements.AgendadorElementos.frequenciaIniciandoNoSegundo;
+import static br.com.projedata.arcturus.teste.webelements.AgendadorElementos.frequenciaSegundos;
+import static br.com.projedata.arcturus.teste.webelements.AgendadorElementos.idAgendamento;
+import static br.com.projedata.arcturus.teste.webelements.AgendadorElementos.informarPeriodoFinal;
+import static br.com.projedata.arcturus.teste.webelements.AgendadorElementos.informarPeriodoInicial;
+import static br.com.projedata.arcturus.teste.webelements.AgendadorElementos.nomeAgendamento;
+import static br.com.projedata.arcturus.teste.webelements.AgendadorElementos.periodicidadeAgendamento;
+import static br.com.projedata.arcturus.teste.webelements.AgendadorElementos.salvarFiltros;
+import static br.com.projedata.arcturus.teste.webelements.AgendadorElementos.telaConfiguracaoRelatorioAberta;
+import static br.com.projedata.arcturus.teste.webelements.AgendadorElementos.usuarioAgendamento;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.tipoSaidaRelatorio;
+import static br.com.projedata.arcturus.teste.webelements.Parc016Elementos.campoExibirCabecalho;
+import static br.com.projedata.arcturus.teste.webelements.Parc016Elementos.campoExibirParametros;
+import static br.com.projedata.arcturus.teste.webelements.Parc016Elementos.campoExibirSinopse;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.botaoAgendar;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.botaoCriarNovoAgendamento;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.botaoExecutarHabilitado;
+
+import javax.mail.Store;
+
+import org.openqa.selenium.Keys;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import br.com.projedata.arcturus.teste.metodosgenericos.LoginMetodos;
+import br.com.projedata.arcturus.teste.metodosgenericos.Pger001Metodos;
+import br.com.projedata.arcturus.teste.recursos.TesteGenerico;
+import br.com.projedata.arcturus.teste.webelements.AtualizadorElementos;
+import br.com.projedata.teste.util.email.MailReader;
+
+public class TesteAgendador extends TesteGenerico {
+
+	LoginMetodos login;
+	AtualizadorElementos atualizador;
+	Pger001Metodos ger001;
+	String codigoAgendamento;
+
+	@Parameters(value = { "login", "senha", "base" })
+	@Test(testName = "id: 1 - Abrir agendador")
+	public void abrirAgendador(String usuario, String senha, String base) {
+		login = new LoginMetodos(this);
+		login.logar(usuario, senha, base);
+		rotina.selecionarRotina("arc017");
+	}
+
+	@Test(testName = "id: 2 - Cadastrar agendamento", dependsOnMethods = { "abrirAgendador" })
+	public void cadastrarNovoAgendamento() {
+		acao.escreverNoElemento(nomeAgendamento, "Teste automatização");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.selecionarNoElementoPeloValor(estadoAgendamento, "I");
+		acao.escreverNoElemento(detalhesAgendamento, "Teste automatização");
+		acao.escreverNoElemento(usuarioAgendamento, "21");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElemento(baseAgendamento, "1");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElemento(dataInicioAgendamento, rotina.retornarDataAtualFormatoCompletoComDataEHora());
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElemento(dataFimAgendamento, rotina.retornarDataAtualFormatoCompletoComDataEHora());
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElemento(campoAcao, "executarRelatorio();");
+		rotina.salvarEAguardarMensagemRegistrosAlterados();
+	}
+
+	@Test(testName = "id: 3 - Vincular relatorio ao agendamento", dependsOnMethods = { "cadastrarNovoAgendamento" })
+	public void vincularRelatorioAoAgendamento() {
+		acao.clicarNoElemento(abaRelatorio);
+		acao.clicarNoElemento(campoCodigoRelatorio);
+		acao.escreverNoElemento(campoCodigoRelatorio, "rger2");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		rotina.salvarEAguardarMensagemRegistrosAlterados();
+	}
+
+	@Test(testName = "id: 4 - Configurar filtros do relatorio", dependsOnMethods = { "vincularRelatorioAoAgendamento" })
+	public void configurarFiltrosRelatorio() {
+		acao.clicarNoElemento(botaoAbrirConfiguracaoRelatorio);
+		rotina.aguardarProcessarRotina();
+		espera.aguardarElementoEstarVisivel(telaConfiguracaoRelatorioAberta);
+		rotina.aguardarProcessarRotina();
+		acao.limparElemento(informarPeriodoInicial);
+		acao.escreverNoElemento(informarPeriodoInicial,
+				"D" + teclado.retornarCaracterBarra() + "M" + teclado.retornarCaracterBarra() + "A");
+		acao.limparElemento(informarPeriodoFinal);
+		acao.escreverNoElemento(informarPeriodoFinal, "D" + teclado.retornarCaracterBarra() + "M" + teclado.retornarCaracterBarra() + "A");
+		acao.selecionarNoElemento(campoExibirSinopse, "Sim");
+		acao.selecionarNoElemento(campoExibirParametros, "Sim");
+		acao.selecionarNoElemento(campoExibirCabecalho, "Sim");
+		acao.selecionarNoElemento(tipoSaidaRelatorio, "PDF");
+		acao.clicarNoElemento(salvarFiltros);
+		rotina.aguardarProcessarRotina();
+		espera.aguardarElementoDesaparecer(telaConfiguracaoRelatorioAberta);
+	}
+
+	@Test(testName = "id: 5 - Vincular usuarios recebedores", dependsOnMethods = { "configurarFiltrosRelatorio" })
+	public void vincularUsuariosRecebedores() {
+		acao.clicarNoElemento(campoUsuarioRecebedor, 0);
+		acao.escreverNoElementoNaPosicao(campoUsuarioRecebedor, 0, "1");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElementoNaPosicao(campoEmailUsuarioRecebedor, 0, "gustavo@projedata.com.br");
+		rotina.salvarEAguardarMensagemRegistrosAlterados();
+	}
+
+	@Test(testName = "id: 6 - Executar agendamento e verificar email de recebimento", dependsOnMethods = { "vincularUsuariosRecebedores" })
+	public void executarAgendamento() {
+		acao.clicarNoElemento(botaoExecutarAgendamento);
+		msg.aguardarMensagem("Agendamento executado.");
+		acao.clicarNoElemento(msg.okNotificacao);
+		rotina.aguardarProcessarRotina();
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		espera.aguardarElementoDesaparecer(msg.okNotificacao);
+
+		MailReader mailReader = new MailReader("imap", "webmail.projedata.com.br", 143, false);
+		Store store = mailReader.connect("gustavo@projedata.com.br", "kamila");
+
+		boolean recebeuEmail = false;
+		recebeuEmail = mailReader.verificarRelatorioEnviadoPorAgendamento(store, null);
+		if (recebeuEmail) {
+			testar.testePassou();
+		}
+
+	}
+
+	@Test(testName = "id: 7 - Executar agendamento com periodocidade e verificar email de recebimento", dependsOnMethods = {
+			"executarAgendamento" })
+	public void testarExecucaoAgendamentoComPeriodicidade() {
+
+		acao.selecionarNoElemento(estadoAgendamento, "Ativo");
+		acao.clicarNoElemento(periodicidadeAgendamento);
+		acao.clicarNoElemento(botaoAbrirConfiguracoesPeriodo);
+		rotina.aguardarProcessarRotina();
+		espera.aguardarElementoEstarVisivel(frequenciaSegundos);
+		acao.selecionarNoElemento(frequenciaSegundos, "A cada X segundos iniciando no segundo Y");
+		rotina.aguardarProcessarRotina();
+		acao.limparElemento(frequenciaACadaSegundo);
+		acao.escreverNoElemento(frequenciaACadaSegundo, "5");
+		acao.limparElemento(frequenciaIniciandoNoSegundo);
+		acao.escreverNoElemento(frequenciaIniciandoNoSegundo, "0");
+		acao.clicarNoElemento(botaoAplicarPeriodo);
+		rotina.aguardarProcessarRotina();
+		espera.aguardarElementoDesaparecer(botaoAplicarPeriodo);
+		rotina.salvarEAguardarMensagemRegistrosAlterados();
+
+		MailReader mailReader = new MailReader("imap", "webmail.projedata.com.br", 143, false);
+		Store store = mailReader.connect("gustavo@projedata.com.br", "kamila");
+
+		boolean recebeuEmail = false;
+		recebeuEmail = mailReader.verificarRelatorioEnviadoPorAgendamento(store, null);
+		if (recebeuEmail) {
+			testar.testePassou();
+		}
+		acao.selecionarNoElemento(estadoAgendamento, "Inativo");
+		acao.limparElemento(periodicidadeAgendamento);
+		acao.clicarNoElemento(rotina.botaoSalvar);
+		espera.aguardarElementoEstarVisivel(msg.mensagemRegistrosAlterados);
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		espera.aguardarElementoDesaparecer(msg.mensagemRegistrosAlterados);
+		excluirAgendamento();
+
+	}
+
+	@Test(testName = "id: 8 - Acessar com usuario diferente de adm e ver se o mesmo nao consegue visualizar os agendamentos", dependsOnMethods = {
+			"testarExecucaoAgendamentoComPeriodicidade" })
+	public void verificarAcessoDeUsuarioSemPermissao() {
+		sairPortal();
+		login.logar("testegeral", "guth055", "desenvolvimento");
+		rotina.selecionarRotina("arc017");
+		acao.clicarNoElemento(rotina.botaoLimparConsulta);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElemento(usuarioAgendamento, "1");
+		acao.clicarNoElemento(rotina.botaoConsultar);
+		msg.aguardarMensagem("Registro não localizado.");
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		espera.aguardarElementoDesaparecer(msg.fecharMensagemNotificacao);
+		acao.clicarNoElemento(rotina.botaoCancelar);
+		rotina.aguardarProcessarRotina();
+	}
+
+	@Test(testName = "id: 9 - Tentar cadastrar um agendamento informando uma empresa que o usuario nao possui acesso", dependsOnMethods = {
+			"verificarAcessoDeUsuarioSemPermissao" })
+	public void testarAgendamentoParaEmpresaSemAcesso() {
+		acao.escreverNoElemento(nomeAgendamento, "Teste automatização");
+		acao.selecionarNoElemento(estadoAgendamento, "Inativo");
+		acao.escreverNoElemento(detalhesAgendamento, "Teste automatização");
+		acao.escreverNoElemento(baseAgendamento, "1");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElemento(dataInicioAgendamento, rotina.retornarDataAtualFormatoCompletoComDataEHora());
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElemento(dataFimAgendamento, rotina.retornarDataAtualFormatoCompletoComDataEHora());
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElemento(campoAcao, "executarRelatorio();");
+		rotina.salvarEAguardarMensagemRegistrosAlterados();
+		acao.limparElemento(baseAgendamento);
+		acao.escreverNoElemento(baseAgendamento, "2");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		rotina.salvarEAguardarMensagemRegistrosAlterados();
+	}
+
+	@Test(testName = "id: 10 - Tentar cadastrar um agendamento informando um relatorio que o usuario nao possui acesso", dependsOnMethods = {
+			"testarAgendamentoParaEmpresaSemAcesso" })
+	public void testarAgendamentoParaUsuarioSemAcessoAoRelatorio() {
+		vincularRelatorioAoAgendamento();
+		acao.clicarNoElemento(botaoExecutarAgendamento);
+		msg.aguardarMensagem("Ocorreu um erro ao executar o agendamento. Verifique o resultado na aba de Execuções.");
+		acao.clicarNoElemento(msg.okNotificacao);
+		espera.aguardarElementoDesaparecer(msg.okNotificacao);
+		acao.clicarNoElemento(abaExecucoes);
+		espera.aguardarElementoEstarVisivel(campoDetalhesExecucao);
+		acao.posicionarFocoNoElemento(rotina, campoDetalhesExecucao);
+		teclado.pressionarTeclaDeControle(Keys.F8);
+		rotina.aguardarProcessarRotina();
+		espera.aguardarAtributoDoElementoConterOValor(campoDetalhesExecucao, "value",
+				"ERRO executando agendamento: Você não possui acesso na rotina");
+	}
+
+	@Test(testName = "id: 11 - Verificar se um usuário com licença normal consegue informar um agedamento para outro usuario", dependsOnMethods = {
+			"testarAgendamentoParaUsuarioSemAcessoAoRelatorio" })
+	public void verificarSeUsuarioNormalConsegueInformarOutroUsuario() {
+		acao.posicionarFocoNoElemento(rotina, usuarioAgendamento);
+		acao.limparElemento(usuarioAgendamento);
+		testar.passouSeAtributoDoElementoNaoForNulo(usuarioAgendamento, "value");
+		teclado.pressionarTeclaDeControle(Keys.F9);
+		testar.passouSeElementoNaoExistir(rotina.lov);
+		excluirAgendamento();
+	}
+
+	@Parameters(value = { "login", "senha", "base" })
+	@Test(testName = "id: 12 - Verificar se usuário admin consegue cadastrar um agendamento para outro usuário", dependsOnMethods = {
+			"verificarSeUsuarioNormalConsegueInformarOutroUsuario" })
+	public void verificarSeUsuarioAdminConsegueInformarOutroUsuario(String nome, String senha, String base) {
+		sairPortal();
+		login.logar(nome, senha, base);
+		rotina.selecionarRotina("arc017");
+		acao.clicarNoElemento(usuarioAgendamento);
+		teclado.pressionarTeclaDeControle(Keys.F9);
+		espera.aguardarElementoEstarVisivel(rotina.lov);
+		acao.clicarNoElemento(rotina.fecharLov);
+		espera.aguardarElementoDesaparecer(rotina.lov);
+		rotina.fecharRotina("arc017");
+		espera.aguardarSistemaCarregar();
+	}
+
+	@Test(testName = "id: 13 - Abrir agendador a partir do gerador de relatorios", dependsOnMethods = {
+			"verificarSeUsuarioAdminConsegueInformarOutroUsuario" })
+	public void testarAbrirAgendadorAPartirDoGerador() {
+		ger001 = new Pger001Metodos(this);
+		rotina.selecionarRotina("ger001");
+		ger001.selecionarRelatorioParaEdicao("rger2");
+		acao.clicarNoElemento(botaoExecutarHabilitado);
+		rotina.aguardarProcessarRotina();
+		espera.aguardarElementoEstarVisivel(botaoAgendar);
+		acao.clicarNoElemento(botaoAgendar);
+		espera.aguardarRotinaAberta("arc017");
+		try {
+			espera.aguardarElementoEstarVisivel(2, botaoCriarNovoAgendamento);
+			if (acao.localizarElementos(botaoCriarNovoAgendamento).size() > 0) {
+				espera.aguardarElementoEstarVisivel(botaoCriarNovoAgendamento);
+				acao.clicarNoElemento(botaoCriarNovoAgendamento);
+				espera.aguardarElementoDesaparecer(botaoCriarNovoAgendamento);
+			}
+		} catch (Exception e) {
+
+		}
+		espera.aguardarElementoEstarVisivel(rotina.retornarRotinaCarregada("arc017"));
+		acao.clicarNoElemento(periodicidadeAgendamento);
+		acao.escreverNoElemento(periodicidadeAgendamento, "0" + teclado.retornarCaracterBarra() + "5 * * ? * * *");
+		acao.selecionarNoElemento(estadoAgendamento, "Inativo");
+		acao.clicarNoElemento(rotina.botaoSalvar);
+		codigoAgendamento = acao.localizarElemento(idAgendamento).getAttribute("value");
+		espera.aguardarElementoEstarVisivel(msg.mensagemRegistrosAlterados);
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		espera.aguardarElementoDesaparecer(msg.mensagemRegistrosAlterados);
+		executarAgendamento();
+	}
+
+	@Test(testName = "id: 14 - excluir agendamento", dependsOnMethods = { "testarAbrirAgendadorAPartirDoGerador" })
+	public void excluirAgendamento() {
+		acao.clicarNoElemento(botaoExcluirAgendamento);
+		msg.aguardarMensagem("Confirma exclusão?");
+		espera.aguardarElementoEstarVisivel(msg.simConfirmacao);
+		acao.clicarNoElemento(msg.simConfirmacao);
+		msg.aguardarMensagem("excluído com sucesso!");
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		msg.aguardarMensagemDesaparecer("excluído com sucesso!");
+	}
+}

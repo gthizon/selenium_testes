@@ -1,0 +1,85 @@
+package br.com.projedata.arcturus.teste.recursos;
+
+import java.awt.AWTException;
+
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+
+public class Navegador {
+
+	WebDriver webDriver = null;
+
+	static {
+		System.setProperty("java.awt.headless", "false");
+	}
+
+	public Navegador(WebDriver driver) {
+		this.webDriver = driver;
+	}
+
+	public String retornarUrlAtual() {
+		String pagina = webDriver.getCurrentUrl();
+		return pagina;
+	}
+
+	public String pegarPaginaAtual() {
+		String pagina = webDriver.getWindowHandle();
+		return pagina;
+	}
+
+	public void abrirNovaGuiaNavegador() throws AWTException, InterruptedException {
+		JavascriptExecutor js = (JavascriptExecutor) webDriver;
+		js.executeScript("window.open()");
+
+		for (String winHandle : webDriver.getWindowHandles()) {
+			webDriver.switchTo().window(winHandle);
+			Thread.sleep(500);
+		}
+		js.executeScript("sessionStorage.clear()");
+	}
+
+	public void trocarDeAba() {
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		for (String winHandle : webDriver.getWindowHandles()) {
+			webDriver.switchTo().window(winHandle);
+		}
+	}
+
+	public void atualizarBrowser() {
+		webDriver.navigate().refresh();
+	}
+
+	public void retornarPaginaPrincipal(String pagina) {
+		for (String handle : webDriver.getWindowHandles()) {
+			if (!handle.equals(pagina)) {
+				webDriver.switchTo().window(handle);
+				webDriver.close();
+			}
+		}
+		webDriver.switchTo().window(pagina);
+	}
+
+	public void irParaNovaUrl(String url) throws AWTException, InterruptedException {
+		abrirNovaGuiaNavegador();
+		webDriver.get((url));
+	}
+
+	public void irParaPagina(String pagina) {
+		webDriver.switchTo().window(pagina);
+
+	}
+
+	public void alterarUrl(String url) throws AWTException, InterruptedException {
+		webDriver.get((url));
+	}
+
+	public String retornarTituloDaPagina() {
+		String titulo = webDriver.getTitle();
+		return titulo;
+	}
+}

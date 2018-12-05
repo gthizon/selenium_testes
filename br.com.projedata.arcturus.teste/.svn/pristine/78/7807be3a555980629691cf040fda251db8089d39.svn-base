@@ -1,0 +1,149 @@
+package br.com.projedata.arcturus.teste.testes;
+
+import static br.com.projedata.arcturus.teste.webelements.Parc006Elementos.botaoCarregarImagem;
+import static br.com.projedata.arcturus.teste.webelements.Parc006Elementos.botaoRemoverImagem;
+import static br.com.projedata.arcturus.teste.webelements.Parc006Elementos.campoIdCabecalhoRelatorioPaisagem;
+import static br.com.projedata.arcturus.teste.webelements.Parc006Elementos.campoIdCabecalhoRelatorioRetrato;
+import static br.com.projedata.arcturus.teste.webelements.Parc006Elementos.campoIdConfigEmpresa;
+import static br.com.projedata.arcturus.teste.webelements.Parc006Elementos.campoIdConfiguracao;
+import static br.com.projedata.arcturus.teste.webelements.Parc006Elementos.campoIdImagem;
+import static br.com.projedata.arcturus.teste.webelements.Parc006Elementos.campoLocalImagemEmpresa;
+import static br.com.projedata.arcturus.teste.webelements.Parc006Elementos.campoNomeImagemEmpresa;
+import static br.com.projedata.arcturus.teste.webelements.Parc006Elementos.campoNomeServidor;
+import static br.com.projedata.arcturus.teste.webelements.Parc006Elementos.campoOrdemImagemEmpresa;
+import static br.com.projedata.arcturus.teste.webelements.Parc006Elementos.campoPortaServidor;
+import static br.com.projedata.arcturus.teste.webelements.Parc006Elementos.campoSenhaUsuarioServidor;
+import static br.com.projedata.arcturus.teste.webelements.Parc006Elementos.campoSituacaoImagemEmpresa;
+import static br.com.projedata.arcturus.teste.webelements.Parc006Elementos.campoUsuarioServidor;
+import static br.com.projedata.arcturus.teste.webelements.Parc006Elementos.campoUtilizaSsl;
+import static br.com.projedata.arcturus.teste.webelements.Parc006Elementos.campoUtilizaTsl;
+import static br.com.projedata.arcturus.teste.webelements.Parc006Elementos.cidadeEmpresa;
+import static br.com.projedata.arcturus.teste.webelements.Parc006Elementos.codigoEmpresa;
+import static br.com.projedata.arcturus.teste.webelements.Parc006Elementos.codigoNacionalEmpresa;
+import static br.com.projedata.arcturus.teste.webelements.Parc006Elementos.idEmpresa;
+import static br.com.projedata.arcturus.teste.webelements.Parc006Elementos.imagemCarregada;
+import static br.com.projedata.arcturus.teste.webelements.Parc006Elementos.nomeEmpresa;
+import static br.com.projedata.arcturus.teste.webelements.Parc006Elementos.razaoSocialEmpresa;
+
+import java.awt.AWTException;
+
+import org.openqa.selenium.Keys;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import br.com.projedata.arcturus.teste.metodosgenericos.LoginMetodos;
+import br.com.projedata.arcturus.teste.recursos.TesteGenerico;
+
+public class TesteParc006 extends TesteGenerico {
+
+	LoginMetodos login;
+	String codigoEmpresaInserido;
+	private static String anexo1Linux = "peixe.png";
+	private static String anexo1Windows = "\\\\arquivos.prj\\qualidade\\Gustavo\\anexos_testes\\peixe.png";
+
+	@Parameters(value = { "login", "senha", "base" })
+	@Test(testName = "id: 1 - Abrir rotina parc006")
+	public void abrirParc006(String usuario, String senha, String base) {
+		login = new LoginMetodos(this);
+		login.logar(usuario, senha, base);
+		espera.aguardarSistemaCarregar();
+		rotina.selecionarRotina("arc006");
+		rotina.aguardarProcessarRotina();
+	}
+	
+	@Test(testName = "id: 2 - Cadastrar nova empresa", dependsOnMethods = {"abrirParc006"})
+	public void inserirNovaEmpresa() {
+		acao.escreverNoElemento(codigoEmpresa, "100");
+		acao.escreverNoElemento(nomeEmpresa, "Empresa automacao");
+		acao.escreverNoElemento(cidadeEmpresa, "Tubarão");
+		acao.escreverNoElemento(codigoNacionalEmpresa, "12345670001");
+		acao.escreverNoElemento(razaoSocialEmpresa, "Teste automação");
+		rotina.salvarEAguardarMensagemRegistrosAlterados();
+		codigoEmpresaInserido = acao.localizarElemento(campoIdConfigEmpresa).getAttribute("value").toString();
+	}
+	
+	@Test(testName = "id: 3 - Cadastrar imagem para empresa", dependsOnMethods = {"inserirNovaEmpresa"})
+	public void cadastrarImagemEmpresa() {
+		acao.clicarNoElemento(campoNomeImagemEmpresa);
+		acao.escreverNoElemento(campoNomeImagemEmpresa, "Imagem automação");
+		acao.selecionarNoElemento(campoLocalImagemEmpresa, "Fundo Inicial");
+		acao.selecionarNoElemento(campoSituacaoImagemEmpresa, "Ativo");
+		acao.escreverNoElemento(campoOrdemImagemEmpresa, "1");
+		rotina.salvarEAguardarMensagemRegistrosAlterados();
+	}
+	
+	@Test(testName = "id: 4 - Inserir imagem na arc006", dependsOnMethods = { "cadastrarImagemEmpresa" }, enabled = false)
+	public void adicionarImagemArc006() throws AWTException, InterruptedException {
+		
+		acao.clicarNoElemento(botaoCarregarImagem);
+		String SO = System.getProperty("os.name").toLowerCase();
+		if (SO.contains("win")) {
+			rotina.uploadFilesWindows(anexo1Windows);
+			espera.aguardarElementoEstarVisivel(imagemCarregada);
+		} else if (SO.contains("linux")) {
+			rotina.uploadFilesLinux(anexo1Linux);
+			espera.aguardarElementoEstarVisivel(imagemCarregada);
+		}
+		rotina.aguardarProcessarRotina();
+		espera.aguardarElementoEstarVisivel(imagemCarregada);
+		teclado.pressionarTeclaDeControle(Keys.F10);
+		rotina.salvarEAguardarMensagemRegistrosAlterados();
+	}
+
+	@Test(testName = "id: 5 - Remover imagem na arc006", dependsOnMethods = { "adicionarImagemArc006" }, enabled = false)
+	public void removerImagemArc006() {
+		acao.clicarNoElemento(imagemCarregada);
+		espera.aguardarElementoEstarVisivel(botaoRemoverImagem);
+		acao.clicarNoElemento(botaoRemoverImagem);
+		rotina.aguardarProcessarRotina();
+		teclado.pressionarTeclaDeControle(Keys.F10);
+		espera.aguardarElementoEstarVisivel(msg.mensagemRegistrosAlterados);
+		espera.aguardarElementoDesaparecer(imagemCarregada);
+	}
+	
+	@Test(testName = "id: 6 Adicionar configuracoes de servidor", dependsOnMethods = { "cadastrarImagemEmpresa" }, enabled = true)
+	public void adicionarConfiguracoesServidor() {
+		acao.clicarNoElemento(campoIdCabecalhoRelatorioPaisagem);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElemento(campoIdCabecalhoRelatorioPaisagem, "45");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(campoIdCabecalhoRelatorioRetrato);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElemento(campoIdCabecalhoRelatorioRetrato, "18");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElemento(campoNomeServidor, "localhost");
+		acao.escreverNoElemento(campoUsuarioServidor, "teste");
+		acao.escreverNoElemento(campoSenhaUsuarioServidor, "teste");
+		acao.escreverNoElemento(campoPortaServidor, "8080");
+		acao.selecionarNoElemento(campoUtilizaSsl, "Não");
+		acao.selecionarNoElemento(campoUtilizaTsl, "Não");
+		rotina.salvarEAguardarMensagemRegistrosAlterados();
+	}
+	
+	@Test(testName = "id: 7 Remover configuracoes de servidor", dependsOnMethods = { "adicionarConfiguracoesServidor" }, enabled = true)
+	public void removerConfiguracoesServidor() {
+		acao.clicarNoElemento(campoIdConfiguracao);
+		rotina.excluirESalvar();
+	}
+	
+	@Test(testName = "id: 8 Remover imagem do servidor", dependsOnMethods = { "removerConfiguracoesServidor" }, enabled = true)
+	public void removerImagemServidor() {
+		acao.clicarNoElemento(campoIdImagem);
+		rotina.aguardarProcessarRotina();
+		rotina.excluirESalvar();
+	}
+	
+	@Test(testName = "id: 9 Remover empresa", dependsOnMethods = { "removerImagemServidor" }, enabled = true)
+	public void removerEmpresa() {
+		acao.clicarNoElemento(idEmpresa);
+		rotina.aguardarProcessarRotina();
+		rotina.excluirESalvar();
+	}
+	
+	
+	
+	
+
+}

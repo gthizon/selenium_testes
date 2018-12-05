@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="tests" thread-count="3">
+	<parameter name="login" value="usuario" />
+	<parameter name="login2" value="usuario2" />
+	<parameter name="senha" value="usuario" />
+	<parameter name="base" value="desenvolvimento" />
+	<parameter name="baseHomo" value="homologacao" />
+	<test name="Grupo de teste 1: com usuario 1" group-by-instances="true">
+		<classes >
+			<class name="br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02" />
+			<class name="br.com.projedata.arcturus.teste.testes.TesteParc001" />
+			<class name="br.com.projedata.arcturus.teste.testes.TesteParc007" />
+			<class name="br.com.projedata.arcturus.teste.testes.TesteFuncoesDeRotinas" />
+			<class name="br.com.projedata.arcturus.teste.testes.TesteParc103" />
+			<class name="br.com.projedata.arcturus.teste.testes.TesteConstrutorTelas" />
+			<class name="br.com.projedata.arcturus.teste.testes.TesteGeradorRelatorios" />
+		</classes>
+	</test>
+	<test name="Grupo de teste 2: com usuario 1" group-by-instances="true">
+		<classes >
+			<class name="br.com.projedata.arcturus.teste.testes.TesteAgendador" />
+			<class name="br.com.projedata.arcturus.teste.testes.TesteParc115" />
+			<class name="br.com.projedata.arcturus.teste.testes.TestePger001" />
+			<class name="br.com.projedata.arcturus.teste.testes.TesteWizardRelatorios" />
+			<class name="br.com.projedata.arcturus.teste.testes.TestePainelRelatorios" />
+			<class name="br.com.projedata.arcturus.teste.testes.TesteParc119" />
+<!-- 			<class name="br.com.projedata.arcturus.teste.testes.TesteParc013" /> -->
+<!-- 			<class name="br.com.projedata.arcturus.teste.testes.TesteAtualizacao" /> -->
+<!-- 			<class name="br.com.projedata.arcturus.teste.testes.TesteParc102" /> -->
+<!-- 			<class name="br.com.projedata.arcturus.teste.testes.TesteAtualizador" /> -->
+		</classes>
+	</test>
+	<test name="Grupo de teste 3: com usuario 2" group-by-instances="true">
+		<classes>
+			<class name="br.com.projedata.arcturus.teste.testes.TesteParc016" />
+			<class name="br.com.projedata.arcturus.teste.testes.TesteParc020" />
+			<class name="br.com.projedata.arcturus.teste.testes.TesteParc002" />
+			<class name="br.com.projedata.arcturus.teste.testes.TesteParc003" />
+			<class name="br.com.projedata.arcturus.teste.testes.TesteParc004" />
+			<class name="br.com.projedata.arcturus.teste.testes.TesteParc005" />
+			<class name="br.com.projedata.arcturus.teste.testes.TesteParc006" />
+			<class name="br.com.projedata.arcturus.teste.testes.TesteParc008" />
+			<class name="br.com.projedata.arcturus.teste.testes.TesteParc009" />
+			<class name="br.com.projedata.arcturus.teste.testes.TesteParc010" />
+			<class name="br.com.projedata.arcturus.teste.testes.TesteParc012" />
+			<class name="br.com.projedata.arcturus.teste.testes.TesteParc015" />
+			<class name="br.com.projedata.arcturus.teste.testes.TestePortal" />
+			<class name="br.com.projedata.arcturus.teste.testes.TesteInternacionalizacao" />
+			<class name="br.com.projedata.arcturus.teste.testes.TesteSenhaDeAcesso" />
+		</classes>
+	</test>
+<!-- 	<test name="Grupo de teste 4: Teste" group-by-instances="true"> -->
+<!-- 		<classes> -->
+<!-- 			<class name="br.com.projedata.arcturus.teste.testes.teste" /> -->
+<!-- 		</classes> -->
+<!-- 	</test> -->
+		
+	<listeners>
+		<listener
+			class-name="br.com.projedata.teste.util.selenium.listeners.ScreenshotListener" />
+<!-- 		<listener -->
+<!-- 			class-name="br.com.projedata.teste.util.selenium.listeners.AnnotationTransformer"/> -->
+	</listeners>
+</suite>

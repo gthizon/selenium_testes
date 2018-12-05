@@ -1,0 +1,679 @@
+package br.com.projedata.arcturus.teste.recursos;
+
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
+import java.io.BufferedInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.net.URL;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.temporal.ChronoField;
+import java.time.temporal.JulianFields;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.List;
+import java.util.Locale;
+
+import javax.imageio.ImageIO;
+
+import org.apache.pdfbox.cos.COSName;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageTree;
+import org.apache.pdfbox.pdmodel.PDResources;
+import org.apache.pdfbox.pdmodel.encryption.InvalidPasswordException;
+import org.apache.pdfbox.pdmodel.graphics.PDXObject;
+import org.apache.pdfbox.text.PDFTextStripper;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class Rotina {
+	private WebDriver webDriver = null;
+	private Espera espera;
+	private AcoesDriver acao;
+	private Mensagem msg;
+	private Teclado teclado;
+
+	public Rotina(WebDriver driver) {
+		this.webDriver = driver;
+		espera = new Espera(webDriver);
+		acao = new AcoesDriver(webDriver);
+		msg = new Mensagem(webDriver);
+		teclado = new Teclado(webDriver);
+
+	}
+
+	WebElement element = null;
+	static final long ONE_MINUTE_IN_MILLIS = 60000;
+	public By estaProcessando = By.xpath("//div[@class='processando-rotina']");
+	public By fecharLov = By.xpath("//div[@id='cabecalho-lov']//following::div[@title='Fechar']");
+	public By lov = By.id("cabecalho-lov");
+	public By rotinaCarregada = By.xpath("//li[contains(@class,'info-navegacao')]//child::span[contains(text(),'1/')]");
+	public By botaoConfirmacaoFecharRotina = By.xpath("//b[@class='rotina-fechar-sim btn-xs btn-primary']");
+	public By blocoDeRegistrosAlterados = By
+			.xpath("//li[contains(@class,'info-navegacao')]//child::span[contains(text(),'Alterados')]");
+	public By sairPortal = By.xpath("//div[@title='Sair do sistema']");
+	public By botaoProcessarFiltros = By.xpath("//*[contains(@id,'b_processar_filtro')]");
+	public By filtrarLov = By.xpath("//div[@id='cabecalho-lov']//following::input[@placeholder='Localizar']");
+	public By listaRotinasAberta = By.xpath("//div[@class='portal-div-painel exibir-rotinas']");
+	public By componenteCalendario = By
+			.xpath("//div[contains(@class,'flatpickr-calendar') and contains(@class,'open')]");
+	public By modoConsulta = By
+			.xpath("//li[@class='info-navegacao']/span[text()='Modo Consulta' or text()='Query Mode']");
+	public By localizarRotina = By.xpath("//div[@class='localizar-rotina barra-ferramentas-item']//input");
+	public By botaoSalvar = By.xpath(
+			"//div[@class='janela-modal-componente']//ancestor::button[@class='salvar' or contains(@id,'salvar_')]");
+	public By botaoSalvarDesabilitado = By.xpath("//button[@class='salvar desabilitado']");
+	public By botaoConsultar = By.xpath("//button[@class='buscar' or contains(@id,'consultar_')]");
+	public By botaoLimparConsulta = By.xpath("//button[@class='limpar' or contains(@id,'limpar_')]");
+	public By botaoExcluir = By.xpath("//button[@class='excluir' or contains(@id,'excluir_')]");
+	public By botaoExcluirDesabilitado = By.xpath("//button[@class='excluir desabilitado']");
+	public By botaoCancelar = By.xpath("//button[@class='cancelar' or contains(@id,'cancelar_')]");
+	public By botaoNovo = By.xpath("//button[@class='novo' or contains(@id,'novo_')]");
+	public By botaoNovoDesabilitado = By.xpath("//button[@class='novo desabilitado']");
+	public By botaoListar = By.xpath("//button[@class='listar']");
+	public By botaoProximoRegistro = By.xpath("//button[contains(@class,'navegacao proximo')]");
+	public By botaoProximaPagina = By.xpath("//button[contains(@class,'navegacao proxima-pagina')]");
+	public By botaoRegistroAnterior = By.xpath("//button[contains(@class,'navegacao anterior')]");
+	public By botaoPaginaAnterior = By.xpath("//button[contains(@class,'navegacao pagina-anterior')]");
+	public By botaoImprimir = By.xpath("//button[contains(@id,'.botaoImprimir')]");
+	public By botaoConfirmar = By.xpath("//button[contains(@class,'confirmar')]");
+	public By listaDeRotinas = By.xpath("//div[@id='rotinas-sistema']");
+	public By tolltipCampo = By.xpath("//div[contains(@class,'tooltip vue-tooltip-theme')]");
+	public By modalAguardandoEncerramento = By.xpath("//p[contains(text(),'Aguardando encerramento da rotina')]");
+
+	public void aguardarProcessarRotina() {
+		// Thread.sleep(300);
+		// if (webDriver.findElements(estaProcessando).size() != 0) {
+		//
+		// WebDriverWait wait = new WebDriverWait(webDriver, 20);
+		// wait.until(ExpectedConditions.invisibilityOfElementLocated(estaProcessando));
+		// }
+
+		if (webDriver.findElements(modalAguardandoEncerramento).size() == 0) {
+			if (webDriver.findElements(estaProcessando).size() > 0) {
+				espera.aguardarElementoDesaparecer(estaProcessando);
+			}
+		}
+	}
+
+	public By verificarLovAberta(String nomeLov) {
+		By elemento = By.xpath("//div[@id='cabecalho-lov']//parent::div[@title='" + nomeLov + "']");
+		return elemento;
+
+	}
+
+	public By verificarRotinaCarregada(String rotina) {
+		By elemento = By.xpath("//div[@class='titulo']/p[contains(text(),'" + rotina.toUpperCase()
+				+ "')]//following::li[contains(@class,'info-navegacao')]/span[contains(text(),'1/')]");
+
+		return elemento;
+	}
+
+	public By verificarRotinaCarregadaMoDoConsulta(String rotina) {
+		By elemento = By.xpath("//div[@class='titulo']/p[contains(text(),'" + rotina.toUpperCase()
+				+ "')]//following::li[contains(@class,'info-navegacao')]/span[contains(text(),'Modo Consulta')]");
+
+		return elemento;
+	}
+
+	public String retornarIdRotinaAtualFocada(String rotina) {
+		WebElement element = webDriver.findElement(By.xpath("//div[@class='titulo']/p[contains(text(),'"
+				+ rotina.toUpperCase() + "')]//ancestor::div[@class='janela-modal-componente']"));
+		return element.getAttribute("id").toString();
+	}
+
+	public void testarAberturaLov(WebElement e) throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(webDriver, 10);
+		e.click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(lov));
+		webDriver.findElement(fecharLov).click();
+		Thread.sleep(1000);
+	}
+
+	public void confirmarFecharRotina() throws InterruptedException {
+		if (webDriver.findElements(botaoConfirmacaoFecharRotina).size() != 0) {
+			acao.clicarNoElemento(botaoConfirmacaoFecharRotina);
+		}
+	}
+
+	public String retornarConteudoDoPdf() throws InvalidPasswordException, IOException {
+		WebDriverWait wait = new WebDriverWait(webDriver, 15);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//iframe[1]")));
+
+		element = webDriver.findElement(By.xpath("//iframe[1]"));
+		String data = element.getAttribute("src");
+
+		URL url = new URL(data);
+		BufferedInputStream file = new BufferedInputStream(url.openStream());
+
+		PDDocument document = PDDocument.load(file);
+		String output = new PDFTextStripper().getText(document);
+
+		int qtdeImagens = 0;
+		PDPageTree list = document.getPages();
+		for (PDPage page : list) {
+			PDResources pdResources = page.getResources();
+			for (COSName c : pdResources.getXObjectNames()) {
+				PDXObject o = pdResources.getXObject(c);
+				if (o instanceof org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject) {
+					org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject imagem = ((org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject) o);
+					qtdeImagens++;
+					ByteArrayOutputStream baos = new ByteArrayOutputStream();
+					ImageIO.write(imagem.getImage(), "png", baos);
+					baos.flush();
+					System.out.println(baos.toByteArray().length);
+					baos.close();
+				}
+			}
+		}
+
+		return output;
+
+	}
+
+	public ArrayList<Integer> verificarSeConteudoDoPdfPossuiImagens() throws InvalidPasswordException, IOException {
+		WebDriverWait wait = new WebDriverWait(webDriver, 15);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//iframe[1]")));
+
+		element = webDriver.findElement(By.xpath("//iframe[1]"));
+		String data = element.getAttribute("src");
+
+		URL url = new URL(data);
+		BufferedInputStream file = new BufferedInputStream(url.openStream());
+
+		PDDocument document = PDDocument.load(file);
+		ArrayList<Integer> tamanhoArquivo = new ArrayList<>();
+		PDPageTree list = document.getPages();
+		for (PDPage page : list) {
+			PDResources pdResources = page.getResources();
+			for (COSName c : pdResources.getXObjectNames()) {
+				PDXObject o = pdResources.getXObject(c);
+				if (o instanceof org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject) {
+					org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject imagem = ((org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject) o);
+					ByteArrayOutputStream baos = new ByteArrayOutputStream();
+					ImageIO.write(imagem.getImage(), "png", baos);
+					baos.flush();
+					tamanhoArquivo.add(baos.toByteArray().length);
+					baos.close();
+				}
+			}
+		}
+		return tamanhoArquivo;
+	}
+
+	public String recuperarSenhaDiaria(String cpf) {
+		LocalDate agora = LocalDate.now();
+		Long diaJuliano = agora.getLong(JulianFields.JULIAN_DAY);
+		Long diaDoAno = agora.getLong(ChronoField.DAY_OF_YEAR);
+		Long seculo = (agora.getLong(ChronoField.YEAR) / 100) + 1;
+		int diaDaSemana = new Long(agora.getLong(ChronoField.DAY_OF_WEEK)).intValue() + 1;
+		diaDaSemana = diaDaSemana > 7 ? 1 : diaDaSemana;
+
+		BigDecimal conta = new BigDecimal(diaJuliano).multiply(new BigDecimal(diaDoAno))
+				.multiply(new BigDecimal(seculo).multiply(new BigDecimal(cpf)));
+		String chave = padEsquerda(String.valueOf(conta), 11, '0');
+		if (chave.length() > 11) {
+			chave = chave.substring(0, 11);
+		}
+		Integer caracter = new Integer(
+				"8" + String.valueOf(Long.valueOf(chave) * 8).substring(diaDaSemana - 1, diaDaSemana));
+		String senhaDiaria = String.valueOf((char) caracter.intValue()).toLowerCase();
+		senhaDiaria += chave.substring(diaDaSemana - 1, diaDaSemana + 1);
+		String padEsquerda = padEsquerda(cpf, 11, '0');
+		if (padEsquerda.length() > 11) {
+			padEsquerda = padEsquerda.substring(0, 11);
+		}
+		senhaDiaria += padEsquerda.substring(diaDaSemana - 1, diaDaSemana + 1);
+		senhaDiaria += chave.substring(3, 4);
+
+		return senhaDiaria;
+	}
+
+	public static String padDireita(String texto, int quantidade) {
+		return padDireita(texto, quantidade, ' ');
+	}
+
+	public static String padDireita(String texto, int quantidade, char caracter) {
+		return padTexto(texto, quantidade, caracter, false);
+	}
+
+	public static String padEsquerda(String texto, int quantidade) {
+		return padEsquerda(texto, quantidade, ' ');
+	}
+
+	public static String padEsquerda(String texto, int quantidade, char caracter) {
+		return padTexto(texto, quantidade, caracter, true);
+	}
+
+	public static String padTexto(String texto, int quantidade, char caracter, boolean padEsqueda) {
+		if (texto == null) {
+			return texto;
+		}
+		int quantidadeAdicionar = quantidade - texto.length();
+		if (quantidadeAdicionar <= 0) {
+			return texto;
+		}
+		StringBuffer str = new StringBuffer(texto);
+		char[] ch = new char[quantidadeAdicionar];
+		Arrays.fill(ch, caracter);
+		if (padEsqueda) {
+			str.insert(0, ch);
+		} else {
+			str.append(ch);
+		}
+		return str.toString();
+	}
+
+	public void selecionarRotina(String rotina) {
+		espera.aguardarElementoEstarVisivel(localizarRotina);
+		acao.clicarNoElemento(localizarRotina);
+		espera.aguardarSistemaCarregar();
+		acao.limpar(localizarRotina);
+		acao.escreverNoElemento(localizarRotina, rotina);
+		espera.aguardarElementoEstarVisivel(By.xpath(
+				"//*[contains(@id,'" + rotina + "')]//ancestor::div[@class='portal-abrir-rotina-localizar'][1]"));
+		espera.aguardarSistemaCarregar();
+		acao.clicarNoElemento(By.xpath(
+				"//*[contains(@id,'" + rotina + "')]//ancestor::div[@class='portal-abrir-rotina-localizar'][1]"));
+		espera.aguardarElementoEstarVisivel(By.xpath("//p[contains(text(),'(" + rotina.toUpperCase() + ")')]"));
+		espera.aguardarElementoEstarVisivel(verificarRotinaCarregada(rotina),
+				verificarRotinaCarregadaMoDoConsulta(rotina));
+		espera.aguardarSistemaCarregar();
+		espera.aguardarElementoDesaparecer(listaDeRotinas);
+	}
+
+	public void selecionarRotina(String rotina, String prefixo) {
+		acao.clicarNoElemento(localizarRotina);
+		espera.aguardarSistemaCarregar();
+		acao.limpar(localizarRotina);
+		acao.escreverNoElemento(localizarRotina, rotina);
+		espera.aguardarElementoEstarVisivel(By.xpath("//*[contains(@id,'" + prefixo + rotina + "')]"));
+		espera.aguardarSistemaCarregar();
+		acao.clicarNoElemento(By.xpath("//*[contains(@id,'" + prefixo + rotina
+				+ "')]//ancestor::div[@class='portal-abrir-rotina-localizar'][1]"));
+		espera.aguardarElementoEstarVisivel(By.xpath("//p[contains(text(),'(" + rotina.toUpperCase() + ")')]"));
+		espera.aguardarElementoEstarVisivel(verificarRotinaCarregada(rotina),
+				verificarRotinaCarregadaMoDoConsulta(rotina));
+		espera.aguardarSistemaCarregar();
+		espera.aguardarElementoDesaparecer(listaDeRotinas);
+	}
+
+	public void fecharRotina(String rotina) {
+		By botaoFechar = By.xpath("//p[contains(text(),'" + rotina.toUpperCase()
+				+ "')]//following::*[@title='Fechar' or @title='Cerrar' or @title='Close'][1]");
+		WebDriverWait wait = new WebDriverWait(webDriver, 10);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(botaoFechar));
+		webDriver.findElement(botaoFechar).click();
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(botaoFechar));
+	}
+
+	public By selecionarValorLov(String valor) {
+		return By.xpath("//div[@class='lov-modal-componente']//td[contains(text(),'" + valor + "')]");
+	}
+
+	public String posicaoRegistro() {
+		String total = webDriver
+				.findElement(By.xpath("//li[@class='info-navegacao']//child::span[contains(text(),'/')]")).getText();
+		int posicao = total.indexOf("/");
+		return total.substring(0, posicao);
+	}
+
+	public String totalRegistros() {
+		String total = webDriver
+				.findElement(By.xpath("//li[@class='info-navegacao']//child::span[contains(text(),'/')]")).getText();
+		int posicao = total.indexOf("/");
+		return total.substring(posicao + 1);
+	}
+
+	public String retornarDataAtual() {
+		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		Date date = new Date();
+		return dateFormat.format(date);
+	}
+
+	public String retornarDataAtualFormatoCompletoComDataEHora() {
+		DateFormat dateFormat = new SimpleDateFormat("ddMMyyyy HHmmss");
+		Date date = new Date();
+		return dateFormat.format(date);
+	}
+
+	public String retornarDataHoraAtual() {
+		DateFormat dateFormat = new SimpleDateFormat("ddMMyyyy HHmm");
+		Date date = new Date();
+		return dateFormat.format(date);
+	}
+
+	public String adicionarMinutosDataHoraAtual(int minutos) {
+		DateFormat dateFormat = new SimpleDateFormat("ddMMyyyyHHmm");
+		Date date = new Date();
+		long d = date.getTime();
+		Date dataAcrescida = new Date(d + (minutos * ONE_MINUTE_IN_MILLIS));
+		return dateFormat.format(dataAcrescida);
+	}
+
+	public String subtrairMinutosDataHoraAtual(int minutos) {
+		DateFormat dateFormat = new SimpleDateFormat("ddMMyyyy HHmm");
+		Date date = new Date();
+		long d = date.getTime();
+		Date dataAcrescida = new Date(d - (minutos * ONE_MINUTE_IN_MILLIS));
+		return dateFormat.format(dataAcrescida);
+	}
+
+	public String retornarHoraAtual() {
+		DateFormat dateFormat = new SimpleDateFormat("HHmm");
+		Date date = new Date();
+		return dateFormat.format(date);
+	}
+
+	public String adicionarMinutosNaDataAtual(int minutos) {
+		DateFormat dateFormat = new SimpleDateFormat("HHmm");
+		Date date = new Date();
+		long d = date.getTime();
+		Date dataAcrescida = new Date(d + (minutos * ONE_MINUTE_IN_MILLIS));
+		return dateFormat.format(dataAcrescida);
+	}
+
+	public String subtrairMinutosNaDataAtual(int minutos) {
+		DateFormat dateFormat = new SimpleDateFormat("HHmm");
+		Date date = new Date();
+		long d = date.getTime();
+		Date dataAcrescida = new Date(d - (minutos * ONE_MINUTE_IN_MILLIS));
+		return dateFormat.format(dataAcrescida);
+	}
+
+	public String retornarDiaDaSemana(String date) {
+		String dayWeek = "---";
+		GregorianCalendar gc = new GregorianCalendar();
+		try {
+			gc.setTime(new SimpleDateFormat("dd/MM/yyyy", new Locale("pt", "BR")).parse(date));
+			String semana = new SimpleDateFormat("EEE", new Locale("pt", "BR")).format(gc.getTime());
+			return semana.toLowerCase().substring(0, 1).toUpperCase().concat(semana.substring(1));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+
+		return dayWeek;
+	}
+
+	public void limparCampoERealizarNovaConsulta() {
+		acao.clicarNoElemento(botaoLimparConsulta);
+		aguardarProcessarRotina();
+		WebDriverWait wait = new WebDriverWait(webDriver, 10);
+
+		if (webDriver.findElements(msg.mensagemSalvarAlteracoesPendentes).size() > 0) {
+			wait.until(ExpectedConditions.visibilityOfElementLocated(msg.simConfirmacao));
+			acao.clicarNoElemento(msg.simConfirmacao);
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(msg.simConfirmacao));
+		}
+		wait.until(ExpectedConditions.visibilityOfElementLocated(modoConsulta));
+		acao.clicarNoElemento(botaoConsultar);
+		aguardarProcessarRotina();
+	}
+
+	public boolean verificarElementoFocado(String atributoElemento, String valorAtributoElemento) {
+		WebElement el = webDriver.switchTo().activeElement();
+		String atributo = el.getAttribute(atributoElemento);
+		if (atributo.equals(valorAtributoElemento) || atributo.contains(valorAtributoElemento)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public String elementoAtualFocado() {
+		WebElement el = webDriver.switchTo().activeElement();
+		String atributo = el.getAttribute("id");
+		return atributo;
+	}
+
+	public String janelaAtualFocada() {
+		String janelaFocada = webDriver.findElement(By.xpath("//div[@class='janela-modal-componente']"))
+				.getAttribute("id").toString();
+		return janelaFocada;
+	}
+
+	public void posicionarFocoNoElemento(By el) {
+
+		String id = webDriver.findElement(el).getAttribute("id");
+		String name = webDriver.findElement(el).getAttribute("name");
+		String classe = webDriver.findElement(el).getAttribute("class");
+		JavascriptExecutor jse = (JavascriptExecutor) webDriver;
+
+		if (!id.isEmpty()) {
+			jse.executeScript("document.getElementById('" + id + "').focus()");
+			aguardarProcessarRotina();
+		} else if (!name.isEmpty()) {
+			jse.executeScript("document.getElementsByName('" + name + "')[0].focus()");
+			aguardarProcessarRotina();
+		} else {
+			jse.executeScript("document.getElementsByClassName('" + classe + "')[0].focus()");
+			aguardarProcessarRotina();
+		}
+	}
+
+	public void posicionarFocoNoElemento(By el, int posicao) {
+
+		String id = webDriver.findElements(el).get(posicao).getAttribute("id");
+		String name = webDriver.findElements(el).get(posicao).getAttribute("name");
+		String classe = webDriver.findElements(el).get(posicao).getAttribute("class");
+		JavascriptExecutor jse = (JavascriptExecutor) webDriver;
+
+		if (!id.isEmpty()) {
+			jse.executeScript("document.getElementById('" + id + "').focus()");
+			aguardarProcessarRotina();
+		} else if (!name.isEmpty()) {
+			jse.executeScript("document.getElementsByName('" + name + "')[0].focus()");
+			aguardarProcessarRotina();
+		} else {
+			jse.executeScript("document.getElementsByClassName('" + classe + "')[0].focus()");
+			aguardarProcessarRotina();
+		}
+	}
+
+	public By selecionarDia(String dia) throws InterruptedException {
+		By element = By.xpath(
+				"//div[contains(@class,'flatpickr-calendar') and contains(@class,'open')]//span[contains(@class,'flatpickr-day') and text()='"
+						+ dia + "']");
+		return element;
+	}
+
+	public void selecionarDataNoCalendario(String data, By campoData, By botaoAbrirCalendario)
+			throws InterruptedException {
+		String semBarra = data.replaceAll("[^0123456789]", "");
+		acao.limpar(campoData);
+		webDriver.findElement(campoData).sendKeys(semBarra);
+		webDriver.findElement(botaoAbrirCalendario).click();
+		WebDriverWait wait = new WebDriverWait(webDriver, 10);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(componenteCalendario));
+		String dia = data.substring(0, 2);
+		espera.aguardarElementoEstarVisivel(selecionarDia(dia));
+		acao.clicarNoElemento(selecionarDia(dia));
+		aguardarProcessarRotina();
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(componenteCalendario));
+		wait.until(ExpectedConditions.attributeToBe(campoData, "value", data));
+	}
+
+	public long diasUteisEntreDatas(Date start, Date end) {
+		// Ignore argument check
+
+		Calendar c1 = Calendar.getInstance();
+		c1.setTime(start);
+		int w1 = c1.get(Calendar.DAY_OF_WEEK);
+		c1.add(Calendar.DAY_OF_WEEK, -w1);
+
+		Calendar c2 = Calendar.getInstance();
+		c2.setTime(end);
+		int w2 = c2.get(Calendar.DAY_OF_WEEK);
+		c2.add(Calendar.DAY_OF_WEEK, -w2);
+
+		// end Saturday to start Saturday
+		long days = (c2.getTimeInMillis() - c1.getTimeInMillis()) / (1000 * 60 * 60 * 24);
+		long daysWithoutSunday = days - (days * 2 / 7);
+
+		return daysWithoutSunday - w1 + w2;
+	}
+
+	public void uploadFilesLinux(String arquivo) throws AWTException, InterruptedException {
+		Thread.sleep(3000);
+		StringSelection file = new StringSelection(arquivo);
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(file, null);
+
+		Robot robot = new Robot();
+		robot.keyPress(KeyEvent.VK_ALT);
+		robot.keyPress(KeyEvent.VK_S);
+		robot.keyRelease(KeyEvent.VK_S);
+		robot.keyRelease(KeyEvent.VK_ALT);
+		Thread.sleep(1000);
+		robot.keyPress(KeyEvent.VK_CONTROL);
+		robot.keyPress(KeyEvent.VK_A);
+		robot.keyRelease(KeyEvent.VK_A);
+		robot.keyRelease(KeyEvent.VK_CONTROL);
+		Thread.sleep(1000);
+		robot.keyPress(KeyEvent.VK_CONTROL);
+		robot.keyPress(KeyEvent.VK_V);
+		robot.keyRelease(KeyEvent.VK_V);
+		robot.keyRelease(KeyEvent.VK_CONTROL);
+		Thread.sleep(1000);
+		robot.keyPress(KeyEvent.VK_ENTER);
+		robot.keyRelease(KeyEvent.VK_ENTER);
+		Thread.sleep(1000);
+		robot.keyPress(KeyEvent.VK_KP_DOWN);
+		robot.keyRelease(KeyEvent.VK_KP_DOWN);
+		Thread.sleep(1000);
+		robot.keyPress(KeyEvent.VK_ENTER);
+		robot.keyRelease(KeyEvent.VK_ENTER);
+	}
+
+	// Função para fazer upload de arquivos no Windows
+
+	public void uploadFilesWindows(String arquivo) throws AWTException, InterruptedException {
+		Thread.sleep(3000);
+		StringSelection file = new StringSelection(arquivo);
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(file, null);
+
+		Robot robot = new Robot();
+		robot.keyPress(KeyEvent.VK_CONTROL);
+		robot.keyPress(KeyEvent.VK_V);
+		robot.keyRelease(KeyEvent.VK_V);
+		robot.keyRelease(KeyEvent.VK_CONTROL);
+		Thread.sleep(200);
+		robot.keyPress(KeyEvent.VK_ENTER);
+		robot.keyRelease(KeyEvent.VK_ENTER);
+	}
+
+	public String rotinaAtual(String rotina) {
+		WebElement element = webDriver.findElement(By.xpath("//div[@class='titulo']/p[contains(text(),'"
+				+ rotina.toUpperCase() + "')]//ancestor::div[@class='janela-modal-componente']"));
+		return element.getAttribute("id").toString();
+	}
+
+	public void irParaProximoCampo() {
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		aguardarProcessarRotina();
+	}
+
+	public void fecharRotinaPeloShiftF3() {
+		teclado.pressionarConjuntoDeTeclasDeControle(Keys.SHIFT, Keys.F3);
+		WebDriverWait wait = new WebDriverWait(webDriver, 10);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(listaRotinasAberta));
+	}
+
+	public void abrirEditorDeCampo(By el, String label) {
+		webDriver.findElement(el).sendKeys(Keys.chord(Keys.CONTROL, "e"));
+		WebDriverWait wait = new WebDriverWait(webDriver, 10);
+		wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(
+				By.xpath("//div[contains(@title,'" + label + "') and @class='coluna nome-janela']")));
+	}
+
+	public By rotinaCarregada(String rotina) {
+		return By.xpath("//div[@class='titulo']/p[contains(text(),'" + rotina.toUpperCase()
+				+ "')]//following::li[contains(@class,'info-navegacao')]/span[contains(text(),'1/')]");
+	}
+
+	public WebElement buscarElemento(By elemento) {
+		return webDriver.findElement(elemento);
+	}
+
+	public List<WebElement> buscarElementos(By elemento) {
+		return webDriver.findElements(elemento);
+	}
+
+	public WebElement buscarElementos(By elemento, int posicao) {
+		return webDriver.findElements(elemento).get(posicao);
+	}
+
+	public String retornarValorDoElemento(By elemento) {
+		return webDriver.findElement(elemento).getAttribute("value");
+	}
+
+	public void excluirESalvar() {
+		aguardarProcessarRotina();
+		acao.clicarNoElemento(botaoExcluir);
+		aguardarProcessarRotina();
+		acao.clicarNoElemento(botaoSalvar);
+		espera.aguardarElementoEstarVisivel(msg.mensagemRegistrosAlterados);
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		espera.aguardarElementoDesaparecer(msg.mensagemRegistrosAlterados);
+	}
+
+	public void salvarEAguardarMensagemRegistrosAlterados() {
+		aguardarProcessarRotina();
+		acao.clicarNoElemento(botaoSalvar);
+		espera.aguardarElementoEstarVisivel(msg.mensagemRegistrosAlterados);
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		espera.aguardarElementoDesaparecer(msg.mensagemRegistrosAlterados);
+	}
+
+	public String retornarBackGroundColorDeUmElemento(By elemento) {
+		String cor = buscarElemento(elemento).getCssValue("background-color");
+		return cor;
+	}
+
+	public String retornarBackGroundColorDeUmElemento(By elemento, int posicao) {
+		String cor = buscarElementos(elemento).get(posicao).getCssValue("background-color");
+		return cor;
+	}
+
+	public void filtrarESelecionarValorNaLov(String valor) {
+		espera.aguardarElementoEstarVisivel(lov);
+		acao.escreverNoElemento(filtrarLov, valor);
+		espera.aguardarElementoEstarVisivel(selecionarValorLov(valor));
+		acao.clicarNoElemento(selecionarValorLov(valor));
+		espera.aguardarElementoDesaparecer(lov);
+	}
+
+	public void selecionarRegistroNoBloco(By elemento, String valorCampo, By barraRolagem) {
+		aguardarProcessarRotina();
+		acao.clicarNoElemento(elemento, 0);
+		aguardarProcessarRotina();
+		limparCampoERealizarNovaConsulta();
+		int posicao = 0;
+		while (!buscarElementos(elemento).get(posicao).getAttribute("value").equals(valorCampo)) {
+			if (buscarElemento(barraRolagem).isEnabled()) {
+				acao.clicarNoElemento(barraRolagem);
+				aguardarProcessarRotina();
+				posicao = -1;
+			}
+			posicao++;
+		}
+		acao.clicarNoElemento(elemento, posicao);
+		aguardarProcessarRotina();
+	}
+
+}

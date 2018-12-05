@@ -1,0 +1,10 @@
+package br.com.projedata.arcturus.teste.webelements;
+
+import org.openqa.selenium.By;
+
+public class FuncoesRotinasElementos {
+	public static By botaoAbrirLovCliente = By.xpath("//button[contains(@name,'cliente-1')]");
+	public static By ordenarConceitoCliente = By.xpath("//th[contains(text(),'Conceito')]");
+	public static By valorConceitoClienteLov = By.xpath("//*[contains(@id,'janela-rotina-')]/div[2]/div[1]/div[5]/div/div[3]/table/tbody/tr[1]/td[2]");
+	
+}

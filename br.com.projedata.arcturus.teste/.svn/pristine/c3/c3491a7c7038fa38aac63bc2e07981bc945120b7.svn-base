@@ -1,0 +1,119 @@
+package br.com.projedata.arcturus.teste.testes;
+
+import static br.com.projedata.arcturus.teste.webelements.Parc005Elementos.botaoCarregarRotinas;
+import static br.com.projedata.arcturus.teste.webelements.Parc005Elementos.campoAcessoTotal;
+import static br.com.projedata.arcturus.teste.webelements.Parc005Elementos.campoCodigoRotina;
+import static br.com.projedata.arcturus.teste.webelements.Parc005Elementos.campoCodigoSistema;
+import static br.com.projedata.arcturus.teste.webelements.Parc005Elementos.*;
+import org.openqa.selenium.Keys;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+import br.com.projedata.arcturus.teste.metodosgenericos.LoginMetodos;
+import br.com.projedata.arcturus.teste.recursos.Rotina;
+import br.com.projedata.arcturus.teste.recursos.TesteGenerico;
+
+public class TesteParc005 extends TesteGenerico {
+
+	LoginMetodos login;
+	Rotina rotina;
+	String codigoSistemaInserido;
+
+	@Parameters(value = { "login", "senha", "base" })
+	@Test(testName = "id: 1 - Abrir rotina parc005")
+	public void abrirParc005(String usuario, String senha, String base) {
+		login = new LoginMetodos(this);
+		rotina = new Rotina(webDriver);
+		login.logar(usuario, senha, base);
+		espera.aguardarSistemaCarregar();
+		rotina.selecionarRotina("arc005");
+		rotina.aguardarProcessarRotina();
+	}
+
+	@Test(testName = "id: 2 - Inserir novo sistema com acesso total", dependsOnMethods = { "abrirParc005" })
+	public void inserirSistemaComAcessoTotal() {
+		acao.clicarNoElemento(rotina.botaoConsultar);
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(campoCodigoSistema(1));
+		rotina.aguardarProcessarRotina();
+		teclado.pressionarTeclaDeControle(Keys.F6);
+		acao.escreverNoElemento(campoCodigoSistema(2), "1");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElemento(campoDescricaoSistema(2), "teste autom");
+		acao.selecionarNoElemento(campoAcessoTotal(2), "Sim");
+		acao.clicarNoElemento(rotina.botaoSalvar);
+		espera.aguardarElementoEstarVisivel(msg.mensagemRegistrosAlterados);
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		espera.aguardarElementoDesaparecer(msg.mensagemRegistrosAlterados);
+		testar.passouSeElementoEstiverDesabilitado(botaoCarregarRotinas(2));
+		codigoSistemaInserido = rotina.buscarElemento(campoIdSistema(2)).getAttribute("value");
+	}
+
+	@Test(testName = "id: 2 - Inserir novo sistema com acesso restrito", dependsOnMethods = {
+			"inserirSistemaComAcessoTotal" })
+	public void inserirSistemaComAcessoRestrito() {
+		acao.selecionarNoElemento(campoAcessoTotal(2), "Não");
+		rotina.aguardarProcessarRotina();
+		teclado.pressionarTeclaDeControle(Keys.F10);
+		espera.aguardarElementoEstarVisivel(msg.mensagemRegistrosAlterados);
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		espera.aguardarElementoDesaparecer(msg.mensagemRegistrosAlterados);
+		espera.aguardarElementoEstarHabilitado(botaoCarregarRotinas(2));
+	}
+
+	@Test(testName = "id: 3 - Clicar para carregar rotinas ", dependsOnMethods = { "inserirSistemaComAcessoRestrito" })
+	public void carregarRotinasPorSistema() {
+		acao.clicarNoElemento(botaoCarregarRotinas(2));
+		espera.aguardarElementoEstarVisivel(msg.mensagemRegistrosAlterados);
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		espera.aguardarElementoDesaparecer(msg.mensagemRegistrosAlterados);
+		espera.aguardarElementoNaoEstarVazio(campoCodigoRotina(1), 0, "value");
+	}
+
+	@Test(testName = "id: 4 - Excluir rotinas do sistema", dependsOnMethods = { "carregarRotinasPorSistema" })
+	public void excluirRotinasCarregadas() {
+		acao.clicarNoElemento(campoCodigoRotina(1));
+		while (!rotina.buscarElemento(campoCodigoRotina(1)).getAttribute("value").isEmpty()) {
+			teclado.pressionarConjuntoDeTeclasDeControle(Keys.SHIFT, Keys.F6);
+		}
+		acao.clicarNoElemento(rotina.botaoSalvar);
+		espera.aguardarElementoEstarVisivel(msg.mensagemRegistrosAlterados);
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		espera.aguardarElementoDesaparecer(msg.mensagemRegistrosAlterados);
+	}
+
+	@Test(testName = "id: 5 - Tentar inserir rotina para um sistema que esteja como acesso total.", dependsOnMethods = {
+			"excluirRotinasCarregadas" })
+	public void tentarAdicionarRotinaEmSistemaComAcessoTotal() {
+		acao.clicarNoElemento(campoAcessoTotal(1));
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(rotina.botaoLimparConsulta);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElemento(campoIdSistema(1), codigoSistemaInserido);
+		acao.clicarNoElemento(rotina.botaoConsultar);
+		rotina.aguardarProcessarRotina();
+		acao.selecionarNoElemento(campoAcessoTotal(1), "Sim");
+		acao.clicarNoElemento(rotina.botaoSalvar);
+		espera.aguardarElementoEstarVisivel(msg.mensagemRegistrosAlterados);
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		espera.aguardarElementoDesaparecer(msg.mensagemRegistrosAlterados);
+		acao.clicarNoElemento(campoCodigoRotina(1));
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElemento(campoCodigoRotina(1), "1");
+		espera.aguardarElementoEstarVazio(campoCodigoRotina(1));
+	}
+
+	@Test(testName = "id: 6 - Excluir sistema adicionado.", dependsOnMethods = {
+			"tentarAdicionarRotinaEmSistemaComAcessoTotal" })
+	public void excluirSistema() {
+		acao.clicarNoElemento(campoCodigoSistema(1));
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(rotina.botaoExcluir);
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(rotina.botaoSalvar);
+		espera.aguardarElementoEstarVisivel(msg.mensagemRegistrosAlterados);
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		espera.aguardarElementoDesaparecer(msg.mensagemRegistrosAlterados);
+	}
+
+}

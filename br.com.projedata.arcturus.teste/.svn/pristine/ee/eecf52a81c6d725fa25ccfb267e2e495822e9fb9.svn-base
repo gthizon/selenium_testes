@@ -1,0 +1,87 @@
+package br.com.projedata.arcturus.teste.testes;
+
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.barraRolagemProximoRelatorio;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.barraRolagemProximoRelatorioDesabilitada;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.botaoExecutarHabilitado;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.campoCodigoRelatorio;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.filtroNaoOculto;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.filtroNaoOculto2;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.filtroOculto;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.filtroOculto2;
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.empresa1Selecionada;
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.empresa2Selecionada;
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.lovTrocarEmpresa;
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.menuTrocarEmpresa;
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.selecionaEmpresa1;
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.selecionaEmpresa2;
+
+import java.io.IOException;
+
+import org.apache.pdfbox.pdmodel.encryption.InvalidPasswordException;
+import org.openqa.selenium.TimeoutException;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import br.com.projedata.arcturus.teste.metodosgenericos.AtualizadorMetodos;
+import br.com.projedata.arcturus.teste.metodosgenericos.ConstrutorTelasMetodos;
+import br.com.projedata.arcturus.teste.metodosgenericos.LoginMetodos;
+import br.com.projedata.arcturus.teste.recursos.TesteGenerico;
+
+public class teste extends TesteGenerico {
+
+	String elementoFocado;
+	LoginMetodos login;
+	AtualizadorMetodos atualizador;
+	ConstrutorTelasMetodos metodosConstrutor;
+	
+	@Test(testName = "id: 11 - trocar de empresa.")
+	public void trocarDeEmpresa() {
+		login = new LoginMetodos(this);
+		login.logar("usuario", "usuario", "desenvolvimento");
+		espera.aguardarSistemaCarregar();
+		espera.aguardarElementoEstarVisivel(menuTrocarEmpresa);
+		espera.aguardarSistemaCarregar();
+		mouse.scrollParaElemento(menuTrocarEmpresa);
+		acao.clicarNoElemento(menuTrocarEmpresa);
+		try {
+			espera.aguardarElementoEstarVisivel(lovTrocarEmpresa);
+		} catch (TimeoutException e) {
+			acao.clicarNoElemento(menuTrocarEmpresa);
+			espera.aguardarElementoEstarVisivel(lovTrocarEmpresa);
+		}
+		acao.clicarNoElemento(selecionaEmpresa2);
+		espera.aguardarElementoDesaparecer(lovTrocarEmpresa);
+		espera.aguardarElementoEstarVisivel(empresa2Selecionada);
+		espera.aguardarSistemaCarregar();
+		//paginaPrincipal = navegador.retornarPaginaAtual();
+	}
+
+	//@Parameters(value = { "login", "senha", "base" })
+	@Test(testName = "id: ? - Testar permissão de acesso a rotina para o usuário", enabled = true, dependsOnMethods = {"trocarDeEmpresa"})
+	public void salvarFiltrosDoRelatorio()
+			throws InvalidPasswordException, IOException, InterruptedException {
+		
+		rotina.selecionarRotina("teste015");
+		testar.passouSeAtributoDoElementoContem("bloco_testeEventoAlteracaoEmpresa", "value", "2");
+		rotina.fecharRotina("teste015");
+
+		mouse.scrollParaElemento(menuTrocarEmpresa);
+		acao.clicarNoElemento(menuTrocarEmpresa);
+		try {
+			espera.aguardarElementoEstarVisivel(lovTrocarEmpresa);
+		} catch (TimeoutException e) {
+			acao.clicarNoElemento(menuTrocarEmpresa);
+			espera.aguardarElementoEstarVisivel(lovTrocarEmpresa);
+		}
+
+		acao.clicarNoElemento(selecionaEmpresa1);
+		espera.aguardarElementoDesaparecer(lovTrocarEmpresa);
+		espera.aguardarElementoEstarVisivel(empresa1Selecionada);
+		espera.aguardarSistemaCarregar();
+
+		rotina.selecionarRotina("teste015");
+		testar.passouSeAtributoDoElementoContem("bloco_testeEventoAlteracaoEmpresa", "value", "1");
+		rotina.fecharRotina("teste015");
+	}
+
+}

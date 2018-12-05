@@ -1,0 +1,73 @@
+package br.com.projedata.arcturus.teste.webelements;
+
+import org.openqa.selenium.By;
+
+import br.com.projedata.arcturus.teste.recursos.Rotina;
+
+public class Pwkf008Elementos {
+	
+		
+	Rotina rotina;
+	public By campoNumeroOs = By.xpath("//input[contains(@name,'.wkfosNumeroOs') or contains(@id,'.wkfosNumeroOs')]");
+	public static By campoNumeroOS = By.xpath("//input[contains(@name,'.wkfosNumeroOs') or contains(@id,'.wkfosNumeroOs')]");
+	public static By fecharRotinaWkf008 = By.xpath("//div[@class='rotina-titulo ng-binding' and contains(text(),'WKF008')]//following-sibling::*[@class='fechar rotina-fechar']");
+	public static By botaoResgatarOS = By.xpath("//arc-campo[contains(@codigo,'botaoResgatar')]//child::button[contains(@name,'.botaoResgatar')]");
+	public static By botaoNovoRepasse = By.xpath("//button[contains(@name,'.botaoNovoRepasse') or contains(@id,'.botaoNovoRepasse')]");
+	public static By botaoAnexoDoRepasse = By.xpath("//button[contains(@name,'.botaoAnexo') and @registro-alterado='true']");
+	public static By campoCodigoNovaAcao = By.xpath("//input[contains(@name,'.wkfositAcao') and @registro-alterado='true']");
+	public static By campoCodigoNovoUsuarioDestino = By.xpath("//input[contains(@name,'.wkfositIdUsuarioDestino') and @registro-alterado='true']");
+	public static By campoNovoDetalhesDoRepasse = By.xpath("//textarea[contains(@name,'.wkfositDetalhes') and @registro-alterado='true']");
+	public static By rotinaAberta = By.xpath("//div[@class='prjModal-header' and contains(@data-original-title,'WKF008')]//following::li[14][@class='ng-binding' and contains(text(),'1/1')]");
+	public static By selecionaRotina = By.xpath("//*[contains(@id,'pwkf008')]");
+	public static By botaoNovoRepasseOculto = By.xpath("//button[contains(@name,'.botaoNovoRepasse') and contains(@style, 'display: none;')]");
+	public static By botaoLovAcao = By.xpath("//input[contains(@name,'wkfositAcao') and @posicao='0']//following::button[1][contains(@ng-click,'abrirLov(true)')]");
+	public static By botaoLovDestinatario = By.xpath("//input[contains(@name,'wkfositIdUsuarioDestino') and @posicao='0']//following::button[1][contains(@ng-click,'abrirLov(true)')]");
+	public static By selecionaAcaoReencaminhar = By.xpath("//div[contains(text(),'Reencaminhar')]");
+	public static By campoDescricaoAcaoRepasseAtual = By.xpath("//input[contains(@name,'wkfositNomeAcao') and @posicao='0']");
+	public static By selecionaDestinatarioAtendimentoFinanceiro = By.xpath("//div[contains(text(),'ATENDIMENTO FIN')]");
+	public static By campoDescricaoDestinatarioAtual = By.xpath("//input[contains(@name,'wkfositNomeUsuarioDestino') and @posicao='0']");
+	public static By detalhesRepasseAtual = By.xpath("//textarea[contains(@id,'wkfositDetalhes-1')]");
+	public static By barraRolagemAnteriorPorRegistro = By.xpath("//div[@class='el-rotina-grupo-aba']//ancestor::div[@class='barra-rolagem anterior']");
+	public static By barraRolagemAnteriorPorRegistroDesabilitada = By.xpath("//div[@class='el-rotina-grupo-aba']//ancestor::div[@class='barra-rolagem anterior' and @disabled='disabled']");
+	public static By barraRolagemAnteriorPorPagina = By.xpath("//div[@class='el-rotina-grupo-aba']//ancestor::div[@class='barra-rolagem pagina-anterior']");
+	public static By barraRolagemAnteriorPorPaginaDesabilitada = By.xpath("//div[@class='el-rotina-grupo-aba']//ancestor::div[@class='barra-rolagem pagina-anterior' and @disabled='disabled']");
+	public static By barraRolagemProximaPorPagina = By.xpath("//div[@class='el-rotina-grupo-aba']//ancestor::div[@class='barra-rolagem proxima-pagina']");
+	public static By barraRolagemProximaPorPaginaDesabilitada = By.xpath("//div[@class='el-rotina-grupo-aba']//ancestor::div[@class='barra-rolagem proxima-pagina' and @disabled='disabled']");
+	public static By barraRolagemProximaPorRegistro = By.xpath("//div[@class='el-rotina-grupo-aba']//ancestor::div[@class='barra-rolagem proximo']");
+	public static By barraRolagemProximaPorRegistroDesabilitada = By.xpath("//div[@class='el-rotina-grupo-aba']//ancestor::div[@class='barra-rolagem proximo' and @disabled='disabled']");
+	public static By botaoImprimirOS = By.xpath("//button[contains(@name,'.botaoImprimir')]");	
+	public static By janelaEspelhoOS = By.xpath("//div[@class='rotina-titulo ng-binding' and contains(text(),'WKF001')]");
+	public static By relatorioOS = By.xpath("//xhtml:div[contains(text(),'114410')]");
+	public static By fecharRelatorioOS = By.xpath("//div[@class='rotina-titulo ng-binding' and contains(text(),'WKF001')]//following::*[@class='fa fa-remove rotina-i']");
+	public static By janelaSelecionarData = By.xpath("//*[@ng-change='dateSelection(date)']");
+	public static By campoPrevisaoLiberacao = By.xpath("//input[contains(@name,'.wkfosPrevisaoLiberacao')]");
+	public static By botaoAbrirCalendario = By.xpath("//input[contains(@name,'.wkfosPrevisaoLiberacao')]//following-sibling::button[@ng-click='openCalendar($event)']");
+	public static By botaoHojeCalendario = By.xpath("//button[@class='btn btn-sm btn-info ng-binding' and text()='Hoje']");
+	public static By botaoLimparCalendario = By.xpath("//button[@class='btn btn-sm btn-danger ng-binding' and text()='Limpar']");
+	public static By campoPrevisaoLiberacaoDesabilitado = By.xpath("//section[contains(@style,'display: none')]//child::input[contains(@name,'.wkfosPrevisaoLiberacao')]");
+	public static By campoCriticidadeDesabilitado = By.xpath("//*[contains(@name,'.wkfosCriticidade') and contains(@style,'display: none')]");
+	public static By campoPrioridade = By.xpath("//*[contains(@name,'.wkfosPrioridade') or contains(@id,'.wkfosPrioridade') ]");
+	public static By campoDificuldadeDesabilitado = By.xpath("//*[contains(@name,'.wkfosDificuldade') and contains(@style,'display: none')]");
+	public static By campoCodigoAcao = By.xpath("//input[contains(@name,'wkfositAcao') and @posicao=0]");
+	public static By campoCodigoDestinatario = By.xpath("//input[contains(@name,'wkfositIdUsuarioDestino') and @posicao=0]");
+	public static By botaoFecharRotina = By.xpath("//div[contains(@data-original-title,'WKF008')]//following::*[@class=('fechar rotina-fechar')]");
+	public static By situacaoOS = By.xpath("//select[contains(@name,'wkfosSituacao') or contains(@id,'wkfosSituacao')]");
+	public static By janelaAvaliacaoPcadp028 = By.xpath("//div[@data-original-title='(CADP28) Informações Adicionais']");
+	public static By botaoAbrirPcadp028 = By.xpath("//button[contains(@name,'botaoInformacoesAdicionais') and @registro-selecionado='true']");
+	public static By janelaAnexosDoRepasse = By.xpath("//div[text()='Anexos do Repasse']");
+	public static By botaoAddAnexo = By.xpath("//input[contains(@name,'pathDoc') and @posicao=0]//following-sibling::div[contains(@ng-click,'adicionarArquivo($event)')]");
+	public static By botaoRemoverAnexo = By.xpath("//input[contains(@name,'pathDoc') and @posicao=0]//following-sibling::div[contains(@ng-click,'removerArquivo()')]");
+	public static By botaoBaixarAnexo = By.xpath("//input[contains(@name,'pathDoc') and @posicao=0]//following-sibling::div[contains(@class,'btn btn-default btn-file baixar')]");
+	public static By mensagemOsRegistrosNaoPodemSerAlterados = By.xpath("//div[text()='Os registros já existentes deste bloco não podem ser alterados!']");
+	public static By mensagemNaoPodeAddAnexo = By.xpath("//div[text()='Não é permitido inclusão de registros neste bloco!']");
+	public static By descricaoArquivoAnexo = By.xpath("//input[contains(@name,'pathDoc') and @posicao=0]");
+	public static By fecharJanelaAddAnexo = By.xpath("//div[text()='Anexos do Repasse']//following::div[@class='janela-fechar']");
+	public static By botaoAddNovoAnexo = By.xpath("//input[contains(@name,'pathDoc') and @posicao=1]//following-sibling::div[contains(@ng-click,'adicionarArquivo($event)')]");
+	public static By botaoAnexoJaAdicionado = By.xpath("//button[contains(@name,'.botaoAnexo') and not(contains(@style,'display: none'))]");
+	public static By mensagemArquivoNaoLocalizado = By.xpath("//*[contains(text(),'Arquivo não localizado:')]");
+	public static By abaInformacaoesAdicionais = By.xpath("//div[text()='Informações Adicionais']");
+	public static By abaRepasses = By.xpath("//div[text()='Repasses']");
+	public static By detalhesRepasseAnterior = By.xpath("//textarea[contains(@id,'wkfositDetalhes-2')]");
+	public static By tipoOs = By.xpath("//select[contains(@id,'.wkfosTipoOs-')]");
+
+}

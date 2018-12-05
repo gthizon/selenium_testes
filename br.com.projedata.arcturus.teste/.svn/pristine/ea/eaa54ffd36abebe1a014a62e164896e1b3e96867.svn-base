@@ -1,0 +1,138 @@
+package br.com.projedata.arcturus.teste.testes;
+
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.barraRolagemProximoRelatorio;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.barraRolagemProximoRelatorioDesabilitada;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.campoCodigoRelatorio;
+
+import java.awt.image.BufferedImage;
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.util.ArrayList;
+
+import javax.imageio.ImageIO;
+
+import org.apache.pdfbox.cos.COSName;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageTree;
+import org.apache.pdfbox.pdmodel.PDResources;
+import org.apache.pdfbox.pdmodel.graphics.PDXObject;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import com.google.zxing.BinaryBitmap;
+import com.google.zxing.ChecksumException;
+import com.google.zxing.FormatException;
+import com.google.zxing.LuminanceSource;
+import com.google.zxing.MultiFormatReader;
+import com.google.zxing.NotFoundException;
+import com.google.zxing.Reader;
+import com.google.zxing.Result;
+import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
+import com.google.zxing.common.HybridBinarizer;
+
+import OnBarcode.Barcode.BarcodeScanner.BarcodeScanner;
+import OnBarcode.Barcode.BarcodeScanner.BarcodeType;
+import br.com.projedata.arcturus.teste.metodosgenericos.AtualizadorMetodos;
+import br.com.projedata.arcturus.teste.metodosgenericos.ConstrutorTelasMetodos;
+import br.com.projedata.arcturus.teste.metodosgenericos.LoginMetodos;
+import br.com.projedata.arcturus.teste.recursos.TesteGenerico;
+
+public class teste extends TesteGenerico {
+
+	String elementoFocado;
+	LoginMetodos login;
+	AtualizadorMetodos atualiza;
+	ConstrutorTelasMetodos metodosConstrutor;
+
+	@Parameters(value = { "login", "senha", "base" })
+	@Test(testName = "id: ?? - Testar consulta utilizando operador maior ou igual.")
+	public void testarConsultaComOperadorMaiorOuIgual(String usuario, String senha, String base) throws Exception {
+		login = new LoginMetodos(this);
+		login.logar(usuario, senha, base);
+		rotina.selecionarRotina("ger001");
+		selecionarRelatorioParaEdicao("rger21");
+		acao.clicarNoElemento("botaoExecutar-1");
+		espera.aguardarElementoEstarVisivel(rotina.botaoProcessarFiltros);
+		espera.aguardarElementoEstarVisivel("numero_os-1");
+		acao.limparElemento("numero_os-1");
+		acao.escreverNoElemento("numero_os-1", "1147");
+		acao.clicarNoElemento(rotina.botaoProcessarFiltros);
+		espera.aguardarElementoDesaparecer(rotina.botaoProcessarFiltros);
+		espera.aguardarPdfSerGerado();
+
+		for (String codigoBarras : retornarCodigoBarras()) {
+			testar.passouSeValorContem("51465589570001, 1147", codigoBarras);
+			System.out.println(codigoBarras);
+		}
+	}
+
+	public ArrayList<String> retornarCodigoBarras() throws IOException, NotFoundException, ChecksumException, FormatException {
+
+		WebDriverWait wait = new WebDriverWait(webDriver, 15);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='conteudo conteudo-relatorio']//iframe")));
+		WebElement element = webDriver.findElement(By.xpath("//iframe[1]"));
+		String data = element.getAttribute("src");
+		URL url = new URL(data);
+		BufferedInputStream file = new BufferedInputStream(url.openStream());
+		PDDocument document = PDDocument.load(file);
+		PDPageTree list = document.getPages();
+		ArrayList<String> codigoBarras = new ArrayList<>();
+		for (PDPage page : list) {
+			PDResources pdResources = page.getResources();
+			for (COSName c : pdResources.getXObjectNames()) {
+				PDXObject o = pdResources.getXObject(c);
+				if (o instanceof org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject) {
+					org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject imagem = ((org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject) o);
+					Reader reader = new MultiFormatReader();
+					BufferedImage buffImage = imagem.getImage();
+					LuminanceSource lsrc = new BufferedImageLuminanceSource(buffImage);
+
+					BinaryBitmap bitmap = new BinaryBitmap(new HybridBinarizer(lsrc));
+					try {
+						Result result = reader.decode(bitmap);
+						codigoBarras.add(result.getText());
+					} catch (NotFoundException e) {
+						// TODO: handle exception
+					}
+				}
+			}
+		}
+		return codigoBarras;
+	}
+
+	public void selecionarRelatorioParaEdicao(String relatorio) {
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(campoCodigoRelatorio, 0);
+		rotina.aguardarProcessarRotina();
+		rotina.limparCampoERealizarNovaConsulta();
+		int posicao = 0;
+		while (!acao.localizarElementos(campoCodigoRelatorio).get(posicao).getAttribute("value").equals(relatorio)) {
+			if (acao.localizarElementos(barraRolagemProximoRelatorioDesabilitada).size() == 0) {
+				acao.clicarNoElemento(barraRolagemProximoRelatorio);
+				rotina.aguardarProcessarRotina();
+				posicao = -1;
+			}
+			posicao++;
+		}
+		acao.clicarNoElemento(campoCodigoRelatorio, posicao);
+		rotina.aguardarProcessarRotina();
+	}
+
+	public void decodeImage() throws Exception {
+
+		String imgPath = "/home/gustavo/eclipse-workspace/br.com.projedata.arcturus.teste/barras.jpg";
+		String[] data = BarcodeScanner.Scan(imgPath, BarcodeType.Code128);
+		for (String string : data) {
+			System.out.println(string);
+		}
+	}
+
+}

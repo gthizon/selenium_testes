@@ -1,0 +1,134 @@
+package br.com.projedata.arcturus.teste.testes;
+
+import java.util.ArrayList;
+import java.util.Map;
+
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.core.MediaType;
+
+import org.openqa.selenium.Keys;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import br.com.projedata.arcturus.teste.metodosgenericos.LoginMetodos;
+import br.com.projedata.arcturus.teste.recursos.TesteGenerico;
+
+public class TesteParc020 extends TesteGenerico {
+
+	String nomeOrigemIntegracao = "teste automatizado";
+	String nomeAlteradoIntegracao = "teste alteracao integracao";
+	LoginMetodos log;
+	String campoIdRegistroCriado;
+	String campoIdAcessoIntegracao;
+	int posicaoRegistro = 0;
+
+	@Parameters(value = { "login2", "senha", "base" })
+	@Test(testName = "id: 1 - Abrir rotina Parc020.")
+	public void abrirParc020(String login, String senha, String base) {
+		log = new LoginMetodos(this);
+		log.logar(login, senha, base);
+		rotina.selecionarRotina("arc020");
+	}
+
+	@Test(testName = "id: 2 - Inserir nova integração.", dependsOnMethods = { "abrirParc020" })
+	public void inserirNovaIntegracao() {
+		acao.clicarNoElemento(rotina.botaoNovo);
+		rotina.aguardarProcessarRotina();
+		posicaoRegistro = Integer.parseInt(rotina.posicaoRegistro()) - 1;
+		acao.clicarNoElemento("ARCINTEGRACAONome", posicaoRegistro);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElemento("ARCINTEGRACAONome", posicaoRegistro, "teste automatizado");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento("ARCINTEGRACAONomeObjeto", posicaoRegistro + 1);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElemento("ARCINTEGRACAONomeObjeto", posicaoRegistro + 1, "EventoAlteracaoEmpresa");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.selecionarNoElemento("ARCINTEGRACAOSituacao", posicaoRegistro, "Ativo");
+		rotina.salvarEAguardarMensagemRegistrosAlterados();
+		campoIdRegistroCriado = acao.retornarValorDoElementoNaPosicao("ARCINTEGRACAOId", posicaoRegistro);
+	}
+
+	@Test(testName = "id: 3 - Inserir acessos para a integração.", dependsOnMethods = { "inserirNovaIntegracao" })
+	public void inserirAcessosIntegracao() {
+		acao.clicarNoElemento("ARCINTEGRACAOACESSOIdUsuario", 0);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElemento("ARCINTEGRACAOACESSOIdUsuario", "21");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElemento("ARCINTEGRACAOACESSOIdBaseEmpresa", "1");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.selecionarNoElemento("ARCINTEGRACAOACESSOSituacao", "Ativo");
+		rotina.salvarEAguardarMensagemRegistrosAlterados();
+		campoIdAcessoIntegracao = acao.retornarValorDoElementoNaPosicao("ARCINTEGRACAOACESSOId", 0);
+	}
+
+	@Test(testName = "id: 4 - Excluir integração.", dependsOnMethods = { "inserirAcessosIntegracao" })
+	public void excluirIntegracao() {
+		acao.clicarNoElemento(rotina.botaoLimparConsulta);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElemento("ARCINTEGRACAOACESSOId", campoIdAcessoIntegracao);
+		acao.clicarNoElemento(rotina.botaoConsultar);
+		rotina.aguardarProcessarRotina();
+		rotina.excluirESalvar();
+		acao.clicarNoElemento("ARCINTEGRACAOId", 0);
+		acao.clicarNoElemento(rotina.botaoLimparConsulta);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElemento("ARCINTEGRACAOId", 0, campoIdRegistroCriado);
+		acao.clicarNoElemento(rotina.botaoConsultar);
+		rotina.aguardarProcessarRotina();
+		rotina.excluirESalvar();
+	}
+
+	@Test(testName = "id: 5 - Alterar integração.", dependsOnMethods = { "excluirIntegracao" })
+	public void alterarIntegracao() {
+		acao.clicarNoElemento("ARCINTEGRACAOId", 0);
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(rotina.botaoLimparConsulta);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElemento("ARCINTEGRACAOId", 0, "6");
+		acao.clicarNoElemento(rotina.botaoConsultar);
+		rotina.aguardarProcessarRotina();
+		acao.limparElementoNaPosicao("ARCINTEGRACAONome", 0);
+		acao.escreverNoElementoNaPosicao("ARCINTEGRACAONome", 0, nomeAlteradoIntegracao);
+		rotina.salvarEAguardarMensagemRegistrosAlterados();
+	}
+
+	@Test(testName = "id: 6 - Verificar log da integração.", dependsOnMethods = { "alterarIntegracao" })
+	public void verificarLogIntegracaoAlteracao() {
+		acao.selecionarAba("abaLog");
+		String log = acao.retornarValorDoElementoNaPosicao("ARCINTEGRACAOLOGDetalhes", 0);
+		String tipoAcao = acao.retornarValorSelecionadoNoElemento("ARCINTEGRACAOLOGTipo", 0);
+		testar.passouSeValorContem(log, nomeOrigemIntegracao);
+		testar.passouSeValorDoElementoSelecionadoFor("ARCINTEGRACAOLOGTipo", tipoAcao);
+		acao.clicarNoElemento("ARCINTEGRACAOId", 0);
+		rotina.aguardarProcessarRotina();
+		acao.limparElementoNaPosicao("ARCINTEGRACAONome", 0);
+		acao.escreverNoElementoNaPosicao("ARCINTEGRACAONome", 0, nomeOrigemIntegracao);
+		rotina.salvarEAguardarMensagemRegistrosAlterados();
+		log = acao.retornarValorDoElementoNaPosicao("ARCINTEGRACAOLOGDetalhes", 0);
+		tipoAcao = acao.retornarValorSelecionadoNoElemento("ARCINTEGRACAOLOGTipo", 0);
+		testar.passouSeValorContem(log, nomeAlteradoIntegracao);
+		testar.passouSeValorDoElementoSelecionadoFor("ARCINTEGRACAOLOGTipo", tipoAcao);
+	}
+
+	@SuppressWarnings("rawtypes")
+	@Test(testName = "id: 7 - Executar uma integração e verificar se retornará resposta.", dependsOnMethods = {
+			"verificarLogIntegracaoAlteracao" })
+	public void testarIntegracao() {
+		Map dados = ClientBuilder.newClient()
+				.target("http://arcturus-teste.prj:8881/arcturus/integracao/json?nome=automacao&nome=integracao")
+				.request(MediaType.APPLICATION_JSON)
+				.header("Authorization",
+						"Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJhcmN0dXJ1cyIsImlhdCI6MTU0MTQ0MjY4Niwic3ViIjoie2lkSW50ZWdyYWNhbzogMjIsIGlkQWNlc3NvOiAxOH0iLCJpc3MiOiJici5jb20ucHJvamVkYXRhLmludGVncmFjYW8ifQ.6N7B7C7ykkeLoVFdw4EAChDd_CP7flzeaTTWZyQLBoTjVuVqQ3I6TZAZ0gu-cQ6Xu_33yLsvB7OdAhj1wWadpA")
+				.get(Map.class);
+		@SuppressWarnings("unchecked")
+		ArrayList<String> nomes = (ArrayList<String>) dados.get("nome");
+		String automacao = nomes.get(0);
+		String integracao = nomes.get(1);
+		testar.passouSeValoresForemIguais(automacao, "automacao");
+		testar.passouSeValoresForemIguais(integracao, "integracao");
+	}
+}

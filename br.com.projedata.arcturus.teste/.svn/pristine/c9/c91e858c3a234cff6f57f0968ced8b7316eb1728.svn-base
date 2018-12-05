@@ -1,0 +1,84 @@
+package br.com.projedata.arcturus.teste.testes;
+
+import static br.com.projedata.arcturus.teste.webelements.Parc008Elementos.campoComando;
+import static br.com.projedata.arcturus.teste.webelements.Parc008Elementos.*;
+
+import org.openqa.selenium.Keys;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import br.com.projedata.arcturus.teste.metodosgenericos.LoginMetodos;
+import br.com.projedata.arcturus.teste.metodosgenericos.Pger001Metodos;
+import br.com.projedata.arcturus.teste.recursos.Rotina;
+import br.com.projedata.arcturus.teste.recursos.TesteGenerico;
+import br.com.projedata.arcturus.teste.webelements.AtualizadorElementos;
+
+public class TesteParc008 extends TesteGenerico {
+
+	LoginMetodos log;
+	Rotina rotina;
+	AtualizadorElementos atualizador;
+	Pger001Metodos ger001;
+	String idRegistro;
+
+	@Parameters(value = { "login", "senha", "base" })
+	@Test(testName = "id: 1 - Testar quantidade de caracteres no campo textarea.")
+	public void quantidadeCaracteresTextArea(String login, String senha, String base) {
+		log = new LoginMetodos(this);
+		rotina = new Rotina(webDriver);
+		log.logar(login, senha, base);
+		rotina.selecionarRotina("arc008");
+		acao.clicarNoElemento(rotina.botaoLimparConsulta);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElemento(campoIdConsulta, "3");
+		acao.clicarNoElemento(rotina.botaoConsultar);
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(campoComando);
+		teclado.pressionarTeclaDeControle(Keys.ARROW_DOWN);
+		String texto = "Fim do texto!!!";
+		acao.escreverNoElemento(campoComando, texto);
+		acao.clicarNoElemento(rotina.botaoSalvar);
+		espera.aguardarElementoEstarVisivel(msg.mensagemNaoHaPendentes);
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		espera.aguardarElementoDesaparecer(msg.mensagemNaoHaPendentes);
+	}
+
+	@Test(testName = "id: 2 - Inserir nova consulta.", dependsOnMethods = { "quantidadeCaracteresTextArea" })
+	public void inserirNovaConsulta() {
+		rotina.aguardarProcessarRotina();
+		teclado.pressionarTeclaDeControle(Keys.F6);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElemento(campoNomeConsulta, "Consulta Auto");
+		acao.escreverNoElemento(campoChaveConsulta, "Consulta Auto");
+		acao.escreverNoElemento(campoComando, "select * from testeconsulta");
+		rotina.salvarEAguardarMensagemRegistrosAlterados();
+		rotina.posicionarFocoNoElemento(botaoCarregarConsulta);
+		acao.clicarNoElemento(botaoCarregarConsulta);
+		msg.aguardarMensagem("Colunas carregadas com sucesso");
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		msg.aguardarMensagemDesaparecer("Colunas carregadas com sucesso");
+		testar.passouSeAtributoDoElementoNaoForNulo(campoColunaConsulta, "value");
+	}
+
+	@Test(testName = "id: 3 - Excluir consulta.", dependsOnMethods = { "inserirNovaConsulta" })
+	public void excluirConsulta() {
+		acao.clicarNoElemento(campoColunaConsulta, 0);
+		while (!rotina.buscarElementos(campoColunaConsulta, 0).getAttribute("value").isEmpty()) {
+			teclado.pressionarConjuntoDeTeclasDeControle(Keys.SHIFT, Keys.F6);
+			rotina.aguardarProcessarRotina();
+		}
+		acao.clicarNoElemento(rotina.botaoSalvar);
+		espera.aguardarElementoEstarVisivel(msg.mensagemRegistrosAlterados);
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		espera.aguardarElementoDesaparecer(msg.mensagemRegistrosAlterados);
+		acao.clicarNoElemento(campoIdConsulta);
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(rotina.botaoExcluir);
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(rotina.botaoSalvar);
+		espera.aguardarElementoEstarVisivel(msg.mensagemRegistrosAlterados);
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		espera.aguardarElementoDesaparecer(msg.mensagemRegistrosAlterados);
+	}
+
+}

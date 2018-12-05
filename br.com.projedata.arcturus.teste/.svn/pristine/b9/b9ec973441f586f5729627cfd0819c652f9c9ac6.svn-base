@@ -1,0 +1,353 @@
+package br.com.projedata.arcturus.teste.webelements;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+import br.com.projedata.arcturus.teste.recursos.AcoesDriver;
+import br.com.projedata.arcturus.teste.recursos.Espera;
+import br.com.projedata.arcturus.teste.recursos.Mensagem;
+import br.com.projedata.arcturus.teste.recursos.Mouse;
+import br.com.projedata.arcturus.teste.recursos.Navegador;
+import br.com.projedata.arcturus.teste.recursos.Teclado;
+import br.com.projedata.arcturus.teste.recursos.TesteGenerico;
+
+public class AtualizadorElementos {
+	
+	private TesteGenerico teste;
+	private WebDriver webDriver = null;
+	private AcoesDriver acao;
+	private Mensagem msg;
+	private Teclado teclado;
+	private Espera espera;
+	private Navegador navegador;
+	private Mouse mouse;
+
+	public AtualizadorElementos(TesteGenerico teste) {
+		
+		this.teste = teste;
+		this.acao = teste.acao;
+		this.teclado = teste.teclado;
+		this.webDriver = teste.webDriver;
+		this.msg = teste.msg;
+		this.espera = teste.espera;
+		this.navegador = teste.navegador;
+		this.mouse = teste.mouse;
+	}
+
+	public static By idAtualizacao = By.id("id-atualizacao");
+	public static By buscaAtualizacao = By
+			.xpath("//*[contains(@class,'botao-buscar') and contains (@ng-show,'atualizacao.id')]");
+	public static By dificuldade = By.id("dificuldade");
+	public static By prioridade = By.id("prioridade");
+	public static By dataLancamento = By.xpath("//*[contains(@ng-value,'dataLancamento')]");
+	public static By dataCriacao = By.xpath("//*[contains(@ng-value,'dataCriacao')]");
+	public static By descricaoTecnica = By.id("descricaoTecnicaTextArea");
+	public static By descricaoTecnicaAba = By.id("descricaoTecnicaAba");
+	public static By descricaoTestes = By.id("descricaoTesteTextArea");
+	public static By descricaoTestesAba = By.xpath("//*[contains(@heading,'Descrição Testes')]");
+	public static By descricaoCliente = By.id("descricaoClienteTextArea");
+	public static By descricaoClienteAba = By.xpath("//*[contains(@heading,'Descrição para Cliente')]");
+	public static By historico = By.xpath("//*[contains(@heading,'Histórico')]");
+	public static By dependencias = By.xpath("//*[contains(@heading,'Dependências')]");
+	public static By botaoDesenvolver = By.xpath("//button[contains(@ng-click,'desenvolver()')]");
+	public static By botaoEnviarAtualizacao = By
+			.xpath("//button[contains(@ng-click,'enviarAtualizacao()') and @ng-if='!permissaoResgatar']");
+	public static By botaoVoltar = By.xpath("//button[contains(@ng-click,'atualizacao.mostraInformacoesBasicas')]");
+	public static By localizarRotina = By
+			.xpath("//input[(@type=\"text\" and @placeholder=\"Localizar\") or @id='localizarRotina']");
+	public static By botaoAcessarAtualizador = By.xpath("//li[contains(text(),'admin')]");
+	public static By paginaInicial = By.className("admin-rodape");
+	public static By menuAtualizacoes = By.xpath("//span[text()='Atualizações']");
+	public static By botaoSalvar = By.xpath("//*[contains(@ng-click,'salvar()') and @class='fab green']");
+	public static By mensagemSucesso = By.xpath("//*[contains(@class,'arcbox-notify-success')]");
+	public static By telaDesenvolverAtualizacao = By
+			.xpath("//*[contains(@class, 'ng-hide') and (@ng-show= '!atualizacao.mostraInformacoesBasicas')]");
+	public static By guiaTodos = By.xpath("//*[contains(@heading,'Todos')]");
+	public static By guiaRotinas = By.xpath("//*[contains(@heading,'Rotinas')]");
+	public static By guiaObjetosNegocio = By.xpath("//*[contains(@heading,'Objetos de Negócio')]");
+	public static By guiaComandosBancoDados = By.xpath("//*[contains(@heading,'Comandos de Banco de Dados')]");
+	public static By botaoInserirComando = By.xpath("//*[contains(@ng-click,'inserirComando()')]");
+	public static By botaoVisualizaComandos = By.xpath("//*[contains(@ng-click,'visualizarTodosComandos()')]");
+	public static By modalComandosAberto = By.xpath("//*[@id='modalComando' and @style='display: block;']");
+	public static By modalComandosFechado = By.xpath("//*[@id='modalComando' and @style='display: none;']");
+	public static By separadorComandos = By.id("separador-comando");
+	public static By editorSql = By.xpath("//*[@id='editorSQL']//preceding::textarea[@class='ace_text-input']");
+	public static By botaoSalvarComandos = By.xpath("//button[@ng-click='salvarComando()']");
+	public static By totalDeTresComandos = By.xpath(
+			"//tr[3][contains(@ng-repeat,'modificacao in atualizacao.modificacoes') and @class='ng-scope bold']//parent::td[text()='select abc from teste3']");
+	public static By botaoExcluirComandoBd = By.xpath(
+			"//tr[3][contains(@ng-repeat,'modificacao in atualizacao.modificacoes')]//following::a[1][@ng-click='excluiModificacao(modificacao)']");
+	public static By botaoInserirRotina = By.xpath("//*[contains(@ng-click,'inserirRotina()')]");
+	public static By lovRotinasAberta = By
+			.xpath("//*[contains(@class,'modal-title ng-binding') and (text()='Rotinas')]");
+	public static By selecionaRotinaObjeto = By
+			.xpath("//tr[@ng-click='lovReturn({retorno:item.data})']//following-sibling::td[text()='pwkf007']");
+	public static By lovRotinaFechada = By.xpath("//*[contains(@id,'modalLov') and contains(@style,'display: none;')]");
+	public static By confirmarSelecaoRotina = By
+			.xpath("//*[contains(@class,'btn btn-success') and contains(@ng-click,'salvarRotina()')]");
+	public static By janelaRepasse = By.xpath("//*[contains(@class,'modal-title') and contains(text(),'Repasse')]");
+	public static By campoAcao = By.id("acao");
+	public static By campoDestinoRepasse = By.id("repasse-usuario-destino");
+	public static By campoDetalhesRepasse = By.id("detalhes");
+	public static By botaoConfirmarRepasse = By
+			.xpath("//*[contains(@ng-hide,'atualizacaoAcao.estado') and (@ng-click='salvarRepasse()')]");
+	public static By botaoInserirObjetoNegocio = By.xpath("//*[contains(@ng-click,'inserirObjetoNegocio()')]");
+	public static By lovObjetosAberta = By
+			.xpath("//*[contains(@class,'modal-title ng-binding') and (text()='Objetos Negócio Usuário')]");
+	public static By confirmarSelecaoObjeto = By
+			.xpath("//*[contains(@class,'btn btn-success') and contains(@ng-click,'salvarObjetoNegocio()')]");
+	public static By abrirAtualizacaoJaCriada = By.xpath("//*[(@ng-click='at.abreRotina(menu.nome,item)')]");
+	public static By notificacaoCantoDaTela = By.xpath("//*[contains(@class,'arcbox-notify-wrapper bottom right')]");
+	public static By atalhoFerramentas = By.xpath("//*[@class='fa fa-cogs']");
+	public static By listaOpcoesAtalhoFerramentas = By
+			.xpath("//*[contains(@class,'dropdown-toggle navbar-button') and contains(@aria-expanded,'true')]");
+	public static By opcaoSair = By.xpath("//*[contains(@ng-click,'at.sair()')]");
+	public static By menuAplicarAtualizacao = By.xpath("//span[text()='Aplicar Atualizações']");
+	public static By lovClientes = By.xpath("//h4[(@class='modal-title ng-binding') and (text()='Clientes')]");
+	public static By clienteProjedataDev = By
+			.xpath("//td[(@class='ng-binding ng-scope') and (text()='Projedata Desenvolvimento')]");
+	public static By quadroSelecionarBaseCliente = By.xpath(
+			"//*[@class='col-lg-3 col-md-4 col-sm-6 col-xs-12']//parent::h3[text()='Projedata Desenvolvimento']");
+	public static By selecaoAmbiente = By.id("ambiente");
+	public static By selecionaBaseHomologacao = By.linkText("Testes Automatizados");
+	public static By situacao = By.xpath("//*[@ng-model='situacaoAcao']");
+	public static By botaoAplicar = By.xpath("//*[@ng-click='aplica()']");
+	public static By atualizacoesPendentes = By.xpath("//td/input[@type='checkbox']");
+	public static By janelaConfirmaAplicacao = By
+			.xpath("//*[contains(@class,'arcbox arcbox-confirm')]//parent::*[contains(text(),'Aplicar atualizações')]");
+	public static By historicoDisponivelParaTestes = By
+			.xpath("//tr[1]//ancestor::td[(text()='Disponível para Testes')]");
+	public static By abrirOpcaoFazerRepasseTestes = By.xpath("//button[contains(@ng-if,'aplicarTestes')]");
+	public static By botaoRealizarRepasseDisponivelParaTestes = By.linkText("Encaminhar atualizações para testes");
+	public static By resgatarAtualizacao = By.xpath("//button[@ng-if='permissaoResgatar']");
+	public static By janelaConfirmacao = By.xpath("//*[contains(@class, 'arcbox arcbox-confirm')]");
+	public static By simConfirmacao = By.xpath("//button[@data-type='yes']");
+	public static By guiaModificacoesCadastros = By.xpath(
+			"//li[contains(@heading,'Modificação de Cadastro')]//ancestor::a[contains(text(),'Modificação de Cadastros')]");
+	public static By selecionarModificacoesCadastros = By
+			.xpath("//td[text()='JACTQU']//preceding::input[1][@type='checkbox']");
+	public static By confirmarSelecaoModificacoesCadastros = By.xpath("//*[@ng-click='salvaModificacaoCadastro()']");
+	public static By inserirModificacoesCadastros = By.xpath("//button[@ng-click='novaModificacaoDeCadastro(false)']");
+	public static By lovTabelaModificacoes = By.xpath("//h4[text()='Tabelas de Modificação']");
+	public static By selecionarOpcaoObjetoNegocio = By
+			.xpath("//td[text()='Objeto de Negócio' and (@class='ng-binding ng-scope')]");
+	public static By lovModificacaoCadastro = By
+			.xpath("//ol[@class='mod-cadastro-progress']//ancestor::a[text()='Objeto de Negócio']");
+	public static By lancarAtualizacao = By.xpath("//button[@ng-click='lancaAtualizacao()']");
+	public static By versaoGerada = By.xpath("//span[@class='label label-primary versao ng-binding ng-scope']");
+	public static By botaoBuscarAtualizacoes = By.xpath("//button[@ng-click='sincroniza()']");
+	public static By BaseHomologacaoCliente = By.linkText("Homologacao");
+	public static By listaAtualizacoesPendentes = By.xpath("//th[text()='ID/Versão']");
+	public static By selecionarAtualizacaoParaAplicar = By.xpath("//span[text()='2017.05.13']//preceding::input[1]");
+	public static By mensagemRotinaEmUso = By
+			.xpath("//div[(@class='arcbox-notify-msg') and (contains(text(),'Rotina em uso por'))]");
+	public static By reservarRotina = By.id("modalReservaRotinaAtualizacao");
+	public static By cancelarReservarRotina = By
+			.xpath("//*[@id='modalReservaRotinaAtualizacao']//parent::button[text()='Cancelar']");
+	public static By idAtualizacaoDesabilitada = By.xpath("//input[@id='id-atualizacao' and @disabled='disabled']");
+	public static By acaoAtualHistorico = By.xpath("//li[@heading='Histórico']//following::td[3]");
+	public static By botaoCancelarRepasse = By.xpath("//button[@ng-click='cancelarRepasse()']");
+	public static By abaDependencias = By.xpath("//li[contains(@heading,'Dependências')]");
+	public static By botaoInserirDependencias = By.xpath("//button[@ng-click='inserirDependencia()']");
+	public static By lovAtualizacoesNaoFinalizadas = By.xpath("//h4[text()='Atualizações Não Finalizadas']");
+	public static By selecionarDependencia = By
+			.xpath("//h4[text()='Atualizações Não Finalizadas']//following::td[contains(text(),'Validar')]");
+	public static By idAtualizacaoDependente = By.xpath("//tr[1][@ng-class='classeItem(dependencia)']//child::td[1]");
+	public static By buscarAtualizacaoDependente = By.xpath("//h4[contains(text(),'Atualizações Não Finalizadas')]//following::input[@id='lovSearchText']");
+	public static By excluirDependencia = By.xpath(
+			"//tr[1][@ng-class='classeItem(dependencia)']//child::a[@ng-click='excluirDependencia(dependencia)']");
+	public static By mensagemAtualizacaoComDependencia = By
+			.xpath("//*[contains(text(),'Atualização contém dependências que ainda não foram lançadas.')]");
+	public static By anexo1AdicionadoAoRepasse = By.xpath(
+			"//tr[1][@ng-repeat='anexo in atualizacaoAcao.anexos track by $index']//preceding::i[1][@class='fa fa-paperclip']");
+	public static By anexo2AdicionadoAoRepasse = By.xpath(
+			"//tr[2][@ng-repeat='anexo in atualizacaoAcao.anexos track by $index']//preceding::i[1][@class='fa fa-paperclip']");
+	public static By botaoInserirAnexoRepasse = By.xpath("//*[@ng-click='adicionaArquivoRepasse()']");
+	public static By botaoExcluirAnexo = By.xpath(
+			"//tr[1][@ng-repeat='anexo in atualizacaoAcao.anexos track by $index']//preceding::i[1][@class='fa fa-trash']");
+	public static By imagemUsuario = By.xpath("//*[@class='img-circle imagem-usuario no-select']");
+	public static By menuInicio = By.xpath("//span[text()='Início']");
+	public static By menuHomologar = By.xpath("//span[text()='Homologar']");
+	public static By mensagemConfirmarAprovacaoAtualizacao = By
+			.xpath("//span[text()='Confirma aprovação da atualização selecionada?']");
+	public static By mensagemAtualizacaoAplicada = By
+			.xpath("//div[text()='Atualização enviada para aplicação nas bases de testes']");
+	public static By janelaHomologarAtualizacoes = By
+			.xpath("//div[@class='box-header']//following-sibling::h3[text()='Atualizações']");
+	public static By menuRascunhos = By.xpath("//span[text()='Rascunhos']");
+	public static By telaRascunhosAberta = By.xpath("//div[@class='box-header']//parent::h3[text()='Rascunhos']");
+	public static By campoLocalizarRascunho = By.xpath(
+			"//div[@class='box-header']//parent::h3[text()='Rascunhos']//following::input[@placeholder='Buscar'][1]");
+	public static By abrirRascunhoConstrutor = By
+			.xpath("//p[starts-with(@title,'P')]//following::p[@class='label label-primary  ng-scope'][1]");
+	public static By abrirRascunhoConstrutorModoListagem = By
+			.xpath("//div[contains(@class, 'rascunho-table')]//parent::td[text()='pwkf007']");
+	public static By mensagemAbrirRascunhoNoConstrutor = By
+			.xpath("//*[contains(text(),'Abrir rotina no construtor?')]");
+	public static By abaOSsAtendidas = By
+			.xpath("//a[@class='nav-link ng-binding' and contains(text(), 'OSs Atendidas')]");
+	public static By botaoInserirOs = By.xpath("//button[@ng-click='inserirOS()']");
+	public static By lovListaOSs = By.xpath("//h4[@class='modal-title ng-binding' and text()='Ordens de Serviço']");
+	public static By selecionaOS = By.xpath("//td[@class='ng-binding ng-scope' and text()='114695']");
+	public static By osAdicionada = By.xpath("//tr[@class='ng-scope bold']//parent::td[text()='114695']");
+	public static By botaoVoltarAoPortal = By.linkText("Voltar ao portal");
+	public static By mensagemDeveTerOsCadastrada = By
+			.xpath("//div[contains(text(),'Informe ao menos uma Ordem de Serviço.')]");
+	public static By botaoExcluirOs = By.xpath("//a[@ng-click='excluirOs(os)']");
+	public static By paginaInicialCarregada = By
+			.xpath("//div[@class='loader ng-hide' and contains(@ng-show,'at.carregando')]");
+	public static By paginaInicialCarregando = By
+			.xpath("//div[@class='loader' and contains(@ng-show,'at.carregando')]");
+	public static By fecharJanelaAtualizacaoAberta = By.xpath("//i[@ng-click='at.fecharSubJanela(menu,item)']");
+	public static By subMenuAtualizacoes = By
+			.xpath("//h3[text()='Informações Básicas']//following::div[@class='btn-group submenu']");
+	public static By botaoCancelarAtualizacao = By.linkText("Cancelar Atualização");
+	public static By mensagemConfirmaCancelarAtualizacao = By.xpath("//b[contains(text(),'Cancelar atualização')]");
+	public static By mensagemAtualizacaoCancelada = By.xpath("//div[text()='Atualização cancelada.']");
+	public static By mensagemErroEnvioDeEmail = By.xpath("//*[contains(text(),'Erro no envio de e-mail:')]");
+	public static By mensagemOsEmUso = By
+			.xpath("//*[contains(text(),'Ordem de serviço número 97463 em uso na atualização')]");
+	public static By situacaoRotina = By.xpath("//span[contains(@ng-if,'r.situacao')]");
+	public static By modalFade = By.xpath("//div[contains(@class,'fade')]");
+
+	public static By rascunhoObjetoNegocio = By.xpath("//label[contains(@ng-class,'filtroTipo') and contains(text(),'Objetos de Negócio')]");
+	public static By pastaObjetos = By.xpath("//div[@class='item' and @ng-click='exibirGrupo(grupo)']//following::p[@class='nome ng-binding' and contains(text(),'objetos')]");
+	public static By objetoAsdUsuario = By.xpath("//td[@class='ng-binding' and contains(text(),'ASDUSUARIO')]");
+	public static By modalEditarObjetoNegocio = By.xpath("//div[contains(@id,'modalEditarObjetoNegocio')]");
+	public static By excluirAtributo1 = By.xpath("//*[@id=\"modalEditarObjetoNegocio\"]/div[2]/div[1]/div/div/div[3]/div/div/div[1]/table/tbody/tr[1]/td[11]/a");
+	public static By excluirAtributo2 = By.xpath("//*[@id=\"modalEditarObjetoNegocio\"]/div[2]/div[1]/div/div/div[3]/div/div/div[1]/table/tbody/tr[2]/td[11]/a");
+	public static By botaoSalvarObjetos = By.xpath("//button[text()='Salvar']");
+	public static By botaoCarregarAtributos = By.xpath("//button[@ng-click='carregarAtributosObjetoNegocio()']");
+	public static By atributosCarregados = By.xpath("//tr[@ng-repeat='atributo in versaoObjetoNegocioSelecionado.atributos' and @class='ng-scope bold']");
+	
+	
+
+	public static By listaPendenciasPaginaInicial(String posicao) {
+		return By.xpath("//table/tbody/tr[" + posicao + "]/td[1]/a");
+	}
+
+	public static By osMarcadaParaExclusao(String os) {
+		return By.xpath("//tr[@class='ng-scope excluido']//parent::td[text()='" + os + "']");
+	}
+
+	public static By osAdicionada(String os) {
+		return By.xpath("//tr[@class='ng-scope bold']//parent::td[text()='" + os + "']");
+	}
+
+	public static By selecionaOSs(String os) {
+		return By.xpath("//td[@class='ng-binding ng-scope' and text()='" + os + "']");
+	}
+
+	public static By botaoExcluirComandoBd(int posicao) {
+		return By.xpath("//tr[" + posicao
+				+ "]/td[1][(@class='ellipsis ng-binding')]//following::a[2][@ng-click='excluiModificacao(modificacao)']");
+	}
+
+	public static By selecionarDependencia(String atualiza) {
+		return By.xpath("//h4[text()='Atualizações Não Finalizadas']//following::td[text()='" + atualiza + "']");
+	}
+
+	public static By homologarAtualizacao(String atualiza) {
+		return By.xpath("//td[@ng-click='exibe(atualizacao)' and text()='" + atualiza + "'][1]");
+	}
+
+	public static By aprovarAtualizacao(String atualiza) {
+		return By.xpath("//td[@ng-click='exibe(atualizacao)' and text()='" + atualiza
+				+ "'][1]//following::a[@ng-click='aprovarAtualizacao(atualizacao)'][1]");
+	}
+
+	
+
+
+	/**
+	 * Métodos auxilares para limpeza de dados e consequente melhora nod desempenho
+	 * da aplicação.
+	 * 
+	 * @param driver
+	 * @throws InterruptedException
+	 */
+
+//	public void cancelarAtualizacoesAbertas(WebDriver driver) throws InterruptedException {
+//
+//		Login.Logar("gustavo.projedata", "guth055", "Testes Automatizados", driver);
+//		Atualizador.acessarAtualizador(driver);
+//		WebDriverWait wait = new WebDriverWait(driver, 15);
+//		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//table/tbody/tr[1]/td[1]/a")));
+//		Thread.sleep(500);
+//		int i = 1;
+//		ArrayList<String> atualizacoes = new ArrayList<>();
+//
+//		while (driver.findElements(By.xpath("//table/tbody/tr[" + i + "]/td[1]/a")).size() > 0) {
+//			atualizacoes.add(Atualizador.listaPendenciasPaginaInicial(driver, Integer.toString(i)).getText());
+//			i++;
+//		}
+//		Atualizador.menuAtualizacoes(driver).click();
+//		wait.until(ExpectedConditions.elementToBeClickable(Atualizador.idAtualizacao));
+//
+//		for (String at : atualizacoes) {
+//			Thread.sleep(1000);
+//			Atualizador.idAtualizacao(driver).sendKeys(at);
+//			FuncoesDiversasArcturus.pressionarEnter(driver);
+//			Thread.sleep(500);
+//			wait.until(ExpectedConditions.attributeToBeNotEmpty(Atualizador.descricaoTecnica(driver), "value"));
+//			FuncoesDiversasArcturus.fecharNotificacaoCantoDaTela(driver);
+//			Thread.sleep(500);
+//			Atualizador.subMenuAtualizacoes(driver).click();
+//			wait.until(ExpectedConditions.visibilityOfElementLocated(Atualizador.botaoCancelarAtualizacao));
+//			Atualizador.botaoCancelarAtualizacao(driver).click();
+//			wait.until(ExpectedConditions.visibilityOfElementLocated(Atualizador.mensagemConfirmaCancelarAtualizacao));
+//			Atualizador.simConfirmacao(driver).click();
+//			Thread.sleep(1000);
+//
+//			Atualizador.fecharJanelaAtualizacaoAberta(driver).click();
+//			wait.until(ExpectedConditions.visibilityOfElementLocated(Atualizador.idAtualizacao)).getAttribute("value")
+//					.isEmpty();
+//
+//			FuncoesDiversasArcturus.pressionarEsc(driver);
+//		}
+//	}
+//
+//	public void cancelarAtualizacoesLancadas(WebDriver driver) throws InterruptedException {
+//
+//		Login.Logar("gustavo.projedata", "guth055", "Testes Automatizados", driver);
+//		Atualizador.acessarAtualizador(driver);
+//
+//		WebDriverWait wait = new WebDriverWait(driver, 15);
+//		Thread.sleep(500);
+//
+//		String[] atu = new String[] {};
+//
+//		Atualizador.menuAtualizacoes(driver).click();
+//		wait.until(ExpectedConditions.elementToBeClickable(Atualizador.idAtualizacao));
+//
+//		for (String at : atu) {
+//
+//			Thread.sleep(1000);
+//			Atualizador.idAtualizacao(driver).sendKeys(at);
+//			FuncoesDiversasArcturus.pressionarEnter(driver);
+//			Thread.sleep(200);
+//			wait.until(ExpectedConditions.attributeToBeNotEmpty(Atualizador.descricaoTecnica(driver), "value"));
+//			FuncoesDiversasArcturus.fecharNotificacaoCantoDaTela(driver);
+//			Thread.sleep(500);
+//			Atualizador.subMenuAtualizacoes(driver).click();
+//			wait.until(ExpectedConditions.visibilityOfElementLocated(Atualizador.botaoCancelarAtualizacao));
+//			Atualizador.botaoCancelarAtualizacao(driver).click();
+//			wait.until(ExpectedConditions.visibilityOfElementLocated(Atualizador.mensagemConfirmaCancelarAtualizacao));
+//			Atualizador.simConfirmacao(driver).click();
+//			Thread.sleep(1000);
+//
+//			if (driver.findElements(Atualizador.mensagemErroEnvioDeEmail).size() > 0) {
+//				Thread.sleep(9000);
+//				Atualizador.fecharJanelaAtualizacaoAberta(driver).click();
+//				wait.until(ExpectedConditions.visibilityOfElementLocated(Atualizador.idAtualizacao))
+//						.getAttribute("value").isEmpty();
+//			} else {
+//				wait.until(ExpectedConditions.visibilityOfElementLocated(Atualizador.mensagemAtualizacaoCancelada));
+//				Atualizador.fecharJanelaAtualizacaoAberta(driver).click();
+//				wait.until(ExpectedConditions.visibilityOfElementLocated(Atualizador.idAtualizacao))
+//						.getAttribute("value").isEmpty();
+//			}
+//			FuncoesDiversasArcturus.pressionarEsc(driver);
+//		}
+//	}
+}

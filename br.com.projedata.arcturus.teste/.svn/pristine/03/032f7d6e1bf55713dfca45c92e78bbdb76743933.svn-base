@@ -1,0 +1,2151 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <meta charset='utf-8'>
+  <title>TestNG reports</title>
+
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" />  
+    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="testng-reports.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      var suiteTableInitFunctions = new Array();
+      var suiteTableData = new Array();
+    </script>
+    <!--
+      <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+     -->
+  </head>
+
+  <body>
+    <div class="top-banner-root">
+      <span class="top-banner-title-font">Test results</span>
+      <br/>
+      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
+    </div> <!-- top-banner-root -->
+    <div class="navigator-root">
+      <div class="navigator-suite-header">
+        <span>All suites</span>
+        <a href="#" class="collapse-all-link" title="Collapse/expand all the suites">
+          <img class="collapse-all-icon" src="collapseall.gif">
+          </img> <!-- collapse-all-icon -->
+        </a> <!-- collapse-all-link -->
+      </div> <!-- navigator-suite-header -->
+      <div class="suite">
+        <div class="rounded-window">
+          <div class="suite-header light-rounded-window-top">
+            <a href="#" class="navigator-link" panel-name="suite-Suite">
+              <span class="suite-name border-failed">Suite</span>
+            </a> <!-- navigator-link -->
+          </div> <!-- suite-header light-rounded-window-top -->
+          <div class="navigator-suite-content">
+            <div class="suite-section-title">
+              <span>Info</span>
+            </div> <!-- suite-section-title -->
+            <div class="suite-section-content">
+              <ul>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="test-xml-Suite">
+                    <span>C:\workspace\br.com.projedata.arcturus.teste\testng.xml</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="testlist-Suite">
+                    <span class="test-stats">2 tests</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="group-Suite">
+                    <span>0 groups</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="times-Suite">
+                    <span>Times</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="reporter-Suite">
+                    <span>Reporter output</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="ignored-methods-Suite">
+                    <span>Ignored methods</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="chronological-Suite">
+                    <span>Chronological view</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+              </ul>
+            </div> <!-- suite-section-content -->
+            <div class="result-section">
+              <div class="suite-section-title">
+                <span>Results</span>
+              </div> <!-- suite-section-title -->
+              <div class="suite-section-content">
+                <ul>
+                  <li>
+                    <span class="method-stats">90 methods, 2 failed,  7 skipped,  81 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Suite" class="hide-methods failed suite-Suite"> (hide)</a> <!-- hide-methods failed suite-Suite -->
+                      <a href="#" panel-name="suite-Suite" class="show-methods failed suite-Suite"> (show)</a> <!-- show-methods failed suite-Suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Suite">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="verificarFocoAposAbrirCampoLov">verificarFocoAposAbrirCampoLov</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="verificarSeMarcaRegistroComoAlteradoUtilizandoCtrlE">verificarSeMarcaRegistroComoAlteradoUtilizandoCtrlE</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Suite -->
+                  </li>
+                  <li>
+                    <span class="method-list-title skipped">Skipped methods</span>
+                    <span class="show-or-hide-methods skipped">
+                      <a href="#" panel-name="suite-Suite" class="hide-methods skipped suite-Suite"> (hide)</a> <!-- hide-methods skipped suite-Suite -->
+                      <a href="#" panel-name="suite-Suite" class="show-methods skipped suite-Suite"> (show)</a> <!-- show-methods skipped suite-Suite -->
+                    </span>
+                    <div class="method-list-content skipped suite-Suite">
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="fecharRotinaPrincipal">fecharRotinaPrincipal</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="fecharRotinaPrincipal">fecharRotinaPrincipal</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="naoPermitirAlterarCampoNaoEditavelPeloCtrlE">naoPermitirAlterarCampoNaoEditavelPeloCtrlE</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="naoPermitirAlterarCampoNaoEditavelPeloCtrlE">naoPermitirAlterarCampoNaoEditavelPeloCtrlE</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="selecionarDataPeloCalendario">selecionarDataPeloCalendario</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="selecionarDataPeloCalendario">selecionarDataPeloCalendario</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="verificarFocoAposAbrirCampoLov">verificarFocoAposAbrirCampoLov</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content skipped suite-Suite -->
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-Suite" class="hide-methods passed suite-Suite"> (hide)</a> <!-- hide-methods passed suite-Suite -->
+                      <a href="#" panel-name="suite-Suite" class="show-methods passed suite-Suite"> (show)</a> <!-- show-methods passed suite-Suite -->
+                    </span>
+                    <div class="method-list-content passed suite-Suite">
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="abrirLovEmModoConsulta">abrirLovEmModoConsulta</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="abrirLovEmModoConsulta">abrirLovEmModoConsulta</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="abrirModal">abrirModal</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="abrirModal">abrirModal</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="abrirRotinaTeste02(http://arcturus-dev.prj, teste, guth055, FONTES)">abrirRotinaTeste02(http://arcturus-dev.prj, teste, guth055, FONTES)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="abrirRotinaTeste02(http://arcturus-dev.prj, teste, guth055, FONTES)">abrirRotinaTeste02(http://arcturus-dev.prj, teste, guth055, FONTES)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="blocoNaoPermiteAlteracao">blocoNaoPermiteAlteracao</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="blocoNaoPermiteAlteracao">blocoNaoPermiteAlteracao</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="blocoNaoPermiteExclusao">blocoNaoPermiteExclusao</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="blocoNaoPermiteExclusao">blocoNaoPermiteExclusao</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="blocoNaoPermiteInclusao">blocoNaoPermiteInclusao</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="blocoNaoPermiteInclusao">blocoNaoPermiteInclusao</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="campoObrigatorio">campoObrigatorio</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="campoObrigatorio">campoObrigatorio</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="campoObrigatorioTabelaDinamica">campoObrigatorioTabelaDinamica</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="campoObrigatorioTabelaDinamica">campoObrigatorioTabelaDinamica</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="cancelarRegistroSemAlteracao">cancelarRegistroSemAlteracao</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="cancelarRegistroSemAlteracao">cancelarRegistroSemAlteracao</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="cancelarRegistroSemAlteracaoOpcaoCancelar">cancelarRegistroSemAlteracaoOpcaoCancelar</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="cancelarRegistroSemAlteracaoOpcaoCancelar">cancelarRegistroSemAlteracaoOpcaoCancelar</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="cancelarRegistroSemAlteracaoOpcaoNao">cancelarRegistroSemAlteracaoOpcaoNao</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="cancelarRegistroSemAlteracaoOpcaoNao">cancelarRegistroSemAlteracaoOpcaoNao</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="cancelarRegistroSemAlteracaoOpcaoSim">cancelarRegistroSemAlteracaoOpcaoSim</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="cancelarRegistroSemAlteracaoOpcaoSim">cancelarRegistroSemAlteracaoOpcaoSim</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="consultarRegistroPorCodigo">consultarRegistroPorCodigo</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="consultarRegistroPorCodigo">consultarRegistroPorCodigo</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="consultarRegistroPorCodigoDetalhe">consultarRegistroPorCodigoDetalhe</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="consultarRegistroPorCodigoDetalhe">consultarRegistroPorCodigoDetalhe</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="consultarRegistroPorCodigoTabelaDinamica">consultarRegistroPorCodigoTabelaDinamica</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="consultarRegistroPorCodigoTabelaDinamica">consultarRegistroPorCodigoTabelaDinamica</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="consultarTodosRegistros">consultarTodosRegistros</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="consultarTodosRegistros">consultarTodosRegistros</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="criarRegistroSemAlteracao">criarRegistroSemAlteracao</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="criarRegistroSemAlteracao">criarRegistroSemAlteracao</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="excluirRegistro">excluirRegistro</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="excluirRegistro">excluirRegistro</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="excluirRegistroInserido">excluirRegistroInserido</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="excluirRegistroInserido">excluirRegistroInserido</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="fecharRotinaModal">fecharRotinaModal</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="fecharRotinaModal">fecharRotinaModal</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="inserirRegistro">inserirRegistro</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="inserirRegistro">inserirRegistro</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="inseririValorNoCampoUtilizandoCtrlE">inseririValorNoCampoUtilizandoCtrlE</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="inseririValorNoCampoUtilizandoCtrlE">inseririValorNoCampoUtilizandoCtrlE</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="limparRegistro">limparRegistro</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="limparRegistro">limparRegistro</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="navegarPaginaAnterior">navegarPaginaAnterior</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="navegarPaginaAnterior">navegarPaginaAnterior</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="navegarProximaPagina">navegarProximaPagina</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="navegarProximaPagina">navegarProximaPagina</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="navegarProximoRegistro">navegarProximoRegistro</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="navegarProximoRegistro">navegarProximoRegistro</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="navegarRegistroAnterior">navegarRegistroAnterior</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="navegarRegistroAnterior">navegarRegistroAnterior</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="salvarRegistroSemAlteracao">salvarRegistroSemAlteracao</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="salvarRegistroSemAlteracao">salvarRegistroSemAlteracao</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="tentarFecharRotinaComModalAberto">tentarFecharRotinaComModalAberto</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="tentarFecharRotinaComModalAberto">tentarFecharRotinaComModalAberto</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="testarEventoAposAbrirTela">testarEventoAposAbrirTela</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="testarEventoAposAbrirTela">testarEventoAposAbrirTela</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="utilizacaoCtrlE">utilizacaoCtrlE</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="utilizacaoCtrlE">utilizacaoCtrlE</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="valorCampoNumericoApenasDecimal">valorCampoNumericoApenasDecimal</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="valorCampoNumericoApenasDecimal">valorCampoNumericoApenasDecimal</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="valorCampoNumericoApenasDecimalComPonto">valorCampoNumericoApenasDecimalComPonto</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="valorCampoNumericoApenasDecimalComPonto">valorCampoNumericoApenasDecimalComPonto</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="valorCampoNumericoComMilhar">valorCampoNumericoComMilhar</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="valorCampoNumericoComMilhar">valorCampoNumericoComMilhar</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="valorCampoNumericoComPonto">valorCampoNumericoComPonto</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="valorCampoNumericoComPonto">valorCampoNumericoComPonto</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="valorCampoNumericoDecimalComPonto">valorCampoNumericoDecimalComPonto</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="valorCampoNumericoDecimalComPonto">valorCampoNumericoDecimalComPonto</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="valorCampoNumericoMilharComPonto">valorCampoNumericoMilharComPonto</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="valorCampoNumericoMilharComPonto">valorCampoNumericoMilharComPonto</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="valorCampoNumericoMilharComVirgual">valorCampoNumericoMilharComVirgual</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="valorCampoNumericoMilharComVirgual">valorCampoNumericoMilharComVirgual</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="verificarSeComponenteBotaoAbreComEnter">verificarSeComponenteBotaoAbreComEnter</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="verificarSeComponenteBotaoAbreComEnter">verificarSeComponenteBotaoAbreComEnter</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="verificarSeComponenteBotaoAbreComEspaco">verificarSeComponenteBotaoAbreComEspaco</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="verificarSeComponenteBotaoAbreComEspaco">verificarSeComponenteBotaoAbreComEspaco</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02" hash-for-method="verificarSeMarcaRegistroComoAlteradoUtilizandoCtrlE">verificarSeMarcaRegistroComoAlteradoUtilizandoCtrlE</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-Suite -->
+                  </li>
+                </ul>
+              </div> <!-- suite-section-content -->
+            </div> <!-- result-section -->
+          </div> <!-- navigator-suite-content -->
+        </div> <!-- rounded-window -->
+      </div> <!-- suite -->
+    </div> <!-- navigator-root -->
+    <div class="wrapper">
+      <div class="main-panel-root">
+        <div panel-name="suite-Suite" class="panel Suite">
+          <div class="suite-Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="verificarFocoAposAbrirCampoLov">
+                  </a> <!-- verificarFocoAposAbrirCampoLov -->
+                  <span class="method-name">verificarFocoAposAbrirCampoLov</span>
+                  <div class="stack-trace">org.openqa.selenium.WebDriverException: unknown error: Element &lt;button name=&quot;217353.arctesteIdLista-1-0-aux&quot; class=&quot;elemento-adicionado&quot; style=&quot;top: 29px; left: 304px;&quot;&gt;...&lt;/button&gt; is not clickable at point (506, 127). Other element would receive the click: &lt;div id=&quot;arcbox-wrapper-topo-centro-janela-rotina-217353&quot; class=&quot;arcbox-wrapper centro topo&quot;&gt;...&lt;/div&gt;
+  (Session info: chrome=64.0.3282.167)
+  (Driver info: chromedriver=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73),platform=Windows NT 10.0.16299 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: &apos;3.9.1&apos;, revision: &apos;63f7b50&apos;, time: &apos;2018-02-07T22:25:02.294Z&apos;
+System info: host: &apos;GUSTAVO-0151&apos;, ip: &apos;192.168.10.150&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_92&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.35.528161 (5b82f2d2aae0ca..., userDataDir: C:\Users\GUSTAV~1\AppData\L...}, cssSelectorsEnabled: true, databaseEnabled: false, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 64.0.3282.167, webStorageEnabled: true}
+Session ID: 6b66a0937de00f476e4c7e5ae93d0f87
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:160)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:601)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:279)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:83)
+	at br.com.projedata.arcturus.teste.recursos.AcoesDriver.clicarNoElemento(AcoesDriver.java:25)
+	at br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.verificarFocoAposAbrirCampoLov(TestesRotinaTeste02.java:513)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+... Removed 20 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verificarSeMarcaRegistroComoAlteradoUtilizandoCtrlE">
+                  </a> <!-- verificarSeMarcaRegistroComoAlteradoUtilizandoCtrlE -->
+                  <span class="method-name">verificarSeMarcaRegistroComoAlteradoUtilizandoCtrlE</span>
+                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for br.com.projedata.arcturus.teste.recursos.Espera$5@7c3e883d (tried for 5 second(s) with 500 MILLISECONDS interval)
+Build info: version: &apos;3.9.1&apos;, revision: &apos;63f7b50&apos;, time: &apos;2018-02-07T22:25:02.294Z&apos;
+System info: host: &apos;GUSTAVO-0151&apos;, ip: &apos;192.168.10.150&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_92&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 56.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:headless: false, moz:processID: 8756, moz:profile: C:\Users\Gustavo-151\AppDat..., pageLoadStrategy: normal, platform: XP, platformName: XP, platformVersion: 10.0, rotatable: false, specificationLevel: 0, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}}
+Session ID: 19199dc1-b700-4be1-afba-e8c845c1f8df
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:82)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at br.com.projedata.arcturus.teste.recursos.Espera.aguardarElementoEstarVisivel(Espera.java:100)
+	at br.com.projedata.arcturus.teste.recursos.Espera.aguardarElementoEstarVisivel(Espera.java:96)
+	at br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.verificarSeMarcaRegistroComoAlteradoUtilizandoCtrlE(TestesRotinaTeste02.java:506)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+... Removed 16 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-failed -->
+          <div class="suite-Suite-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="fecharRotinaPrincipal">
+                  </a> <!-- fecharRotinaPrincipal -->
+                  <span class="method-name">fecharRotinaPrincipal</span>
+                  <div class="stack-trace">java.lang.Throwable: Method TestesRotinaTeste02.fecharRotinaPrincipal()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929] depends on not successfully finished methods
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+... Removed 9 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="fecharRotinaPrincipal">
+                  </a> <!-- fecharRotinaPrincipal -->
+                  <span class="method-name">fecharRotinaPrincipal</span>
+                  <div class="stack-trace">java.lang.Throwable: Method TestesRotinaTeste02.fecharRotinaPrincipal()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e] depends on not successfully finished methods
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+... Removed 9 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="naoPermitirAlterarCampoNaoEditavelPeloCtrlE">
+                  </a> <!-- naoPermitirAlterarCampoNaoEditavelPeloCtrlE -->
+                  <span class="method-name">naoPermitirAlterarCampoNaoEditavelPeloCtrlE</span>
+                  <div class="stack-trace">java.lang.Throwable: Method TestesRotinaTeste02.naoPermitirAlterarCampoNaoEditavelPeloCtrlE()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929] depends on not successfully finished methods
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+... Removed 9 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="naoPermitirAlterarCampoNaoEditavelPeloCtrlE">
+                  </a> <!-- naoPermitirAlterarCampoNaoEditavelPeloCtrlE -->
+                  <span class="method-name">naoPermitirAlterarCampoNaoEditavelPeloCtrlE</span>
+                  <div class="stack-trace">java.lang.Throwable: Method TestesRotinaTeste02.naoPermitirAlterarCampoNaoEditavelPeloCtrlE()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e] depends on not successfully finished methods
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+... Removed 9 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="selecionarDataPeloCalendario">
+                  </a> <!-- selecionarDataPeloCalendario -->
+                  <span class="method-name">selecionarDataPeloCalendario</span>
+                  <div class="stack-trace">java.lang.Throwable: Method TestesRotinaTeste02.selecionarDataPeloCalendario()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929] depends on not successfully finished methods
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+... Removed 9 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="selecionarDataPeloCalendario">
+                  </a> <!-- selecionarDataPeloCalendario -->
+                  <span class="method-name">selecionarDataPeloCalendario</span>
+                  <div class="stack-trace">java.lang.Throwable: Method TestesRotinaTeste02.selecionarDataPeloCalendario()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e] depends on not successfully finished methods
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+... Removed 9 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verificarFocoAposAbrirCampoLov">
+                  </a> <!-- verificarFocoAposAbrirCampoLov -->
+                  <span class="method-name">verificarFocoAposAbrirCampoLov</span>
+                  <div class="stack-trace">java.lang.Throwable: Method TestesRotinaTeste02.verificarFocoAposAbrirCampoLov()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e] depends on not successfully finished methods
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+... Removed 9 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-skipped -->
+          <div class="suite-Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="abrirLovEmModoConsulta">
+                  </a> <!-- abrirLovEmModoConsulta -->
+                  <span class="method-name">abrirLovEmModoConsulta</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="abrirLovEmModoConsulta">
+                  </a> <!-- abrirLovEmModoConsulta -->
+                  <span class="method-name">abrirLovEmModoConsulta</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="abrirModal">
+                  </a> <!-- abrirModal -->
+                  <span class="method-name">abrirModal</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="abrirModal">
+                  </a> <!-- abrirModal -->
+                  <span class="method-name">abrirModal</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="abrirRotinaTeste02(http://arcturus-dev.prj, teste, guth055, FONTES)">
+                  </a> <!-- abrirRotinaTeste02(http://arcturus-dev.prj, teste, guth055, FONTES) -->
+                  <span class="method-name">abrirRotinaTeste02</span>
+                  <span class="parameters">(http://arcturus-dev.prj, teste, guth055, FONTES)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="abrirRotinaTeste02(http://arcturus-dev.prj, teste, guth055, FONTES)">
+                  </a> <!-- abrirRotinaTeste02(http://arcturus-dev.prj, teste, guth055, FONTES) -->
+                  <span class="method-name">abrirRotinaTeste02</span>
+                  <span class="parameters">(http://arcturus-dev.prj, teste, guth055, FONTES)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="blocoNaoPermiteAlteracao">
+                  </a> <!-- blocoNaoPermiteAlteracao -->
+                  <span class="method-name">blocoNaoPermiteAlteracao</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="blocoNaoPermiteAlteracao">
+                  </a> <!-- blocoNaoPermiteAlteracao -->
+                  <span class="method-name">blocoNaoPermiteAlteracao</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="blocoNaoPermiteExclusao">
+                  </a> <!-- blocoNaoPermiteExclusao -->
+                  <span class="method-name">blocoNaoPermiteExclusao</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="blocoNaoPermiteExclusao">
+                  </a> <!-- blocoNaoPermiteExclusao -->
+                  <span class="method-name">blocoNaoPermiteExclusao</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="blocoNaoPermiteInclusao">
+                  </a> <!-- blocoNaoPermiteInclusao -->
+                  <span class="method-name">blocoNaoPermiteInclusao</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="blocoNaoPermiteInclusao">
+                  </a> <!-- blocoNaoPermiteInclusao -->
+                  <span class="method-name">blocoNaoPermiteInclusao</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="campoObrigatorio">
+                  </a> <!-- campoObrigatorio -->
+                  <span class="method-name">campoObrigatorio</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="campoObrigatorio">
+                  </a> <!-- campoObrigatorio -->
+                  <span class="method-name">campoObrigatorio</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="campoObrigatorioTabelaDinamica">
+                  </a> <!-- campoObrigatorioTabelaDinamica -->
+                  <span class="method-name">campoObrigatorioTabelaDinamica</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="campoObrigatorioTabelaDinamica">
+                  </a> <!-- campoObrigatorioTabelaDinamica -->
+                  <span class="method-name">campoObrigatorioTabelaDinamica</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="cancelarRegistroSemAlteracao">
+                  </a> <!-- cancelarRegistroSemAlteracao -->
+                  <span class="method-name">cancelarRegistroSemAlteracao</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="cancelarRegistroSemAlteracao">
+                  </a> <!-- cancelarRegistroSemAlteracao -->
+                  <span class="method-name">cancelarRegistroSemAlteracao</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="cancelarRegistroSemAlteracaoOpcaoCancelar">
+                  </a> <!-- cancelarRegistroSemAlteracaoOpcaoCancelar -->
+                  <span class="method-name">cancelarRegistroSemAlteracaoOpcaoCancelar</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="cancelarRegistroSemAlteracaoOpcaoCancelar">
+                  </a> <!-- cancelarRegistroSemAlteracaoOpcaoCancelar -->
+                  <span class="method-name">cancelarRegistroSemAlteracaoOpcaoCancelar</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="cancelarRegistroSemAlteracaoOpcaoNao">
+                  </a> <!-- cancelarRegistroSemAlteracaoOpcaoNao -->
+                  <span class="method-name">cancelarRegistroSemAlteracaoOpcaoNao</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="cancelarRegistroSemAlteracaoOpcaoNao">
+                  </a> <!-- cancelarRegistroSemAlteracaoOpcaoNao -->
+                  <span class="method-name">cancelarRegistroSemAlteracaoOpcaoNao</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="cancelarRegistroSemAlteracaoOpcaoSim">
+                  </a> <!-- cancelarRegistroSemAlteracaoOpcaoSim -->
+                  <span class="method-name">cancelarRegistroSemAlteracaoOpcaoSim</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="cancelarRegistroSemAlteracaoOpcaoSim">
+                  </a> <!-- cancelarRegistroSemAlteracaoOpcaoSim -->
+                  <span class="method-name">cancelarRegistroSemAlteracaoOpcaoSim</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="consultarRegistroPorCodigo">
+                  </a> <!-- consultarRegistroPorCodigo -->
+                  <span class="method-name">consultarRegistroPorCodigo</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="consultarRegistroPorCodigo">
+                  </a> <!-- consultarRegistroPorCodigo -->
+                  <span class="method-name">consultarRegistroPorCodigo</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="consultarRegistroPorCodigoDetalhe">
+                  </a> <!-- consultarRegistroPorCodigoDetalhe -->
+                  <span class="method-name">consultarRegistroPorCodigoDetalhe</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="consultarRegistroPorCodigoDetalhe">
+                  </a> <!-- consultarRegistroPorCodigoDetalhe -->
+                  <span class="method-name">consultarRegistroPorCodigoDetalhe</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="consultarRegistroPorCodigoTabelaDinamica">
+                  </a> <!-- consultarRegistroPorCodigoTabelaDinamica -->
+                  <span class="method-name">consultarRegistroPorCodigoTabelaDinamica</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="consultarRegistroPorCodigoTabelaDinamica">
+                  </a> <!-- consultarRegistroPorCodigoTabelaDinamica -->
+                  <span class="method-name">consultarRegistroPorCodigoTabelaDinamica</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="consultarTodosRegistros">
+                  </a> <!-- consultarTodosRegistros -->
+                  <span class="method-name">consultarTodosRegistros</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="consultarTodosRegistros">
+                  </a> <!-- consultarTodosRegistros -->
+                  <span class="method-name">consultarTodosRegistros</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="criarRegistroSemAlteracao">
+                  </a> <!-- criarRegistroSemAlteracao -->
+                  <span class="method-name">criarRegistroSemAlteracao</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="criarRegistroSemAlteracao">
+                  </a> <!-- criarRegistroSemAlteracao -->
+                  <span class="method-name">criarRegistroSemAlteracao</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="excluirRegistro">
+                  </a> <!-- excluirRegistro -->
+                  <span class="method-name">excluirRegistro</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="excluirRegistro">
+                  </a> <!-- excluirRegistro -->
+                  <span class="method-name">excluirRegistro</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="excluirRegistroInserido">
+                  </a> <!-- excluirRegistroInserido -->
+                  <span class="method-name">excluirRegistroInserido</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="excluirRegistroInserido">
+                  </a> <!-- excluirRegistroInserido -->
+                  <span class="method-name">excluirRegistroInserido</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="fecharRotinaModal">
+                  </a> <!-- fecharRotinaModal -->
+                  <span class="method-name">fecharRotinaModal</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="fecharRotinaModal">
+                  </a> <!-- fecharRotinaModal -->
+                  <span class="method-name">fecharRotinaModal</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="inserirRegistro">
+                  </a> <!-- inserirRegistro -->
+                  <span class="method-name">inserirRegistro</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="inserirRegistro">
+                  </a> <!-- inserirRegistro -->
+                  <span class="method-name">inserirRegistro</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="inseririValorNoCampoUtilizandoCtrlE">
+                  </a> <!-- inseririValorNoCampoUtilizandoCtrlE -->
+                  <span class="method-name">inseririValorNoCampoUtilizandoCtrlE</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="inseririValorNoCampoUtilizandoCtrlE">
+                  </a> <!-- inseririValorNoCampoUtilizandoCtrlE -->
+                  <span class="method-name">inseririValorNoCampoUtilizandoCtrlE</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="limparRegistro">
+                  </a> <!-- limparRegistro -->
+                  <span class="method-name">limparRegistro</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="limparRegistro">
+                  </a> <!-- limparRegistro -->
+                  <span class="method-name">limparRegistro</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="navegarPaginaAnterior">
+                  </a> <!-- navegarPaginaAnterior -->
+                  <span class="method-name">navegarPaginaAnterior</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="navegarPaginaAnterior">
+                  </a> <!-- navegarPaginaAnterior -->
+                  <span class="method-name">navegarPaginaAnterior</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="navegarProximaPagina">
+                  </a> <!-- navegarProximaPagina -->
+                  <span class="method-name">navegarProximaPagina</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="navegarProximaPagina">
+                  </a> <!-- navegarProximaPagina -->
+                  <span class="method-name">navegarProximaPagina</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="navegarProximoRegistro">
+                  </a> <!-- navegarProximoRegistro -->
+                  <span class="method-name">navegarProximoRegistro</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="navegarProximoRegistro">
+                  </a> <!-- navegarProximoRegistro -->
+                  <span class="method-name">navegarProximoRegistro</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="navegarRegistroAnterior">
+                  </a> <!-- navegarRegistroAnterior -->
+                  <span class="method-name">navegarRegistroAnterior</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="navegarRegistroAnterior">
+                  </a> <!-- navegarRegistroAnterior -->
+                  <span class="method-name">navegarRegistroAnterior</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="salvarRegistroSemAlteracao">
+                  </a> <!-- salvarRegistroSemAlteracao -->
+                  <span class="method-name">salvarRegistroSemAlteracao</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="salvarRegistroSemAlteracao">
+                  </a> <!-- salvarRegistroSemAlteracao -->
+                  <span class="method-name">salvarRegistroSemAlteracao</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="tentarFecharRotinaComModalAberto">
+                  </a> <!-- tentarFecharRotinaComModalAberto -->
+                  <span class="method-name">tentarFecharRotinaComModalAberto</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="tentarFecharRotinaComModalAberto">
+                  </a> <!-- tentarFecharRotinaComModalAberto -->
+                  <span class="method-name">tentarFecharRotinaComModalAberto</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testarEventoAposAbrirTela">
+                  </a> <!-- testarEventoAposAbrirTela -->
+                  <span class="method-name">testarEventoAposAbrirTela</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testarEventoAposAbrirTela">
+                  </a> <!-- testarEventoAposAbrirTela -->
+                  <span class="method-name">testarEventoAposAbrirTela</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="utilizacaoCtrlE">
+                  </a> <!-- utilizacaoCtrlE -->
+                  <span class="method-name">utilizacaoCtrlE</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="utilizacaoCtrlE">
+                  </a> <!-- utilizacaoCtrlE -->
+                  <span class="method-name">utilizacaoCtrlE</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="valorCampoNumericoApenasDecimal">
+                  </a> <!-- valorCampoNumericoApenasDecimal -->
+                  <span class="method-name">valorCampoNumericoApenasDecimal</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="valorCampoNumericoApenasDecimal">
+                  </a> <!-- valorCampoNumericoApenasDecimal -->
+                  <span class="method-name">valorCampoNumericoApenasDecimal</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="valorCampoNumericoApenasDecimalComPonto">
+                  </a> <!-- valorCampoNumericoApenasDecimalComPonto -->
+                  <span class="method-name">valorCampoNumericoApenasDecimalComPonto</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="valorCampoNumericoApenasDecimalComPonto">
+                  </a> <!-- valorCampoNumericoApenasDecimalComPonto -->
+                  <span class="method-name">valorCampoNumericoApenasDecimalComPonto</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="valorCampoNumericoComMilhar">
+                  </a> <!-- valorCampoNumericoComMilhar -->
+                  <span class="method-name">valorCampoNumericoComMilhar</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="valorCampoNumericoComMilhar">
+                  </a> <!-- valorCampoNumericoComMilhar -->
+                  <span class="method-name">valorCampoNumericoComMilhar</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="valorCampoNumericoComPonto">
+                  </a> <!-- valorCampoNumericoComPonto -->
+                  <span class="method-name">valorCampoNumericoComPonto</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="valorCampoNumericoComPonto">
+                  </a> <!-- valorCampoNumericoComPonto -->
+                  <span class="method-name">valorCampoNumericoComPonto</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="valorCampoNumericoDecimalComPonto">
+                  </a> <!-- valorCampoNumericoDecimalComPonto -->
+                  <span class="method-name">valorCampoNumericoDecimalComPonto</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="valorCampoNumericoDecimalComPonto">
+                  </a> <!-- valorCampoNumericoDecimalComPonto -->
+                  <span class="method-name">valorCampoNumericoDecimalComPonto</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="valorCampoNumericoMilharComPonto">
+                  </a> <!-- valorCampoNumericoMilharComPonto -->
+                  <span class="method-name">valorCampoNumericoMilharComPonto</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="valorCampoNumericoMilharComPonto">
+                  </a> <!-- valorCampoNumericoMilharComPonto -->
+                  <span class="method-name">valorCampoNumericoMilharComPonto</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="valorCampoNumericoMilharComVirgual">
+                  </a> <!-- valorCampoNumericoMilharComVirgual -->
+                  <span class="method-name">valorCampoNumericoMilharComVirgual</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="valorCampoNumericoMilharComVirgual">
+                  </a> <!-- valorCampoNumericoMilharComVirgual -->
+                  <span class="method-name">valorCampoNumericoMilharComVirgual</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verificarSeComponenteBotaoAbreComEnter">
+                  </a> <!-- verificarSeComponenteBotaoAbreComEnter -->
+                  <span class="method-name">verificarSeComponenteBotaoAbreComEnter</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verificarSeComponenteBotaoAbreComEnter">
+                  </a> <!-- verificarSeComponenteBotaoAbreComEnter -->
+                  <span class="method-name">verificarSeComponenteBotaoAbreComEnter</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verificarSeComponenteBotaoAbreComEspaco">
+                  </a> <!-- verificarSeComponenteBotaoAbreComEspaco -->
+                  <span class="method-name">verificarSeComponenteBotaoAbreComEspaco</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verificarSeComponenteBotaoAbreComEspaco">
+                  </a> <!-- verificarSeComponenteBotaoAbreComEspaco -->
+                  <span class="method-name">verificarSeComponenteBotaoAbreComEspaco</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="verificarSeMarcaRegistroComoAlteradoUtilizandoCtrlE">
+                  </a> <!-- verificarSeMarcaRegistroComoAlteradoUtilizandoCtrlE -->
+                  <span class="method-name">verificarSeMarcaRegistroComoAlteradoUtilizandoCtrlE</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-passed -->
+        </div> <!-- panel Suite -->
+        <div panel-name="test-xml-Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">C:\workspace\br.com.projedata.arcturus.teste\testng.xml</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Suite&quot; parallel=&quot;tests&quot;&gt;
+  &lt;parameter name=&quot;senha&quot; value=&quot;guth055&quot;/&gt;
+  &lt;parameter name=&quot;loginTeste&quot; value=&quot;teste&quot;/&gt;
+  &lt;parameter name=&quot;login&quot; value=&quot;gustavo.projedata&quot;/&gt;
+  &lt;parameter name=&quot;url&quot; value=&quot;http://arcturus-dev.prj&quot;/&gt;
+  &lt;parameter name=&quot;base&quot; value=&quot;FONTES&quot;/&gt;
+  &lt;listeners&gt;
+    &lt;listener class-name=&quot;br.com.projedata.arcturus.teste.selenium.listeners.ScreenshotListener&quot;/&gt;
+  &lt;/listeners&gt;
+  &lt;test name=&quot;ChromeTest&quot;&gt;
+    &lt;parameter name=&quot;browser&quot; value=&quot;chrome&quot;/&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- ChromeTest --&gt;
+  &lt;test name=&quot;FirefoxTest&quot;&gt;
+    &lt;parameter name=&quot;browser&quot; value=&quot;firefox&quot;/&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- FirefoxTest --&gt;
+&lt;/suite&gt; &lt;!-- Suite --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">ChromeTest (1 class)</span>
+              </li>
+              <li>
+                <span class="test-name">FirefoxTest (1 class)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_Suite');
+function tableData_Suite() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(90);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'verificarSeMarcaRegistroComoAlteradoUtilizandoCtrlE')
+data.setCell(0, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(0, 3, 5352);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'abrirRotinaTeste02')
+data.setCell(1, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(1, 3, 5075);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'excluirRegistroInserido')
+data.setCell(2, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(2, 3, 4335);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'verificarSeComponenteBotaoAbreComEspaco')
+data.setCell(3, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(3, 3, 4040);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'campoObrigatorio')
+data.setCell(4, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(4, 3, 3798);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'abrirRotinaTeste02')
+data.setCell(5, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(5, 3, 3679);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'abrirModal')
+data.setCell(6, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(6, 3, 3652);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'verificarSeComponenteBotaoAbreComEspaco')
+data.setCell(7, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(7, 3, 3522);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'excluirRegistroInserido')
+data.setCell(8, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(8, 3, 3412);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'abrirModal')
+data.setCell(9, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(9, 3, 3181);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'valorCampoNumericoComPonto')
+data.setCell(10, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(10, 3, 3103);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'campoObrigatorio')
+data.setCell(11, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(11, 3, 3092);
+data.setCell(12, 0, 12)
+data.setCell(12, 1, 'verificarSeComponenteBotaoAbreComEnter')
+data.setCell(12, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(12, 3, 2941);
+data.setCell(13, 0, 13)
+data.setCell(13, 1, 'abrirLovEmModoConsulta')
+data.setCell(13, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(13, 3, 2813);
+data.setCell(14, 0, 14)
+data.setCell(14, 1, 'verificarSeComponenteBotaoAbreComEnter')
+data.setCell(14, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(14, 3, 2350);
+data.setCell(15, 0, 15)
+data.setCell(15, 1, 'inserirRegistro')
+data.setCell(15, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(15, 3, 2191);
+data.setCell(16, 0, 16)
+data.setCell(16, 1, 'cancelarRegistroSemAlteracaoOpcaoSim')
+data.setCell(16, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(16, 3, 2092);
+data.setCell(17, 0, 17)
+data.setCell(17, 1, 'valorCampoNumericoComPonto')
+data.setCell(17, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(17, 3, 2064);
+data.setCell(18, 0, 18)
+data.setCell(18, 1, 'abrirLovEmModoConsulta')
+data.setCell(18, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(18, 3, 2040);
+data.setCell(19, 0, 19)
+data.setCell(19, 1, 'cancelarRegistroSemAlteracaoOpcaoSim')
+data.setCell(19, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(19, 3, 2039);
+data.setCell(20, 0, 20)
+data.setCell(20, 1, 'verificarSeMarcaRegistroComoAlteradoUtilizandoCtrlE')
+data.setCell(20, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(20, 3, 2008);
+data.setCell(21, 0, 21)
+data.setCell(21, 1, 'blocoNaoPermiteInclusao')
+data.setCell(21, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(21, 3, 1944);
+data.setCell(22, 0, 22)
+data.setCell(22, 1, 'blocoNaoPermiteInclusao')
+data.setCell(22, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(22, 3, 1939);
+data.setCell(23, 0, 23)
+data.setCell(23, 1, 'blocoNaoPermiteAlteracao')
+data.setCell(23, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(23, 3, 1764);
+data.setCell(24, 0, 24)
+data.setCell(24, 1, 'inserirRegistro')
+data.setCell(24, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(24, 3, 1639);
+data.setCell(25, 0, 25)
+data.setCell(25, 1, 'campoObrigatorioTabelaDinamica')
+data.setCell(25, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(25, 3, 1552);
+data.setCell(26, 0, 26)
+data.setCell(26, 1, 'blocoNaoPermiteExclusao')
+data.setCell(26, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(26, 3, 1485);
+data.setCell(27, 0, 27)
+data.setCell(27, 1, 'blocoNaoPermiteAlteracao')
+data.setCell(27, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(27, 3, 1435);
+data.setCell(28, 0, 28)
+data.setCell(28, 1, 'cancelarRegistroSemAlteracaoOpcaoCancelar')
+data.setCell(28, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(28, 3, 1435);
+data.setCell(29, 0, 29)
+data.setCell(29, 1, 'criarRegistroSemAlteracao')
+data.setCell(29, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(29, 3, 1395);
+data.setCell(30, 0, 30)
+data.setCell(30, 1, 'blocoNaoPermiteExclusao')
+data.setCell(30, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(30, 3, 1359);
+data.setCell(31, 0, 31)
+data.setCell(31, 1, 'limparRegistro')
+data.setCell(31, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(31, 3, 1285);
+data.setCell(32, 0, 32)
+data.setCell(32, 1, 'salvarRegistroSemAlteracao')
+data.setCell(32, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(32, 3, 1207);
+data.setCell(33, 0, 33)
+data.setCell(33, 1, 'cancelarRegistroSemAlteracaoOpcaoCancelar')
+data.setCell(33, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(33, 3, 1193);
+data.setCell(34, 0, 34)
+data.setCell(34, 1, 'criarRegistroSemAlteracao')
+data.setCell(34, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(34, 3, 1181);
+data.setCell(35, 0, 35)
+data.setCell(35, 1, 'limparRegistro')
+data.setCell(35, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(35, 3, 1045);
+data.setCell(36, 0, 36)
+data.setCell(36, 1, 'campoObrigatorioTabelaDinamica')
+data.setCell(36, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(36, 3, 1002);
+data.setCell(37, 0, 37)
+data.setCell(37, 1, 'salvarRegistroSemAlteracao')
+data.setCell(37, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(37, 3, 1001);
+data.setCell(38, 0, 38)
+data.setCell(38, 1, 'cancelarRegistroSemAlteracao')
+data.setCell(38, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(38, 3, 851);
+data.setCell(39, 0, 39)
+data.setCell(39, 1, 'consultarRegistroPorCodigo')
+data.setCell(39, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(39, 3, 790);
+data.setCell(40, 0, 40)
+data.setCell(40, 1, 'fecharRotinaModal')
+data.setCell(40, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(40, 3, 789);
+data.setCell(41, 0, 41)
+data.setCell(41, 1, 'cancelarRegistroSemAlteracaoOpcaoNao')
+data.setCell(41, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(41, 3, 783);
+data.setCell(42, 0, 42)
+data.setCell(42, 1, 'fecharRotinaModal')
+data.setCell(42, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(42, 3, 735);
+data.setCell(43, 0, 43)
+data.setCell(43, 1, 'consultarTodosRegistros')
+data.setCell(43, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(43, 3, 669);
+data.setCell(44, 0, 44)
+data.setCell(44, 1, 'navegarProximaPagina')
+data.setCell(44, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(44, 3, 621);
+data.setCell(45, 0, 45)
+data.setCell(45, 1, 'navegarPaginaAnterior')
+data.setCell(45, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(45, 3, 620);
+data.setCell(46, 0, 46)
+data.setCell(46, 1, 'navegarProximoRegistro')
+data.setCell(46, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(46, 3, 607);
+data.setCell(47, 0, 47)
+data.setCell(47, 1, 'navegarRegistroAnterior')
+data.setCell(47, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(47, 3, 603);
+data.setCell(48, 0, 48)
+data.setCell(48, 1, 'cancelarRegistroSemAlteracaoOpcaoNao')
+data.setCell(48, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(48, 3, 597);
+data.setCell(49, 0, 49)
+data.setCell(49, 1, 'tentarFecharRotinaComModalAberto')
+data.setCell(49, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(49, 3, 571);
+data.setCell(50, 0, 50)
+data.setCell(50, 1, 'consultarTodosRegistros')
+data.setCell(50, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(50, 3, 500);
+data.setCell(51, 0, 51)
+data.setCell(51, 1, 'utilizacaoCtrlE')
+data.setCell(51, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(51, 3, 459);
+data.setCell(52, 0, 52)
+data.setCell(52, 1, 'consultarRegistroPorCodigo')
+data.setCell(52, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(52, 3, 445);
+data.setCell(53, 0, 53)
+data.setCell(53, 1, 'inseririValorNoCampoUtilizandoCtrlE')
+data.setCell(53, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(53, 3, 371);
+data.setCell(54, 0, 54)
+data.setCell(54, 1, 'cancelarRegistroSemAlteracao')
+data.setCell(54, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(54, 3, 348);
+data.setCell(55, 0, 55)
+data.setCell(55, 1, 'tentarFecharRotinaComModalAberto')
+data.setCell(55, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(55, 3, 323);
+data.setCell(56, 0, 56)
+data.setCell(56, 1, 'valorCampoNumericoMilharComPonto')
+data.setCell(56, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(56, 3, 302);
+data.setCell(57, 0, 57)
+data.setCell(57, 1, 'inseririValorNoCampoUtilizandoCtrlE')
+data.setCell(57, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(57, 3, 296);
+data.setCell(58, 0, 58)
+data.setCell(58, 1, 'excluirRegistro')
+data.setCell(58, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(58, 3, 284);
+data.setCell(59, 0, 59)
+data.setCell(59, 1, 'valorCampoNumericoMilharComVirgual')
+data.setCell(59, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(59, 3, 250);
+data.setCell(60, 0, 60)
+data.setCell(60, 1, 'navegarProximaPagina')
+data.setCell(60, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(60, 3, 250);
+data.setCell(61, 0, 61)
+data.setCell(61, 1, 'excluirRegistro')
+data.setCell(61, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(61, 3, 247);
+data.setCell(62, 0, 62)
+data.setCell(62, 1, 'navegarPaginaAnterior')
+data.setCell(62, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(62, 3, 247);
+data.setCell(63, 0, 63)
+data.setCell(63, 1, 'navegarRegistroAnterior')
+data.setCell(63, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(63, 3, 246);
+data.setCell(64, 0, 64)
+data.setCell(64, 1, 'navegarProximoRegistro')
+data.setCell(64, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(64, 3, 245);
+data.setCell(65, 0, 65)
+data.setCell(65, 1, 'valorCampoNumericoComMilhar')
+data.setCell(65, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(65, 3, 239);
+data.setCell(66, 0, 66)
+data.setCell(66, 1, 'utilizacaoCtrlE')
+data.setCell(66, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(66, 3, 221);
+data.setCell(67, 0, 67)
+data.setCell(67, 1, 'consultarRegistroPorCodigoTabelaDinamica')
+data.setCell(67, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(67, 3, 205);
+data.setCell(68, 0, 68)
+data.setCell(68, 1, 'consultarRegistroPorCodigoTabelaDinamica')
+data.setCell(68, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(68, 3, 202);
+data.setCell(69, 0, 69)
+data.setCell(69, 1, 'valorCampoNumericoDecimalComPonto')
+data.setCell(69, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(69, 3, 198);
+data.setCell(70, 0, 70)
+data.setCell(70, 1, 'valorCampoNumericoApenasDecimalComPonto')
+data.setCell(70, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(70, 3, 183);
+data.setCell(71, 0, 71)
+data.setCell(71, 1, 'valorCampoNumericoApenasDecimal')
+data.setCell(71, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(71, 3, 167);
+data.setCell(72, 0, 72)
+data.setCell(72, 1, 'valorCampoNumericoMilharComPonto')
+data.setCell(72, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(72, 3, 119);
+data.setCell(73, 0, 73)
+data.setCell(73, 1, 'valorCampoNumericoComMilhar')
+data.setCell(73, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(73, 3, 112);
+data.setCell(74, 0, 74)
+data.setCell(74, 1, 'valorCampoNumericoApenasDecimal')
+data.setCell(74, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(74, 3, 111);
+data.setCell(75, 0, 75)
+data.setCell(75, 1, 'valorCampoNumericoDecimalComPonto')
+data.setCell(75, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(75, 3, 96);
+data.setCell(76, 0, 76)
+data.setCell(76, 1, 'valorCampoNumericoApenasDecimalComPonto')
+data.setCell(76, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(76, 3, 94);
+data.setCell(77, 0, 77)
+data.setCell(77, 1, 'valorCampoNumericoMilharComVirgual')
+data.setCell(77, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(77, 3, 93);
+data.setCell(78, 0, 78)
+data.setCell(78, 1, 'testarEventoAposAbrirTela')
+data.setCell(78, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(78, 3, 46);
+data.setCell(79, 0, 79)
+data.setCell(79, 1, 'verificarFocoAposAbrirCampoLov')
+data.setCell(79, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(79, 3, 44);
+data.setCell(80, 0, 80)
+data.setCell(80, 1, 'testarEventoAposAbrirTela')
+data.setCell(80, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(80, 3, 44);
+data.setCell(81, 0, 81)
+data.setCell(81, 1, 'consultarRegistroPorCodigoDetalhe')
+data.setCell(81, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(81, 3, 34);
+data.setCell(82, 0, 82)
+data.setCell(82, 1, 'consultarRegistroPorCodigoDetalhe')
+data.setCell(82, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(82, 3, 27);
+data.setCell(83, 0, 83)
+data.setCell(83, 1, 'naoPermitirAlterarCampoNaoEditavelPeloCtrlE')
+data.setCell(83, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(83, 3, 1);
+data.setCell(84, 0, 84)
+data.setCell(84, 1, 'naoPermitirAlterarCampoNaoEditavelPeloCtrlE')
+data.setCell(84, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(84, 3, 0);
+data.setCell(85, 0, 85)
+data.setCell(85, 1, 'fecharRotinaPrincipal')
+data.setCell(85, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(85, 3, 0);
+data.setCell(86, 0, 86)
+data.setCell(86, 1, 'selecionarDataPeloCalendario')
+data.setCell(86, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(86, 3, 0);
+data.setCell(87, 0, 87)
+data.setCell(87, 1, 'verificarFocoAposAbrirCampoLov')
+data.setCell(87, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(87, 3, 0);
+data.setCell(88, 0, 88)
+data.setCell(88, 1, 'selecionarDataPeloCalendario')
+data.setCell(88, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(88, 3, 0);
+data.setCell(89, 0, 89)
+data.setCell(89, 1, 'fecharRotinaPrincipal')
+data.setCell(89, 2, 'br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02')
+data.setCell(89, 3, 0);
+window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
+              <div id="times-div-Suite">
+              </div> <!-- times-div-Suite -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">0 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">configurarTeste(chrome, http://arcturus-dev.prj)</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="configuration-class before">
+                <span class="method-name">configurarTeste(firefox, http://arcturus-dev.prj)</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">abrirRotinaTeste02(http://arcturus-dev.prj, teste, guth055, FONTES)</span>
+                <span class="method-start">4608 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">abrirRotinaTeste02(http://arcturus-dev.prj, teste, guth055, FONTES)</span>
+                <span class="method-start">7551 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testarEventoAposAbrirTela</span>
+                <span class="method-start">8290 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">criarRegistroSemAlteracao</span>
+                <span class="method-start">8338 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">salvarRegistroSemAlteracao</span>
+                <span class="method-start">9734 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">excluirRegistro</span>
+                <span class="method-start">10942 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">cancelarRegistroSemAlteracao</span>
+                <span class="method-start">11191 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">cancelarRegistroSemAlteracaoOpcaoNao</span>
+                <span class="method-start">12043 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testarEventoAposAbrirTela</span>
+                <span class="method-start">12627 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">cancelarRegistroSemAlteracaoOpcaoSim</span>
+                <span class="method-start">12641 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">criarRegistroSemAlteracao</span>
+                <span class="method-start">12672 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">salvarRegistroSemAlteracao</span>
+                <span class="method-start">13855 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">cancelarRegistroSemAlteracaoOpcaoCancelar</span>
+                <span class="method-start">14734 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">excluirRegistro</span>
+                <span class="method-start">14857 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">cancelarRegistroSemAlteracao</span>
+                <span class="method-start">15142 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">cancelarRegistroSemAlteracaoOpcaoNao</span>
+                <span class="method-start">15491 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">limparRegistro</span>
+                <span class="method-start">16170 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">cancelarRegistroSemAlteracaoOpcaoSim</span>
+                <span class="method-start">16276 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">consultarRegistroPorCodigo</span>
+                <span class="method-start">17456 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">consultarRegistroPorCodigoDetalhe</span>
+                <span class="method-start">18247 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">consultarRegistroPorCodigoTabelaDinamica</span>
+                <span class="method-start">18275 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">cancelarRegistroSemAlteracaoOpcaoCancelar</span>
+                <span class="method-start">18316 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">consultarTodosRegistros</span>
+                <span class="method-start">18478 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">navegarProximoRegistro</span>
+                <span class="method-start">19147 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">limparRegistro</span>
+                <span class="method-start">19510 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">navegarProximaPagina</span>
+                <span class="method-start">19755 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">navegarRegistroAnterior</span>
+                <span class="method-start">20377 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">consultarRegistroPorCodigo</span>
+                <span class="method-start">20556 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">navegarPaginaAnterior</span>
+                <span class="method-start">20981 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">consultarRegistroPorCodigoDetalhe</span>
+                <span class="method-start">21002 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">consultarRegistroPorCodigoTabelaDinamica</span>
+                <span class="method-start">21037 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">consultarTodosRegistros</span>
+                <span class="method-start">21243 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">campoObrigatorio</span>
+                <span class="method-start">21602 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">navegarProximoRegistro</span>
+                <span class="method-start">21744 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">navegarProximaPagina</span>
+                <span class="method-start">21990 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">navegarRegistroAnterior</span>
+                <span class="method-start">22241 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">navegarPaginaAnterior</span>
+                <span class="method-start">22487 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">campoObrigatorio</span>
+                <span class="method-start">22735 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">campoObrigatorioTabelaDinamica</span>
+                <span class="method-start">25401 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">campoObrigatorioTabelaDinamica</span>
+                <span class="method-start">25828 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">inserirRegistro</span>
+                <span class="method-start">26831 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">inserirRegistro</span>
+                <span class="method-start">26953 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">excluirRegistroInserido</span>
+                <span class="method-start">28592 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">excluirRegistroInserido</span>
+                <span class="method-start">29023 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">blocoNaoPermiteExclusao</span>
+                <span class="method-start">32005 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">blocoNaoPermiteExclusao</span>
+                <span class="method-start">33359 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">blocoNaoPermiteAlteracao</span>
+                <span class="method-start">33365 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">blocoNaoPermiteInclusao</span>
+                <span class="method-start">34801 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">blocoNaoPermiteAlteracao</span>
+                <span class="method-start">34845 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">blocoNaoPermiteInclusao</span>
+                <span class="method-start">36609 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">abrirModal</span>
+                <span class="method-start">36746 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">abrirModal</span>
+                <span class="method-start">38549 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">tentarFecharRotinaComModalAberto</span>
+                <span class="method-start">39928 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">fecharRotinaModal</span>
+                <span class="method-start">40252 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">valorCampoNumericoComPonto</span>
+                <span class="method-start">40987 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">tentarFecharRotinaComModalAberto</span>
+                <span class="method-start">42202 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">fecharRotinaModal</span>
+                <span class="method-start">42774 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">valorCampoNumericoComPonto</span>
+                <span class="method-start">43564 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">valorCampoNumericoDecimalComPonto</span>
+                <span class="method-start">44091 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">valorCampoNumericoMilharComPonto</span>
+                <span class="method-start">44290 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">valorCampoNumericoMilharComVirgual</span>
+                <span class="method-start">44593 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">valorCampoNumericoApenasDecimal</span>
+                <span class="method-start">44844 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">valorCampoNumericoApenasDecimalComPonto</span>
+                <span class="method-start">45012 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">valorCampoNumericoComMilhar</span>
+                <span class="method-start">45196 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verificarSeComponenteBotaoAbreComEnter</span>
+                <span class="method-start">45435 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">valorCampoNumericoDecimalComPonto</span>
+                <span class="method-start">45629 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">valorCampoNumericoMilharComPonto</span>
+                <span class="method-start">45725 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">valorCampoNumericoMilharComVirgual</span>
+                <span class="method-start">45845 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">valorCampoNumericoApenasDecimal</span>
+                <span class="method-start">45939 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">valorCampoNumericoApenasDecimalComPonto</span>
+                <span class="method-start">46051 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">valorCampoNumericoComMilhar</span>
+                <span class="method-start">46146 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verificarSeComponenteBotaoAbreComEnter</span>
+                <span class="method-start">46259 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verificarSeComponenteBotaoAbreComEspaco</span>
+                <span class="method-start">47786 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verificarSeComponenteBotaoAbreComEspaco</span>
+                <span class="method-start">49201 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">abrirLovEmModoConsulta</span>
+                <span class="method-start">51309 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">abrirLovEmModoConsulta</span>
+                <span class="method-start">53242 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">utilizacaoCtrlE</span>
+                <span class="method-start">54123 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">inseririValorNoCampoUtilizandoCtrlE</span>
+                <span class="method-start">54344 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">verificarSeMarcaRegistroComoAlteradoUtilizandoCtrlE</span>
+                <span class="method-start">54640 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">utilizacaoCtrlE</span>
+                <span class="method-start">55283 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">inseririValorNoCampoUtilizandoCtrlE</span>
+                <span class="method-start">55743 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">verificarSeMarcaRegistroComoAlteradoUtilizandoCtrlE</span>
+                <span class="method-start">56114 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">verificarFocoAposAbrirCampoLov</span>
+                <span class="method-start">56649 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">fecharDrive</span>
+                <span class="method-start">56996 ms</span>
+              </div> <!-- configuration-class after -->
+              <div class="configuration-class after">
+                <span class="method-name">fecharDrive</span>
+                <span class="method-start">61568 ms</span>
+              </div> <!-- configuration-class after -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+      </div> <!-- main-panel-root -->
+    </div> <!-- wrapper -->
+  </body>
+</html>

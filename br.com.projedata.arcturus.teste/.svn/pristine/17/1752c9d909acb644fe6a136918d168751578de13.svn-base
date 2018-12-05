@@ -1,0 +1,47 @@
+package br.com.projedata.arcturus.teste.webelements;
+
+import org.openqa.selenium.By;
+
+public class AgendadorElementos {
+
+	public static By abaAcao = By.xpath("//div[contains(@class,'titulo')]//p[contains(text(),'Ação')]");
+	public static By abaRelatorio = By.xpath("//div[contains(@class,'titulo')]//p[contains(text(),'Relatório')]");
+	public static By abaNotificacao = By
+			.xpath("//p[contains(text(),'Notificação')]//preceding::p[contains(text(),'Relatório')][1]");
+	public static By abaObjetosNegocio = By
+			.xpath("//div[contains(@class,'titulo')]//p[contains(text(),'Objetos de Negócio')]");
+	public static By abaExecucoes = By.xpath("//div[contains(@class,'titulo')]//p[contains(text(),'Execuções')]");
+	public static By idAgendamento = By.xpath("//input[contains(@id,'ARCAGENDAMENTOId')]");
+	public static By nomeAgendamento = By.xpath("//input[contains(@id,'ARCAGENDAMENTONome')]");
+	public static By estadoAgendamento = By.xpath("//select[contains(@id,'ARCAGENDAMENTOEstado')]");
+	public static By periodicidadeAgendamento = By.xpath("//input[contains(@id,'ARCAGENDAMENTOPeriodicidade')]");
+	public static By detalhesAgendamento = By.xpath("//input[contains(@id,'ARCAGENDAMENTODetalhes')]");
+	public static By usuarioAgendamento = By.xpath("//input[contains(@id,'ARCAGENDAMENTOIdUsuario')]");
+	public static By baseAgendamento = By.xpath("//input[contains(@id,'ARCAGENDAMENTOIdBase')]");
+	public static By dataInicioAgendamento = By.xpath("//input[contains(@id,'ARCAGENDAMENTODataInicio')]");
+	public static By dataFimAgendamento = By.xpath("//input[contains(@id,'ARCAGENDAMENTODataFim')]");
+	public static By botaoExecutarAgendamento = By.xpath("//button[contains(@id,'ARCAGENDAMENTOExecutarAgendamento')]");
+	public static By campoEmailDestinoAgendamento = By.xpath("//input[contains(@id,'ARCAGENDAMENTODESTEmail')]");
+	public static By campoAcao = By.xpath("//textarea[contains(@id,'ARCAGENDAMENTOAcao')]");
+	public static By campoCodigoRelatorio = By.xpath("//input[contains(@id,'ARCAGENDAMENTOChaveRotina')]");
+	public static By campoUsuarioRecebedor = By.xpath("//input[contains(@id,'ARCAGENDAMENTODESTIdUsuario')]");
+	public static By campoEmailUsuarioRecebedor = By.xpath("//input[contains(@id,'ARCAGENDAMENTODESTEmail')]");
+	public static By botaoAbrirConfiguracoesPeriodo = By
+			.xpath("//button[contains(@id,'ARCAGENDAMENTOBtConfPeriodicidade')]");
+	public static By frequenciaSegundos = By.xpath("//select[contains(@id,'periodicidadeSegundoFrequencia')]");
+	public static By frequenciaACadaSegundo = By.xpath("//input[contains(@id,'periodicidadeSegundoInicio')]");
+	public static By frequenciaIniciandoNoSegundo = By.xpath("//input[contains(@id,'periodicidadeSegundoFim')]");
+	public static By botaoAplicarPeriodo = By.xpath("//button[contains(@id,'periodicidadeBotaoAplicar')]");
+	public static By campoDetalhesExecucao = By.xpath("//textarea[contains(@id,'ARCAGENDAMENTOEXECUCAODetalhes')]");
+	public static By frequenciaHoras = By.xpath("//select[contains(@id,'periodicidadeHoraFrequencia')]");
+	public static By frequenciaMinutos = By.xpath("//select[contains(@id,'periodicidadeMinutoFrequencia')]");
+	public static By botaoExcluirAgendamento = By.xpath("//button[contains(@id,'ARCAGENDAMENTOApagarAgendamento')]");
+	
+	public static By botaoAbrirConfiguracaoRelatorio = By.xpath("//button[contains(@id,'ARCAGENDAMENTOBtConfRotina')]");
+	public static By telaConfiguracaoRelatorioAberta = By.xpath("//div[@class='cabecalho']//following::p[contains (text(),'GER330')]");
+	public static By informarPeriodoInicial = By.xpath("//p[contains (text(),'GER330')]//following::input[contains(@id,'periodo-1-0')][1]");
+	public static By informarPeriodoFinal = By.xpath("//p[contains (text(),'GER330')]//following::input[contains(@id,'periodo-1-1')][1]");
+	public static By selecionarTipoSaida = By.xpath("//select[contains(@id,'tipo_saida-1')]");
+	public static By salvarFiltros = By.xpath("//button[contains(@id,'b_processar_filtro-1')]");
+
+}

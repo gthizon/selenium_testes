@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="tests" thread-count="3">
+	<parameter name="login" value="usuario" />
+	<parameter name="login2" value="usuario2" />
+	<parameter name="senha" value="usuario" />
+	<parameter name="base" value="desenvolvimento" />
+	<parameter name="baseHomo" value="homologacao" />
+	<test name="Grupo de teste 1: com usuario 1" group-by-instances="true">
+		<classes >
+			<class name="br.com.projedata.arcturus.teste.testes.TesteConstrutorTelas" />
+			<class name="br.com.projedata.arcturus.teste.testes.TestePger001" />
+		</classes>
+	</test>
+	<test name="Grupo de teste 2: com usuario 1" group-by-instances="true">
+		<classes >
+			<class name="br.com.projedata.arcturus.teste.testes.TesteParc001" />
+			<class name="br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02" />
+			<class name="br.com.projedata.arcturus.teste.testes.TesteFuncoesDeRotinas" />
+		</classes>
+	</test>
+	<test name="Grupo de teste 3: com usuario 2" group-by-instances="true">
+		<classes>
+			<class name="br.com.projedata.arcturus.teste.testes.TesteInternacionalizacao" />
+			<class name="br.com.projedata.arcturus.teste.testes.TesteParc003" />
+			<class name="br.com.projedata.arcturus.teste.testes.TestePortal" />
+		</classes>
+	</test>
+	<listeners>
+		<listener
+			class-name="br.com.projedata.teste.util.selenium.listeners.ScreenshotListener" />
+	</listeners>
+</suite>

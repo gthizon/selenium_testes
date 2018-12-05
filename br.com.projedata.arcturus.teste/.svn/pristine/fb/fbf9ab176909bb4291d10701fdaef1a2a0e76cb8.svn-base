@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]" parallel="tests">
+  <parameter name="senha" value="guth055"/>
+  <parameter name="loginTeste" value="teste"/>
+  <parameter name="login" value="gustavo.projedata"/>
+  <parameter name="url" value="http://arcturus-dev.prj"/>
+  <parameter name="base" value="FONTES"/>
+  <listeners>
+    <listener class-name="br.com.projedata.arcturus.teste.selenium.listeners.ScreenshotListener"/>
+  </listeners>
+  <test name="ChromeTest(failed)" parallel="tests">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02">
+        <methods>
+          <include name="fecharRotinaPrincipal"/>
+          <include name="abrirModal"/>
+          <include name="consultarRegistroPorCodigoDetalhe"/>
+          <include name="criarRegistroSemAlteracao"/>
+          <include name="naoPermitirAlterarCampoNaoEditavelPeloCtrlE"/>
+          <include name="cancelarRegistroSemAlteracaoOpcaoCancelar"/>
+          <include name="navegarProximoRegistro"/>
+          <include name="abrirRotinaTeste02"/>
+          <include name="selecionarDataPeloCalendario"/>
+          <include name="cancelarRegistroSemAlteracaoOpcaoNao"/>
+          <include name="limparRegistro"/>
+          <include name="consultarRegistroPorCodigo"/>
+          <include name="valorCampoNumericoApenasDecimal"/>
+          <include name="abrirLovEmModoConsulta"/>
+          <include name="fecharRotinaModal"/>
+          <include name="valorCampoNumericoComMilhar"/>
+          <include name="inseririValorNoCampoUtilizandoCtrlE"/>
+          <include name="consultarTodosRegistros"/>
+          <include name="navegarPaginaAnterior"/>
+          <include name="valorCampoNumericoApenasDecimalComPonto"/>
+          <include name="configurarTeste"/>
+          <include name="configurarTeste"/>
+          <include name="consultarRegistroPorCodigoTabelaDinamica"/>
+          <include name="verificarSeComponenteBotaoAbreComEspaco"/>
+          <include name="testarEventoAposAbrirTela"/>
+          <include name="blocoNaoPermiteInclusao"/>
+          <include name="salvarRegistroSemAlteracao"/>
+          <include name="tentarFecharRotinaComModalAberto"/>
+          <include name="valorCampoNumericoMilharComPonto"/>
+          <include name="fecharDrive"/>
+          <include name="fecharDrive"/>
+          <include name="navegarRegistroAnterior"/>
+          <include name="excluirRegistroInserido"/>
+          <include name="cancelarRegistroSemAlteracao"/>
+          <include name="blocoNaoPermiteAlteracao"/>
+          <include name="navegarProximaPagina"/>
+          <include name="verificarFocoAposAbrirCampoLov"/>
+          <include name="excluirRegistro"/>
+          <include name="cancelarRegistroSemAlteracaoOpcaoSim"/>
+          <include name="campoObrigatorioTabelaDinamica"/>
+          <include name="utilizacaoCtrlE"/>
+          <include name="verificarSeComponenteBotaoAbreComEnter"/>
+          <include name="verificarSeMarcaRegistroComoAlteradoUtilizandoCtrlE"/>
+          <include name="valorCampoNumericoMilharComVirgual"/>
+          <include name="campoObrigatorio"/>
+          <include name="inserirRegistro"/>
+          <include name="valorCampoNumericoDecimalComPonto"/>
+          <include name="valorCampoNumericoComPonto"/>
+          <include name="blocoNaoPermiteExclusao"/>
+        </methods>
+      </class> <!-- br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02 -->
+    </classes>
+  </test> <!-- ChromeTest(failed) -->
+  <test name="FirefoxTest(failed)" parallel="tests">
+    <parameter name="browser" value="firefox"/>
+    <classes>
+      <class name="br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02">
+        <methods>
+          <include name="fecharRotinaPrincipal"/>
+          <include name="abrirModal"/>
+          <include name="consultarRegistroPorCodigoDetalhe"/>
+          <include name="criarRegistroSemAlteracao"/>
+          <include name="naoPermitirAlterarCampoNaoEditavelPeloCtrlE"/>
+          <include name="cancelarRegistroSemAlteracaoOpcaoCancelar"/>
+          <include name="navegarProximoRegistro"/>
+          <include name="abrirRotinaTeste02"/>
+          <include name="selecionarDataPeloCalendario"/>
+          <include name="cancelarRegistroSemAlteracaoOpcaoNao"/>
+          <include name="limparRegistro"/>
+          <include name="consultarRegistroPorCodigo"/>
+          <include name="valorCampoNumericoApenasDecimal"/>
+          <include name="abrirLovEmModoConsulta"/>
+          <include name="fecharRotinaModal"/>
+          <include name="valorCampoNumericoComMilhar"/>
+          <include name="inseririValorNoCampoUtilizandoCtrlE"/>
+          <include name="consultarTodosRegistros"/>
+          <include name="navegarPaginaAnterior"/>
+          <include name="valorCampoNumericoApenasDecimalComPonto"/>
+          <include name="configurarTeste"/>
+          <include name="configurarTeste"/>
+          <include name="consultarRegistroPorCodigoTabelaDinamica"/>
+          <include name="verificarSeComponenteBotaoAbreComEspaco"/>
+          <include name="testarEventoAposAbrirTela"/>
+          <include name="blocoNaoPermiteInclusao"/>
+          <include name="salvarRegistroSemAlteracao"/>
+          <include name="tentarFecharRotinaComModalAberto"/>
+          <include name="valorCampoNumericoMilharComPonto"/>
+          <include name="fecharDrive"/>
+          <include name="fecharDrive"/>
+          <include name="navegarRegistroAnterior"/>
+          <include name="excluirRegistroInserido"/>
+          <include name="cancelarRegistroSemAlteracao"/>
+          <include name="blocoNaoPermiteAlteracao"/>
+          <include name="navegarProximaPagina"/>
+          <include name="verificarFocoAposAbrirCampoLov"/>
+          <include name="excluirRegistro"/>
+          <include name="cancelarRegistroSemAlteracaoOpcaoSim"/>
+          <include name="campoObrigatorioTabelaDinamica"/>
+          <include name="utilizacaoCtrlE"/>
+          <include name="verificarSeComponenteBotaoAbreComEnter"/>
+          <include name="verificarSeMarcaRegistroComoAlteradoUtilizandoCtrlE"/>
+          <include name="valorCampoNumericoMilharComVirgual"/>
+          <include name="campoObrigatorio"/>
+          <include name="inserirRegistro"/>
+          <include name="valorCampoNumericoDecimalComPonto"/>
+          <include name="valorCampoNumericoComPonto"/>
+          <include name="blocoNaoPermiteExclusao"/>
+        </methods>
+      </class> <!-- br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02 -->
+    </classes>
+  </test> <!-- FirefoxTest(failed) -->
+</suite> <!-- Failed suite [Suite] -->

@@ -1,0 +1,53 @@
+package br.com.projedata.arcturus.teste.testes;
+
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.barraRolagemProximoRelatorio;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.barraRolagemProximoRelatorioDesabilitada;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.campoCodigoRelatorio;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.filtroObrigatorio;
+
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import br.com.projedata.arcturus.teste.metodosgenericos.AtualizadorMetodos;
+import br.com.projedata.arcturus.teste.metodosgenericos.ConstrutorTelasMetodos;
+import br.com.projedata.arcturus.teste.metodosgenericos.LoginMetodos;
+import br.com.projedata.arcturus.teste.recursos.TesteGenerico;
+
+public class teste extends TesteGenerico {
+
+	String elementoFocado;
+	LoginMetodos login;
+	AtualizadorMetodos atualizador;
+	ConstrutorTelasMetodos metodosConstrutor;
+
+	@Parameters(value = { "login", "senha", "base" })
+	@Test(testName = "id: ?? - Fazer um repasse e verificar se notificação aparecerá na lista de notificações do portal.")
+	public void testeNotificacao(String usuario, String senha, String base) throws Exception {
+		login = new LoginMetodos(this);
+		login.logar(usuario, senha, base);
+		rotina.selecionarRotina("ger001");
+		selecionarRelatorioParaEdicao("rger23");
+		acao.clicarNoElemento("botaoExecutar-1");
+		espera.aguardarElementoEstarVisivel(rotina.botaoProcessarFiltros);
+		testar.passouSeElementoEstiverVisivel(filtroObrigatorio);
+	}
+	
+	public void selecionarRelatorioParaEdicao(String relatorio) {
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(campoCodigoRelatorio, 0);
+		rotina.aguardarProcessarRotina();
+		rotina.limparCampoERealizarNovaConsulta();
+		int posicao = 0;
+		while (!acao.localizarElementos(campoCodigoRelatorio).get(posicao).getAttribute("value").equals(relatorio)) {
+			if (acao.localizarElementos(barraRolagemProximoRelatorioDesabilitada).size() == 0) {
+				acao.clicarNoElemento(barraRolagemProximoRelatorio);
+				rotina.aguardarProcessarRotina();
+				posicao = -1;
+			}
+			posicao++;
+		}
+		acao.clicarNoElemento(campoCodigoRelatorio, posicao);
+		rotina.aguardarProcessarRotina();
+	}
+
+}

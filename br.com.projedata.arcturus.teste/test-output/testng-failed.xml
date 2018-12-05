@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="3" guice-stage="DEVELOPMENT" name="Failed suite [Suite]" parallel="tests">
+  <parameter name="senha" value="usuario"/>
+  <parameter name="baseHomo" value="homologacao"/>
+  <parameter name="login" value="usuario"/>
+  <parameter name="login2" value="usuario2"/>
+  <parameter name="base" value="desenvolvimento"/>
+  <listeners>
+    <listener class-name="br.com.projedata.teste.util.selenium.listeners.ScreenshotListener"/>
+  </listeners>
+  <test name="Grupo de teste 1: com usuario 1(failed)" parallel="tests">
+    <classes>
+      <class name="br.com.projedata.arcturus.teste.testes.TesteParc118">
+        <methods>
+          <include name="verificarAtualizacaoLancada"/>
+          <include name="fecharDriver"/>
+          <include name="configurarTeste"/>
+        </methods>
+      </class> <!-- br.com.projedata.arcturus.teste.testes.TesteParc118 -->
+    </classes>
+  </test> <!-- Grupo de teste 1: com usuario 1(failed) -->
+</suite> <!-- Failed suite [Suite] -->

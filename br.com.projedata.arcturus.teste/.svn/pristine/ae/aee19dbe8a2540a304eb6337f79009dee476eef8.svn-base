@@ -1,0 +1,144 @@
+package br.com.projedata.arcturus.teste.metodosgenericos;
+
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.barraRolagemProximoRelatorio;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.barraRolagemProximoRelatorioDesabilitada;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.botaoBloquearHabilitado;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.botaoBloquearTotal;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.botaoCancelarVersao;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.botaoCriarNovoRelatorio;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.botaoEditarHabilitado;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.botaoExcluirHabilitado;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.botaoExcluirRotina;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.botaoExecutarHabilitado;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.botaoFinalizarVersao;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.botaoLiberarRelatorio;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.botaoNovoRelatorio;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.campoCodigoRelatorio;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.campoDescricaoRelatorioCriarNovo;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.campoNomeRelatorioCriarNovo;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.fecharJanelaEmissaoRelatorio;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.janelaCriarRotina;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.mensagemExcluirRotina;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.mensagemRotinaExcluidaComSucesso;
+
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.TimeoutException;
+
+import br.com.projedata.arcturus.teste.recursos.RotinaRecurso;
+import br.com.projedata.arcturus.teste.recursos.TesteGenerico;
+
+public class Pger001Metodos {
+
+	private TesteGenerico teste;
+//	private Rotina rotina;
+
+	public Pger001Metodos(TesteGenerico teste) {
+		this.teste = teste;
+	}
+
+	public void aguardarRelatorioEstarCarregado() {
+		teste.espera.aguardarElementoNaoEstarVazio(campoCodigoRelatorio, 0, "value");
+	}
+
+	public void criarNovoRelatorioParaEdicao() {
+		teste.acao.clicarNoElemento(botaoNovoRelatorio);
+		try {
+			teste.espera.aguardarElementoEstarVisivel(janelaCriarRotina);
+		} catch (TimeoutException e) {
+			teste.acao.clicarNoElemento(botaoNovoRelatorio);
+		}
+		teste.espera.aguardarElementoEstarVisivel(janelaCriarRotina);
+		String nomeNovoRel = "Novo relatório teste wizard";
+		teste.acao.limparElemento(campoNomeRelatorioCriarNovo);
+		teste.acao.escreverNoElemento(campoNomeRelatorioCriarNovo, nomeNovoRel);
+		teste.acao.limparElemento(campoDescricaoRelatorioCriarNovo);
+		teste.acao.escreverNoElemento(campoDescricaoRelatorioCriarNovo, "Novo relatório teste wizard");
+		teste.acao.clicarNoElemento(botaoCriarNovoRelatorio);
+		teste.espera.aguardarElementoDesaparecer(janelaCriarRotina);
+		teste.navegador.trocarDeAba();
+	}
+
+	public void executarRelatorio(RotinaRecurso rotina) {
+		teste.espera.aguardarElementoEstarVisivel(botaoExecutarHabilitado);
+		teste.acao.clicarNoElemento(botaoExecutarHabilitado);
+		teste.espera.aguardarElementoEstarVisivel(rotina.botaoProcessarFiltros);
+		rotina.aguardarProcessarRotina();
+	}
+
+	public void fecharRelatorio() {
+		teste.acao.clicarNoElemento(fecharJanelaEmissaoRelatorio);
+		teste.espera.aguardarElementoDesaparecer(fecharJanelaEmissaoRelatorio);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public void finalizarRelatorio(RotinaRecurso rotina) {
+		teste.acao.clicarNoElemento(botaoLiberarRelatorio);
+		teste.espera.aguardarElementoEstarVisivel(botaoFinalizarVersao);
+		teste.acao.clicarNoElemento(botaoFinalizarVersao);
+		teste.espera.aguardarElementoDesaparecer(botaoFinalizarVersao);
+		rotina.aguardarProcessarRotina();
+	}
+
+	public void bloquearRelatorio(RotinaRecurso rotina) {
+		teste.acao.clicarNoElemento(botaoBloquearHabilitado);
+		teste.espera.aguardarElementoEstarVisivel(rotina.estaProcessando);
+		if (teste.acao.localizarElementos(teste.msg.retornarMensagemNotificacao("Selecione o tipo de bloqueio")).size() > 0) {
+			teste.msg.aguardarMensagem("Selecione o tipo de bloqueio");
+			teste.acao.clicarNoElemento(botaoBloquearTotal);
+			teste.espera.aguardarElementoDesaparecer(botaoBloquearTotal);
+			rotina.aguardarProcessarRotina();
+			teste.espera.aguardarElementoEstarVisivel(botaoLiberarRelatorio);
+		}
+		rotina.aguardarProcessarRotina();
+	}
+
+	public void editarRelatorio(RotinaRecurso rotina) {
+		teste.espera.aguardarElementoEstarVisivel(botaoEditarHabilitado);
+		teste.acao.clicarNoElemento(botaoEditarHabilitado);
+		rotina.aguardarProcessarRotina();
+		teste.navegador.trocarDeAba();
+	}
+
+	public void cancelarVersao(RotinaRecurso rotina) {
+		teste.acao.clicarNoElemento(botaoLiberarRelatorio);
+		teste.espera.aguardarElementoEstarVisivel(botaoCancelarVersao);
+		teste.acao.clicarNoElemento(botaoCancelarVersao);
+		teste.espera.aguardarElementoDesaparecer(botaoCancelarVersao);
+		rotina.aguardarProcessarRotina();
+	}
+
+	public void excluirRelatorio(RotinaRecurso rotina) {
+		teste.acao.clicarNoElemento(botaoExcluirHabilitado);
+		teste.espera.aguardarElementoEstarVisivel(mensagemExcluirRotina);
+		teste.acao.clicarNoElemento(botaoExcluirRotina);
+		teste.espera.aguardarElementoDesaparecer(mensagemExcluirRotina);
+		teste.espera.aguardarElementoEstarVisivel(mensagemRotinaExcluidaComSucesso);
+		teste.teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		teste.espera.aguardarElementoDesaparecer(mensagemRotinaExcluidaComSucesso);
+
+	}
+
+	public void selecionarRelatorioParaEdicao(String relatorio) {
+		teste.rotina.aguardarProcessarRotina();
+		teste.acao.clicarNoElemento(campoCodigoRelatorio, 0);
+		teste.rotina.aguardarProcessarRotina();
+		teste.rotina.limparCampoERealizarNovaConsulta();
+		int posicao = 0;
+		while (!teste.acao.localizarElementos(campoCodigoRelatorio).get(posicao).getAttribute("value").equals(relatorio)) {
+			if (teste.acao.localizarElementos(barraRolagemProximoRelatorioDesabilitada).size() == 0) {
+				teste.acao.clicarNoElemento(barraRolagemProximoRelatorio);
+				teste.rotina.aguardarProcessarRotina();
+				posicao = -1;
+			}
+			posicao++;
+		}
+		teste.acao.clicarNoElemento(campoCodigoRelatorio, posicao);
+		teste.rotina.aguardarProcessarRotina();
+	}
+
+}

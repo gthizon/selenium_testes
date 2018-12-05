@@ -1,0 +1,691 @@
+package br.com.projedata.arcturus.teste.testes;
+
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.botaoFinalizarVersao;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.botaoLiberarRelatorio;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.campoCodigoRelatorio;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.abaCampos;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.abaConsulta;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.abaEventos;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.abaFiltrosGraficos;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.abaGraficoBarras;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.abaGraficoLinha;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.abaGraficoPizza;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.abaGruposGraficoLinha;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.abaMatriz;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.abaTotalizadorFuncoes;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.abaTotalizadores;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.abrirArvoreComponentes;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.abrirArvoreComponentesGrafico;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.abrirArvoreRodape;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.abrirPropriedadesSerieGrafico;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.abrirPropriedadesValorGrafico;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.adicionarFiltroPeriodoNaConsulta;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.botaoAbrirWizard;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.botaoAddFiltrosGraficoBarras;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.botaoAddValorParaGraficoBarras;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.botaoAddValorParaMatriz;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.botaoAdicionarCampos;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.botaoAdicionarCamposGrafico;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.botaoAdicionarCamposGrupo;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.botaoAvancarWizard;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.botaoFinalizarAssistente;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.botaoFuncaoTotalizador;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.campoAcaoSelecionado;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.campoAtividadeSelecionado;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.camposParaSelecao;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.camposParaSelecaoGrupo;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.camposParaSelecaoTotalizador;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.desmarcarLegendaValor;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.editorSql;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.etiquetaCasasDecimais;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.etiquetaExibirSeparadorDecimal;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.exibirTotalPorColunaMatriz;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.exibirTotalPorLinhaMatriz;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.filtroPeriodoFinal;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.filtroPeriodoInicial;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.itensSelecionadosFuncaoContar;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.legendaMascara;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.legendaSerieMarcada;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.legendaValorDesmarcada;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.localizarFiltro;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.marcarLegendaSerie;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.maximoNumeroOsSelecionado;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.mediaNumeroOsSelecionado;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.modeloRelatorio;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.propriedadeEtiquetaCasasDecimais;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.propriedadeLegendaExibirSerie;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.propriedadeLegendaMascara;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.quadroCamposGrupoSelecionados;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.quadroRepeticaoGrafico;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.selecionaValorColunaMatriz;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.selecionaValorLinhaMatriz;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.selecionarCampoParaTotalizar;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.selecionarCategoria;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.selecionarCategoriaGraficoBarras;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.selecionarConsulta;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.selecionarFiltroPeriodo;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.selecionarFiltrosGraficoBarras;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.selecionarSerie;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.selecionarSerieGraficoBarras;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.selecionarSerieGraficoPizza;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.selecionarValorGraficoPizza;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.selecionarValorParaGraficoBarras;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.selecionarValorParaMatriz;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.somarNumeroOsSelecionado;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.tipoConsultaSql;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.totalOsGraficoLinha;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.totalizadorMinimoSelecionado;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.valorParaGraficoBarrasSelecionado;
+import static br.com.projedata.arcturus.teste.webelements.WizardRelatoriosElementos.wizardAssistente;
+
+import java.io.IOException;
+
+import org.apache.pdfbox.pdmodel.encryption.InvalidPasswordException;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.TimeoutException;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import br.com.projedata.arcturus.teste.metodosgenericos.GeradorRelatoriosMetodos;
+import br.com.projedata.arcturus.teste.metodosgenericos.LoginMetodos;
+import br.com.projedata.arcturus.teste.metodosgenericos.Pger001Metodos;
+import br.com.projedata.arcturus.teste.recursos.TesteGenerico;
+
+public class TesteWizardRelatorios extends TesteGenerico {
+
+	LoginMetodos login;
+	String abaPrincipal;
+	GeradorRelatoriosMetodos gerador;
+	Pger001Metodos ger001Metodos;
+
+	@Parameters(value = { "login", "senha", "base" })
+	@Test(testName = "Abrir rotina pger001")
+	public void abrirPger001() {
+		login = new LoginMetodos(this);
+		ger001Metodos = new Pger001Metodos(this);
+		login.logar("usuario", "usuario", "desenvolvimento");
+		rotina.selecionarRotina("ger001");
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(rotina.botaoConsultar);
+		ger001Metodos.aguardarRelatorioEstarCarregado();
+		rotina.aguardarProcessarRotina();
+	}
+
+	@Test(testName = "id: 1 - Testar a criacao de um novo relatorio", dependsOnMethods = {
+			"abrirPger001" }, enabled = true)
+	public void criarNovoRelatorio() {
+		abaPrincipal = navegador.retornarPaginaAtual();
+		ger001Metodos.criarNovoRelatorioParaEdicao(rotina);
+		gerador = new GeradorRelatoriosMetodos(this);
+		gerador.aguardaProcessarGeradorRelatorios();
+		espera.aguardarElementoEstarVisivel(wizardAssistente);
+	}
+
+	@Test(testName = "id: 2 - Selecionar modelo Tabular", dependsOnMethods = { "criarNovoRelatorio" }, enabled = true)
+	public void selecionarModeloTabular() {
+		espera.aguardarElementoEstarVisivel(modeloRelatorio("M"));
+		acao.clicarNoElemento(modeloRelatorio("T"));
+		acao.clicarNoElemento(botaoAvancarWizard);
+		espera.aguardarElementoEstarVisivel(abaConsulta);
+	}
+
+	@Test(testName = "id: 3 - Inserir consulta Sql", dependsOnMethods = { "selecionarModeloTabular" }, enabled = true)
+	public void inserirConsultaSqlComFiltro() {
+		espera.aguardarElementoEstarVisivel(tipoConsultaSql);
+		acao.clicarNoElemento(tipoConsultaSql);
+		acao.escreverNoElemento(editorSql, "select * from wkfos where $X{inicio,:periodo}");
+		acao.escreverNoElemento(localizarFiltro, "periodo");
+		acao.clicarNoElemento(selecionarFiltroPeriodo);
+		espera.aguardarElementoEstarVisivel(adicionarFiltroPeriodoNaConsulta);
+		acao.clicarNoElemento(botaoAvancarWizard);
+		espera.aguardarElementoEstarVisivel(abaEventos);
+		acao.clicarNoElemento(botaoAvancarWizard);
+		espera.aguardarElementoEstarVisivel(abaCampos);
+	}
+
+	@Test(testName = "id: 4 - Selecionar campos", dependsOnMethods = { "inserirConsultaSqlComFiltro" }, enabled = true)
+	public void selecionarCampos() {
+		espera.aguardarElementoEstarVisivel(camposParaSelecao("numero_os"));
+		acao.clicarNoElemento(camposParaSelecao("numero_os"));
+		acao.clicarNoElemento(botaoAdicionarCampos);
+		espera.aguardarElementoDesaparecer(camposParaSelecao("numero_os"));
+		acao.clicarNoElemento(camposParaSelecao("tipo_os"));
+		acao.clicarNoElemento(botaoAdicionarCampos);
+		espera.aguardarElementoDesaparecer(camposParaSelecao("tipo_os"));
+		acao.clicarNoElemento(camposParaSelecao("situacao"));
+		acao.clicarNoElemento(botaoAdicionarCampos);
+		espera.aguardarElementoDesaparecer(camposParaSelecao("situacao"));
+		acao.clicarNoElemento(botaoAvancarWizard);
+	}
+
+	@Test(testName = "id: 5 - Selecionar campos de grupo", dependsOnMethods = { "selecionarCampos" }, enabled = true)
+	public void selecionarCamposGrupo() {
+		espera.aguardarElementoEstarVisivel(camposParaSelecaoGrupo("correntista"));
+		acao.clicarNoElemento(camposParaSelecaoGrupo("correntista"));
+		acao.clicarNoElemento(botaoAdicionarCamposGrupo);
+		espera.aguardarElementoEstarVisivel(quadroCamposGrupoSelecionados);
+		acao.clicarNoElemento(botaoAvancarWizard);
+		espera.aguardarElementoEstarVisivel(abaTotalizadores);
+	}
+
+	@Test(testName = "id: 6 - Selecionar totalizadores funcao contar", dependsOnMethods = {
+			"selecionarCamposGrupo" }, enabled = true)
+	public void selecionarCamposTotalizadoresFuncaoContar() {
+		espera.aguardarElementoEstarVisivel(camposParaSelecaoTotalizador("numero_os"));
+		acao.clicarNoElemento(camposParaSelecaoTotalizador("numero_os"));
+		acao.clicarNoElemento(botaoFuncaoTotalizador("Contar"));
+		espera.aguardarElementoEstarVisivel(itensSelecionadosFuncaoContar);
+	}
+
+	@Test(testName = "id: 7 - Finalizar Wizard", dependsOnMethods = {
+			"selecionarCamposTotalizadoresFuncaoContar" }, enabled = true)
+	public void finalizarWizardCriarRelatorio() {
+		acao.clicarNoElemento(botaoFinalizarAssistente);
+		espera.aguardarElementoDesaparecer(wizardAssistente);
+		gerador.salvarAlteracoesRelatorio();
+	}
+
+	@Test(testName = "id: 36 - Finalizar Wizard e atualizar pagina verificando se exibira botao do wizard", dependsOnMethods = {
+			"finalizarWizardCriarRelatorio" }, enabled = true)
+	public void finalizarWizardEAtualizarPagina() throws InterruptedException {
+		navegador.atualizarBrowser();
+		espera.aguardarElementoEstarVisivel(botaoAbrirWizard);
+		gerador.aguardaProcessarGeradorRelatorios();
+	}
+
+	public void gerarRelatorioNoConstrutor() {
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		teclado.pressionarConjuntoDeTeclas(Keys.CONTROL, "r");
+		for (String winHandle : webDriver.getWindowHandles()) {
+			webDriver.switchTo().window(winHandle);
+		}
+		gerador.aguardaProcessarGeradorRelatorios();
+		espera.aguardarElementoEstarVisivel(rotina.botaoProcessarFiltros);
+	}
+
+	@Test(testName = "id: 8 - Emitir relatorio", dependsOnMethods = {
+			"finalizarWizardEAtualizarPagina" }, enabled = true)
+	public void emitirRelatorioTabular() throws InvalidPasswordException, IOException {
+		gerador.aguardaProcessarGeradorRelatorios();
+		gerarRelatorioNoConstrutor();
+		gerador.aguardaProcessarGeradorRelatorios();
+		gerador.selecionarTipoSaida("PDF");
+		acao.limparElemento(filtroPeriodoInicial);
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElemento(filtroPeriodoInicial, "01012016");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.limparElemento(filtroPeriodoFinal);
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElemento(filtroPeriodoFinal, "01012018");
+		acao.clicarNoElemento(rotina.botaoProcessarFiltros);
+		testar.passouSeValorContem(rotina.retornarConteudoDoPdf(), "51,00");
+		testar.passouSeValorContem(rotina.retornarConteudoDoPdf(), "Número OS");
+		testar.passouSeValorContem(rotina.retornarConteudoDoPdf(), "Tipo Os");
+		testar.passouSeValorContem(rotina.retornarConteudoDoPdf(), "Situacao");
+	}
+
+	@Test(testName = "id: 9 - Emitir relatorio no portal", dependsOnMethods = {
+			"emitirRelatorioTabular" }, enabled = true)
+	public void emitirRelatorioNoPortal() throws InvalidPasswordException, IOException {
+		retornarPaginaPger001();
+		ger001Metodos.executarRelatorio(rotina);
+		gerador.selecionarTipoSaida("PDF");
+		acao.limparElemento(filtroPeriodoInicial);
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElemento(filtroPeriodoInicial, "01012016");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.limparElemento(filtroPeriodoFinal);
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElemento(filtroPeriodoFinal, "01012018");
+		acao.clicarNoElemento(rotina.botaoProcessarFiltros);
+		testar.passouSeValorContem(rotina.retornarConteudoDoPdf(), "51,00");
+		testar.passouSeValorContem(rotina.retornarConteudoDoPdf(), "Número OS");
+		testar.passouSeValorContem(rotina.retornarConteudoDoPdf(), "Tipo Os");
+		testar.passouSeValorContem(rotina.retornarConteudoDoPdf(), "Situacao");
+		ger001Metodos.fecharRelatorio();
+
+	}
+
+	@Test(testName = "id: 37 - Finalizar versao do relatorio, criar nova versao e verificar se botao do wizard sera exibido", dependsOnMethods = {
+			"emitirRelatorioNoPortal" }, enabled = true)
+	public void finalizarVersaoEVerificarBotaoWizard() {
+		rotina.aguardarProcessarRotina();
+		espera.aguardarElementoDesaparecer(msg.mensagemRegistrosAlterados);
+		acao.clicarNoElemento(campoCodigoRelatorio, 1);
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(campoCodigoRelatorio, 0);
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(botaoLiberarRelatorio);
+		try {
+			espera.aguardarElementoEstarVisivel(botaoFinalizarVersao);
+		} catch (TimeoutException e) {
+			acao.clicarNoElemento(botaoLiberarRelatorio);
+		}
+		espera.aguardarElementoEstarVisivel(botaoFinalizarVersao);
+		acao.clicarNoElemento(botaoFinalizarVersao);
+		espera.aguardarElementoDesaparecer(botaoFinalizarVersao);
+		rotina.aguardarProcessarRotina();
+		ger001Metodos.bloquearRelatorio(rotina);
+		ger001Metodos.editarRelatorio(rotina);
+		verificarBotaoWizardVisivel();
+	}
+
+	@Test(testName = "id: 38 - Cancelar versao do relatorio, criar nova versao e verificar se botao do wizard sera exibido", dependsOnMethods = {
+			"finalizarVersaoEVerificarBotaoWizard" }, enabled = true)
+	public void cancelarVersaoEVerificarBotaoWizard() {
+		rotina.aguardarProcessarRotina();
+		ger001Metodos.cancelarVersao(rotina);
+		ger001Metodos.bloquearRelatorio(rotina);
+		ger001Metodos.editarRelatorio(rotina);
+		verificarBotaoWizardVisivel();
+	}
+
+	@Test(testName = "id: 10 - Excluir relatorio no portal", dependsOnMethods = {
+			"cancelarVersaoEVerificarBotaoWizard" }, enabled = true)
+	public void excluirRelatorioNoPortal() {
+		rotina.aguardarProcessarRotina();
+		ger001Metodos.excluirRelatorio(rotina);
+	}
+
+	@Test(testName = "id: 11 - Criar relatorio do tipo grafico linha", dependsOnMethods = {
+			"excluirRelatorioNoPortal" }, enabled = true)
+	public void criarRelatorioGraficoLinha() {
+		rotina.aguardarProcessarRotina();
+		criarNovoRelatorio();
+		espera.aguardarElementoEstarVisivel(modeloRelatorio("M"));
+		acao.clicarNoElemento(modeloRelatorio("L"));
+		acao.clicarNoElemento(botaoAvancarWizard);
+		espera.aguardarElementoEstarVisivel(abaConsulta);
+	}
+
+	@Test(testName = "id: 12 - Cadastrar consulta grafico linha", dependsOnMethods = {
+			"criarRelatorioGraficoLinha" }, enabled = true)
+	public void cadastrarConsultaGraficoLinha() {
+		espera.aguardarElementoEstarVisivel(tipoConsultaSql);
+		acao.clicarNoElemento(tipoConsultaSql);
+		acao.escreverNoElemento(editorSql,
+				"select count(numero_os) total_os, tipo_os, to_char(inicio,'yyyy/mm') inicio\r\n" + "  from wkfos\r\n"
+						+ " where $X{inicio,:periodo}\r\n " + " group by tipo_os, inicio\r\n  "
+						+ " order by inicio asc           ");
+		acao.escreverNoElemento(localizarFiltro, "periodo");
+		acao.clicarNoElemento(selecionarFiltroPeriodo);
+		espera.aguardarElementoEstarVisivel(adicionarFiltroPeriodoNaConsulta);
+		acao.clicarNoElemento(botaoAvancarWizard);
+		espera.aguardarElementoEstarVisivel(abaEventos);
+		acao.clicarNoElemento(botaoAvancarWizard);
+		espera.aguardarElementoEstarVisivel(abaCampos);
+	}
+
+	@Test(testName = "id: 13 - Selecionar campos grafico linha", dependsOnMethods = {
+			"cadastrarConsultaGraficoLinha" }, enabled = true)
+	public void selecionarCamposGraficoLinha() {
+		espera.aguardarElementoEstarVisivel(camposParaSelecao("total_os"));
+		acao.clicarNoElemento(camposParaSelecao("total_os"));
+		acao.clicarNoElemento(botaoAdicionarCampos);
+		espera.aguardarElementoDesaparecer(camposParaSelecao("total_os"));
+		acao.clicarNoElemento(camposParaSelecao("tipo_os"));
+		acao.clicarNoElemento(botaoAdicionarCampos);
+		espera.aguardarElementoDesaparecer(camposParaSelecao("tipo_os"));
+		acao.clicarNoElemento(camposParaSelecao("inicio"));
+		acao.clicarNoElemento(botaoAdicionarCampos);
+		espera.aguardarElementoDesaparecer(camposParaSelecao("inicio"));
+		acao.clicarNoElemento(botaoAvancarWizard);
+		espera.aguardarElementoEstarVisivel(abaGraficoLinha);
+	}
+
+	@Test(testName = "id: 14 - Selecionar opcoes do grafico", dependsOnMethods = {
+			"selecionarCamposGraficoLinha" }, enabled = true)
+	public void configurarGraficoLinha() {
+		espera.aguardarElementoEstarVisivel(totalOsGraficoLinha);
+		acao.clicarNoElemento(totalOsGraficoLinha);
+		acao.clicarNoElemento(botaoAdicionarCamposGrafico);
+		espera.aguardarElementoDesaparecer(totalOsGraficoLinha);
+		acao.posicionarFocoNoElemento(rotina, selecionarCategoria);
+		acao.selecionarNoElementoPeloValor(selecionarCategoria, "string:inicio");
+		acao.posicionarFocoNoElemento(rotina, selecionarSerie);
+		acao.selecionarNoElementoPeloValor(selecionarSerie, "string:tipo_os");
+		acao.clicarNoElemento(botaoAvancarWizard);
+		espera.aguardarElementoEstarVisivel(abaGruposGraficoLinha);
+	}
+
+	public void salvarAlteracoesRelatorio() {
+
+		try {
+			teclado.pressionarConjuntoDeTeclas(Keys.CONTROL, "s");
+			espera.aguardarElementoEstarVisivel(msg.mensagemSucesso);
+			espera.aguardarElementoDesaparecer(msg.mensagemSucesso);
+		} catch (TimeoutException e) {
+			salvarAlteracoesRelatorio();
+		}
+	}
+
+	@Test(testName = "id: 15 - Finalizar wizard e gerar relatorio", dependsOnMethods = {
+			"configurarGraficoLinha" }, enabled = true)
+	public void finalizarGraficoEGerarRelatorio() throws InvalidPasswordException, IOException {
+		espera.aguardarElementoEstarVisivel(botaoFinalizarAssistente);
+		acao.clicarNoElemento(botaoFinalizarAssistente);
+		espera.aguardarElementoDesaparecer(wizardAssistente);
+		gerador.aguardaProcessarGeradorRelatorios();
+		espera.aguardarElementoEstarVisivel(quadroRepeticaoGrafico);
+		salvarAlteracoesRelatorio();
+		gerarRelatorioNoConstrutor();
+		espera.aguardarElementoEstarVisivel(rotina.botaoProcessarFiltros);
+		gerador.aguardaProcessarGeradorRelatorios();
+		gerador.selecionarTipoSaida("PDF");
+		acao.limparElemento(filtroPeriodoInicial);
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		gerador.aguardaProcessarGeradorRelatorios();
+		acao.escreverNoElemento(filtroPeriodoInicial, "01012017");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		gerador.aguardaProcessarGeradorRelatorios();
+		acao.limparElemento(filtroPeriodoFinal);
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		gerador.aguardaProcessarGeradorRelatorios();
+		acao.escreverNoElemento(filtroPeriodoFinal, "01062017");
+		acao.clicarNoElemento(rotina.botaoProcessarFiltros);
+		testar.passouSeValorContem(rotina.retornarConteudoDoPdf(), "NOVO RELATÓRIO TESTE WIZARD");
+		retornarPaginaPger001();
+		excluirRelatorioNoPortal();
+	}
+
+	@Test(testName = "id: 16 - Criar relatorio grafico de barras", dependsOnMethods = {
+			"finalizarGraficoEGerarRelatorio" }, enabled = true)
+	public void criarRelatorioGraficoBarras() {
+		criarNovoRelatorio();
+		espera.aguardarElementoEstarVisivel(modeloRelatorio("B"));
+		acao.clicarNoElemento(modeloRelatorio("B"));
+		acao.clicarNoElemento(botaoAvancarWizard);
+		espera.aguardarElementoEstarVisivel(abaConsulta);
+	}
+
+	@Test(testName = "id: 17 - Selecionar consulta ja cadastrada", dependsOnMethods = {
+			"criarRelatorioGraficoBarras" }, enabled = true)
+	public void selecionarConsultaGraficoBarras() {
+		espera.aguardarElementoEstarVisivel(selecionarConsulta);
+		acao.clicarNoElemento(selecionarConsulta);
+		acao.clicarNoElemento(botaoAvancarWizard);
+		espera.aguardarElementoEstarVisivel(abaEventos);
+		acao.clicarNoElemento(botaoAvancarWizard);
+		espera.aguardarElementoEstarVisivel(abaCampos);
+	}
+
+	@Test(testName = "id: 18 - Selecionar campos grafico barras", dependsOnMethods = {
+			"selecionarConsultaGraficoBarras" }, enabled = true)
+	public void selecionarCamposGraficoBarras() {
+		espera.aguardarElementoEstarVisivel(camposParaSelecao("acao"));
+		acao.clicarNoElemento(camposParaSelecao("acao"));
+		acao.clicarNoElemento(botaoAdicionarCampos);
+		espera.aguardarElementoEstarVisivel(campoAcaoSelecionado);
+		acao.clicarNoElemento(camposParaSelecao("atividade"));
+		acao.clicarNoElemento(botaoAdicionarCampos);
+		espera.aguardarElementoEstarVisivel(campoAtividadeSelecionado);
+		acao.clicarNoElemento(camposParaSelecao("numero_os"));
+		acao.clicarNoElemento(botaoFuncaoTotalizador("Média"));
+		espera.aguardarElementoEstarVisivel(mediaNumeroOsSelecionado);
+		acao.clicarNoElemento(botaoAvancarWizard);
+		espera.aguardarElementoEstarVisivel(abaGraficoBarras);
+	}
+
+	@Test(testName = "id: 19 - Configurar grafico barras", dependsOnMethods = {
+			"selecionarCamposGraficoBarras" }, enabled = true)
+	public void configurarGraficoBarras() {
+		espera.aguardarElementoEstarVisivel(selecionarValorParaGraficoBarras);
+		acao.clicarNoElemento(selecionarValorParaGraficoBarras);
+		acao.clicarNoElemento(botaoAddValorParaGraficoBarras);
+		espera.aguardarElementoEstarVisivel(valorParaGraficoBarrasSelecionado);
+		acao.posicionarFocoNoElemento(rotina, selecionarCategoriaGraficoBarras);
+		acao.selecionarNoElementoPeloValor(selecionarCategoriaGraficoBarras, "string:acao");
+		acao.posicionarFocoNoElemento(rotina, selecionarCategoriaGraficoBarras);
+		acao.selecionarNoElementoPeloValor(selecionarSerieGraficoBarras, "string:atividade");
+		acao.clicarNoElemento(botaoAvancarWizard);
+		espera.aguardarElementoEstarVisivel(abaGruposGraficoLinha);
+	}
+
+	@Test(testName = "id: 20 - Selecionar filtros grafico barras", dependsOnMethods = {
+			"configurarGraficoBarras" }, enabled = true)
+	public void selecionarFiltroGraficoBarras() {
+		acao.clicarNoElemento(botaoAvancarWizard);
+		espera.aguardarElementoEstarVisivel(abaFiltrosGraficos);
+		acao.clicarNoElemento(selecionarFiltrosGraficoBarras);
+		acao.clicarNoElemento(botaoAddFiltrosGraficoBarras);
+		espera.aguardarElementoDesaparecer(selecionarFiltrosGraficoBarras);
+	}
+
+	@Test(testName = "id: 21 - Gerar relatorio grafico barras", dependsOnMethods = {
+			"selecionarFiltroGraficoBarras" }, enabled = true)
+	public void emitirRelatorioGraficoBarras() throws InvalidPasswordException, IOException {
+		finalizarGraficoEGerarRelatorio();
+	}
+
+	@Test(testName = "id: 22 - Criar relatorio grafico de pizza", dependsOnMethods = {
+			"emitirRelatorioGraficoBarras" }, enabled = true)
+	public void criarRelatorioGraficoPizza() {
+		criarNovoRelatorio();
+		espera.aguardarElementoEstarVisivel(modeloRelatorio("P"));
+		acao.clicarNoElemento(modeloRelatorio("P"));
+		acao.clicarNoElemento(botaoAvancarWizard);
+		espera.aguardarElementoEstarVisivel(abaConsulta);
+	}
+
+	@Test(testName = "id: 23 - Selecionar consulta ja cadastrada", dependsOnMethods = {
+			"criarRelatorioGraficoPizza" }, enabled = true)
+	public void selecionarConsultaGraficoPizza() {
+		espera.aguardarElementoEstarVisivel(selecionarConsulta);
+		acao.clicarNoElemento(selecionarConsulta);
+		acao.clicarNoElemento(botaoAvancarWizard);
+		espera.aguardarElementoEstarVisivel(abaEventos);
+		acao.clicarNoElemento(botaoAvancarWizard);
+		espera.aguardarElementoEstarVisivel(abaCampos);
+	}
+
+	@Test(testName = "id: 24 - Selecionar campos grafico pizza", dependsOnMethods = {
+			"selecionarConsultaGraficoPizza" }, enabled = true)
+	public void selecionarCamposGraficoPizza() {
+		espera.aguardarElementoEstarVisivel(camposParaSelecao("acao"));
+		acao.clicarNoElemento(camposParaSelecao("acao"));
+		acao.clicarNoElemento(botaoAdicionarCampos);
+		espera.aguardarElementoEstarVisivel(campoAcaoSelecionado);
+		acao.clicarNoElemento(camposParaSelecao("numero_os"));
+		acao.clicarNoElemento(botaoFuncaoTotalizador("Máximo"));
+		espera.aguardarElementoEstarVisivel(maximoNumeroOsSelecionado);
+		acao.clicarNoElemento(botaoAvancarWizard);
+		espera.aguardarElementoEstarVisivel(abaGraficoPizza);
+	}
+
+	@Test(testName = "id: 25 - Configurar grafico pizza", dependsOnMethods = {
+			"selecionarCamposGraficoPizza" }, enabled = true)
+	public void configurarGraficoPizza() {
+		acao.posicionarFocoNoElemento(rotina, selecionarValorGraficoPizza);
+		acao.selecionarNoElementoPeloValor(selecionarValorGraficoPizza, "string:max_numero_os");
+		acao.posicionarFocoNoElemento(rotina, selecionarSerieGraficoBarras);
+		acao.selecionarNoElementoPeloValor(selecionarSerieGraficoPizza, "string:acao");
+		acao.clicarNoElemento(desmarcarLegendaValor);
+		espera.aguardarElementoEstarVisivel(legendaValorDesmarcada);
+		acao.clicarNoElemento(marcarLegendaSerie);
+		espera.aguardarElementoEstarVisivel(legendaSerieMarcada);
+		acao.clicarNoElemento(botaoAvancarWizard);
+		espera.aguardarElementoEstarVisivel(abaGruposGraficoLinha);
+	}
+
+	@Test(testName = "id: 26 - Selecionar filtros grafico pizza", dependsOnMethods = {
+			"configurarGraficoPizza" }, enabled = true)
+	public void selecionarFiltrosGraficoPizza() {
+		selecionarFiltroGraficoBarras();
+	}
+
+	@Test(testName = "id: 27 - Gerar relatorio grafico pizza", dependsOnMethods = {
+			"selecionarFiltrosGraficoPizza" }, enabled = true)
+	public void emitirRelatorioGraficoPizza() throws InvalidPasswordException, IOException {
+		finalizarGraficoEGerarRelatorio();
+	}
+
+	@Test(testName = "id: 28 - Criar relatorio matriz", dependsOnMethods = {
+			"emitirRelatorioGraficoPizza" }, enabled = true)
+	public void criarRelatorioMatriz() {
+		criarNovoRelatorio();
+		espera.aguardarElementoEstarVisivel((modeloRelatorio("M")));
+		acao.clicarNoElemento(modeloRelatorio("M"));
+		acao.clicarNoElemento(botaoAvancarWizard);
+		espera.aguardarElementoEstarVisivel(abaConsulta);
+	}
+
+	@Test(testName = "id: 29 - Selecionar consulta ja cadastrada", dependsOnMethods = {
+			"criarRelatorioMatriz" }, enabled = true)
+	public void selecionarConsultaMatriz() {
+		espera.aguardarElementoEstarVisivel(selecionarConsulta);
+		acao.clicarNoElemento(selecionarConsulta);
+		acao.clicarNoElemento(botaoAvancarWizard);
+		espera.aguardarElementoEstarVisivel(abaEventos);
+		acao.clicarNoElemento(botaoAvancarWizard);
+		espera.aguardarElementoEstarVisivel(abaCampos);
+	}
+
+	@Test(testName = "id: 30 - Selecionar campos matriz", dependsOnMethods = {
+			"selecionarConsultaMatriz" }, enabled = true)
+	public void selecionarCamposMatriz() {
+		espera.aguardarElementoEstarVisivel(camposParaSelecao("acao"));
+		acao.clicarNoElemento(camposParaSelecao("acao"));
+		acao.clicarNoElemento(botaoAdicionarCampos);
+		espera.aguardarElementoEstarVisivel(campoAcaoSelecionado);
+		acao.clicarNoElemento(camposParaSelecao("numero_os"));
+		acao.clicarNoElemento(botaoFuncaoTotalizador("Somar"));
+		espera.aguardarElementoEstarVisivel(somarNumeroOsSelecionado);
+		acao.clicarNoElemento(camposParaSelecao("atividade"));
+		acao.clicarNoElemento(botaoAdicionarCampos);
+		espera.aguardarElementoEstarVisivel(campoAtividadeSelecionado);
+		acao.clicarNoElemento(botaoAvancarWizard);
+		espera.aguardarElementoEstarVisivel(abaMatriz);
+	}
+
+	@Test(testName = "id: 31 - Configurar matriz", dependsOnMethods = { "selecionarCamposMatriz" }, enabled = true)
+	public void configurarMatriz() {
+		espera.aguardarElementoEstarVisivel(selecionarValorParaMatriz);
+		acao.clicarNoElemento(selecionarValorParaMatriz);
+		acao.clicarNoElemento(botaoAddValorParaMatriz);
+		espera.aguardarElementoDesaparecer(selecionarValorParaMatriz);
+		acao.selecionarNoElementoPeloValor(selecionaValorLinhaMatriz, "string:acao");
+		acao.selecionarNoElementoPeloValor(selecionaValorColunaMatriz, "string:atividade");
+		acao.clicarNoElemento(exibirTotalPorLinhaMatriz);
+		acao.clicarNoElemento(exibirTotalPorColunaMatriz);
+		acao.clicarNoElemento(botaoAvancarWizard);
+		espera.aguardarElementoEstarVisivel(abaGruposGraficoLinha);
+	}
+
+	@Test(testName = "id: 32 - Selecionar totalizadores matriz", dependsOnMethods = {
+			"configurarMatriz" }, enabled = true)
+	public void selecionarTotalizadoresMatriz() {
+		acao.clicarNoElemento(botaoAvancarWizard);
+		espera.aguardarElementoEstarVisivel(abaTotalizadores);
+		espera.aguardarElementoEstarVisivel(selecionarCampoParaTotalizar);
+		acao.clicarNoElemento(selecionarCampoParaTotalizar);
+		acao.clicarNoElemento(abaTotalizadorFuncoes("Mínimo"));
+		espera.aguardarElementoEstarVisivel(totalizadorMinimoSelecionado);
+	}
+
+	@Test(testName = "id: 33 - Selecionar filtros matriz", dependsOnMethods = {
+			"selecionarTotalizadoresMatriz" }, enabled = true)
+	public void selecionarFiltrosMatriz() {
+		selecionarFiltroGraficoBarras();
+	}
+
+	@Test(testName = "id: 34 - Gerar relatorio matriz", dependsOnMethods = {
+			"selecionarFiltrosMatriz" }, enabled = true)
+	public void emitirRelatorioMatriz() throws InvalidPasswordException, IOException {
+		espera.aguardarElementoEstarVisivel(botaoFinalizarAssistente);
+		acao.clicarNoElemento(botaoFinalizarAssistente);
+		espera.aguardarElementoDesaparecer(wizardAssistente);
+		gerador.salvarAlteracoesRelatorio();
+		gerarRelatorioNoConstrutor();
+		espera.aguardarElementoEstarVisivel(rotina.botaoProcessarFiltros);
+		gerador.aguardaProcessarGeradorRelatorios();
+		gerador.selecionarTipoSaida("PDF");
+		acao.limparElemento(filtroPeriodoInicial);
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		gerador.aguardaProcessarGeradorRelatorios();
+		acao.escreverNoElemento(filtroPeriodoInicial, "01012017");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		gerador.aguardaProcessarGeradorRelatorios();
+		acao.limparElemento(filtroPeriodoFinal);
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		gerador.aguardaProcessarGeradorRelatorios();
+		acao.escreverNoElemento(filtroPeriodoFinal, "01062017");
+		acao.clicarNoElemento(rotina.botaoProcessarFiltros);
+		testar.passouSeValorContem(rotina.retornarConteudoDoPdf(), "Total Mínimo:");
+		testar.passouSeValorContem(rotina.retornarConteudoDoPdf(), "10997");
+		testar.passouSeValorContem(rotina.retornarConteudoDoPdf(), "421");
+		retornarPaginaPger001();
+		excluirRelatorioNoPortal();
+	}
+
+	@Test(testName = "id: 35 - Testar propriedades do grafico apos finalizar wizard", dependsOnMethods = {
+			"emitirRelatorioMatriz" }, enabled = true)
+	public void verificarSePropriedadesDoGraficoForamCriadasCorretamente()
+			throws InvalidPasswordException, IOException {
+		criarRelatorioGraficoPizza();
+		selecionarConsultaGraficoPizza();
+		selecionarCamposGraficoPizza();
+		acao.posicionarFocoNoElemento(rotina, selecionarValorGraficoPizza);
+		acao.selecionarNoElementoPeloValor(selecionarValorGraficoPizza, "string:max_numero_os");
+		acao.posicionarFocoNoElemento(rotina, selecionarSerieGraficoBarras);
+		acao.selecionarNoElementoPeloValor(selecionarSerieGraficoPizza, "string:acao");
+		acao.clicarNoElemento(desmarcarLegendaValor);
+		espera.aguardarElementoEstarVisivel(legendaValorDesmarcada);
+		acao.clicarNoElemento(marcarLegendaSerie);
+		espera.aguardarElementoEstarVisivel(legendaSerieMarcada);
+		acao.escreverNoElemento(etiquetaCasasDecimais, "3");
+		acao.selecionarNoElemento(etiquetaExibirSeparadorDecimal, "Sim");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		String mascaraEtiqueta = acao.localizarElemento(legendaMascara).getAttribute("value");
+		acao.clicarNoElemento(botaoAvancarWizard);
+		espera.aguardarElementoEstarVisivel(abaGruposGraficoLinha);
+		acao.clicarNoElemento(botaoAvancarWizard);
+		espera.aguardarElementoEstarVisivel(botaoFinalizarAssistente);
+		acao.clicarNoElemento(botaoFinalizarAssistente);
+		espera.aguardarElementoDesaparecer(wizardAssistente);
+		gerador.aguardaProcessarGeradorRelatorios();
+		acao.clicarNoElemento(abrirArvoreComponentes);
+		espera.aguardarElementoEstarVisivel(abrirArvoreRodape);
+		acao.clicarNoElemento(abrirArvoreRodape);
+		espera.aguardarElementoEstarVisivel(abrirArvoreComponentesGrafico);
+		acao.clicarNoElemento(abrirArvoreComponentesGrafico);
+		espera.aguardarElementoEstarVisivel(abrirPropriedadesSerieGrafico);
+		acao.clicarNoElemento(abrirPropriedadesSerieGrafico);
+		testar.passouSeElementoEstiverSelecionado(propriedadeLegendaExibirSerie);
+		acao.clicarNoElemento(abrirPropriedadesValorGrafico);
+		espera.aguardarElementoEstarVisivel(propriedadeEtiquetaCasasDecimais);
+		testar.passouSeAtributoDoElementoContem(propriedadeEtiquetaCasasDecimais, "value", "3");
+		testar.passouSeAtributoDoElementoContem(propriedadeLegendaMascara, "value", mascaraEtiqueta);
+
+		salvarAlteracoesRelatorio();
+		retornarPaginaPger001();
+		excluirRelatorioNoPortal();
+	}
+
+	public void retornarPaginaPger001() {
+		for (String handle : webDriver.getWindowHandles()) {
+			if (!handle.equals(abaPrincipal)) {
+				webDriver.switchTo().window(handle);
+				webDriver.close();
+			}
+		}
+		webDriver.switchTo().window(abaPrincipal);
+	}
+
+	private void verificarBotaoWizardVisivel() {
+		gerador.aguardaProcessarGeradorRelatorios();
+		espera.aguardarElementoEstarVisivel(botaoAbrirWizard);
+		navegador.retornarPaginaPrincipal(abaPrincipal);
+	}
+
+}

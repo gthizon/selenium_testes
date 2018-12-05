@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" >
+	<parameter name="url" value="http://arcturus-teste.prj:8888/" />
+	<parameter name="url2" value="http://arcturus-teste-homo.prj:8888/" />
+	<parameter name="url3" value="http://homologacao.bd.prj:8080/" />
+	<parameter name="login" value="usuario" />
+	<parameter name="loginTeste" value="teste" />
+	<parameter name="senha" value="usuario" />
+	<parameter name="base" value="desenvolvimento" />
+	<test name="ChromeTest" parallel="false">
+		<parameter name="browser" value="chrome" />
+		<classes>
+<!-- 			<class name="br.com.projedata.arcturus.teste.testes.TesteRotinaTeste02" /> -->
+<!-- 			<class name="br.com.projedata.arcturus.teste.testes.TesteParc001" /> -->
+<!-- 			<class name="br.com.projedata.arcturus.teste.testes.TesteParc002" /> -->
+<!-- 			<class name="br.com.projedata.arcturus.teste.testes.TesteParc003" /> -->
+<!-- 			<class name="br.com.projedata.arcturus.teste.testes.TesteParc004" /> -->
+<!-- 			<class name="br.com.projedata.arcturus.teste.testes.TesteParc005" /> -->
+<!-- 			<class name="br.com.projedata.arcturus.teste.testes.TesteParc006" /> -->
+<!-- 			<class name="br.com.projedata.arcturus.teste.testes.TesteParc007" /> -->
+<!-- 			<class name="br.com.projedata.arcturus.teste.testes.TesteParc008" /> -->
+<!-- 			<class name="br.com.projedata.arcturus.teste.testes.TesteParc010" /> -->
+<!-- 			<class name="br.com.projedata.arcturus.teste.testes.TesteParc016" /> -->
+<!-- 			<class name="br.com.projedata.arcturus.teste.testes.TesteParc102" /> -->
+<!-- 			<class name="br.com.projedata.arcturus.teste.testes.TesteParc103" /> -->
+<!-- 			<class name="br.com.projedata.arcturus.teste.testes.TesteParc012" /> -->
+			<class name="br.com.projedata.arcturus.teste.testes.TestePger001" />
+<!-- 			<class name="br.com.projedata.arcturus.teste.testes.TesteConstrutorTelas" /> -->
+<!-- 			<class name="br.com.projedata.arcturus.teste.testes.TesteGeradorRelatorios" /> -->
+<!-- 			<class name="br.com.projedata.arcturus.teste.testes.TesteSenhaDeAcesso" /> -->
+<!-- 			<class name="br.com.projedata.arcturus.teste.testes.TesteFuncoesDeRotinas" /> -->
+<!-- 			<class name="br.com.projedata.arcturus.teste.testes.TesteWizardRelatorios" /> -->
+<!-- 			<class name="br.com.projedata.arcturus.teste.testes.TestePortal" /> -->
+<!-- 			<class name="br.com.projedata.arcturus.teste.testes.TesteAgendador" /> -->
+<!-- 			<class name="br.com.projedata.arcturus.teste.testes.TesteInternacionalizacao" /> -->
+<!-- 			<class name="br.com.projedata.arcturus.teste.testes.TestePainelRelatorios" /> -->
+<!-- 			<class name="br.com.projedata.arcturus.teste.testes.TesteAtualizador" /> -->
+<!-- 			<class name="br.com.projedata.arcturus.teste.testes.teste" /> -->
+
+		</classes>
+	</test>
+	<listeners>
+		<listener
+			class-name="br.com.projedata.arcturus.teste.selenium.listeners.ScreenshotListener" />
+	</listeners>
+</suite>

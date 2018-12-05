@@ -1,0 +1,447 @@
+<html>
+<head>
+<title>TestNG:  FirefoxTest</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>FirefoxTest</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>40/1/4</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Feb 21 16:20:43 BRT 2018</td>
+</tr>
+<tr><td>Total time:</td><td>61 seconds (61671 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.verificarSeMarcaRegistroComoAlteradoUtilizandoCtrlE()'><b>verificarSeMarcaRegistroComoAlteradoUtilizandoCtrlE</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for br.com.projedata.arcturus.teste.recursos.Espera$5@7c3e883d (tried for 5 second(s) with 500 MILLISECONDS interval)
+Build info: version: &apos;3.9.1&apos;, revision: &apos;63f7b50&apos;, time: &apos;2018-02-07T22:25:02.294Z&apos;
+System info: host: &apos;GUSTAVO-0151&apos;, ip: &apos;192.168.10.150&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_92&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 56.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:headless: false, moz:processID: 8756, moz:profile: C:\Users\Gustavo-151\AppDat..., pageLoadStrategy: normal, platform: XP, platformName: XP, platformVersion: 10.0, rotatable: false, specificationLevel: 0, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}}
+Session ID: 19199dc1-b700-4be1-afba-e8c845c1f8df
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:82)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at br.com.projedata.arcturus.teste.recursos.Espera.aguardarElementoEstarVisivel(Espera.java:100)
+	at br.com.projedata.arcturus.teste.recursos.Espera.aguardarElementoEstarVisivel(Espera.java:96)
+	at br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.verificarSeMarcaRegistroComoAlteradoUtilizandoCtrlE(TestesRotinaTeste02.java:506)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+... Removed 16 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace890255832", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace890255832'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for br.com.projedata.arcturus.teste.recursos.Espera$5@7c3e883d (tried for 5 second(s) with 500 MILLISECONDS interval)
+Build info: version: &apos;3.9.1&apos;, revision: &apos;63f7b50&apos;, time: &apos;2018-02-07T22:25:02.294Z&apos;
+System info: host: &apos;GUSTAVO-0151&apos;, ip: &apos;192.168.10.150&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_92&apos;
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 56.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:headless: false, moz:processID: 8756, moz:profile: C:\Users\Gustavo-151\AppDat..., pageLoadStrategy: normal, platform: XP, platformName: XP, platformVersion: 10.0, rotatable: false, specificationLevel: 0, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}}
+Session ID: 19199dc1-b700-4be1-afba-e8c845c1f8df
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:82)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at br.com.projedata.arcturus.teste.recursos.Espera.aguardarElementoEstarVisivel(Espera.java:100)
+	at br.com.projedata.arcturus.teste.recursos.Espera.aguardarElementoEstarVisivel(Espera.java:96)
+	at br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.verificarSeMarcaRegistroComoAlteradoUtilizandoCtrlE(TestesRotinaTeste02.java:506)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:645)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:756)
+	at org.testng.TestRunner.run(TestRunner.java:610)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:387)
+	at org.testng.SuiteRunner.access$000(SuiteRunner.java:39)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)
+	at org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+</pre></div></td>
+<td>5</td>
+<td>br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.abrirLovEmModoConsulta()'><b>abrirLovEmModoConsulta</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</td>
+<td></td>
+<td>2</td>
+<td>br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.abrirModal()'><b>abrirModal</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</td>
+<td></td>
+<td>3</td>
+<td>br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.abrirRotinaTeste02()'><b>abrirRotinaTeste02</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02<br>Parameters: http://arcturus-dev.prj, teste, guth055, FONTES</td>
+<td></td>
+<td>5</td>
+<td>br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.blocoNaoPermiteAlteracao()'><b>blocoNaoPermiteAlteracao</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</td>
+<td></td>
+<td>1</td>
+<td>br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.blocoNaoPermiteExclusao()'><b>blocoNaoPermiteExclusao</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</td>
+<td></td>
+<td>1</td>
+<td>br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.blocoNaoPermiteInclusao()'><b>blocoNaoPermiteInclusao</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</td>
+<td></td>
+<td>1</td>
+<td>br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.campoObrigatorio()'><b>campoObrigatorio</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</td>
+<td></td>
+<td>3</td>
+<td>br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.campoObrigatorioTabelaDinamica()'><b>campoObrigatorioTabelaDinamica</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</td>
+<td></td>
+<td>1</td>
+<td>br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.cancelarRegistroSemAlteracao()'><b>cancelarRegistroSemAlteracao</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</td>
+<td></td>
+<td>0</td>
+<td>br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.cancelarRegistroSemAlteracaoOpcaoCancelar()'><b>cancelarRegistroSemAlteracaoOpcaoCancelar</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</td>
+<td></td>
+<td>1</td>
+<td>br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.cancelarRegistroSemAlteracaoOpcaoNao()'><b>cancelarRegistroSemAlteracaoOpcaoNao</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</td>
+<td></td>
+<td>0</td>
+<td>br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.cancelarRegistroSemAlteracaoOpcaoSim()'><b>cancelarRegistroSemAlteracaoOpcaoSim</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</td>
+<td></td>
+<td>2</td>
+<td>br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.consultarRegistroPorCodigo()'><b>consultarRegistroPorCodigo</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</td>
+<td></td>
+<td>0</td>
+<td>br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.consultarRegistroPorCodigoDetalhe()'><b>consultarRegistroPorCodigoDetalhe</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</td>
+<td></td>
+<td>0</td>
+<td>br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.consultarRegistroPorCodigoTabelaDinamica()'><b>consultarRegistroPorCodigoTabelaDinamica</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</td>
+<td></td>
+<td>0</td>
+<td>br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.consultarTodosRegistros()'><b>consultarTodosRegistros</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</td>
+<td></td>
+<td>0</td>
+<td>br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.criarRegistroSemAlteracao()'><b>criarRegistroSemAlteracao</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</td>
+<td></td>
+<td>1</td>
+<td>br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.excluirRegistro()'><b>excluirRegistro</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</td>
+<td></td>
+<td>0</td>
+<td>br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.excluirRegistroInserido()'><b>excluirRegistroInserido</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</td>
+<td></td>
+<td>4</td>
+<td>br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.fecharRotinaModal()'><b>fecharRotinaModal</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</td>
+<td></td>
+<td>0</td>
+<td>br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.inserirRegistro()'><b>inserirRegistro</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</td>
+<td></td>
+<td>2</td>
+<td>br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.inseririValorNoCampoUtilizandoCtrlE()'><b>inseririValorNoCampoUtilizandoCtrlE</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</td>
+<td></td>
+<td>0</td>
+<td>br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.limparRegistro()'><b>limparRegistro</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</td>
+<td></td>
+<td>1</td>
+<td>br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.navegarPaginaAnterior()'><b>navegarPaginaAnterior</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</td>
+<td></td>
+<td>0</td>
+<td>br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.navegarProximaPagina()'><b>navegarProximaPagina</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</td>
+<td></td>
+<td>0</td>
+<td>br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.navegarProximoRegistro()'><b>navegarProximoRegistro</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</td>
+<td></td>
+<td>0</td>
+<td>br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.navegarRegistroAnterior()'><b>navegarRegistroAnterior</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</td>
+<td></td>
+<td>0</td>
+<td>br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.salvarRegistroSemAlteracao()'><b>salvarRegistroSemAlteracao</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</td>
+<td></td>
+<td>1</td>
+<td>br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.tentarFecharRotinaComModalAberto()'><b>tentarFecharRotinaComModalAberto</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</td>
+<td></td>
+<td>0</td>
+<td>br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.testarEventoAposAbrirTela()'><b>testarEventoAposAbrirTela</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</td>
+<td></td>
+<td>0</td>
+<td>br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.utilizacaoCtrlE()'><b>utilizacaoCtrlE</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</td>
+<td></td>
+<td>0</td>
+<td>br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.valorCampoNumericoApenasDecimal()'><b>valorCampoNumericoApenasDecimal</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</td>
+<td></td>
+<td>0</td>
+<td>br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.valorCampoNumericoApenasDecimalComPonto()'><b>valorCampoNumericoApenasDecimalComPonto</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</td>
+<td></td>
+<td>0</td>
+<td>br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.valorCampoNumericoComMilhar()'><b>valorCampoNumericoComMilhar</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</td>
+<td></td>
+<td>0</td>
+<td>br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.valorCampoNumericoComPonto()'><b>valorCampoNumericoComPonto</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</td>
+<td></td>
+<td>2</td>
+<td>br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.valorCampoNumericoDecimalComPonto()'><b>valorCampoNumericoDecimalComPonto</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</td>
+<td></td>
+<td>0</td>
+<td>br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.valorCampoNumericoMilharComPonto()'><b>valorCampoNumericoMilharComPonto</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</td>
+<td></td>
+<td>0</td>
+<td>br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.valorCampoNumericoMilharComVirgual()'><b>valorCampoNumericoMilharComVirgual</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</td>
+<td></td>
+<td>0</td>
+<td>br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.verificarSeComponenteBotaoAbreComEnter()'><b>verificarSeComponenteBotaoAbreComEnter</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</td>
+<td></td>
+<td>2</td>
+<td>br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.verificarSeComponenteBotaoAbreComEspaco()'><b>verificarSeComponenteBotaoAbreComEspaco</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</td>
+<td></td>
+<td>4</td>
+<td>br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.fecharRotinaPrincipal()'><b>fecharRotinaPrincipal</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TestesRotinaTeste02.fecharRotinaPrincipal()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e] depends on not successfully finished methods
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+... Removed 9 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace727969834", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace727969834'><pre>java.lang.Throwable: Method TestesRotinaTeste02.fecharRotinaPrincipal()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:756)
+	at org.testng.TestRunner.run(TestRunner.java:610)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:387)
+	at org.testng.SuiteRunner.access$000(SuiteRunner.java:39)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)
+	at org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.naoPermitirAlterarCampoNaoEditavelPeloCtrlE()'><b>naoPermitirAlterarCampoNaoEditavelPeloCtrlE</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TestesRotinaTeste02.naoPermitirAlterarCampoNaoEditavelPeloCtrlE()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e] depends on not successfully finished methods
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+... Removed 9 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1750696998", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1750696998'><pre>java.lang.Throwable: Method TestesRotinaTeste02.naoPermitirAlterarCampoNaoEditavelPeloCtrlE()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:756)
+	at org.testng.TestRunner.run(TestRunner.java:610)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:387)
+	at org.testng.SuiteRunner.access$000(SuiteRunner.java:39)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)
+	at org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.selecionarDataPeloCalendario()'><b>selecionarDataPeloCalendario</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TestesRotinaTeste02.selecionarDataPeloCalendario()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e] depends on not successfully finished methods
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+... Removed 9 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1309242303", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1309242303'><pre>java.lang.Throwable: Method TestesRotinaTeste02.selecionarDataPeloCalendario()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:756)
+	at org.testng.TestRunner.run(TestRunner.java:610)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:387)
+	at org.testng.SuiteRunner.access$000(SuiteRunner.java:39)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)
+	at org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02.verificarFocoAposAbrirCampoLov()'><b>verificarFocoAposAbrirCampoLov</b><br>Test class: br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02</td>
+<td><div><pre>java.lang.Throwable: Method TestesRotinaTeste02.verificarFocoAposAbrirCampoLov()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e] depends on not successfully finished methods
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+... Removed 9 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1490625626", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1490625626'><pre>java.lang.Throwable: Method TestesRotinaTeste02.verificarFocoAposAbrirCampoLov()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1068)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:756)
+	at org.testng.TestRunner.run(TestRunner.java:610)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:387)
+	at org.testng.SuiteRunner.access$000(SuiteRunner.java:39)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:421)
+	at org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+</table><p>
+</body>
+</html>

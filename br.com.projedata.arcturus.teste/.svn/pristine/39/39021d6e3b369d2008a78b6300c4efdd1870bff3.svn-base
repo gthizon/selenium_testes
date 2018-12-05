@@ -1,0 +1,96 @@
+package br.com.projedata.arcturus.teste.testes;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import br.com.projedata.arcturus.teste.metodosgenericos.LoginMetodos;
+import br.com.projedata.arcturus.teste.metodosgenericos.Pger001Metodos;
+import br.com.projedata.arcturus.teste.recursos.Rotina;
+import br.com.projedata.arcturus.teste.recursos.TesteGenerico;
+import br.com.projedata.arcturus.teste.webelements.AtualizadorElementos;
+import static br.com.projedata.arcturus.teste.webelements.Parc002Elementos.*;
+
+public class TesteParc002 extends TesteGenerico {
+
+	LoginMetodos login;
+	Rotina rotina;
+	AtualizadorElementos atualizador;
+	Pger001Metodos ger001;
+	String codigoSistema;
+
+	@Parameters(value = { "login", "senha", "base" })
+	@Test(testName = "id: 1 - Abrir Parc002")
+	public void abrirParc002(String usuario, String senha, String base) {
+		rotina = new Rotina(webDriver);
+		login = new LoginMetodos(this);
+		login.logar(usuario, senha, base);
+		rotina.selecionarRotina("arc002");
+	}
+
+	@Test(testName = "id: 2 - Inserir novo Menu", dependsOnMethods = { "abrirParc002" })
+	public void inserirMenu() {
+		acao.escreverNoElemento(campoCodigoSistema, "Teste auto");
+		acao.escreverNoElemento(campoNomeSistema, "Automação");
+		acao.escreverNoElemento(campoIdArea, "2");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(rotina.botaoSalvar);
+		espera.aguardarElementoEstarVisivel(msg.mensagemRegistrosAlterados);
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		espera.aguardarElementoDesaparecer(msg.mensagemRegistrosAlterados);
+		codigoSistema = rotina.buscarElemento(campoIdSistema).getAttribute("value").toString();
+		
+	}
+
+	@Test(testName = "id: 3 - Inserir nova rotina", dependsOnMethods = { "inserirMenu" })
+	public void inserirRotina() {
+		acao.clicarNoElemento(campoChaveRotina);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElemento(campoChaveRotina, "arc1001");
+		acao.escreverNoElemento(campoNomeRotina, "Teste automação");
+		acao.selecionarNoElemento(campoPermiteDestacarRotina, "Não");
+		acao.selecionarNoElemento(campoConexaoLocal, "Sim");
+		acao.selecionarNoElemento(campoTipoRotina, "Tela");
+		acao.clicarNoElemento(rotina.botaoSalvar);
+		espera.aguardarElementoEstarVisivel(msg.mensagemRegistrosAlterados);
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		espera.aguardarElementoDesaparecer(msg.mensagemRegistrosAlterados);
+	}
+
+	@Test(testName = "id: 4 - Inserir nova rotina", dependsOnMethods = { "inserirRotina" })
+	public void vincularMenu() {
+		acao.clicarNoElemento(campoIdMenu);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElemento(campoIdMenu, "25");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.selecionarNoElemento(campoTipoMenu, "Menu");
+		acao.clicarNoElemento(rotina.botaoSalvar);
+		espera.aguardarElementoEstarVisivel(msg.mensagemRegistrosAlterados);
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		espera.aguardarElementoDesaparecer(msg.mensagemRegistrosAlterados);
+	}
+
+	@Test(testName = "id: 4 - Excluir rotina", dependsOnMethods = { "vincularMenu" })
+	public void excluirRotina() {
+		acao.clicarNoElemento(campoIdMenu);
+		excluirESalvar();
+		acao.clicarNoElemento(campoChaveRotina);
+		excluirESalvar();
+		acao.clicarNoElemento(campoIdSistema);
+		excluirESalvar();
+	}
+
+	public void excluirESalvar() {
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(rotina.botaoExcluir);
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(rotina.botaoSalvar);
+		espera.aguardarElementoEstarVisivel(msg.mensagemRegistrosAlterados);
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		espera.aguardarElementoDesaparecer(msg.mensagemRegistrosAlterados);
+	}
+
+}

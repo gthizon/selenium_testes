@@ -1,0 +1,54 @@
+package br.com.projedata.arcturus.teste.testes;
+
+import java.awt.AWTException;
+
+import org.openqa.selenium.Keys;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import br.com.projedata.arcturus.teste.metodosgenericos.LoginMetodos;
+import br.com.projedata.arcturus.teste.metodosgenericos.Pger001Metodos;
+import br.com.projedata.arcturus.teste.recursos.Rotina;
+import br.com.projedata.arcturus.teste.recursos.TesteGenerico;
+import br.com.projedata.arcturus.teste.webelements.AtualizadorElementos;
+import static br.com.projedata.arcturus.teste.webelements.Parc015Elementos.*;
+
+public class TesteParc015 extends TesteGenerico {
+
+	LoginMetodos log;
+	Rotina rotina;
+	AtualizadorElementos atualizador;
+	Pger001Metodos ger001;
+	String idRegistro;
+
+	@Parameters(value = { "login", "senha", "base", "url" })
+	@Test(testName = "id: 1 - Excluir a sesssao do usuario teste.")
+	public void abrirParc011(String login, String senha, String base, String url) throws AWTException, InterruptedException {
+		log = new LoginMetodos(this);
+		rotina = new Rotina(webDriver);
+		log.logar("testegeral", "guth055", "fontes");
+		navegador.irParaNovaUrl(url+"/#/login");
+		log.logar(login, senha, base);
+		rotina.selecionarRotina("arc015");
+		acao.clicarNoElemento(campoCpfUsuario, 0);
+		rotina.aguardarProcessarRotina();
+		String cpf = rotina.buscarElementos(campoCpfUsuario, 0).getAttribute("value");
+		int i = 1;
+		while(!cpf.equals("777")) {
+			teclado.pressionarTeclaDeControle(Keys.ARROW_DOWN);
+			rotina.aguardarProcessarRotina();
+			cpf = rotina.buscarElementos(campoCpfUsuario, i).getAttribute("value");
+			i++;
+		}
+		acao.clicarNoElemento(botaoFinalizarSessao, i-1);
+		msg.aguardarMensagem("Confirma a eliminação da sessão");
+		espera.aguardarElementoEstarVisivel(msg.simConfirmacao);
+		acao.clicarNoElemento(msg.simConfirmacao);
+		msg.aguardarMensagemDesaparecer("Confirma a eliminação da sessão");
+		msg.aguardarMensagem("Sessão eliminada!");
+		acao.clicarNoElemento(msg.okNotificacao);
+		msg.aguardarMensagemDesaparecer("Sessão eliminada!");
+		rotina.aguardarProcessarRotina();
+	}
+
+}

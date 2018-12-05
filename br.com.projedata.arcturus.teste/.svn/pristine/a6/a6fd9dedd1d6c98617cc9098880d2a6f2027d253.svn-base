@@ -1,0 +1,14 @@
+package br.com.projedata.arcturus.teste.webelements;
+
+import org.openqa.selenium.By;
+
+public class Parc016Elementos {
+	
+	public static By campoIdPerfil = By.xpath("//input[contains(@id,'campo17405')]");
+	public static By campoNomePerfil = By.xpath("//input[contains(@id,'campo17406')]");
+	public static By campoIdRotinaPerfil = By.xpath("//input[contains(@id,'campo17407')]");
+	public static By botaoLovIdRotinaPerfil = By.xpath("//button[contains(@name,'campo17407')]");
+	public static By campoNomeRotinaPerfil = By.xpath("//input[contains(@id,'campo17409')]");
+	public static By campoPadraoPerfil = By.xpath("//select[contains(@id,'campo17408')]");
+	public static By botaoExcluirPerfil = By.xpath("//button[contains(@id,'botao17410')]");
+}

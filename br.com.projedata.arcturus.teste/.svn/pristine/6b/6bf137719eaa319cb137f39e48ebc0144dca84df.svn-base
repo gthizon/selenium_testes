@@ -1,0 +1,68 @@
+package br.com.projedata.arcturus.teste.testes;
+
+import static br.com.projedata.arcturus.teste.webelements.Teste02Elementos.campoCodigo;
+import static br.com.projedata.arcturus.teste.webelements.Teste02Elementos.campoComboBox;
+import static br.com.projedata.arcturus.teste.webelements.Teste02Elementos.campoDataTabelaDinamica;
+import static br.com.projedata.arcturus.teste.webelements.Teste02Elementos.campoMultivalorado;
+import static br.com.projedata.arcturus.teste.webelements.Teste02Elementos.campoNumerico;
+
+import org.openqa.selenium.Keys;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import br.com.projedata.arcturus.teste.metodosgenericos.AtualizadorMetodos;
+import br.com.projedata.arcturus.teste.metodosgenericos.ConstrutorTelasMetodos;
+import br.com.projedata.arcturus.teste.metodosgenericos.LoginMetodos;
+import br.com.projedata.arcturus.teste.recursos.TesteGenerico;
+
+public class teste extends TesteGenerico {
+
+
+	String elementoFocado;
+	LoginMetodos login;
+	AtualizadorMetodos atualiza;
+	ConstrutorTelasMetodos metodosConstrutor;
+
+	@Parameters(value = { "login", "senha", "base" })
+	@Test(testName = "id: 47 - Verificar expansao de textArea" , enabled = true)
+	public void textAreaExpansivel(String log, String senha, String base) {
+		login = new LoginMetodos(this);
+		login.logar(log, senha, base);
+		rotina.selecionarRotina("teste02");
+		String textArea = "teste teste teste teste teste teste teste teste teste teste teste"
+				+ " teste teste teste teste teste teste teste teste teste teste teste teste teste "
+				+ "teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste"
+				+ "teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste";
+
+		acao.clicarNoElemento(rotina.botaoLimparConsulta);
+		acao.escreverNoElemento(campoCodigo, "444");
+		acao.clicarNoElemento(rotina.botaoConsultar);
+		rotina.aguardarProcessarRotina();
+		String tamanhoInicial = acao.localizarElemento(campoMultivalorado).getCssValue("height");
+		acao.escreverNoElemento(campoMultivalorado, textArea);
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		String tamanhoAlterado = acao.localizarElemento(campoMultivalorado).getCssValue("height");
+		testar.passouSeValorNaoContem(tamanhoInicial, tamanhoAlterado);
+		teclado.pressionarConjuntoDeTeclasDeControle(Keys.SHIFT, Keys.F4);
+		espera.aguardarElementoEstarVisivel(msg.simConfirmacao);
+		acao.clicarNoElemento(msg.naoConfirmacao);
+		espera.aguardarElementoDesaparecer(msg.simConfirmacao);
+		rotina.aguardarProcessarRotina();
+	}
+
+	@Test(testName = "id: 48 - Testar passagem de foco com o tab pelos campos da tabela dinamica.", dependsOnMethods = {
+			"textAreaExpansivel" })
+	public void testarPassagemDeFocoTabelaDinamica() {
+		rotina.selecionarRotina("teste02");
+		rotina.limparCampoERealizarNovaConsulta();
+		acao.clicarNoElemento(campoNumerico);
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		testar.passouSeElementoFocadoFor(campoDataTabelaDinamica);
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		testar.passouSeElementoFocadoFor(campoComboBox);
+		sairPortal();
+
+	}
+}

@@ -1,0 +1,344 @@
+package br.com.projedata.arcturus.teste.testes;
+
+import static br.com.projedata.arcturus.teste.webelements.ConstrutorTelasElementos.botaoAbrirRelatorio;
+import static br.com.projedata.arcturus.teste.webelements.ConstrutorTelasElementos.botaoLovCliente;
+import static br.com.projedata.arcturus.teste.webelements.ConstrutorTelasElementos.campoValor1;
+import static br.com.projedata.arcturus.teste.webelements.FuncoesDeRotinasElementos.botaoDestacarRotina;
+import static br.com.projedata.arcturus.teste.webelements.FuncoesDeRotinasElementos.botaoExpandirRelatorio;
+import static br.com.projedata.arcturus.teste.webelements.FuncoesDeRotinasElementos.botaoRestaurarRelatorio;
+import static br.com.projedata.arcturus.teste.webelements.FuncoesDeRotinasElementos.comboPapelUsuarioArc001;
+import static br.com.projedata.arcturus.teste.webelements.FuncoesDeRotinasElementos.janelaDeInformacoesF1;
+import static br.com.projedata.arcturus.teste.webelements.FuncoesDeRotinasElementos.janelaDeInformacoesF5;
+import static br.com.projedata.arcturus.teste.webelements.FuncoesDeRotinasElementos.relatorioExpandido;
+import static br.com.projedata.arcturus.teste.webelements.FuncoesRotinasElementos.ordenarConceitoCliente;
+import static br.com.projedata.arcturus.teste.webelements.FuncoesRotinasElementos.valorConceitoClienteLov;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.botaoProcessarFiltros;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.tipoSaidaRelatorio;
+import static br.com.projedata.arcturus.teste.webelements.Parc003Elementos.BotaoCarregarLista;
+import static br.com.projedata.arcturus.teste.webelements.Parc003Elementos.*;
+import static br.com.projedata.arcturus.teste.webelements.Parc003Elementos.checkListaInterna;
+import static br.com.projedata.arcturus.teste.webelements.Parc004Elementos.campoCodigoSistema;
+import static br.com.projedata.arcturus.teste.webelements.Parc004Elementos.campoDescricaoMenu;
+import static br.com.projedata.arcturus.teste.webelements.Parc004Elementos.campoOrdemItem;
+import static br.com.projedata.arcturus.teste.webelements.Parc004Elementos.campoTipoItem;
+import static br.com.projedata.arcturus.teste.webelements.Parc016Elementos.campoExibirCabecalho;
+import static br.com.projedata.arcturus.teste.webelements.Parc016Elementos.campoExibirParametros;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.filtroPeriodoFinal;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.filtroPeriodoInicial;
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.botaoAbrirIdiomas;
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.botaoRecarregarMensagemConfirmacao;
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.idiomaIngles;
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.janelaAlterarIdioma;
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.mensagemConfirmacaoIdiomaIngles;
+
+import org.openqa.selenium.Keys;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import br.com.projedata.arcturus.teste.metodosgenericos.FuncoesDeRotinasMetodos;
+import br.com.projedata.arcturus.teste.metodosgenericos.LoginMetodos;
+import br.com.projedata.arcturus.teste.recursos.TesteGenerico;
+import br.com.projedata.arcturus.teste.webelements.ConstrutorTelasElementos;
+import br.com.projedata.arcturus.teste.webelements.Parc004Elementos;
+
+public class TesteFuncoesDeRotinas extends TesteGenerico {
+
+	String paginaPrincipal;
+	LoginMetodos login;
+	String elementoFocado;
+	ConstrutorTelasElementos tela;
+	FuncoesDeRotinasMetodos funcoesRotinas;
+
+	@Parameters(value = { "login", "senha", "base" })
+	@Test(testName = "id: 1 - testar se o componente combobox esta funcionando corretamente")
+	public void verificarFuncionamentoDoComboBox(String usuario, String senha, String base) {
+		login = new LoginMetodos(this);
+		login.logar("usuario", "usuario", "desenvolvimento");
+		rotina.selecionarRotina("arc001", "p");
+		funcoesRotinas = new FuncoesDeRotinasMetodos();
+		acao.clicarNoElemento(comboPapelUsuarioArc001);
+		paginaPrincipal = webDriver.getWindowHandle();
+		testar.passouSeElementoFocadoFor(comboPapelUsuarioArc001);
+		rotina.fecharRotina("arc001");
+	}
+
+	@Test(testName = "id: 2 - Testa exibicao da dica de campo (tooltip)", dependsOnMethods = {
+			"verificarFuncionamentoDoComboBox" })
+	public void dicaDoBotoCarregarValores() {
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		rotina.selecionarRotina("arc003");
+		acao.consultarRegistro(rotina, campoIdLista, "96");
+		rotina.aguardarProcessarRotina();
+		acao.posicionarFocoNoElemento(rotina, BotaoCarregarLista);
+		mouse.moverCursorParaElemento(BotaoCarregarLista);
+		espera.aguardarElementoEstarVisivel(funcoesRotinas.dicaDeCampo("Carregar valores"));
+	}
+
+	@Test(testName = "id: 3 - Testa exibicao da dica de campo (tooltip)", dependsOnMethods = {
+			"dicaDoBotoCarregarValores" })
+	public void dicaDoCampoTipoImagemLov() {
+		acao.posicionarFocoNoElemento(rotina, campoTipoImagemLov);
+		mouse.moverCursorParaElemento(campoTipoImagemLov);
+		espera.aguardarElementoEstarVisivel(funcoesRotinas.dicaDeCampo("Exibir em formato de imagem?"));
+	}
+
+	@Test(testName = "id: 4 - Testa exibicao da dica de campo (tooltip)", dependsOnMethods = { "dicaDoCampoTipoImagemLov" })
+	public void dicaDoCampoCheckListaInterna() {
+		acao.posicionarFocoNoElemento(rotina, checkListaInterna);
+		mouse.moverCursorParaElemento(checkListaInterna);
+		espera.aguardarElementoEstarVisivel(funcoesRotinas.dicaDeCampo("Lista interna do Arcturus?"));
+		rotina.fecharRotina("arc003");
+	}
+
+	@Test(testName = "id: 5 - Verificar ordenacao da LOV", dependsOnMethods = { "dicaDoCampoCheckListaInterna" })
+	public void testarOrdenacaoDeLovQuandoNaoPossuiValor() {
+		rotina.selecionarRotina("teste014");
+		acao.clicarNoElemento(botaoLovCliente);
+		espera.aguardarElementoEstarVisivel(rotina.lov);
+		espera.aguardarElementoDesaparecer(rotina.processandoLov);
+		espera.aguardarElementoEstarVisivel(valorConceitoClienteLov);
+		String conceito = acao.localizarElemento(valorConceitoClienteLov).getText();
+		testar.passouSeValoresForemDiferentes(conceito, "");
+		acao.clicarNoElemento(ordenarConceitoCliente);
+		espera.aguardarElementoEstarVazio(valorConceitoClienteLov);
+		conceito = acao.localizarElemento(valorConceitoClienteLov).getText();
+		testar.passouSeValoresForemIguais(conceito, "");
+		acao.clicarNoElemento(rotina.fecharLov);
+		espera.aguardarElementoDesaparecer(rotina.lov);
+	}
+	
+	@Test(testName = "id: 13 - Testar exibicao do titulo da LOV utilizando a propriedade titulo", dependsOnMethods = { "testarOrdenacaoDeLovQuandoNaoPossuiValor" })
+	public void testarPropriedadeTituloDaLov() {
+		espera.aguardarElementoEstarVisivel("TABNOTAITTesteTituloLov-1-0-aux");
+		acao.clicarNoElemento("TABNOTAITTesteTituloLov-1-0-aux");
+		espera.aguardarElementoEstarVisivel(rotina.lov);
+		rotina.aguardarLovProcessar();
+		rotina.verificarLovAberta("Teste Lov Título");
+		acao.clicarNoElemento(rotina.fecharLov);
+	}
+	
+	@Test(testName = "id: 14 - Testar exibicao do titulo da LOV traduzida utilizando a propriedade titulo", dependsOnMethods = { "testarPropriedadeTituloDaLov" })
+	public void testarPropriedadeTituloDaLovTraduzida() {
+		
+		espera.aguardarElementoEstarVisivel("TABNOTAITTesteTituloLov-1-0-aux");
+		acao.clicarNoElemento("TABNOTAITTesteTituloLov-1-0-aux");
+		espera.aguardarElementoEstarVisivel(rotina.lov);
+		rotina.aguardarLovProcessar();
+		rotina.verificarLovAberta("Teste Lov Título");
+		acao.clicarNoElemento(rotina.fecharLov);
+		abrirMenuConfiguracoes();
+		acao.clicarNoElemento(botaoAbrirIdiomas);
+		espera.aguardarElementoEstarVisivel(janelaAlterarIdioma);
+		acao.clicarNoElemento(idiomaIngles);
+		espera.aguardarElementoDesaparecer(janelaAlterarIdioma);
+		espera.aguardarElementoEstarVisivel(mensagemConfirmacaoIdiomaIngles);
+		espera.aguardarElementoEstarVisivel(botaoRecarregarMensagemConfirmacao);
+		acao.clicarNoElemento(botaoRecarregarMensagemConfirmacao);
+		espera.aguardarElementoDesaparecer(mensagemConfirmacaoIdiomaIngles);
+		espera.aguardarSistemaCarregar();
+		rotina.selecionarRotina("teste014");
+		espera.aguardarElementoEstarVisivel("TABNOTAITTesteTituloLov-1-0-aux");
+		acao.clicarNoElemento("TABNOTAITTesteTituloLov-1-0-aux");
+		espera.aguardarElementoEstarVisivel(rotina.lov);
+		rotina.aguardarLovProcessar();
+		rotina.verificarLovAberta("Test Title Lov");
+		acao.clicarNoElemento(rotina.fecharLov);
+		sairPortal();
+		
+	}
+
+	@Test(testName = "id: 6 - expandir relatorio pelo botao de ferramentas", dependsOnMethods = {
+			"testarPropriedadeTituloDaLovTraduzida" })
+	public void expandirRelatorio() {
+		login.logar("usuario", "usuario", "desenvolvimento");
+		rotina.selecionarRotina("teste014");
+		acao.clicarNoElemento(botaoAbrirRelatorio);
+		espera.aguardarElementoEstarVisivel(filtroPeriodoInicial);
+		acao.escreverNoElemento(filtroPeriodoInicial, "07022013");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElemento(filtroPeriodoFinal, "07022013");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.selecionarNoElemento(campoExibirParametros, "Sim");
+		acao.selecionarNoElemento(campoExibirCabecalho, "Sim");
+		acao.selecionarNoElemento(tipoSaidaRelatorio, "PDF");
+		acao.clicarNoElemento(botaoProcessarFiltros);
+		espera.aguardarElementoDesaparecer(rotina.botaoProcessarFiltros);
+		espera.aguardarElementoEstarVisivel(botaoExpandirRelatorio);
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(botaoExpandirRelatorio);
+		espera.aguardarElementoEstarVisivel(relatorioExpandido);
+		acao.clicarNoElemento(botaoRestaurarRelatorio);
+		espera.aguardarElementoDesaparecer(relatorioExpandido);
+		sairPortal();
+	}
+
+	@Test(testName = "id: 7 - Alterar registros simultanemente verificando se nao altera os registros pais dos filhos", dependsOnMethods = {
+			"expandirRelatorio" }, enabled = true)
+	public void testeAlteracaoMestreDetalhe() {
+		login.logar("usuario", "usuario", "desenvolvimento");
+		rotina.selecionarRotina("arc004");
+		acao.clicarNoElemento(rotina.botaoConsultar);
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(campoCodigoSistema, 0);
+		rotina.aguardarProcessarRotina();
+		teclado.pressionarTeclaDeControle(Keys.F6);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElementoNaPosicao(Parc004Elementos.campoCodigoSistema, 1, "1");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElementoNaPosicao(campoDescricaoMenu, 1, "Teste autom");
+		acao.clicarNoElemento(rotina.botaoSalvar);
+		espera.aguardarElementoEstarVisivel(msg.mensagemRegistrosAlterados);
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		espera.aguardarElementoDesaparecer(msg.mensagemRegistrosAlterados);
+		acao.selecionarNoElemento(campoTipoItem, 0, "Separador");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(campoOrdemItem, 0);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElementoNaPosicao(campoOrdemItem, 0, "1");
+		acao.clicarNoElemento(rotina.botaoSalvar);
+		espera.aguardarElementoEstarVisivel(msg.mensagemRegistrosAlterados);
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		espera.aguardarElementoDesaparecer(msg.mensagemRegistrosAlterados);
+		acao.clicarNoElemento(campoDescricaoMenu, 2);
+		rotina.aguardarProcessarRotina();
+		String descricaoOriginal = acao.retornarValorDoElementoNaPosicao(campoDescricaoMenu, 2);
+		acao.limparElementoNaPosicao(campoDescricaoMenu, 2);
+		acao.escreverNoElementoNaPosicao(campoDescricaoMenu, 2, "teste alterado");
+		acao.clicarNoElemento(rotina.botaoSalvar);
+		espera.aguardarElementoEstarVisivel(msg.mensagemRegistrosAlterados);
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		espera.aguardarElementoDesaparecer(msg.mensagemRegistrosAlterados);
+		acao.clicarNoElemento(campoDescricaoMenu, 1);
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(campoOrdemItem, 0);
+		acao.limparElementoNaPosicao(campoOrdemItem, 0);
+		acao.escreverNoElementoNaPosicao(campoOrdemItem, 0, "5");
+		acao.clicarNoElemento(rotina.botaoSalvar);
+		espera.aguardarElementoEstarVisivel(msg.mensagemRegistrosAlterados);
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		espera.aguardarElementoDesaparecer(msg.mensagemRegistrosAlterados);
+		acao.clicarNoElemento(campoDescricaoMenu, 2);
+		rotina.aguardarProcessarRotina();
+		acao.limparElementoNaPosicao(campoDescricaoMenu, 2);
+		acao.escreverNoElementoNaPosicao(campoDescricaoMenu, 2, descricaoOriginal);
+		acao.clicarNoElemento(rotina.botaoSalvar);
+		espera.aguardarElementoEstarVisivel(msg.mensagemRegistrosAlterados);
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		espera.aguardarElementoDesaparecer(msg.mensagemRegistrosAlterados);
+		acao.clicarNoElemento(campoDescricaoMenu, 1);
+		rotina.aguardarProcessarRotina();
+		testar.passouSeAtributoDoElementoForIgualA(campoOrdemItem, 0, "value", "5");
+		acao.clicarNoElemento(campoOrdemItem, 0);
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(rotina.botaoExcluir);
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(rotina.botaoSalvar);
+		espera.aguardarElementoEstarVisivel(msg.mensagemRegistrosAlterados);
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		espera.aguardarElementoDesaparecer(msg.mensagemRegistrosAlterados);
+		acao.clicarNoElemento(campoDescricaoMenu, 1);
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(rotina.botaoExcluir);
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(rotina.botaoSalvar);
+		espera.aguardarElementoEstarVisivel(msg.mensagemRegistrosAlterados);
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		espera.aguardarElementoDesaparecer(msg.mensagemRegistrosAlterados);
+	}
+
+	@Test(testName = "id: 8 - Abrir varias rotinas e ir fechando uma a uma verificando se o foco retorna para a rotina anterior", dependsOnMethods = {
+			"testeAlteracaoMestreDetalhe" }, enabled = true)
+	public void mudancaDeFocoEntreRotinas() {
+		String primeiraRotina = rotina.retornarIdRotinaEmFoco("arc004");
+		rotina.selecionarRotina("ger001");
+		String rotinaGer001 = rotina.retornarIdRotinaEmFoco("ger001");
+		testar.passouSeJanelaFocadaFor(rotinaGer001);
+
+		rotina.selecionarRotina("arc007");
+		String rotinaArc007 = rotina.retornarIdRotinaEmFoco("arc007");
+		testar.passouSeJanelaFocadaFor(rotinaArc007);
+
+		teclado.pressionarConjuntoDeTeclasDeControle(Keys.SHIFT, Keys.F4);
+		rotina.aguardarProcessarRotina();
+		testar.passouSeJanelaFocadaFor(rotinaGer001);
+
+		teclado.pressionarConjuntoDeTeclasDeControle(Keys.SHIFT, Keys.F4);
+		testar.passouSeJanelaFocadaFor(primeiraRotina);
+
+		rotina.fecharRotina("arc004");
+	}
+
+	@Test(testName = "id: 9 - Botao destacar rotina.", dependsOnMethods = {
+			"mudancaDeFocoEntreRotinas" }, enabled = true)
+	public void destacarRotina() {
+		rotina.selecionarRotina("teste015");
+		String pagina = navegador.pegarPaginaAtual();
+		tela = new ConstrutorTelasElementos();
+		acao.clicarNoElemento(botaoDestacarRotina);
+		rotina.aguardarProcessarRotina();
+		navegador.trocarDeAba();
+		espera.aguardarElementoEstarVisivel(campoValor1);
+		navegador.retornarPaginaPrincipal(pagina);
+	}
+
+	@Test(testName = "id: 10 - Verificar funcionalidade F1 na rotina.", dependsOnMethods = {
+			"mudancaDeFocoEntreRotinas" }, enabled = true)
+	public void testarFuncaoF1NaRotina() {
+		rotina.selecionarRotina("arc012");
+		teclado.pressionarTeclaDeControle(Keys.F1);
+		espera.aguardarElementoEstarVisivel(janelaDeInformacoesF1);
+		acao.clicarNoElemento(msg.okNotificacao);
+		espera.aguardarElementoDesaparecer(janelaDeInformacoesF1);
+	}
+
+	@Test(testName = "id: 11 - Verificar funcionalidade F5 na rotina.", dependsOnMethods = {
+			"testarFuncaoF1NaRotina" }, enabled = true)
+	public void testarFuncaoF5NaRotina() {
+		teclado.pressionarTeclaDeControle(Keys.F5);
+		espera.aguardarElementoEstarVisivel(janelaDeInformacoesF5);
+		acao.clicarNoElemento(msg.okNotificacao);
+		espera.aguardarElementoDesaparecer(janelaDeInformacoesF5);
+	}
+	
+	@Test(testName = "id: 12 - Testar consulta F7/F8", dependsOnMethods = {
+	"testarFuncaoF5NaRotina" }, enabled = true)
+	public void testarConsultaF7F8() {
+		acao.clicarNoElemento(rotina.botaoLimparConsulta);
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(rotina.botaoConsultar);
+		rotina.aguardarProcessarRotina();
+		espera.aguardarElementoNaoEstarVazio("campo17064", 0, "value");
+	}
+	
+	@Test(testName = "id: 15 - Colocar a rotina em modo consulta informando um valor invalido em um campo, e realizar a consulta.", dependsOnMethods = {
+	"testarConsultaF7F8" }, enabled = true)
+	public void testarFechamentoRotinaEmModoConsulta() {
+		acao.clicarNoElemento(rotina.botaoLimparConsulta);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElemento("campo17064", ">123456");
+		acao.clicarNoElemento(rotina.botaoFecharRotina("arc012"));
+		rotina.aguardarProcessarRotina();
+		espera.aguardarElementoEstarVazio("campo17064");
+		testar.passouSeValoresForemIguais(rotina.posicaoRegistro(), "1");
+		testar.passouSeValoresForemIguais(rotina.totalRegistros(), "1");
+	}
+	
+	@Test(testName = "id: 16 - Colocar a rotina em modo consulta informando um valor invalido em um campo no bloco detalhe, e realizar a consulta.", dependsOnMethods = {
+	"testarFechamentoRotinaEmModoConsulta" }, enabled = true)
+	public void testarFechamentoRotinaEmModoConsultaBlocoDetalhe() {
+		acao.clicarNoElemento("ARCTRADUCAOChave-1");
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(rotina.botaoLimparConsulta);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElemento("ARCTRADUCAOChave-1", ">123456sjhajksahsjhakjshaks<teste");
+		acao.clicarNoElemento(rotina.botaoFecharRotina("arc012"));
+		rotina.aguardarProcessarRotina();
+		espera.aguardarElementoEstarVazio("ARCTRADUCAOChave-1");
+		testar.passouSeValoresForemIguais(rotina.posicaoRegistro(), "1");
+		testar.passouSeValoresForemIguais(rotina.totalRegistros(), "1");
+	}
+}

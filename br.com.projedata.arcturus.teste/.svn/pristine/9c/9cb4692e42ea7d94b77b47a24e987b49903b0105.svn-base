@@ -1,0 +1,101 @@
+package br.com.projedata.arcturus.teste.recursos;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import br.com.projedata.teste.util.recursos.Teclado;
+
+public class Mensagem extends br.com.projedata.teste.util.recursos.Mensagem {
+
+	public Mensagem(WebDriver driver, Teclado teclado) {
+		super(driver, teclado);
+	}
+
+	public By mensagemAlterarApenasEmModoConsulta = By
+			.xpath("//*[text()='O valor deste campo pode ser alterado apenas em modo de consulta!']");
+	public By mensagemSalvarAlteracoesPendentes = By.xpath("//*[text()='Deseja salvar as alterações pendentes?']");
+	public By mensagemNaoHaPendentes = By.xpath("//*[contains(text(),'Não há alterações pendentes')]");
+	public By mensagemNenhumRegistroAlterado = By.xpath("//*[contains(text(),'Nenhum registro alterado')]");
+	public By mensagemRegistrosAlterados = By.xpath("//*[contains(text(),'registros alterados')]");
+	public By mensagemRegistrosFilhosLocalizados = By.xpath("//*[contains(text(),'Registros filhos localizados.')]");
+	public By mensagemOperacaoNaoPermitida = By.xpath("//*[contains(text(),'Operação não permitida')]");
+	public By simConfirmacao = By.xpath("//button[@class='btn-sim atalho-s' or @data-type='sim' or contains(@class,'btn-yes') or contains(@class,'atalho-s')]");
+	public By naoConfirmacao = By.xpath("//button[contains(@class,'atalho-n') or @data-type='nao']");
+	public By okNotificacao = By
+			.xpath("//button[contains(@class,'btn-ok') or contains(@class,'btn-OK') or @data-type='ok' or @class='btn-O atalho-o']");
+	public By cancelarNotificacao = By.xpath("//*[@class='btn-cancelar atalho-c' or @data-type='cancelar']");
+	public By fecharMensagemNotificacao = By.xpath(
+			"//div[contains(@class,'arcbox arcbox-notificacao') or contains(@class,'arcbox-notify-msg')]//following::*[@class='btn-fechar' or @class='arcbox-close']");
+	public By notificacaoCantoTela = By
+			.xpath("//*[@class='arcbox-notify-wrapper bottom right']//parent::*[contains(@class,'arcbox-close')]");
+	public By mensagemNotificacao = By.xpath("//div[contains(@id,'arcbox')]");
+	public By mensagemSucesso = By
+			.xpath("//*[contains(@class,'arcbox-notify-msg') and text()='Operação realizada com sucesso!']");
+	public By notificacaoCantoDaTela = By.xpath("//*[contains(@class,'arcbox-notify-wrapper bottom right')]");
+	public By mensagemSucessoGerador = By.xpath("//div[contains(@class,'arcbox-notify-title')]");
+
+	public String extrairOsMensagemConfirmacao(WebElement e) {
+		String pro = e.getText();
+		int inicio;
+		int fim;
+		inicio = pro.indexOf("A OS ") + 5;
+		fim = pro.lastIndexOf(" foi");
+		String OS = pro.substring(inicio, fim);
+		return OS;
+	}
+
+	public void fecharMensagemNotificacao() {
+		WebDriverWait wait = new WebDriverWait(webDriver, 10);
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(fecharMensagemNotificacao));
+		WebElement element = webDriver.findElement(fecharMensagemNotificacao);
+		try {
+			element.click();
+		} catch (Exception e) {
+			teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		}
+		if(webDriver.findElements(mensagemNotificacao).size() > 0) {
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(mensagemNotificacao));
+		}
+	}
+
+	public void fecharNotificacaoCantoDaTela() {
+		if (webDriver.findElements(notificacaoCantoTela).size() != 0) {
+			try {
+				WebDriverWait wait = new WebDriverWait(webDriver, 10);
+				teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+				wait.until(ExpectedConditions.invisibilityOfElementLocated(notificacaoCantoDaTela));
+			} catch (Exception e) {
+			}
+		}
+	}
+
+	public void fecharMensagemConfirmacaoTeclandoN() {
+		teclado.pressionarTeclaAlfanumerica("N");
+	}
+
+	public void aguardarMensagem(String mensagem) {
+		WebDriverWait wait = new WebDriverWait(webDriver, 5);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'" + mensagem + "')]")));
+	}
+
+	public void aguardarMensagemDesaparecer(String mensagem) {
+		WebDriverWait wait = new WebDriverWait(webDriver, 10);
+		wait.until(
+				ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[contains(text(),'" + mensagem + "')]")));
+	}
+	
+	public By retornarMensagemNotificacao(String mensagem) {
+		return By.xpath("//*[contains(text(),'" + mensagem + "')]");
+	}
+	
+	public void aguardarMensagemDesaparecer() {
+		WebDriverWait wait = new WebDriverWait(webDriver, 10);
+		wait.until(
+				ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[contains(@class, 'arcbox')]")));
+	}
+
+}

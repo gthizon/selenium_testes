@@ -1,0 +1,14 @@
+package br.com.projedata.arcturus.teste.webelements;
+
+import org.openqa.selenium.By;
+
+import br.com.projedata.arcturus.teste.recursos.TesteGenerico;
+
+public class Parc004Elementos extends TesteGenerico{
+	
+	public static By campoCodigoSistema = By.xpath("//input[contains(@id,'componente14848-')]");
+	public static By campoDescricaoSistema = By.xpath("//input[contains(@id,'componente14850-')]");
+	public static By campoTipoItem = By.xpath("//select[contains(@id,'componente14879-')]");
+	public static By campoOrdemItem = By.xpath("//input[contains(@id,'componente14878-')]");
+	public static By campoIdSistema = By.xpath("//input[contains(@id,'componente14849-1')]");
+}

@@ -1,0 +1,178 @@
+<h2>Methods run, sorted chronologically</h2><h3>&gt;&gt; means before, &lt;&lt; means after</h3><p/><br/><em>Suite</em><p/><small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table border="1">
+<tr><th>Time</th><th>Delta (ms)</th><th>Suite<br>configuration</th><th>Test<br>configuration</th><th>Class<br>configuration</th><th>Groups<br>configuration</th><th>Method<br>configuration</th><th>Test<br>method</th><th>Thread</th><th>Instances</th></tr>
+<tr bgcolor="76ae94">  <td>18/02/21 16:20:43</td>   <td>0</td> <td>&nbsp;</td><td>&nbsp;</td><td title="&gt;&gt;TesteGenerico.configurarTeste(java.lang.String, java.lang.String)[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929]">&gt;&gt;configurarTeste</td> 
+<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>  <td>TestNG@455776189</td>   <td></td> </tr>
+<tr bgcolor="76ae94">  <td>18/02/21 16:20:43</td>   <td>0</td> <td>&nbsp;</td><td>&nbsp;</td><td title="&gt;&gt;TesteGenerico.configurarTeste(java.lang.String, java.lang.String)[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e]">&gt;&gt;configurarTeste</td> 
+<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>  <td>TestNG@662252857</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:20:48</td>   <td>4604</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.abrirRotinaTeste02(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929]">abrirRotinaTeste02</td> 
+  <td>TestNG@455776189</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:20:51</td>   <td>7547</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.abrirRotinaTeste02(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e]">abrirRotinaTeste02</td> 
+  <td>TestNG@662252857</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:20:51</td>   <td>8286</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.testarEventoAposAbrirTela()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929]">testarEventoAposAbrirTela</td> 
+  <td>TestNG@455776189</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:20:51</td>   <td>8334</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.criarRegistroSemAlteracao()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929]">criarRegistroSemAlteracao</td> 
+  <td>TestNG@455776189</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:20:53</td>   <td>9730</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.salvarRegistroSemAlteracao()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929]">salvarRegistroSemAlteracao</td> 
+  <td>TestNG@455776189</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:20:54</td>   <td>10938</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.excluirRegistro()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929]">excluirRegistro</td> 
+  <td>TestNG@455776189</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:20:54</td>   <td>11187</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.cancelarRegistroSemAlteracao()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929]">cancelarRegistroSemAlteracao</td> 
+  <td>TestNG@455776189</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:20:55</td>   <td>12039</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.cancelarRegistroSemAlteracaoOpcaoNao()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929]">cancelarRegistroSemAlteracaoOpcaoNao</td> 
+  <td>TestNG@455776189</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:20:56</td>   <td>12623</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.testarEventoAposAbrirTela()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e]">testarEventoAposAbrirTela</td> 
+  <td>TestNG@662252857</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:20:56</td>   <td>12637</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.cancelarRegistroSemAlteracaoOpcaoSim()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929]">cancelarRegistroSemAlteracaoOpcaoSim</td> 
+  <td>TestNG@455776189</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:20:56</td>   <td>12668</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.criarRegistroSemAlteracao()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e]">criarRegistroSemAlteracao</td> 
+  <td>TestNG@662252857</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:20:57</td>   <td>13851</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.salvarRegistroSemAlteracao()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e]">salvarRegistroSemAlteracao</td> 
+  <td>TestNG@662252857</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:20:58</td>   <td>14730</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.cancelarRegistroSemAlteracaoOpcaoCancelar()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929]">cancelarRegistroSemAlteracaoOpcaoCancelar</td> 
+  <td>TestNG@455776189</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:20:58</td>   <td>14853</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.excluirRegistro()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e]">excluirRegistro</td> 
+  <td>TestNG@662252857</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:20:58</td>   <td>15138</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.cancelarRegistroSemAlteracao()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e]">cancelarRegistroSemAlteracao</td> 
+  <td>TestNG@662252857</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:20:59</td>   <td>15487</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.cancelarRegistroSemAlteracaoOpcaoNao()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e]">cancelarRegistroSemAlteracaoOpcaoNao</td> 
+  <td>TestNG@662252857</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:20:59</td>   <td>16166</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.limparRegistro()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929]">limparRegistro</td> 
+  <td>TestNG@455776189</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:20:59</td>   <td>16272</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.cancelarRegistroSemAlteracaoOpcaoSim()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e]">cancelarRegistroSemAlteracaoOpcaoSim</td> 
+  <td>TestNG@662252857</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:01</td>   <td>17452</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.consultarRegistroPorCodigo()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929]">consultarRegistroPorCodigo</td> 
+  <td>TestNG@455776189</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:01</td>   <td>18243</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.consultarRegistroPorCodigoDetalhe()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929]">consultarRegistroPorCodigoDetalhe</td> 
+  <td>TestNG@455776189</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:01</td>   <td>18271</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.consultarRegistroPorCodigoTabelaDinamica()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929]">consultarRegistroPorCodigoTabelaDinamica</td> 
+  <td>TestNG@455776189</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:01</td>   <td>18312</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.cancelarRegistroSemAlteracaoOpcaoCancelar()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e]">cancelarRegistroSemAlteracaoOpcaoCancelar</td> 
+  <td>TestNG@662252857</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:02</td>   <td>18474</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.consultarTodosRegistros()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929]">consultarTodosRegistros</td> 
+  <td>TestNG@455776189</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:02</td>   <td>19143</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.navegarProximoRegistro()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929]">navegarProximoRegistro</td> 
+  <td>TestNG@455776189</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:03</td>   <td>19506</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.limparRegistro()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e]">limparRegistro</td> 
+  <td>TestNG@662252857</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:03</td>   <td>19751</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.navegarProximaPagina()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929]">navegarProximaPagina</td> 
+  <td>TestNG@455776189</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:03</td>   <td>20373</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.navegarRegistroAnterior()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929]">navegarRegistroAnterior</td> 
+  <td>TestNG@455776189</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:04</td>   <td>20552</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.consultarRegistroPorCodigo()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e]">consultarRegistroPorCodigo</td> 
+  <td>TestNG@662252857</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:04</td>   <td>20977</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.navegarPaginaAnterior()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929]">navegarPaginaAnterior</td> 
+  <td>TestNG@455776189</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:04</td>   <td>20998</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.consultarRegistroPorCodigoDetalhe()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e]">consultarRegistroPorCodigoDetalhe</td> 
+  <td>TestNG@662252857</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:04</td>   <td>21033</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.consultarRegistroPorCodigoTabelaDinamica()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e]">consultarRegistroPorCodigoTabelaDinamica</td> 
+  <td>TestNG@662252857</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:04</td>   <td>21239</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.consultarTodosRegistros()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e]">consultarTodosRegistros</td> 
+  <td>TestNG@662252857</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:05</td>   <td>21598</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.campoObrigatorio()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929]">campoObrigatorio</td> 
+  <td>TestNG@455776189</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:05</td>   <td>21740</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.navegarProximoRegistro()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e]">navegarProximoRegistro</td> 
+  <td>TestNG@662252857</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:05</td>   <td>21986</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.navegarProximaPagina()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e]">navegarProximaPagina</td> 
+  <td>TestNG@662252857</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:05</td>   <td>22237</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.navegarRegistroAnterior()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e]">navegarRegistroAnterior</td> 
+  <td>TestNG@662252857</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:06</td>   <td>22483</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.navegarPaginaAnterior()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e]">navegarPaginaAnterior</td> 
+  <td>TestNG@662252857</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:06</td>   <td>22731</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.campoObrigatorio()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e]">campoObrigatorio</td> 
+  <td>TestNG@662252857</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:09</td>   <td>25397</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.campoObrigatorioTabelaDinamica()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929]">campoObrigatorioTabelaDinamica</td> 
+  <td>TestNG@455776189</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:09</td>   <td>25824</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.campoObrigatorioTabelaDinamica()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e]">campoObrigatorioTabelaDinamica</td> 
+  <td>TestNG@662252857</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:10</td>   <td>26827</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.inserirRegistro()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e]">inserirRegistro</td> 
+  <td>TestNG@662252857</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:10</td>   <td>26949</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.inserirRegistro()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929]">inserirRegistro</td> 
+  <td>TestNG@455776189</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:12</td>   <td>28588</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.excluirRegistroInserido()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929]">excluirRegistroInserido</td> 
+  <td>TestNG@455776189</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:12</td>   <td>29019</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.excluirRegistroInserido()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e]">excluirRegistroInserido</td> 
+  <td>TestNG@662252857</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:15</td>   <td>32001</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.blocoNaoPermiteExclusao()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929]">blocoNaoPermiteExclusao</td> 
+  <td>TestNG@455776189</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:16</td>   <td>33355</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.blocoNaoPermiteExclusao()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e]">blocoNaoPermiteExclusao</td> 
+  <td>TestNG@662252857</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:16</td>   <td>33361</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.blocoNaoPermiteAlteracao()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929]">blocoNaoPermiteAlteracao</td> 
+  <td>TestNG@455776189</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:18</td>   <td>34797</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.blocoNaoPermiteInclusao()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929]">blocoNaoPermiteInclusao</td> 
+  <td>TestNG@455776189</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:18</td>   <td>34841</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.blocoNaoPermiteAlteracao()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e]">blocoNaoPermiteAlteracao</td> 
+  <td>TestNG@662252857</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:20</td>   <td>36606</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.blocoNaoPermiteInclusao()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e]">blocoNaoPermiteInclusao</td> 
+  <td>TestNG@662252857</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:20</td>   <td>36742</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.abrirModal()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929]">abrirModal</td> 
+  <td>TestNG@455776189</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:22</td>   <td>38545</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.abrirModal()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e]">abrirModal</td> 
+  <td>TestNG@662252857</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:23</td>   <td>39924</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.tentarFecharRotinaComModalAberto()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929]">tentarFecharRotinaComModalAberto</td> 
+  <td>TestNG@455776189</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:23</td>   <td>40248</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.fecharRotinaModal()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929]">fecharRotinaModal</td> 
+  <td>TestNG@455776189</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:24</td>   <td>40984</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.valorCampoNumericoComPonto()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929]">valorCampoNumericoComPonto</td> 
+  <td>TestNG@455776189</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:25</td>   <td>42198</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.tentarFecharRotinaComModalAberto()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e]">tentarFecharRotinaComModalAberto</td> 
+  <td>TestNG@662252857</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:26</td>   <td>42770</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.fecharRotinaModal()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e]">fecharRotinaModal</td> 
+  <td>TestNG@662252857</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:27</td>   <td>43560</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.valorCampoNumericoComPonto()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e]">valorCampoNumericoComPonto</td> 
+  <td>TestNG@662252857</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:27</td>   <td>44087</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.valorCampoNumericoDecimalComPonto()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929]">valorCampoNumericoDecimalComPonto</td> 
+  <td>TestNG@455776189</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:27</td>   <td>44286</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.valorCampoNumericoMilharComPonto()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929]">valorCampoNumericoMilharComPonto</td> 
+  <td>TestNG@455776189</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:28</td>   <td>44589</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.valorCampoNumericoMilharComVirgual()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929]">valorCampoNumericoMilharComVirgual</td> 
+  <td>TestNG@455776189</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:28</td>   <td>44840</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.valorCampoNumericoApenasDecimal()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929]">valorCampoNumericoApenasDecimal</td> 
+  <td>TestNG@455776189</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:28</td>   <td>45008</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.valorCampoNumericoApenasDecimalComPonto()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929]">valorCampoNumericoApenasDecimalComPonto</td> 
+  <td>TestNG@455776189</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:28</td>   <td>45192</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.valorCampoNumericoComMilhar()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929]">valorCampoNumericoComMilhar</td> 
+  <td>TestNG@455776189</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:29</td>   <td>45431</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.verificarSeComponenteBotaoAbreComEnter()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929]">verificarSeComponenteBotaoAbreComEnter</td> 
+  <td>TestNG@455776189</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:29</td>   <td>45625</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.valorCampoNumericoDecimalComPonto()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e]">valorCampoNumericoDecimalComPonto</td> 
+  <td>TestNG@662252857</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:29</td>   <td>45721</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.valorCampoNumericoMilharComPonto()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e]">valorCampoNumericoMilharComPonto</td> 
+  <td>TestNG@662252857</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:29</td>   <td>45841</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.valorCampoNumericoMilharComVirgual()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e]">valorCampoNumericoMilharComVirgual</td> 
+  <td>TestNG@662252857</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:29</td>   <td>45935</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.valorCampoNumericoApenasDecimal()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e]">valorCampoNumericoApenasDecimal</td> 
+  <td>TestNG@662252857</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:29</td>   <td>46047</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.valorCampoNumericoApenasDecimalComPonto()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e]">valorCampoNumericoApenasDecimalComPonto</td> 
+  <td>TestNG@662252857</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:29</td>   <td>46142</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.valorCampoNumericoComMilhar()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e]">valorCampoNumericoComMilhar</td> 
+  <td>TestNG@662252857</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:29</td>   <td>46255</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.verificarSeComponenteBotaoAbreComEnter()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e]">verificarSeComponenteBotaoAbreComEnter</td> 
+  <td>TestNG@662252857</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:31</td>   <td>47782</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.verificarSeComponenteBotaoAbreComEspaco()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929]">verificarSeComponenteBotaoAbreComEspaco</td> 
+  <td>TestNG@455776189</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:32</td>   <td>49197</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.verificarSeComponenteBotaoAbreComEspaco()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e]">verificarSeComponenteBotaoAbreComEspaco</td> 
+  <td>TestNG@662252857</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:34</td>   <td>51305</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.abrirLovEmModoConsulta()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929]">abrirLovEmModoConsulta</td> 
+  <td>TestNG@455776189</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:36</td>   <td>53238</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.abrirLovEmModoConsulta()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e]">abrirLovEmModoConsulta</td> 
+  <td>TestNG@662252857</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:37</td>   <td>54119</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.utilizacaoCtrlE()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929]">utilizacaoCtrlE</td> 
+  <td>TestNG@455776189</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:37</td>   <td>54340</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.inseririValorNoCampoUtilizandoCtrlE()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929]">inseririValorNoCampoUtilizandoCtrlE</td> 
+  <td>TestNG@455776189</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:38</td>   <td>54637</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.verificarSeMarcaRegistroComoAlteradoUtilizandoCtrlE()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929]">verificarSeMarcaRegistroComoAlteradoUtilizandoCtrlE</td> 
+  <td>TestNG@455776189</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:38</td>   <td>55279</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.utilizacaoCtrlE()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e]">utilizacaoCtrlE</td> 
+  <td>TestNG@662252857</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:39</td>   <td>55739</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.inseririValorNoCampoUtilizandoCtrlE()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e]">inseririValorNoCampoUtilizandoCtrlE</td> 
+  <td>TestNG@662252857</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:39</td>   <td>56110</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.verificarSeMarcaRegistroComoAlteradoUtilizandoCtrlE()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e]">verificarSeMarcaRegistroComoAlteradoUtilizandoCtrlE</td> 
+  <td>TestNG@662252857</td>   <td></td> </tr>
+<tr bgcolor="f6e879">  <td>18/02/21 16:21:40</td>   <td>56645</td> <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td title="TestesRotinaTeste02.verificarFocoAposAbrirCampoLov()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929]">verificarFocoAposAbrirCampoLov</td> 
+  <td>TestNG@455776189</td>   <td></td> </tr>
+<tr bgcolor="76ae94">  <td>18/02/21 16:21:40</td>   <td>56992</td> <td>&nbsp;</td><td>&nbsp;</td><td title="&lt;&lt;TesteGenerico.fecharDrive()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@61832929]">&lt;&lt;fecharDrive</td> 
+<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>  <td>TestNG@455776189</td>   <td></td> </tr>
+<tr bgcolor="76ae94">  <td>18/02/21 16:21:45</td>   <td>61564</td> <td>&nbsp;</td><td>&nbsp;</td><td title="&lt;&lt;TesteGenerico.fecharDrive()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TestesRotinaTeste02@13deb50e]">&lt;&lt;fecharDrive</td> 
+<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>  <td>TestNG@662252857</td>   <td></td> </tr>
+</table>

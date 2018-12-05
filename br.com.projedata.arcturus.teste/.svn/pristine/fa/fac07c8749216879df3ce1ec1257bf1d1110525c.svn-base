@@ -1,0 +1,51 @@
+package br.com.projedata.arcturus.teste.webelements;
+
+import org.openqa.selenium.By;
+
+public class InternacionalizacaoElementos {
+
+	public static By etiquetaGrupoAbas015Ingles = By.xpath("//label[contains(text(),'Tab Test')]");
+	public static By etiquetaCampoDataHora015Ingles = By.xpath("//label[contains(text(),'Date time')]");
+	public static By etiquetaBotaoAbrirJanela015Ingles = By.xpath("//label[contains(text(),'Open Window')]");
+	public static By etiquetaCampoValor1Ingles = By.xpath("//label[contains(text(),'Value 1')]");
+	public static By etiquetaAba1Ingles = By.xpath("//p[contains(text(),'Tab1')]");
+	public static By colunaCodigoLovIngles = By.xpath("//th[contains(text(),'Code')]");
+	public static By colunaLovRazaoSocialIngles = By.xpath("//th[contains(text(),'Company Name')]");
+	public static By dicaCampoArvoreIngles = By.xpath("//span[@title='Node tip']");
+	public static By tituloRotinaIngles = By.xpath("//p[contains(text(),'tree test')]");
+	
+	public static By etiquetaGrupoAbas015Espanhol = By.xpath("//label[contains(text(),'Pestaña Teste')]");
+	public static By etiquetaCampoDataHora015Espanhol = By.xpath("//label[contains(text(),'Fecha y hora')]");
+	public static By etiquetaBotaoAbrirJanela015Espanhol = By.xpath("//label[contains(text(),'Abrir ventana')]");
+	public static By etiquetaCampoValor1Espanhol = By.xpath("//label[contains(text(),'Valór')]");
+	public static By etiquetaAba1Espanhol = By.xpath("//p[contains(text(),'Pestana1')]");
+	public static By colunaCodigoLovEspanhol = By.xpath("//th[contains(text(),'Código')]");
+	public static By colunaLovRazaoSocialEspanhol = By.xpath("//th[contains(text(),'Nombre de Compañía')]");
+	public static By dicaCampoArvoreEspanhol = By.xpath("//span[@title='Punta del nodo']");
+	public static By tituloRotinaEspanhol = By.xpath("//p[contains(text(),'árbol teste')]");
+	
+	public static By etiquetaGrupoAbas015Portugues = By.xpath("//label[contains(text(),'testeAbas')]");
+	public static By etiquetaCampoDataHora015Portugues = By.xpath("//label[contains(text(),'Data hora')]");
+	public static By etiquetaBotaoAbrirJanela015Portugues = By.xpath("//label[contains(text(),'abrirJanela')]");
+	public static By etiquetaCampoValor1Portugues = By.xpath("//label[contains(text(),'Valor 1')]");
+	public static By etiquetaAba1Portugues = By.xpath("//p[contains(text(),'Aba1')]");
+	public static By colunaCodigoLovPortugues = By.xpath("//th[contains(text(),'Código')]");
+	public static By colunaLovRazaoSocialPortugues = By.xpath("//th[contains(text(),'Razão Social')]");
+	public static By dicaCampoArvorePortugues = By.xpath("//span[@title='Dica do nó']");
+	public static By tituloRotinaPortugues = By.xpath("//p[contains(text(),'teste árvore')]");
+
+	public static By campoLoginIngles = By.xpath("//input[@name='inputLogin' and @placeholder='Login']");
+	public static By campoSenhaIngles = By.xpath("//input[@name='inputSenha' and @placeholder='Password']");
+	public static By botaoEntrarIngles = By.xpath("//button[@id='botaoEntrar' and contains(text(),'Login')]");
+	public static By linkEsqueciSenhaIngles = By.xpath("//a[contains(text(),'Forgot my login or password')]");
+	public static By noticiaPortalIngles = By.xpath("//li[contains(text(),'Projedata and Catuaí Rótulos Sign Partnership')]//a[contains(text(),'Read more')]");
+	public static By botaoCriarNovaSessaoIngles = By.xpath("//button[contains(text(),'reate new session')]");
+
+	public static By campoLoginEspanhol = By.xpath("//input[@name='inputLogin' and @placeholder='Login']");
+	public static By campoSenhaEspanhol = By.xpath("//input[@name='inputSenha' and @placeholder='Contraseña']");
+	public static By botaoEntrarEspanhol = By.xpath("//button[@id='botaoEntrar' and contains(text(),'Entrar')]");
+	public static By linkEsqueciSenhaEspanhol = By.xpath("//a[contains(text(),'Recuperar mi nombre de usuario o contraseña')]");
+	public static By noticiaPortalEspanhol = By.xpath("//li[contains(text(),'Projedata y Catuaí Rótulos firman una alianza')]//a[contains(text(),'Ver más')]");
+	public static By botaoCriarNovaSessaoEspanhol = By.xpath("//button[contains(text(),'rear nueva sesión')]");
+
+}

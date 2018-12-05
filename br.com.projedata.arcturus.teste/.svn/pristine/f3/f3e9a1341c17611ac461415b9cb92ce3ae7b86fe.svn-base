@@ -1,0 +1,291 @@
+package br.com.projedata.arcturus.teste.testes;
+
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.abrirListaRelatorios;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.abrirPropriedadesCabecalho;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.abrirPropriedadesDoRelatorio;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.botaoAbrirArvoreComponentes;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.botaoAbrirCorpoRelatorio;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.botaoAbrirCorpoRelatorioNivel2;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.botaoAbrirCorpoRelatorioNivel3;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.botaoAbrirCorpoRelatorioNivel4;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.botaoAbrirDetalheCorpoDetalhe;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.botaoAbrirDetalheCorpoRelatorio;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.botaoAdicionarCabecalho;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.botaoAdicionarEvento;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.botaoProcessarFiltros;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.botaoRemoverEvento;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.campoDescricaoTecnicaPropriedades;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.editorSql;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.estaProcessando;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.faixaPeriodoFinal;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.faixaPeriodoInicial;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.fecharAbaRelatorio;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.filtroFinalDataNascto;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.filtroInicialDataNascto;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.listaRelatoriosAberta;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.lovSelecionarCabecalho;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.parametroExibirCabecalho;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.propriedadeCabecalho;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.propriedadeExibirCabecalhoNasPaginas;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.propriedadesDoRelatorioAberta;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.selecionarCabecalhoHorizontal;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.selecionarEvento;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.selecionarRelatorioParaEdicao;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.tipoSaidaRelatorio;
+
+import java.io.IOException;
+
+import org.apache.commons.lang3.StringUtils;
+import org.apache.pdfbox.pdmodel.encryption.InvalidPasswordException;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import br.com.projedata.arcturus.teste.metodosgenericos.GeradorRelatoriosMetodos;
+import br.com.projedata.arcturus.teste.metodosgenericos.LoginMetodos;
+import br.com.projedata.arcturus.teste.recursos.Rotina;
+import br.com.projedata.arcturus.teste.recursos.TesteGenerico;
+import br.com.projedata.arcturus.teste.webelements.AtualizadorElementos;
+
+public class TesteGeradorRelatorios extends TesteGenerico {
+
+	LoginMetodos login;
+	Rotina rotina;
+	AtualizadorElementos atualizador;
+	String paginaConstrutor;
+	GeradorRelatoriosMetodos metodosGerador;
+
+	@Parameters(value = { "login", "senha", "base", "url" })
+	@Test(testName = "id: 1 - Acessar construtor de relatorios")
+	public void acessarConstrutorRelatorios(String usuario, String senha, String base, String url) {
+		metodosGerador = new GeradorRelatoriosMetodos(this);
+		rotina = new Rotina(webDriver);
+		LoginMetodos login = new LoginMetodos(this);
+		login.logar(usuario, senha, base);
+		abrirUrl(url + "/admin/#/relatorio");
+		metodosGerador.aguardaProcessarGeradorRelatorios();
+		espera.aguardarElementoEstarVisivel(abrirListaRelatorios);
+		paginaConstrutor = navegador.pegarPaginaAtual();
+	}
+
+	@Test(testName = "id: 2 - Testar a emissao do relatorio com cabecalho padrao do sistema", dependsOnMethods = {
+			"acessarConstrutorRelatorios" })
+	public void cabecalhoPadraoDoSistema() throws InvalidPasswordException, IOException {
+		acao.clicarNoElemento(abrirListaRelatorios);
+		try {
+			espera.aguardarElementoEstarVisivel(listaRelatoriosAberta);
+		} catch (TimeoutException e) {
+			acao.clicarNoElemento(abrirListaRelatorios);
+		}
+		acao.clicarNoElemento(selecionarRelatorioParaEdicao("rger307"));
+		aguardaProcessarConstrutorTelas();
+		acao.clicarNoElemento(abrirPropriedadesDoRelatorio);
+		espera.aguardarElementoEstarVisivel(propriedadesDoRelatorioAberta);
+		acao.limpar(campoDescricaoTecnicaPropriedades);
+		acao.escreverNoElemento(campoDescricaoTecnicaPropriedades, "Teste descrição técnica");
+		metodosGerador.salvarAlteracoesRelatorio();
+		aguardaProcessarConstrutorTelas();
+		acao.selecionarNoElemento(propriedadeCabecalho, "Padrão do Sistema");
+		metodosGerador.salvarAlteracoesRelatorio();
+		gerarRelatorioNoConstrutor();
+		rotina.aguardarProcessarRotina();
+		acao.limpar(filtroInicialDataNascto);
+		acao.escreverNoElemento(filtroInicialDataNascto, "01011900");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.limpar(filtroFinalDataNascto);
+		acao.escreverNoElemento(filtroFinalDataNascto, "21072017");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.selecionarNoElemento(parametroExibirCabecalho, "Sim");
+		rotina.aguardarProcessarRotina();
+		acao.selecionarNoElemento(tipoSaidaRelatorio, "PDF");
+		acao.clicarNoElemento(botaoProcessarFiltros);
+
+		testar.passouSeValorContem(rotina.retornarConteudoDoPdf(), "PROJEDATA");
+		testar.passouSeValorContem(rotina.retornarConteudoDoPdf(), "TESTE GUSTAVO");
+		fecharRelatorioEmitido();
+	}
+
+	@Test(testName = "id: 3 - Relatorio possui cabecalho e na hora da emissao parametro esta como Nao mostrar cabecalho", dependsOnMethods = {
+			"cabecalhoPadraoDoSistema" })
+	public void parametroMostrarCabecalhoIgualNao() throws InvalidPasswordException, IOException {
+		acao.limpar(filtroInicialDataNascto);
+		acao.escreverNoElemento(filtroInicialDataNascto, "01011900");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.limpar(filtroFinalDataNascto);
+		acao.escreverNoElemento(filtroFinalDataNascto, "21072017");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.selecionarNoElemento(parametroExibirCabecalho, "Não");
+		rotina.aguardarProcessarRotina();
+		acao.selecionarNoElemento(tipoSaidaRelatorio, "PDF");
+		acao.clicarNoElemento(botaoProcessarFiltros);
+		testar.passouSeValorNaoContem(rotina.retornarConteudoDoPdf(), "FONTES");
+		testar.passouSeValorNaoContem(rotina.retornarConteudoDoPdf(), "TESTE GUSTAVO");
+		navegador.retornarPaginaPrincipal(paginaConstrutor);
+	}
+
+	@Test(testName = "id: 4 - Testar a emissao do relatorio sem cabecalho", dependsOnMethods = {
+			"parametroMostrarCabecalhoIgualNao" })
+	public void relatorioSemCabecalho() throws InvalidPasswordException, IOException {
+		acao.selecionarNoElemento(propriedadeCabecalho, "Não Exibir");
+		teclado.pressionarConjuntoDeTeclas(Keys.CONTROL, "s");
+		aguardaProcessarConstrutorTelas();
+		gerarRelatorioNoConstrutor();
+		acao.selecionarNoElemento(parametroExibirCabecalho, "Sim");
+		rotina.aguardarProcessarRotina();
+		acao.selecionarNoElemento(tipoSaidaRelatorio, "PDF");
+		acao.clicarNoElemento(botaoProcessarFiltros);
+		testar.passouSeValorNaoContem(rotina.retornarConteudoDoPdf(), "FONTES");
+		testar.passouSeValorNaoContem(rotina.retornarConteudoDoPdf(), "TESTE GUSTAVO");
+		navegador.retornarPaginaPrincipal(paginaConstrutor);
+	}
+
+	@Test(testName = "id: 5 - Testar a emissao do relatorio com cabecalho customizado", dependsOnMethods = {
+			"relatorioSemCabecalho" })
+	public void cabecalhoCustomizado() throws InvalidPasswordException, IOException {
+		acao.selecionarNoElemento(propriedadeCabecalho, "Customizado");
+		espera.aguardarElementoEstarVisivel(botaoAdicionarCabecalho);
+		acao.clicarNoElemento(botaoAdicionarCabecalho);
+		espera.aguardarElementoEstarVisivel(lovSelecionarCabecalho);
+		acao.clicarNoElemento(selecionarCabecalhoHorizontal);
+		espera.aguardarElementoDesaparecer(lovSelecionarCabecalho);
+		teclado.pressionarConjuntoDeTeclas(Keys.CONTROL, "s");
+		aguardaProcessarConstrutorTelas();
+		gerarRelatorioNoConstrutor();
+		acao.selecionarNoElemento(tipoSaidaRelatorio, "PDF");
+		acao.clicarNoElemento(botaoProcessarFiltros);
+		testar.passouSeValorContem(rotina.retornarConteudoDoPdf(), "PROJEDATA");
+		testar.passouSeValorContem(rotina.retornarConteudoDoPdf(), "TESTE GUSTAVO");
+		navegador.retornarPaginaPrincipal(paginaConstrutor);
+	}
+
+	@Test(testName = "id: 6 - Selecionar para imprimir o cabecalho apenas na primeira pagina", dependsOnMethods = {
+			"cabecalhoCustomizado" })
+	public void exibirCabecalhoApenasNaPrimeiraPagina() throws IOException {
+		acao.clicarNoElemento(abrirListaRelatorios);
+		espera.aguardarElementoEstarVisivel(listaRelatoriosAberta);
+		mouse.scrollParaElemento(selecionarRelatorioParaEdicao("rger494"));
+		acao.clicarNoElemento(selecionarRelatorioParaEdicao("rger494"));
+		aguardaProcessarConstrutorTelas();
+		acao.clicarNoElemento(botaoAbrirArvoreComponentes);
+		espera.aguardarElementoEstarVisivel(botaoAbrirCorpoRelatorio);
+		acao.clicarNoElemento(botaoAbrirCorpoRelatorio);
+		espera.aguardarElementoEstarVisivel(botaoAbrirCorpoRelatorioNivel2);
+		acao.clicarNoElemento(botaoAbrirCorpoRelatorioNivel2);
+		espera.aguardarElementoEstarVisivel(botaoAbrirCorpoRelatorioNivel3);
+		acao.clicarNoElemento(botaoAbrirCorpoRelatorioNivel3);
+		espera.aguardarElementoEstarVisivel(botaoAbrirCorpoRelatorioNivel4);
+		acao.clicarNoElemento(botaoAbrirCorpoRelatorioNivel4);
+		espera.aguardarElementoEstarVisivel(abrirPropriedadesCabecalho);
+		acao.clicarNoElemento(abrirPropriedadesCabecalho);
+		acao.selecionarNoElemento(propriedadeExibirCabecalhoNasPaginas, "Não");
+		teclado.pressionarConjuntoDeTeclas(Keys.CONTROL, "s");
+		aguardaProcessarConstrutorTelas();
+		gerarRelatorioNoConstrutor();
+		acao.limpar(faixaPeriodoInicial);
+		acao.escreverNoElemento(faixaPeriodoInicial, "01011900");
+		acao.limpar(faixaPeriodoFinal);
+		acao.escreverNoElemento(faixaPeriodoFinal, "09022018");
+		acao.clicarNoElemento(botaoProcessarFiltros);
+		espera.aguardarElementoDesaparecer(botaoProcessarFiltros);
+		System.out.println(rotina.retornarConteudoDoPdf());
+		int total = StringUtils.countMatches(rotina.retornarConteudoDoPdf(),"Nome Cpf Data Cadastro Email");
+		testar.passouSeValoresSaoIguais(total, 5);
+		navegador.retornarPaginaPrincipal(paginaConstrutor);
+		acao.clicarNoElemento(abrirPropriedadesCabecalho);
+		acao.selecionarNoElemento(propriedadeExibirCabecalhoNasPaginas, "Sim");
+	}
+
+	@Test(testName = "id: 7 - Selecionar para imprimir o cabecalho em todas as paginas", dependsOnMethods = {
+			"exibirCabecalhoApenasNaPrimeiraPagina" })
+	public void exibirCabecalhoEmTodasPaginas() throws InvalidPasswordException, IOException {
+		acao.selecionarNoElemento(propriedadeExibirCabecalhoNasPaginas, "Sim");
+		paginaConstrutor = navegador.pegarPaginaAtual();
+		teclado.pressionarConjuntoDeTeclas(Keys.CONTROL, "s");
+		aguardaProcessarConstrutorTelas();
+		gerarRelatorioNoConstrutor();
+		acao.limpar(faixaPeriodoInicial);
+		acao.escreverNoElemento(faixaPeriodoInicial, "01011900");
+		acao.limpar(faixaPeriodoFinal);
+		acao.escreverNoElemento(faixaPeriodoFinal, "09022018");
+		acao.clicarNoElemento(botaoProcessarFiltros);
+		espera.aguardarElementoDesaparecer(botaoProcessarFiltros);
+		int total = StringUtils.countMatches(rotina.retornarConteudoDoPdf(), "Nome Cpf Data Cadastro Email");
+		Assert.assertTrue(total > 5);
+		navegador.retornarPaginaPrincipal(paginaConstrutor);
+	}
+
+	@Test(testName = "id: 8 - Evento ImprimirQuando", dependsOnMethods = { "exibirCabecalhoEmTodasPaginas" })
+	public void testeEventoImprimirQuando() throws InvalidPasswordException, IOException {
+		espera.aguardarElementoEstarVisivel(botaoAbrirDetalheCorpoRelatorio);
+		espera.aguardarElementoEstarVisivel(botaoAdicionarEvento);
+		acao.clicarNoElemento(botaoAdicionarEvento);
+		espera.aguardarElementoEstarVisivel(selecionarEvento);
+		acao.clicarNoElemento(selecionarEvento);
+		espera.aguardarElementoDesaparecer(selecionarEvento);
+		String selectAll = Keys.chord(Keys.CONTROL, "a");
+		acao.escreverNoElemento(editorSql, selectAll);
+		acao.escreverNoElemento(editorSql, "!$F{email}.contains(\"@projedata\")");
+		metodosGerador.salvarAlteracoesRelatorio();
+		gerarRelatorioNoConstrutor();
+		acao.limpar(faixaPeriodoInicial);
+		acao.escreverNoElemento(faixaPeriodoInicial, "01011900");
+		acao.limpar(faixaPeriodoFinal);
+		acao.escreverNoElemento(faixaPeriodoFinal, "09022018");
+		acao.clicarNoElemento(botaoProcessarFiltros);
+		espera.aguardarElementoDesaparecer(botaoProcessarFiltros);
+		testar.passouSeValorNaoContem(rotina.retornarConteudoDoPdf(), "@projedata.com");
+		navegador.retornarPaginaPrincipal(paginaConstrutor);
+	}
+
+	@Test(testName = "id: 9 - Remover evento ImprimirQuando", dependsOnMethods = { "testeEventoImprimirQuando" })
+	public void removerEventoImprimirQuando() throws InvalidPasswordException, IOException {
+		espera.aguardarElementoEstarVisivel(botaoAbrirDetalheCorpoDetalhe);
+		acao.clicarNoElemento(botaoAbrirDetalheCorpoDetalhe);
+		espera.aguardarElementoEstarVisivel(botaoRemoverEvento);
+		acao.clicarNoElemento(botaoRemoverEvento);
+		metodosGerador.salvarAlteracoesRelatorio();
+		gerarRelatorioNoConstrutor();
+		acao.limpar(faixaPeriodoInicial);
+		acao.escreverNoElemento(faixaPeriodoInicial, "01011900");
+		acao.limpar(faixaPeriodoFinal);
+		acao.escreverNoElemento(faixaPeriodoFinal, "09022018");
+		acao.clicarNoElemento(botaoProcessarFiltros);
+		espera.aguardarElementoDesaparecer(botaoProcessarFiltros);
+		testar.passouSeValorContem(rotina.retornarConteudoDoPdf(), "@projedata.com");
+		navegador.retornarPaginaPrincipal(paginaConstrutor);
+	}
+
+	public void gerarRelatorioNoConstrutor() {
+		teclado.pressionarConjuntoDeTeclas(Keys.CONTROL, "r");
+		for (String winHandle : webDriver.getWindowHandles()) {
+			webDriver.switchTo().window(winHandle);
+		}
+		aguardaProcessarConstrutorTelas();
+		espera.aguardarElementoEstarVisivel(botaoProcessarFiltros);
+		rotina.aguardarProcessarRotina();
+	}
+
+	public void fecharRelatorioEmitido() {
+		acao.clicarNoElemento(fecharAbaRelatorio);
+		espera.aguardarElementoDesaparecer(fecharAbaRelatorio);
+		rotina.aguardarProcessarRotina();
+		espera.aguardarElementoSerClicavel(botaoProcessarFiltros);
+	}
+
+	public void aguardaProcessarConstrutorTelas() {
+		if (webDriver.findElements(estaProcessando).size() != 0) {
+
+			WebDriverWait wait = new WebDriverWait(webDriver, 30);
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(estaProcessando));
+		}
+	}
+
+}

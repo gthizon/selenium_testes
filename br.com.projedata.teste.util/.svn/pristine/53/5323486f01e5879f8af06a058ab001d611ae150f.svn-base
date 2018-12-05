@@ -1,0 +1,88 @@
+package br.com.projedata.teste.util.recursos;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import br.com.projedata.teste.util.Teste;
+
+public class Login {
+
+	private WebDriver webDriver;
+	private Acao acao;
+	private Teclado teclado;
+	private Espera espera;
+
+	public Login(Teste teste) {
+		this.webDriver = teste.getWebDriver();
+		this.acao = teste.getAcao();
+		this.teclado = teste.getTeclado();
+		this.espera = teste.getEspera();
+	}
+
+	public Login(WebDriver webDriver, Acao acao, Teclado teclado, Espera espera) {
+		this.webDriver = webDriver;
+		this.acao = acao;
+		this.teclado = teclado;
+		this.espera = espera;
+	}
+	
+	public By campoUsuario = By.id("inputLogin");
+	public By campoSenha = By.id("inputSenha");
+	public By campoBase = By.id("inputBase");
+	public By botaoAcessar = By.id("botaoEntrar");
+	public By logado = By.xpath("//input[@placeholder='Localizar' or @placeholder='Search']");
+	public By botaoNovaSessao = By.xpath("//button[contains(@class,'btn-nova') or @data-type='nova']");
+	public By sessoesAtivasUsuarioComum = By.xpath("//div[contains(text(),'Sessões Ativas')]");
+	public By botaoFinalizarSessoesAtivasUsuarioComum = By.xpath("//button[contains(text(),'Finalizar Todas')]");
+
+	private static By sairPortal = By.xpath("//li[contains(text(),'Sair') or contains(text(),'Logout') or contains(text(),'Salir')]");
+	private static By menuConfiguracoes = By.xpath(
+			"//li[@class='barra-ferramentas-item' and contains(@title, 'Config') or contains(@title, 'config') or contains(@title, 'Config')]");
+	private static By menuConfiguracoesAberto = By.xpath("//div[@class='portal-menu-configuracoes']");
+
+	public void logar(String usuario, String senha, String base) {
+		preencherCamposLogin(usuario, senha, base);
+		WebElement elementoVisivel = espera.aguardarElementoEstarVisivel(logado, botaoNovaSessao, sessoesAtivasUsuarioComum);
+		if (webDriver.findElements(botaoNovaSessao).contains(elementoVisivel)) {
+			acao.clicarNoElemento(botaoNovaSessao);
+		} else {
+			if (webDriver.findElements(sessoesAtivasUsuarioComum).contains(elementoVisivel)) {
+				acao.clicarNoElemento(botaoFinalizarSessoesAtivasUsuarioComum);
+			}
+		}
+		espera.aguardarElementoEstarVisivel(logado);
+		espera.aguardarSistemaCarregar();
+	}
+
+	public void preencherCamposLogin(String usuario, String senha, String base) {
+		aguardarTelaLogin();
+		acao.limparElemento(campoUsuario);
+		acao.escreverNoElemento(campoUsuario, usuario);
+		acao.limparElemento(campoSenha);
+		acao.escreverNoElemento(campoSenha, senha);
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		acao.limparElemento(campoBase);
+		acao.escreverNoElemento(campoBase, base);
+		acao.clicarNoElemento(botaoAcessar);
+	}
+
+	public void aguardarTelaLogin() {
+		WebDriverWait wait = new WebDriverWait(webDriver, 20);
+		wait.until(ExpectedConditions.visibilityOfElementLocated((By.id("inputLogin"))));
+	}
+	
+	public void logoff() {
+		espera.aguardarElementoEstarVisivel(3, menuConfiguracoes);
+		acao.clicarNoElemento(menuConfiguracoes);
+		espera.aguardarElementoEstarVisivel(sairPortal);
+		espera.aguardarElementoEstarVisivel(menuConfiguracoesAberto);
+		acao.clicarNoElemento(sairPortal);
+		espera.aguardarSistemaCarregar();
+		aguardarTelaLogin();
+	}
+
+}

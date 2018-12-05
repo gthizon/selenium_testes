@@ -1,0 +1,29 @@
+package br.com.projedata.arcturus.teste.testes;
+
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import br.com.projedata.arcturus.teste.metodosgenericos.LoginMetodos;
+import br.com.projedata.arcturus.teste.metodosgenericos.Pger001Metodos;
+import br.com.projedata.arcturus.teste.recursos.Rotina;
+import br.com.projedata.arcturus.teste.recursos.TesteGenerico;
+import br.com.projedata.arcturus.teste.webelements.AtualizadorElementos;
+
+public class TesteParc012 extends TesteGenerico {
+
+	LoginMetodos login;
+	Rotina rotina;
+	AtualizadorElementos atualizador;
+	Pger001Metodos ger001;
+	String codigoSistema;
+
+	@Parameters(value = { "login", "senha", "base" })
+	@Test(testName = "id: 1 - Abrir Parc012")
+	public void abrirParc012(String usuario, String senha, String base) {
+		rotina = new Rotina(webDriver);
+		login = new LoginMetodos(this);
+		login.logar(usuario, senha, base);
+		rotina.selecionarRotina("arc012");
+	}
+
+}

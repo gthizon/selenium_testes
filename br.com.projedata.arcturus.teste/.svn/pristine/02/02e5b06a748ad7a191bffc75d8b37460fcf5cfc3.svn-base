@@ -1,0 +1,149 @@
+package br.com.projedata.arcturus.teste.testes;
+
+import static br.com.projedata.arcturus.teste.webelements.Parc004Elementos.botaoLovSubmenu;
+import static br.com.projedata.arcturus.teste.webelements.Parc004Elementos.campoCodigoSistema;
+import static br.com.projedata.arcturus.teste.webelements.Parc004Elementos.campoDescricaoMenu;
+import static br.com.projedata.arcturus.teste.webelements.Parc004Elementos.campoIdItemRotina;
+import static br.com.projedata.arcturus.teste.webelements.Parc004Elementos.campoIdRotina;
+import static br.com.projedata.arcturus.teste.webelements.Parc004Elementos.campoTipoItem;
+import static br.com.projedata.arcturus.teste.webelements.Parc004Elementos.menuTeste;
+import static br.com.projedata.arcturus.teste.webelements.Parc004Elementos.rotinaMenuAutomation;
+import static br.com.projedata.arcturus.teste.webelements.Parc004Elementos.subMenuAutomation;
+import static br.com.projedata.arcturus.teste.webelements.Parc004Elementos.subMenuTeste;
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.botaoAbrirMenu;
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.menuPrincipal;
+
+import org.openqa.selenium.Keys;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import br.com.projedata.arcturus.teste.metodosgenericos.LoginMetodos;
+import br.com.projedata.arcturus.teste.metodosgenericos.Pger001Metodos;
+import br.com.projedata.arcturus.teste.recursos.TesteGenerico;
+import br.com.projedata.arcturus.teste.webelements.AtualizadorElementos;
+
+public class TesteParc004 extends TesteGenerico {
+
+	LoginMetodos login;
+	AtualizadorElementos atualizador;
+	Pger001Metodos ger001;
+	String codigoMenuCriado;
+	int posicaoCodigoSistema = 0;
+	int posicaoDescricaoMenu = 0;
+	int posicaoTipoItem = 0;
+
+	@Parameters(value = { "login", "senha", "base" })
+	@Test(testName = "id: 1 - Abrir Parc004")
+	public void abrirParc003(String usuario, String senha, String base) {
+		login = new LoginMetodos(this);
+		login.logar(usuario, senha, base);
+		rotina.selecionarRotina("arc004");
+	}
+
+	@Test(testName = "id: 2 - Selecionar menu teste", dependsOnMethods = { "abrirParc003" })
+	public void selecionarMenuTeste() {
+		acao.clicarNoElemento(rotina.botaoLimparConsulta);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElemento(campoCodigoSistema, "8");
+		acao.clicarNoElemento(rotina.botaoConsultar);
+		rotina.aguardarProcessarRotina();
+	}
+
+	@Test(testName = "id: 3 - Inserir novo menu teste", dependsOnMethods = { "selecionarMenuTeste" })
+	public void inserirNovoMenuTeste() {
+		while (!acao.localizarElementoNaPosicao(campoCodigoSistema, posicaoCodigoSistema).getAttribute("value").isEmpty()) {
+			teclado.pressionarTeclaDeControle(Keys.ARROW_DOWN);
+			posicaoCodigoSistema++;
+		}
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(campoCodigoSistema, posicaoCodigoSistema);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElementoNaPosicao(campoCodigoSistema, posicaoCodigoSistema, "8");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElementoNaPosicao(campoDescricaoMenu, posicaoCodigoSistema, "automation");
+		rotina.salvarEAguardarMensagemRegistrosAlterados();
+	}
+
+	@Test(testName = "id: 4 - Vincular uma rotina ao novo menu", dependsOnMethods = { "inserirNovoMenuTeste" })
+	public void vincularRotinaAoNovoMenu() {
+		acao.posicionarFocoNoElemento(rotina, campoTipoItem);
+		acao.selecionarNoElemento(campoTipoItem, "Rotina");
+		acao.escreverNoElemento(campoIdRotina, "13");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		rotina.salvarEAguardarMensagemRegistrosAlterados();
+	}
+
+	@Test(testName = "id: 5 -Vincular o menu como submenu do principal", dependsOnMethods = { "vincularRotinaAoNovoMenu" })
+	public void vincularMenuCriadoAoMenuPrincipal() {
+		acao.clicarNoElemento(rotina, campoDescricaoMenu, 0);
+		while (!acao.localizarElementoNaPosicao(campoDescricaoMenu, posicaoDescricaoMenu).getAttribute("value").equals("INICIAL")) {
+			teclado.pressionarTeclaDeControle(Keys.ARROW_DOWN);
+			rotina.aguardarProcessarRotina();
+			posicaoDescricaoMenu++;
+		}
+		rotina.aguardarProcessarRotina();
+		acao.posicionarFocoNoElemento(rotina, campoIdItemRotina);
+		rotina.aguardarProcessarRotina();
+		while (!acao.localizarElementoNaPosicao(campoTipoItem, posicaoTipoItem).getAttribute("value").isEmpty()) {
+			teclado.pressionarTeclaDeControle(Keys.ARROW_DOWN);
+			posicaoTipoItem++;
+		}
+		rotina.aguardarProcessarRotina();
+		acao.selecionarNoElemento(campoTipoItem, posicaoTipoItem, "Menu");
+		acao.clicarNoElemento(botaoLovSubmenu, posicaoTipoItem);
+		espera.aguardarElementoEstarVisivel(rotina.lov);
+		acao.escreverNoElemento(rotina.filtrarLov, "automation");
+		acao.clicarNoElemento(rotina.selecionarValorLov("automation"));
+		espera.aguardarElementoDesaparecer(rotina.lov);
+		rotina.aguardarProcessarRotina();
+		rotina.salvarEAguardarMensagemRegistrosAlterados();
+	}
+
+	@Test(testName = "id: 6 -Abrir menu e verificar se os menus foram criados corretamente", dependsOnMethods = { "vincularMenuCriadoAoMenuPrincipal" })
+	public void abrirMenuEVerificarMenuCriado() {
+		acao.clicarNoElemento(botaoAbrirMenu);
+		espera.aguardarElementoEstarVisivel(menuPrincipal);
+		espera.aguardarElementoEstarVisivel(menuTeste);
+		acao.clicarNoElemento(menuTeste);
+		espera.aguardarElementoEstarVisivel(subMenuTeste);
+		acao.clicarNoElemento(subMenuTeste);
+		espera.aguardarElementoEstarVisivel(subMenuAutomation);
+		acao.clicarNoElemento(subMenuAutomation);
+		espera.aguardarElementoEstarVisivel(rotinaMenuAutomation);
+		acao.clicarNoElemento(rotinaMenuAutomation);
+		rotina.aguardarProcessarRotina();
+		rotina.retornarRotinaCarregada("arc005");
+		espera.aguardarElementoDesaparecer(menuTeste);
+		rotina.fecharRotina("arc005");
+	}
+
+	@Test(testName = "id: 7 - excluir Menu Criado", dependsOnMethods = { "abrirMenuEVerificarMenuCriado" })
+	public void excluirMenu() {
+		rotina.aguardarProcessarRotina();
+		rotina.excluirESalvar();
+		acao.clicarNoElemento(campoDescricaoMenu, 0);
+		posicaoDescricaoMenu = 0;
+		rotina.aguardarProcessarRotina();
+		while (!acao.localizarElementoNaPosicao(campoDescricaoMenu, posicaoDescricaoMenu).getAttribute("value").equals("automation")) {
+			teclado.pressionarTeclaDeControle(Keys.ARROW_DOWN);
+			rotina.aguardarProcessarRotina();
+			posicaoDescricaoMenu++;
+		}
+		acao.posicionarFocoNoElemento(rotina, campoIdItemRotina);
+		rotina.aguardarProcessarRotina();
+		rotina.excluirESalvar();
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(campoDescricaoMenu, 0);
+		posicaoDescricaoMenu = 0;
+		while (!acao.localizarElementoNaPosicao(campoDescricaoMenu, posicaoDescricaoMenu).getAttribute("value").equals("automation")) {
+			teclado.pressionarTeclaDeControle(Keys.ARROW_DOWN);
+			rotina.aguardarProcessarRotina();
+			posicaoDescricaoMenu++;
+		}
+		rotina.aguardarProcessarRotina();
+		rotina.excluirESalvar();
+	}
+
+}

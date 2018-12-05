@@ -1,0 +1,30 @@
+package br.com.projedata.arcturus.teste.recursos;
+
+import org.openqa.selenium.WebDriver;
+
+public class RecursosPrincipal {
+
+	protected WebDriver webDriver = null;
+	protected Testar afirmar;
+	protected AcoesDriver acao;
+	protected Espera espera;
+	protected Mensagem msg;
+	protected Mouse mouse;
+	protected Navegador navegador;
+	protected Rotina rotina;
+	protected Teclado teclado;
+
+	public RecursosPrincipal(WebDriver driver) {
+		this.webDriver = driver;
+
+		afirmar = new Testar(webDriver);
+		acao = new AcoesDriver(webDriver);
+		espera = new Espera(webDriver);
+		msg = new Mensagem(webDriver);
+		mouse = new Mouse(webDriver);
+		navegador = new Navegador(webDriver);
+		rotina = new Rotina(webDriver);
+		teclado = new Teclado(webDriver);
+	}
+
+}

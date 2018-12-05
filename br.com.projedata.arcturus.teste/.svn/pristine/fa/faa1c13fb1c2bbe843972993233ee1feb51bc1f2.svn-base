@@ -1,0 +1,65 @@
+package br.com.projedata.arcturus.teste.testes;
+
+import static br.com.projedata.arcturus.teste.webelements.Teste02Elementos.campoCodigo;
+import static br.com.projedata.arcturus.teste.webelements.Teste02Elementos.campoMultivalorado;
+
+import java.awt.AWTException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import br.com.projedata.arcturus.teste.metodosgenericos.AtualizadorMetodos;
+import br.com.projedata.arcturus.teste.metodosgenericos.LoginMetodos;
+import br.com.projedata.arcturus.teste.recursos.Rotina;
+import br.com.projedata.arcturus.teste.recursos.TesteGenerico;
+
+public class teste extends TesteGenerico {
+
+	public static String numeroAtualizacao;
+	public static String numeroAtualizacaoDependente;
+	private String versaoAtualizacaoLancada;
+	private static String idDependente;
+	private static String mensagemAtualizacaoComOsVinculada;
+	String anexo1Linux = "Anexo1.txt";
+	String anexo2Linux = "processo_testes'@#$~^áà.png";
+	String anexo1Windows = "\\\\arquivos.prj\\qualidade\\Plano de Testes\\Plano_de_Testes.pdf";
+	String anexo2Windows = "\\\\arquivos.prj\\qualidade\\Diversos\\processo_testes'@#$~^áà.png";
+	String urlAdmin;
+
+	Rotina rotina;
+	String elementoFocado;
+	LoginMetodos login;
+	AtualizadorMetodos atualiza;
+
+	@Parameters(value = { "login", "senha", "base" })
+	@Test(testName = "id: 47 - Verificar expansao de textArea", enabled = true)
+	public void textAreaExpansivel() {
+		login = new LoginMetodos(this);
+		rotina = new Rotina(webDriver);
+		login.logar("teste", "guth055", "fontes");
+		rotina.selecionarRotina("teste02");
+		String textArea = "teste teste teste teste teste teste teste teste teste teste teste"
+				+ " teste teste teste teste teste teste teste teste teste teste teste teste teste "
+				+ "teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste"
+				+ "teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste";
+
+		acao.clicarNoElemento(rotina.botaoLimparConsulta);
+		acao.escreverNoElemento(campoCodigo, "444");
+		acao.clicarNoElemento(rotina.botaoConsultar);
+		rotina.aguardarProcessarRotina();
+		String tamanhoInicial = rotina.buscarElemento(campoMultivalorado).getCssValue("height");
+		acao.escreverNoElemento(campoMultivalorado, textArea);
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		String tamanhoAlterado = rotina.buscarElemento(campoMultivalorado).getCssValue("height");
+		testar.passouSeValorNaoContem(tamanhoInicial, tamanhoAlterado);
+		teclado.pressionarConjuntoDeTeclasDeControle(Keys.SHIFT, Keys.F4);
+		espera.aguardarElementoEstarVisivel(msg.simConfirmacao);
+		acao.clicarNoElemento(msg.naoConfirmacao);
+		espera.aguardarElementoDesaparecer(msg.simConfirmacao);
+		rotina.aguardarProcessarRotina();
+		sairPortal();
+	}
+
+}

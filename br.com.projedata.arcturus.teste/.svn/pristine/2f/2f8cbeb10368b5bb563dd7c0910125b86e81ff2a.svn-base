@@ -1,0 +1,88 @@
+package br.com.projedata.arcturus.teste.testes;
+
+import static br.com.projedata.arcturus.teste.webelements.Parc012Elementos.campoChaveIdioma;
+import static br.com.projedata.arcturus.teste.webelements.Parc012Elementos.campoIdIdioma;
+import static br.com.projedata.arcturus.teste.webelements.Parc012Elementos.campoIdiomaAtivo;
+import static br.com.projedata.arcturus.teste.webelements.Parc012Elementos.campoLocalidadeIdioma;
+import static br.com.projedata.arcturus.teste.webelements.Parc012Elementos.campoNomeIdioma;
+import static br.com.projedata.arcturus.teste.webelements.Parc012Elementos.campoSelecionarIdioma;
+import static br.com.projedata.arcturus.teste.webelements.Parc012Elementos.campoTraducao;
+
+import org.openqa.selenium.Keys;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import br.com.projedata.arcturus.teste.metodosgenericos.LoginMetodos;
+import br.com.projedata.arcturus.teste.metodosgenericos.MetodosGenericos;
+import br.com.projedata.arcturus.teste.metodosgenericos.Pger001Metodos;
+import br.com.projedata.arcturus.teste.recursos.TesteGenerico;
+import br.com.projedata.arcturus.teste.webelements.AtualizadorElementos;
+
+public class TesteParc012 extends TesteGenerico {
+
+	LoginMetodos login;
+	AtualizadorElementos atualizador;
+	Pger001Metodos ger001;
+	String codigoIdioma;
+	MetodosGenericos metodos;
+
+	@Parameters(value = { "login2", "senha", "base" })
+	@Test(testName = "id: 1 - Abrir Parc012")
+	public void abrirParc012(String usuario, String senha, String base) {
+		login = new LoginMetodos(this);
+		login.logar(usuario, senha, base);
+		rotina.selecionarRotina("arc012");
+		metodos = new MetodosGenericos(this);
+	}
+
+	@Test(testName = "id: 2 - Cadastrar idioma", dependsOnMethods = { "abrirParc012" })
+	public void cadastrarIdioma() {
+		acao.clicarNoElemento(rotina.botaoNovo);
+		acao.escreverNoElemento(campoNomeIdioma, 1, "Deutsch");
+		acao.escreverNoElemento(campoLocalidadeIdioma, 1, "de_GE");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.selecionarNoElemento(campoIdiomaAtivo, 1, "Sim");
+		rotina.salvarEAguardarMensagemRegistrosAlterados();
+		codigoIdioma = acao.localizarElementoNaPosicao(campoIdIdioma, 1).getAttribute("value");
+	}
+
+	@Test(testName = "id: 3 - Cadastrar tradução para o idioma", dependsOnMethods = { "cadastrarIdioma" })
+	public void cadastrarUmaTraducao() {
+		acao.clicarNoElemento(campoChaveIdioma);
+		rotina.aguardarProcessarRotina();
+		rotina.limparCampoERealizarNovaConsulta();
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(rotina.botaoNovo);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElemento(campoChaveIdioma, 1, "Teste Automação");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.selecionarNoElementoPeloValor(campoSelecionarIdioma, 1, codigoIdioma);
+		acao.escreverNoElemento(campoTraducao, 1, "Automatisierungstest");
+		rotina.salvarEAguardarMensagemRegistrosAlterados();
+	}
+
+	@Test(testName = "id: 4 - Excluir tradução", dependsOnMethods = { "cadastrarUmaTraducao" })
+	public void excluirTraducaoCadastrada() {
+		acao.clicarNoElemento(campoChaveIdioma);
+		acao.clicarNoElemento(rotina.botaoLimparConsulta);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElemento(campoChaveIdioma, "Teste Automação");
+		acao.clicarNoElemento(rotina.botaoConsultar);
+		rotina.aguardarProcessarRotina();
+		rotina.excluirESalvar();
+	}
+
+	@Test(testName = "id: 5 - Excluir idioma", dependsOnMethods = { "excluirTraducaoCadastrada" })
+	public void excluirIdioma() {
+		acao.clicarNoElemento(campoIdIdioma);
+		acao.clicarNoElemento(rotina.botaoLimparConsulta);
+		rotina.aguardarProcessarRotina();
+		acao.escreverNoElemento(campoIdIdioma, codigoIdioma);
+		acao.clicarNoElemento(rotina.botaoConsultar);
+		rotina.aguardarProcessarRotina();
+		rotina.excluirESalvar();
+	}
+
+}

@@ -1,0 +1,200 @@
+package br.com.projedata.arcturus.teste.testes;
+
+import static br.com.projedata.arcturus.teste.webelements.Parc001Elementos.campoCodigoArc001;
+import static br.com.projedata.arcturus.teste.webelements.Parc001Elementos.campoCodigoBaseArc001;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.barraRolagemProximoRelatorio;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.barraRolagemProximoRelatorioDesabilitada;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.botaoBloquearDesabilitado;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.botaoClonarDesabilitado;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.botaoEditarDesabilitado;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.botaoExcluirDesabilitado;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.botaoExecutarHabilitado;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.botaoNovoRelatorio;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.campoCodigoRelatorio;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.fecharJanelaEmissaoRelatorio;
+import static br.com.projedata.arcturus.teste.webelements.Pger001Elementos.filtroObrigatorio;
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.botaoAbrirMenu;
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.menuApoio;
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.menuPrincipal;
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.menuRelatorioRger024;
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.menuRelatoriosPersonlalizados;
+import static br.com.projedata.arcturus.teste.webelements.PortalElementos.menuWorkflow;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import org.apache.pdfbox.pdmodel.encryption.InvalidPasswordException;
+import org.openqa.selenium.Keys;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import br.com.projedata.arcturus.teste.metodosgenericos.AtualizadorMetodos;
+import br.com.projedata.arcturus.teste.metodosgenericos.ConstrutorTelasMetodos;
+import br.com.projedata.arcturus.teste.metodosgenericos.LoginMetodos;
+import br.com.projedata.arcturus.teste.recursos.TesteGenerico;
+
+public class teste extends TesteGenerico {
+
+	String elementoFocado;
+	LoginMetodos login;
+	AtualizadorMetodos atualizador;
+	ConstrutorTelasMetodos metodosConstrutor;
+
+
+	@Parameters(value = { "login", "senha", "base" })
+	@Test(testName = "id: ? - Testar permissão de acesso a rotina para o usuário", enabled = true)
+	public void salvarFiltrosDoRelatorio(String usuario, String senha, String base) throws InvalidPasswordException, IOException {
+		login = new LoginMetodos(this);
+		login.logar(usuario, senha, base);
+		rotina.selecionarRotina("ger001");
+		selecionarRelatorioParaEdicao("rger24");
+		selecionarRelatorioParaEdicao("rger24");
+		acao.clicarNoElemento("botaoExecutar-1");
+		espera.aguardarElementoEstarVisivel(rotina.botaoProcessarFiltros);
+		acao.clicarNoElemento("periodo-1-0");
+		rotina.aguardarProcessarRotina();
+		acao.limparElemento("periodo-1-0");
+		acao.escreverNoElemento("periodo-1-0", "01042013");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.limparElemento("periodo-1-1");
+		acao.escreverNoElemento("periodo-1-1", "01052013");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.selecionarNoElementoPeloValor("exibir_cabecalho-1", "N");
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento("b_salvar-1");
+		rotina.aguardarProcessarRotina();
+		espera.aguardarElementoEstarVisivel(msg.mensagemRegistrosAlterados);
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		espera.aguardarElementoDesaparecer(msg.mensagemRegistrosAlterados);
+		acao.clicarNoElemento(rotina.botaoProcessarFiltros);
+		testar.passouSeValorContem(rotina.retornarConteudoDoPdf(), "01/04/2013 - 01/05/2013");
+		testar.passouSeValorNaoContem(rotina.retornarConteudoDoPdf(), "PROJEDATA INFORMÁTICA LTDA");
+
+		acao.clicarNoElemento(fecharJanelaEmissaoRelatorio);
+		rotina.aguardarProcessarRotina();
+		espera.aguardarElementoDesaparecer(fecharJanelaEmissaoRelatorio);
+
+		selecionarRelatorioParaEdicao("rger24");
+		acao.clicarNoElemento("botaoExecutar-1");
+		espera.aguardarElementoEstarVisivel(rotina.botaoProcessarFiltros);
+		testar.passouSeValorDoElementoSelecionadoFor("exibir_cabecalho-1", "Não");
+		testar.passouSeAtributoDoElementoContem("periodo-1-0", "value", "01/04/2013");
+		testar.passouSeAtributoDoElementoContem("periodo-1-1", "value", "01/05/2013");
+
+		acao.clicarNoElemento(fecharJanelaEmissaoRelatorio);
+		rotina.aguardarProcessarRotina();
+		espera.aguardarElementoDesaparecer(fecharJanelaEmissaoRelatorio);
+	}
+
+	@Test(testName = "id: 48 - Limpar filtros e salvar", dependsOnMethods = { "salvarFiltrosDoRelatorio" })
+	public void salvarFiltrosDoRelatorioEmBranco() throws InvalidPasswordException, IOException {
+		selecionarRelatorioParaEdicao("rger24");
+		acao.clicarNoElemento("botaoExecutar-1");
+		espera.aguardarElementoEstarVisivel(rotina.botaoProcessarFiltros);
+		acao.clicarNoElemento("periodo-1-0");
+		rotina.aguardarProcessarRotina();
+		acao.limparElemento("periodo-1-0");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento("periodo-1-1");
+		rotina.aguardarProcessarRotina();
+		acao.limparElemento("periodo-1-1");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.selecionarNoElementoPeloValor("exibir_cabecalho-1", "S");
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento("b_salvar-1");
+		rotina.aguardarProcessarRotina();
+		espera.aguardarElementoEstarVisivel(msg.mensagemRegistrosAlterados);
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		espera.aguardarElementoDesaparecer(msg.mensagemRegistrosAlterados);
+		acao.clicarNoElemento(rotina.botaoProcessarFiltros);
+		testar.passouSeValorNaoContem(rotina.retornarConteudoDoPdf(), "01/04/2013 - 01/05/2013");
+		testar.passouSeValorContem(rotina.retornarConteudoDoPdf(), "PROJEDATA INFORMÁTICA LTDA");
+
+		acao.clicarNoElemento(fecharJanelaEmissaoRelatorio);
+		rotina.aguardarProcessarRotina();
+		espera.aguardarElementoDesaparecer(fecharJanelaEmissaoRelatorio);
+	}
+
+	@Test(testName = "id: 49 - Vincular um sistema ao relatório e verificar se aparecerá no menu", dependsOnMethods = {
+			"salvarFiltrosDoRelatorioEmBranco" })
+	public void vincularSistemaAoRelatorio() throws InvalidPasswordException, IOException {
+		selecionarRelatorioParaEdicao("rger24");
+		acao.escreverNoElemento("idSistemaVinculado-1", "2");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		rotina.salvarEAguardarMensagemRegistrosAlterados();
+		rotina.fecharRotina("ger001");
+		acao.clicarNoElemento(botaoAbrirMenu);
+		espera.aguardarElementoEstarVisivel(menuPrincipal);
+		espera.aguardarElementoEstarVisivel(menuApoio);
+		acao.clicarNoElemento(menuApoio);
+		espera.aguardarElementoEstarVisivel(menuWorkflow);
+		acao.clicarNoElemento(menuWorkflow);
+		espera.aguardarElementoEstarVisivel(menuRelatoriosPersonlalizados);
+		acao.clicarNoElemento(menuRelatoriosPersonlalizados);
+		espera.aguardarElementoEstarVisivel(menuRelatorioRger024);
+		acao.clicarNoElemento(menuRelatorioRger024);
+		espera.aguardarRotinaAberta("ger24");
+		espera.aguardarElementoEstarVisivel(rotina.botaoProcessarFiltros);
+		espera.aguardarElementoEstarVisivel(fecharJanelaEmissaoRelatorio);
+
+		acao.clicarNoElemento(fecharJanelaEmissaoRelatorio);
+		rotina.aguardarProcessarRotina();
+		espera.aguardarElementoDesaparecer(fecharJanelaEmissaoRelatorio);
+	}
+
+	@Test(testName = "id: 50 - Testar exibição imagem fundo do relatório.", dependsOnMethods = { "vincularSistemaAoRelatorio" })
+	public void verificarSeImagemFundoEhExibiba() throws InvalidPasswordException, IOException {
+		rotina.selecionarRotina("ger001");
+		rotina.aguardarProcessarRotina();
+		selecionarRelatorioParaEdicao("rger25");
+		acao.clicarNoElemento(botaoExecutarHabilitado);
+		espera.aguardarElementoEstarVisivel(rotina.botaoProcessarFiltros);
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento("periodo-1-0");
+		rotina.aguardarProcessarRotina();
+		acao.limparElemento("periodo-1-0");
+		acao.escreverNoElemento("periodo-1-0", "01042013");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.limparElemento("periodo-1-1");
+		acao.escreverNoElemento("periodo-1-1", "01052013");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(rotina.botaoProcessarFiltros);
+		ArrayList<Integer> relatorios = new ArrayList<>();
+		relatorios = rotina.verificarSeConteudoDoPdfPossuiImagens();
+		for (int i = 0; i <= relatorios.size(); i++) {
+			int tamanhoRelatorio = relatorios.get(i);
+			if (tamanhoRelatorio == 1173849) {
+				testar.testePassou();
+				break;
+			} else {
+				testar.testeFalhou();
+			}
+		}
+	}
+
+	public void selecionarRelatorioParaEdicao(String relatorio) {
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(campoCodigoRelatorio, 0);
+		rotina.aguardarProcessarRotina();
+		rotina.limparCampoERealizarNovaConsulta();
+		int posicao = 0;
+		while (!acao.localizarElementos(campoCodigoRelatorio).get(posicao).getAttribute("value").equals(relatorio)) {
+			if (acao.localizarElementos(barraRolagemProximoRelatorioDesabilitada).size() == 0) {
+				acao.clicarNoElemento(barraRolagemProximoRelatorio);
+				rotina.aguardarProcessarRotina();
+				posicao = -1;
+			}
+			posicao++;
+		}
+		acao.clicarNoElemento(campoCodigoRelatorio, posicao);
+		rotina.aguardarProcessarRotina();
+	}
+
+}

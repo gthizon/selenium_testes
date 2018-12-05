@@ -1,0 +1,118 @@
+package br.com.projedata.arcturus.teste.webelements;
+
+import org.openqa.selenium.By;
+
+public class GeradorRelatoriosElementos {
+
+	public static By faixaValorInicial = By.xpath("//input[contains(@id,'tempo-1-0')]");
+	public static By faixaValorFinal = By.xpath("//input[contains(@id,'tempo-1-1')]");
+	public static By faixaPeriodoInicial = By.xpath("//input[contains(@id,'periodo-1-0')]");
+	public static By faixaPeriodoFinal = By.xpath("//input[contains(@id,'periodo-1-1')]");
+	public static By botaoProcessarFiltros = By
+			.xpath("//*[contains(@name,'b_processar_filtro') or contains(@id,'b_processar_filtro')]");
+	public static By fecharAbaRelatorio = By.xpath("//i[@class='fa fa-close icone-relatorio']");
+	public static By botaoMostraFiltros = By.xpath("//button[@class='filtro']");
+	/* construtor */
+	public static By abrirListaRelatorios = By.xpath("//i[@class='fa fa-search construtor-icon']"); // ("//div[@ng-click='rc.entrarCampoVersao()']");
+	public static By listaRelatoriosAberta = By.xpath("//div[@id='divVersoes']");
+	public static By abrirPropriedadesDoRelatorio = By.xpath("//div[contains(text(),'rger11 - ')]");
+	public static By propriedadesDoRelatorioAberta = By.xpath(
+			"//div[@class='titulo' and contains(text(),'Propriedades')]//following::div[@class='minimizar-construtor' and @style='display: block;']");
+	public static By propriedadeCabecalho = By.xpath("//select[@ng-model='rc.versao.cabecalho']");
+	public static By botaoExcluirCabecalho = By.xpath("//button[@ng-click='rc.excluirCabecalho();']");
+	public static By botaoAdicionarCabecalho = By.xpath("//button[@ng-click='rc.abrirModalCabecalho();']");
+	public static By lovSelecionarCabecalho = By.id("modalCabecalho");
+	public static By selecionarCabecalhoHorizontal = By.xpath("//td[text()='Cabeçalho Padrão Horizontal']");
+	public static By paginaDeEdicaoDoRelatorio = By
+			.xpath("//div[@class='el-texto-conteudo' and contains(text(),'gina 1')]");
+	public static By estaProcessando = By.xpath("//*[@class='fa fa-spinner fa-spin fa-lg']");
+	public static By menuEdicaoRelatorio = By.xpath("//div[@class='construtor-relatorio-blocos']");
+	public static By parametroExibirCabecalho = By.xpath("//select[contains(@id,'exibir_cabecalho')]");
+	public static By tipoSaidaRelatorio = By
+			.xpath("//select[contains(@id,'tipo_saida') or contains(@name,'tipo_saida')]");
+	public static By botaoSalvar = By.xpath("//a[@ng-click='rc.salvar(versao)' and @title='Salvar']");
+	public static By semPendenciasParaSalvar = By
+			.xpath("//font[@class='ng-hide' and contains(@ng-show,'Alterado') and contains(@ng-style,'blue')]");
+	public static By botaoAbrirArvoreComponentes = By.xpath("//*[@id='tree-bloco']/ol/li/ol[7]/li/div/a/span");
+	public static By detalhesArvoreCabecalho = By.xpath("//*[@id='tree-bloco']/ol/li/ol[7]/li/ol/li/ol/li[1]/div/div/div[2]/div");
+	public static By abrirPropriedadesCabecalho = By.xpath(
+			"//*[@id=\"tree-bloco\"]/ol/li/ol[7]/li/ol/li/ol/li[2]/ol/li/ol/li[2]/ol/li/ol/li[1]/div/div/div[2]/div");
+	public static By propriedadeExibirCabecalhoNasPaginas = By
+			.xpath("//select[@ng-model='rc.versao.componente.exibirEmTodasPaginas']");
+	public static By botaoAbrirCorpoRelatorio = By
+			.xpath("//*[@id='tree-bloco']/ol/li/ol[7]/li/ol/li/ol/li[2]/div/div/div[1]/a/span");
+	public static By botaoAbrirCorpoRelatorioNivel2 = By
+			.xpath("//*[@id=\"tree-bloco\"]/ol/li/ol[7]/li/ol/li/ol/li[2]/ol/li/div/div/div[1]/a/span");
+	public static By botaoAbrirCorpoRelatorioNivel3 = By
+			.xpath("//*[@id=\"tree-bloco\"]/ol/li/ol[7]/li/ol/li/ol/li[2]/ol/li/ol/li[2]/div/div/div[1]/a/span");
+	public static By botaoAbrirCorpoRelatorioNivel4 = By
+			.xpath("//*[@id=\"tree-bloco\"]/ol/li/ol[7]/li/ol/li/ol/li[2]/ol/li/ol/li[2]/ol/li/div/div/div[1]/a/span");
+	public static By botaoAbrirGrupoCorpoRelatorio = By
+			.xpath("//*[@id='tree-bloco']/ol/li/ol[7]/li/ol/li/ol/li[2]/ol/li/ol/li[2]/div/div/div[1]/a/span");
+	public static By botaoAbrirDetalheCorpoRelatorio = By.xpath(
+			"//*[@id='tree-bloco']/ol/li/ol[7]/li/ol/li/ol/li[2]/div/div/div[1]/a");
+	public static By botaoAbrirDetalheCorpoDetalhe = By.xpath(
+			"//*[@id='tree-bloco']/ol/li/ol[7]/li/ol/li/ol/li[2]/ol/li[3]/div/div/div[1]/a");
+	public static By botaoRemoverEvento = By.xpath(
+			"//*[@id='tree-bloco']/ol/li/ol[7]/li/ol/li/ol/li[2]/ol/li[3]/ol[2]/li/ol/li/div/div/div[3]/i");
+	public static By botaoAdicionarEvento = By.xpath(
+			"//*[@id='tree-bloco']/ol/li/ol[7]/li/ol/li/ol/li[2]/ol/li[3]/div/div/div[3]/a[2]");
+	public static By selecionarEvento = By.xpath("//td[contains(text(),'imprimirQuando')]");
+	public static By editorSql = By
+			.xpath("//div[@id='geradorComandoSQL']//preceding::textarea[@class='ace_text-input']");
+	public static By campoDelimitadorCsv = By.xpath("//input[contains(@id,'delimitador_csv-1')]");
+	
+	public static By filtroInicialDataNascto = By.xpath("//input[contains(@id,'data_nascto-1-0')]");
+	public static By filtroFinalDataNascto = By.xpath("//input[contains(@id,'data_nascto-1-1')]");
+	public static By campoDescricaoTecnicaPropriedades = By.xpath("//textarea[@ng-model='rc.versao.descricao']");
+	public static By botaoAbrirCalendarioInicial = By.xpath("//button[contains(@name,'.periodo-1-0-aux')]");
+	public static By botaoAbrirCalendarioFinal = By.xpath("//button[contains(@name,'.periodo-1-1-aux')]");
+	public static By informarAnoCalendarioInicial = By.xpath(
+			"//div[contains(@class,'flatpickr-calendar') and contains(@class,'open')]//child::input[@class='numInput cur-year']");
+	public static By informarAnoCalendarioFinal = By.xpath(
+			"//div[contains(@class,'flatpickr-calendar') and contains(@class,'open')]//preceding::input[@class='numInput cur-year']");
+	public static By selecionarDataInicial = By.xpath("//span[contains(@aria-label,'2, 2013')]");
+	public static By selecionarDataFinal = By.xpath("//span[contains(@aria-label,'2, 2014')]");
+	public static By abrirArvoreComponentes = By.xpath("//*[@id='tree-bloco']/ol/li/ol[7]/li/div/a");
+	public static By detalheCampoAssunto = By.xpath("//*[@id='tree-bloco']/ol/li/ol[7]/li/ol/li/ol/li[2]/ol/li[3]/div/div/div[2]/div");
+	public static By propriedadeElasticidade = By.xpath("//select[contains(@ng-model,'componente.elasticidadeVertical')]");
+	
+	public static By abrirListaAtributos = By.xpath("//*[@id='tree-bloco']/ol/li/ol[5]/li/div/a");
+	public static By atributoFonteGeorgia = By.xpath("//*[@id='tree-bloco']/ol/li/ol[5]/li/ol/li[1]/div/div/div[2]/div");
+	public static By atributoTimeNewRoman = By.xpath("//*[@id='tree-bloco']/ol/li/ol[5]/li/ol/li[2]/div/div/div[2]/div");
+	public static By condicaoAtributoFonteGeorgia = By.xpath("//*[contains(@id,'accordiongroup-')]/div/table/tbody/tr[8]/td[2]/textarea");
+	public static By condicaoAtributoTimeNewRoman = By.xpath("//*[contains(@id,'accordiongroup-')]/div/table/tbody/tr[8]/td[2]/textarea");
+	public static By nomeComponenteRecebeAtributo = By.xpath("//*[contains(@id,'accordiongroup-')]/div/table/tbody/tr[9]/td[2]/input");
+	public static By campoNomeAtributoGeorgia = By.xpath("//input[contains(@ng-model,'rc.atributoVisual.nome')]");
+	
+
+	public static By abaTotalizadorFuncoes(String funcao) {
+		return By.xpath("//label[@ng-click=\"rc.selecionarAba('tabx7');\"]//following::a[text()='" + funcao + "'][1]");
+	}
+
+	public static By botaoFuncaoTotalizador(String funcao) {
+		return By.xpath("//a[text()='" + funcao + "']");
+	}
+
+	public static By camposParaSelecaoTotalizador(String campo) {
+		return By.xpath("//select[@ng-model='rc.versao.assistente.itensMarcadosTotal']/option[text()='" + campo + "']");
+	}
+
+	public static By camposParaSelecaoGrupo(String campo) {
+		return By.xpath("//select[@ng-model='rc.versao.assistente.itensMarcadosGrupo']/option[text()='" + campo + "']");
+	}
+
+	public static By camposParaSelecao(String campo) {
+		return By.xpath("//select[@ng-model='rc.versao.assistente.itensMarcados']/option[text()='" + campo + "']");
+	}
+
+	public static By modeloRelatorio(String modelo) {
+		return By.xpath("//input[@type='radio' and @ng-model='rc.versao.assistente.modelo' and @value='"
+				+ modelo.toUpperCase() + "']");
+	}
+
+	public static By selecionarRelatorioParaEdicao(String relatorio) {
+		return By.xpath("//strong[contains(text(),'" + relatorio + "')]");
+	}
+
+}

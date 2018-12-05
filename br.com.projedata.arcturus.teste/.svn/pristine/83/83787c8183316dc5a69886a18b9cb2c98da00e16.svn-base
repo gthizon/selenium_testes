@@ -1,0 +1,135 @@
+package br.com.projedata.arcturus.teste.recursos;
+
+import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Arrays;
+import java.util.HashMap;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.MutableCapabilities;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.Augmenter;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
+
+import br.com.projedata.arcturus.teste.metodosgenericos.LoginMetodos;
+
+public class TesteGenerico {
+
+	public WebDriver webDriver;
+	public Testar testar;
+	public AcoesDriver acao;
+	public Espera espera;
+	public Mensagem msg;
+	public Mouse mouse;
+	public Navegador navegador;
+	public Teclado teclado;
+	public By sairPortal = By.xpath("//li[contains(text(),'Sair') or contains(text(),'Logout') or contains(text(),'Salir')]");
+	public By menuConfiguracoes = By.xpath(
+			"//li[@class='barra-ferramentas-item' and contains(@title, 'Config') or contains(@title, 'config') or contains(@title, 'Config')]");
+	public By menuConfiguracoesAberto = By.xpath("//div[@class='portal-menu-configuracoes']");
+
+	@Parameters(value = { "browser", "url", "execucaoLocal" })
+	@BeforeClass
+	public void configurarTeste(String browser, String url, boolean execucaoLocal) {
+		selecionarBrowser(browser, execucaoLocal);
+		abrirUrl(url);
+		criarRecursos();
+	}
+
+	private void criarRecursos() {
+		testar = new Testar(webDriver);
+		acao = new AcoesDriver(webDriver);
+		espera = new Espera(webDriver);
+		msg = new Mensagem(webDriver);
+		mouse = new Mouse(webDriver);
+		navegador = new Navegador(webDriver);
+		teclado = new Teclado(webDriver);
+	}
+
+	private WebDriver selecionarBrowser(String browser, boolean execucaoLocal) {
+		MutableCapabilities capabilities = null;
+		if (browser.equalsIgnoreCase("firefox")) {
+			FirefoxOptions ffo = new FirefoxOptions();
+			ffo.addArguments("start-maximized");
+			ffo.setCapability("marionette", true);
+			capabilities = ffo;
+			if (execucaoLocal) {
+				webDriver = new FirefoxDriver(ffo);
+				webDriver.manage().window().maximize();
+			}
+
+		} else if (browser.equalsIgnoreCase("chrome")) {
+			ChromeOptions options = new ChromeOptions();
+			options.setCapability("chrome.switches", Arrays.asList("--no-default-browser-check"));
+			HashMap<String, String> chromePreferences = new HashMap<String, String>();
+			chromePreferences.put("profile.password_manager_enabled", "false");
+			options.setCapability("chrome.prefs", chromePreferences);
+			options.addArguments("start-maximized");
+			capabilities = options;
+			if (execucaoLocal) {
+				webDriver = new ChromeDriver(options);
+			}
+		}
+		if (!execucaoLocal) {
+			try {
+				webDriver = new RemoteWebDriver(new URL("http://192.168.1.17:4444/wd/hub"), capabilities);
+				WebDriver augmentedDriver = new Augmenter().augment(webDriver);
+				File screenshot = ((TakesScreenshot) augmentedDriver).getScreenshotAs(OutputType.FILE);
+			} catch (MalformedURLException e) {
+				e.printStackTrace();
+			}
+		}
+		return webDriver;
+	}
+
+	protected void abrirUrl(String url) {
+		webDriver.get(url);
+	}
+
+	public void sairPortal() {
+		espera.aguardarElementoEstarVisivel(3, menuConfiguracoes);
+		acao.clicarNoElemento(menuConfiguracoes);
+		espera.aguardarElementoEstarVisivel(sairPortal);
+		espera.aguardarElementoEstarVisivel(menuConfiguracoesAberto);
+		acao.clicarNoElemento(sairPortal);
+		espera.aguardarSistemaCarregar();
+		LoginMetodos log = new LoginMetodos(this);
+		log.aguardarTelaLogin();
+	}
+
+	@AfterClass
+	public void fecharDriver() {
+		try {
+			sairPortal();
+		} catch (Exception e) {
+
+		}
+		webDriver.quit();
+	}
+
+
+	public void abrirMenuConfiguracoes() {
+		espera.aguardarSistemaCarregar();
+		espera.aguardarElementoEstarVisivel(menuConfiguracoes);
+		espera.aguardarElementoSerClicavel(menuConfiguracoes);
+		try {
+			Thread.sleep(300);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		acao.clicarNoElemento(menuConfiguracoes);
+		espera.aguardarElementoEstarVisivel(menuConfiguracoesAberto);
+	}
+
+}

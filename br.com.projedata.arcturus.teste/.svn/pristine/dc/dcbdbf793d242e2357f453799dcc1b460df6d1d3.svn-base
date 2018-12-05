@@ -1,0 +1,55 @@
+package br.com.projedata.arcturus.teste.testes;
+
+import java.awt.AWTException;
+
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import br.com.projedata.arcturus.teste.metodosgenericos.LoginMetodos;
+import br.com.projedata.arcturus.teste.metodosgenericos.Pger001Metodos;
+import br.com.projedata.arcturus.teste.recursos.Rotina;
+import br.com.projedata.arcturus.teste.recursos.TesteGenerico;
+import br.com.projedata.arcturus.teste.webelements.AtualizadorElementos;
+import static br.com.projedata.arcturus.teste.webelements.Parc007Elementos.*;
+
+public class TesteParc007 extends TesteGenerico {
+
+	LoginMetodos login;
+	Rotina rotina;
+	AtualizadorElementos atualizador;
+	Pger001Metodos ger001;
+	String idRegistro;
+
+	@Parameters(value = { "url2" })
+	@Test(testName = "id: 1 - Criar filtro na base homo e verificar se sera colocado o cl na frente do nome")
+	public void testarCriacaoDeFiltroEmCliente(String url2) throws AWTException, InterruptedException {
+		rotina = new Rotina(webDriver);
+		login = new LoginMetodos(this);
+		navegador.irParaNovaUrl(url2);
+		login.logar("gustavo.projedata", "Gustavo1!", "homologacao");
+		rotina.selecionarRotina("arc007");
+		acao.escreverNoElemento(campoCodigo, "automacao");
+		acao.escreverNoElemento(campoNome, "teste automação");
+		acao.selecionarNoElemento(campoFormato, "Texto");
+		acao.escreverNoElemento(campoTamanho, "10");
+		acao.escreverNoElemento(campoLargura, "10");
+		acao.selecionarNoElemento(campoTipoSelecao, "Texto");
+		acao.selecionarNoElemento(campoFormaExibicao, "Ambos");
+		acao.clicarNoElemento(rotina.botaoSalvar);
+		espera.aguardarElementoEstarVisivel(msg.mensagemRegistrosAlterados);
+		rotina.aguardarProcessarRotina();
+		idRegistro = rotina.buscarElemento(campoId).getAttribute("value").toString();
+		testar.passouSeAtributoDoElementoContem(campoCodigo, "value", "cl_automacao");
+	}
+
+	@Test(testName = "id: 2 - Excluir filtro criado", dependsOnMethods = { "testarCriacaoDeFiltroEmCliente" })
+	public void excluirFiltro() {
+		acao.clicarNoElemento(campoId);
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(rotina.botaoExcluir);
+		rotina.aguardarProcessarRotina();
+		acao.clicarNoElemento(rotina.botaoSalvar);
+		espera.aguardarElementoEstarVisivel(msg.mensagemRegistrosAlterados);
+
+	}
+}

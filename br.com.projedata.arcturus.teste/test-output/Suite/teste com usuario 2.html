@@ -1,0 +1,1123 @@
+<html>
+<head>
+<title>TestNG:  teste com usuario 2</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>teste com usuario 2</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>54/8/12</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Nov 21 14:12:26 BRST 2018</td>
+</tr>
+<tr><td>Total time:</td><td>821 seconds (821627 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc015.enviarNotificacaoParaUsuario()'><b>enviarNotificacaoParaUsuario</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc015<br>Parameters: http://arcturus-teste.prj:8881</td>
+<td><div><pre>org.openqa.selenium.WebDriverException: unknown error: Element &lt;input type=&quot;text&quot; id=&quot;13529.sessoesCodigoUsuario-1-0&quot; autocomplete=&quot;off&quot; readonly=&quot;readonly&quot; class=&quot;elemento bloquear-alteracao&quot; ondragstart=&quot;event.preventDefault()&quot; style=&quot;width: 101px; height: 18px; text-align: right; filter: brightness(95%);&quot;&gt; is not clickable at point (444, 359). Other element would receive the click: &lt;div class=&quot;arcbox-modal&quot;&gt;...&lt;/div&gt;
+  (Session info: chrome=66.0.3359.139)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Linux 4.15.0-39-generic x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:19:58.91Z&apos;
+System info: host: &apos;gustavo-184&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;4.15.0-39-generic&apos;, java.version: &apos;1.8.0_172&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.38.552522 (437e6fbedfa876..., userDataDir: /tmp/.org.chromium.Chromium...}, cssSelectorsEnabled: true, databaseEnabled: false, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 66.0.3359.139, webStorageEnabled: true}
+Session ID: 3d17a8b5d07b8806ef5c8c41339beb69
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:276)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:83)
+	at br.com.projedata.teste.util.recursos.Acao.clicarNoElemento(Acao.java:132)
+	at br.com.projedata.arcturus.teste.testes.TesteParc015.enviarNotificacaoParaUsuario(TesteParc015.java:46)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 20 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1977480053", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1977480053'><pre>org.openqa.selenium.WebDriverException: unknown error: Element &lt;input type=&quot;text&quot; id=&quot;13529.sessoesCodigoUsuario-1-0&quot; autocomplete=&quot;off&quot; readonly=&quot;readonly&quot; class=&quot;elemento bloquear-alteracao&quot; ondragstart=&quot;event.preventDefault()&quot; style=&quot;width: 101px; height: 18px; text-align: right; filter: brightness(95%);&quot;&gt; is not clickable at point (444, 359). Other element would receive the click: &lt;div class=&quot;arcbox-modal&quot;&gt;...&lt;/div&gt;
+  (Session info: chrome=66.0.3359.139)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Linux 4.15.0-39-generic x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:19:58.91Z&apos;
+System info: host: &apos;gustavo-184&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;4.15.0-39-generic&apos;, java.version: &apos;1.8.0_172&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.38.552522 (437e6fbedfa876..., userDataDir: /tmp/.org.chromium.Chromium...}, cssSelectorsEnabled: true, databaseEnabled: false, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 66.0.3359.139, webStorageEnabled: true}
+Session ID: 3d17a8b5d07b8806ef5c8c41339beb69
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:276)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:83)
+	at br.com.projedata.teste.util.recursos.Acao.clicarNoElemento(Acao.java:132)
+	at br.com.projedata.arcturus.teste.testes.TesteParc015.enviarNotificacaoParaUsuario(TesteParc015.java:46)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.access$000(SuiteRunner.java:40)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:489)
+	at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>6</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc015@1d16f93d</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc009.excluirBiblioteca()'><b>excluirBiblioteca</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc009</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for br.com.projedata.teste.util.recursos.Espera$8@29755cc (tried for 10 second(s) with 100 milliseconds interval)
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:19:58.91Z&apos;
+System info: host: &apos;gustavo-184&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;4.15.0-39-generic&apos;, java.version: &apos;1.8.0_172&apos;
+Driver info: driver.version: unknown
+	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:315)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:283)
+	at br.com.projedata.teste.util.recursos.Espera.aguardarElementoEstarVisivel(Espera.java:229)
+	at br.com.projedata.teste.util.recursos.Espera.aguardarElementoEstarVisivel(Espera.java:218)
+	at br.com.projedata.teste.util.recursos.Rotina.excluirESalvar(Rotina.java:492)
+	at br.com.projedata.arcturus.teste.testes.TesteParc009.excluirBiblioteca(TesteParc009.java:69)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 16 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1663473450", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1663473450'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for br.com.projedata.teste.util.recursos.Espera$8@29755cc (tried for 10 second(s) with 100 milliseconds interval)
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:19:58.91Z&apos;
+System info: host: &apos;gustavo-184&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;4.15.0-39-generic&apos;, java.version: &apos;1.8.0_172&apos;
+Driver info: driver.version: unknown
+	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:315)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:283)
+	at br.com.projedata.teste.util.recursos.Espera.aguardarElementoEstarVisivel(Espera.java:229)
+	at br.com.projedata.teste.util.recursos.Espera.aguardarElementoEstarVisivel(Espera.java:218)
+	at br.com.projedata.teste.util.recursos.Rotina.excluirESalvar(Rotina.java:492)
+	at br.com.projedata.arcturus.teste.testes.TesteParc009.excluirBiblioteca(TesteParc009.java:69)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.access$000(SuiteRunner.java:40)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:489)
+	at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>11</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc009@7791a895</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc008.excluirConsulta()'><b>excluirConsulta</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc008</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for br.com.projedata.teste.util.recursos.Espera$8@51bd2d81 (tried for 10 second(s) with 100 milliseconds interval)
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:19:58.91Z&apos;
+System info: host: &apos;gustavo-184&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;4.15.0-39-generic&apos;, java.version: &apos;1.8.0_172&apos;
+Driver info: driver.version: unknown
+	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:315)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:283)
+	at br.com.projedata.teste.util.recursos.Espera.aguardarElementoEstarVisivel(Espera.java:229)
+	at br.com.projedata.teste.util.recursos.Espera.aguardarElementoEstarVisivel(Espera.java:218)
+	at br.com.projedata.arcturus.teste.testes.TesteParc008.excluirConsulta(TesteParc008.java:84)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 16 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace939026567", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace939026567'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for br.com.projedata.teste.util.recursos.Espera$8@51bd2d81 (tried for 10 second(s) with 100 milliseconds interval)
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:19:58.91Z&apos;
+System info: host: &apos;gustavo-184&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;4.15.0-39-generic&apos;, java.version: &apos;1.8.0_172&apos;
+Driver info: driver.version: unknown
+	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:315)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:283)
+	at br.com.projedata.teste.util.recursos.Espera.aguardarElementoEstarVisivel(Espera.java:229)
+	at br.com.projedata.teste.util.recursos.Espera.aguardarElementoEstarVisivel(Espera.java:218)
+	at br.com.projedata.arcturus.teste.testes.TesteParc008.excluirConsulta(TesteParc008.java:84)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.access$000(SuiteRunner.java:40)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:489)
+	at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>11</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc008@7d907bac</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc004.excluirMenu()'><b>excluirMenu</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc004</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for br.com.projedata.teste.util.recursos.Espera$8@131be8e7 (tried for 10 second(s) with 100 milliseconds interval)
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:19:58.91Z&apos;
+System info: host: &apos;gustavo-184&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;4.15.0-39-generic&apos;, java.version: &apos;1.8.0_172&apos;
+Driver info: driver.version: unknown
+	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:315)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:283)
+	at br.com.projedata.teste.util.recursos.Espera.aguardarElementoEstarVisivel(Espera.java:229)
+	at br.com.projedata.teste.util.recursos.Espera.aguardarElementoEstarVisivel(Espera.java:218)
+	at br.com.projedata.teste.util.recursos.Rotina.excluirESalvar(Rotina.java:492)
+	at br.com.projedata.arcturus.teste.testes.TesteParc004.excluirMenu(TesteParc004.java:125)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 16 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2001584006", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2001584006'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for br.com.projedata.teste.util.recursos.Espera$8@131be8e7 (tried for 10 second(s) with 100 milliseconds interval)
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:19:58.91Z&apos;
+System info: host: &apos;gustavo-184&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;4.15.0-39-generic&apos;, java.version: &apos;1.8.0_172&apos;
+Driver info: driver.version: unknown
+	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:315)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:283)
+	at br.com.projedata.teste.util.recursos.Espera.aguardarElementoEstarVisivel(Espera.java:229)
+	at br.com.projedata.teste.util.recursos.Espera.aguardarElementoEstarVisivel(Espera.java:218)
+	at br.com.projedata.teste.util.recursos.Rotina.excluirESalvar(Rotina.java:492)
+	at br.com.projedata.arcturus.teste.testes.TesteParc004.excluirMenu(TesteParc004.java:125)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.access$000(SuiteRunner.java:40)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:489)
+	at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>10</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc004@731a74c</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc005.excluirRotinasCarregadas()'><b>excluirRotinasCarregadas</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc005</td>
+<td><div><pre>org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=66.0.3359.139)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Linux 4.15.0-39-generic x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:19:58.91Z&apos;
+System info: host: &apos;gustavo-184&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;4.15.0-39-generic&apos;, java.version: &apos;1.8.0_172&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.38.552522 (437e6fbedfa876..., userDataDir: /tmp/.org.chromium.Chromium...}, cssSelectorsEnabled: true, databaseEnabled: false, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 66.0.3359.139, webStorageEnabled: true}
+Session ID: 0da94a5db72de91d57e71e8ff087d8d1
+*** Element info: {Using=xpath, value=//input[contains(@id,&apos;arcacessogruporotinaIdRotina-1-0&apos;)]}
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:322)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:424)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:314)
+	at br.com.projedata.teste.util.recursos.Acao.localizarElemento(Acao.java:33)
+	at br.com.projedata.arcturus.teste.testes.TesteParc005.excluirRotinasCarregadas(TesteParc005.java:69)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 20 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1796873702", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1796873702'><pre>org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=66.0.3359.139)
+  (Driver info: chromedriver=2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb),platform=Linux 4.15.0-39-generic x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:19:58.91Z&apos;
+System info: host: &apos;gustavo-184&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;4.15.0-39-generic&apos;, java.version: &apos;1.8.0_172&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.38.552522 (437e6fbedfa876..., userDataDir: /tmp/.org.chromium.Chromium...}, cssSelectorsEnabled: true, databaseEnabled: false, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 66.0.3359.139, webStorageEnabled: true}
+Session ID: 0da94a5db72de91d57e71e8ff087d8d1
+*** Element info: {Using=xpath, value=//input[contains(@id,&apos;arcacessogruporotinaIdRotina-1-0&apos;)]}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:322)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:424)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:314)
+	at br.com.projedata.teste.util.recursos.Acao.localizarElemento(Acao.java:33)
+	at br.com.projedata.arcturus.teste.testes.TesteParc005.excluirRotinasCarregadas(TesteParc005.java:69)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.access$000(SuiteRunner.java:40)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:489)
+	at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>493</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc005@369f73a2</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc002.inserirMenu()'><b>inserirMenu</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc002</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for br.com.projedata.teste.util.recursos.Espera$8@4d9fdd0e (tried for 10 second(s) with 100 milliseconds interval)
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:19:58.91Z&apos;
+System info: host: &apos;gustavo-184&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;4.15.0-39-generic&apos;, java.version: &apos;1.8.0_172&apos;
+Driver info: driver.version: unknown
+	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:315)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:283)
+	at br.com.projedata.teste.util.recursos.Espera.aguardarElementoEstarVisivel(Espera.java:229)
+	at br.com.projedata.teste.util.recursos.Espera.aguardarElementoEstarVisivel(Espera.java:218)
+	at br.com.projedata.teste.util.recursos.Rotina.salvarEAguardarMensagemRegistrosAlterados(Rotina.java:501)
+	at br.com.projedata.arcturus.teste.testes.TesteParc002.inserirMenu(TesteParc002.java:44)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 16 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace188301089", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace188301089'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for br.com.projedata.teste.util.recursos.Espera$8@4d9fdd0e (tried for 10 second(s) with 100 milliseconds interval)
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:19:58.91Z&apos;
+System info: host: &apos;gustavo-184&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;4.15.0-39-generic&apos;, java.version: &apos;1.8.0_172&apos;
+Driver info: driver.version: unknown
+	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:315)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:283)
+	at br.com.projedata.teste.util.recursos.Espera.aguardarElementoEstarVisivel(Espera.java:229)
+	at br.com.projedata.teste.util.recursos.Espera.aguardarElementoEstarVisivel(Espera.java:218)
+	at br.com.projedata.teste.util.recursos.Rotina.salvarEAguardarMensagemRegistrosAlterados(Rotina.java:501)
+	at br.com.projedata.arcturus.teste.testes.TesteParc002.inserirMenu(TesteParc002.java:44)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.access$000(SuiteRunner.java:40)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:489)
+	at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>11</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc002@5a8e6209</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc003.inserirNovaLista()'><b>inserirNovaLista</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc003</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for br.com.projedata.teste.util.recursos.Espera$8@5b44eaf5 (tried for 10 second(s) with 100 milliseconds interval)
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:19:58.91Z&apos;
+System info: host: &apos;gustavo-184&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;4.15.0-39-generic&apos;, java.version: &apos;1.8.0_172&apos;
+Driver info: driver.version: unknown
+	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:315)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:283)
+	at br.com.projedata.teste.util.recursos.Espera.aguardarElementoEstarVisivel(Espera.java:229)
+	at br.com.projedata.teste.util.recursos.Espera.aguardarElementoEstarVisivel(Espera.java:218)
+	at br.com.projedata.teste.util.recursos.Rotina.salvarEAguardarMensagemRegistrosAlterados(Rotina.java:501)
+	at br.com.projedata.arcturus.teste.testes.TesteParc003.inserirNovaLista(TesteParc003.java:131)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 16 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2037173351", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2037173351'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for br.com.projedata.teste.util.recursos.Espera$8@5b44eaf5 (tried for 10 second(s) with 100 milliseconds interval)
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:19:58.91Z&apos;
+System info: host: &apos;gustavo-184&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;4.15.0-39-generic&apos;, java.version: &apos;1.8.0_172&apos;
+Driver info: driver.version: unknown
+	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:315)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:283)
+	at br.com.projedata.teste.util.recursos.Espera.aguardarElementoEstarVisivel(Espera.java:229)
+	at br.com.projedata.teste.util.recursos.Espera.aguardarElementoEstarVisivel(Espera.java:218)
+	at br.com.projedata.teste.util.recursos.Rotina.salvarEAguardarMensagemRegistrosAlterados(Rotina.java:501)
+	at br.com.projedata.arcturus.teste.testes.TesteParc003.inserirNovaLista(TesteParc003.java:131)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.access$000(SuiteRunner.java:40)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:489)
+	at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>13</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc003@4b4523f8</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc006.removerConfiguracoesServidor()'><b>removerConfiguracoesServidor</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc006</td>
+<td><div><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for br.com.projedata.teste.util.recursos.Espera$8@a9f7050 (tried for 10 second(s) with 100 milliseconds interval)
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:19:58.91Z&apos;
+System info: host: &apos;gustavo-184&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;4.15.0-39-generic&apos;, java.version: &apos;1.8.0_172&apos;
+Driver info: driver.version: unknown
+	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:315)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:283)
+	at br.com.projedata.teste.util.recursos.Espera.aguardarElementoEstarVisivel(Espera.java:229)
+	at br.com.projedata.teste.util.recursos.Espera.aguardarElementoEstarVisivel(Espera.java:218)
+	at br.com.projedata.teste.util.recursos.Rotina.excluirESalvar(Rotina.java:492)
+	at br.com.projedata.arcturus.teste.testes.TesteParc006.removerConfiguracoesServidor(TesteParc006.java:128)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 16 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace217582717", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace217582717'><pre>org.openqa.selenium.TimeoutException: Expected condition failed: waiting for br.com.projedata.teste.util.recursos.Espera$8@a9f7050 (tried for 10 second(s) with 100 milliseconds interval)
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:19:58.91Z&apos;
+System info: host: &apos;gustavo-184&apos;, ip: &apos;127.0.1.1&apos;, os.name: &apos;Linux&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;4.15.0-39-generic&apos;, java.version: &apos;1.8.0_172&apos;
+Driver info: driver.version: unknown
+	at org.openqa.selenium.support.ui.FluentWait.timeoutException(FluentWait.java:315)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:283)
+	at br.com.projedata.teste.util.recursos.Espera.aguardarElementoEstarVisivel(Espera.java:229)
+	at br.com.projedata.teste.util.recursos.Espera.aguardarElementoEstarVisivel(Espera.java:218)
+	at br.com.projedata.teste.util.recursos.Rotina.excluirESalvar(Rotina.java:492)
+	at br.com.projedata.arcturus.teste.testes.TesteParc006.removerConfiguracoesServidor(TesteParc006.java:128)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.access$000(SuiteRunner.java:40)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:489)
+	at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>10</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc006@1f28c152</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc016.abrirArc016PelaGer001()'><b>abrirArc016PelaGer001</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc016</td>
+<td></td>
+<td>7</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc016@67b92f0a</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc004.abrirMenuEVerificarMenuCriado()'><b>abrirMenuEVerificarMenuCriado</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc004</td>
+<td></td>
+<td>1</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc004@731a74c</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc016.abrirORelatorioEVerificarOPerfilCriado()'><b>abrirORelatorioEVerificarOPerfilCriado</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc016</td>
+<td></td>
+<td>5</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc016@67b92f0a</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc002.abrirParc002()'><b>abrirParc002</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc002<br>Parameters: usuario2, usuario, desenvolvimento</td>
+<td></td>
+<td>6</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc002@5a8e6209</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc003.abrirParc003()'><b>abrirParc003</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc003<br>Parameters: usuario2, usuario, desenvolvimento</td>
+<td></td>
+<td>5</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc003@4b4523f8</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc004.abrirParc003()'><b>abrirParc003</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc004<br>Parameters: usuario2, usuario, desenvolvimento</td>
+<td></td>
+<td>5</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc004@731a74c</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc005.abrirParc005()'><b>abrirParc005</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc005<br>Parameters: usuario2, usuario, desenvolvimento</td>
+<td></td>
+<td>5</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc005@369f73a2</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc006.abrirParc006()'><b>abrirParc006</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc006<br>Parameters: usuario2, usuario, desenvolvimento</td>
+<td></td>
+<td>5</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc006@1f28c152</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc009.abrirParc009()'><b>abrirParc009</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc009<br>Parameters: usuario2, usuario, desenvolvimento</td>
+<td></td>
+<td>5</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc009@7791a895</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc010.abrirParc010()'><b>abrirParc010</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc010<br>Parameters: usuario2, usuario, desenvolvimento</td>
+<td></td>
+<td>5</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc010@3a5ed7a6</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc012.abrirParc012()'><b>abrirParc012</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc012<br>Parameters: usuario2, usuario, desenvolvimento</td>
+<td></td>
+<td>5</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc012@6325a3ee</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc015.abrirParc015()'><b>abrirParc015</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc015<br>Parameters: usuario2, usuario, desenvolvimento, http://arcturus-teste.prj:8881</td>
+<td></td>
+<td>3</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc015@1d16f93d</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc016.abrirParc016()'><b>abrirParc016</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc016<br>Parameters: usuario2, usuario, desenvolvimento</td>
+<td></td>
+<td>5</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc016@67b92f0a</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc020.abrirParc020()'><b>abrirParc020</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc020<br>Parameters: usuario2, usuario, desenvolvimento</td>
+<td></td>
+<td>5</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc020@3b0143d3</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc010.acessarLinkIdiomaIngles()'><b>acessarLinkIdiomaIngles</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc010</td>
+<td></td>
+<td>1</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc010@3a5ed7a6</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc010.acessarLinkVermaisDaNoticia()'><b>acessarLinkVermaisDaNoticia</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc010</td>
+<td></td>
+<td>4</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc010@3a5ed7a6</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc006.adicionarConfiguracoesServidor()'><b>adicionarConfiguracoesServidor</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc006</td>
+<td></td>
+<td>2</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc006@1f28c152</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc009.alterarBiblioteca()'><b>alterarBiblioteca</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc009</td>
+<td></td>
+<td>1</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc009@7791a895</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc020.alterarIntegracao()'><b>alterarIntegracao</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc020</td>
+<td></td>
+<td>2</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc020@3b0143d3</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc010.alterarNoticiaParaNaoVisivel()'><b>alterarNoticiaParaNaoVisivel</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc010<br>Parameters: usuario2, usuario, desenvolvimento</td>
+<td></td>
+<td>13</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc010@3a5ed7a6</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc012.cadastrarIdioma()'><b>cadastrarIdioma</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc012</td>
+<td></td>
+<td>1</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc012@6325a3ee</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc006.cadastrarImagemEmpresa()'><b>cadastrarImagemEmpresa</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc006</td>
+<td></td>
+<td>1</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc006@1f28c152</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc010.cadastrarNovaNoticia()'><b>cadastrarNovaNoticia</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc010</td>
+<td></td>
+<td>1</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc010@3a5ed7a6</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc010.cadastrarTraducoesParaNoticia()'><b>cadastrarTraducoesParaNoticia</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc010</td>
+<td></td>
+<td>2</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc010@3a5ed7a6</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc012.cadastrarUmaTraducao()'><b>cadastrarUmaTraducao</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc012</td>
+<td></td>
+<td>2</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc012@6325a3ee</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc005.carregarRotinasPorSistema()'><b>carregarRotinasPorSistema</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc005</td>
+<td></td>
+<td>1</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc005@369f73a2</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc003.desabilitarTipoImagemDaLov()'><b>desabilitarTipoImagemDaLov</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc003</td>
+<td></td>
+<td>5</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc003@4b4523f8</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc016.emitirRelatorioComOPerfilCriado()'><b>emitirRelatorioComOPerfilCriado</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc016</td>
+<td></td>
+<td>4</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc016@67b92f0a</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc016.excluirFiltroCriado()'><b>excluirFiltroCriado</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc016</td>
+<td></td>
+<td>1</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc016@67b92f0a</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc012.excluirIdioma()'><b>excluirIdioma</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc012</td>
+<td></td>
+<td>1</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc012@6325a3ee</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc020.excluirIntegracao()'><b>excluirIntegracao</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc020</td>
+<td></td>
+<td>3</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc020@3b0143d3</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc010.excluirNoticia()'><b>excluirNoticia</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc010<br>Parameters: usuario2, usuario, desenvolvimento</td>
+<td></td>
+<td>8</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc010@3a5ed7a6</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc012.excluirTraducaoCadastrada()'><b>excluirTraducaoCadastrada</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc012</td>
+<td></td>
+<td>1</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc012@6325a3ee</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc020.inserirAcessosIntegracao()'><b>inserirAcessosIntegracao</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc020</td>
+<td></td>
+<td>1</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc020@3b0143d3</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc009.inserirNovaBiblioteca()'><b>inserirNovaBiblioteca</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc009</td>
+<td></td>
+<td>4</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc009@7791a895</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc008.inserirNovaConsulta()'><b>inserirNovaConsulta</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc008</td>
+<td></td>
+<td>4</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc008@7d907bac</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc006.inserirNovaEmpresa()'><b>inserirNovaEmpresa</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc006</td>
+<td></td>
+<td>3</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc006@1f28c152</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc020.inserirNovaIntegracao()'><b>inserirNovaIntegracao</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc020</td>
+<td></td>
+<td>3</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc020@3b0143d3</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc004.inserirNovoMenuTeste()'><b>inserirNovoMenuTeste</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc004</td>
+<td></td>
+<td>2</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc004@731a74c</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc016.inserirPerfil()'><b>inserirPerfil</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc016</td>
+<td></td>
+<td>3</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc016@67b92f0a</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc005.inserirSistemaComAcessoRestrito()'><b>inserirSistemaComAcessoRestrito</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc005</td>
+<td></td>
+<td>1</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc005@369f73a2</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc005.inserirSistemaComAcessoTotal()'><b>inserirSistemaComAcessoTotal</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc005</td>
+<td></td>
+<td>2</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc005@369f73a2</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc008.quantidadeCaracteresTextArea()'><b>quantidadeCaracteresTextArea</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc008<br>Parameters: usuario2, usuario, desenvolvimento</td>
+<td></td>
+<td>7</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc008@7d907bac</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc004.selecionarMenuTeste()'><b>selecionarMenuTeste</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc004</td>
+<td></td>
+<td>0</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc004@731a74c</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc020.testarIntegracao()'><b>testarIntegracao</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc020</td>
+<td></td>
+<td>0</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc020@3b0143d3</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc003.testarLovComImagem()'><b>testarLovComImagem</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc003</td>
+<td></td>
+<td>4</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc003@4b4523f8</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc003.testarQuantidadeDe20Registros()'><b>testarQuantidadeDe20Registros</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc003</td>
+<td></td>
+<td>5</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc003@4b4523f8</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc003.testarQuantidadeDe5Registros()'><b>testarQuantidadeDe5Registros</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc003</td>
+<td></td>
+<td>6</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc003@4b4523f8</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc020.verificarLogIntegracaoAlteracao()'><b>verificarLogIntegracaoAlteracao</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc020</td>
+<td></td>
+<td>2</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc020@3b0143d3</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc010.verificarNoticiaCadastradaNaTelaDeLoginPortugues()'><b>verificarNoticiaCadastradaNaTelaDeLoginPortugues</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc010</td>
+<td></td>
+<td>1</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc010@3a5ed7a6</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc010.verificarNoticiaNaTelaDeLoginEmEspanhol()'><b>verificarNoticiaNaTelaDeLoginEmEspanhol</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc010<br>Parameters: usuario2, usuario, desenvolvimento</td>
+<td></td>
+<td>3</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc010@3a5ed7a6</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc010.verificarNoticiaNaTelaDeLoginEmIngles()'><b>verificarNoticiaNaTelaDeLoginEmIngles</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc010<br>Parameters: usuario2, usuario, desenvolvimento</td>
+<td></td>
+<td>6</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc010@3a5ed7a6</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc004.vincularMenuCriadoAoMenuPrincipal()'><b>vincularMenuCriadoAoMenuPrincipal</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc004</td>
+<td></td>
+<td>3</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc004@731a74c</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc004.vincularRotinaAoNovoMenu()'><b>vincularRotinaAoNovoMenu</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc004</td>
+<td></td>
+<td>1</td>
+<td>br.com.projedata.arcturus.teste.testes.TesteParc004@731a74c</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc015.eliminiarSessao()'><b>eliminiarSessao</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc015</td>
+<td><div><pre>java.lang.Throwable: Method TesteParc015.eliminiarSessao()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc015@1d16f93d] depends on not successfully finished methods
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 9 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1950243152", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1950243152'><pre>java.lang.Throwable: Method TesteParc015.eliminiarSessao()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc015@1d16f93d] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.access$000(SuiteRunner.java:40)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:489)
+	at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc015.enviarNotificacaoParaTodasSessoes()'><b>enviarNotificacaoParaTodasSessoes</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc015</td>
+<td><div><pre>java.lang.Throwable: Method TesteParc015.enviarNotificacaoParaTodasSessoes(java.lang.String)[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc015@1d16f93d] depends on not successfully finished methods
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 9 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1171054010", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1171054010'><pre>java.lang.Throwable: Method TesteParc015.enviarNotificacaoParaTodasSessoes(java.lang.String)[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc015@1d16f93d] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.access$000(SuiteRunner.java:40)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:489)
+	at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc003.excluirLista()'><b>excluirLista</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc003</td>
+<td><div><pre>java.lang.Throwable: Method TesteParc003.excluirLista()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc003@4b4523f8] depends on not successfully finished methods
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 9 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1674847223", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1674847223'><pre>java.lang.Throwable: Method TesteParc003.excluirLista()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc003@4b4523f8] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.access$000(SuiteRunner.java:40)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:489)
+	at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc002.excluirRotina()'><b>excluirRotina</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc002</td>
+<td><div><pre>java.lang.Throwable: Method TesteParc002.excluirRotina()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc002@5a8e6209] depends on not successfully finished methods
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 9 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace796233624", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace796233624'><pre>java.lang.Throwable: Method TesteParc002.excluirRotina()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc002@5a8e6209] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.access$000(SuiteRunner.java:40)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:489)
+	at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc005.excluirSistema()'><b>excluirSistema</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc005</td>
+<td><div><pre>java.lang.Throwable: Method TesteParc005.excluirSistema()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc005@369f73a2] depends on not successfully finished methods
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 9 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace712886927", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace712886927'><pre>java.lang.Throwable: Method TesteParc005.excluirSistema()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc005@369f73a2] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.access$000(SuiteRunner.java:40)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:489)
+	at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc002.inserirRotina()'><b>inserirRotina</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc002</td>
+<td><div><pre>java.lang.Throwable: Method TesteParc002.inserirRotina()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc002@5a8e6209] depends on not successfully finished methods
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 9 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace561509905", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace561509905'><pre>java.lang.Throwable: Method TesteParc002.inserirRotina()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc002@5a8e6209] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.access$000(SuiteRunner.java:40)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:489)
+	at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc006.removerEmpresa()'><b>removerEmpresa</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc006</td>
+<td><div><pre>java.lang.Throwable: Method TesteParc006.removerEmpresa()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc006@1f28c152] depends on not successfully finished methods
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 9 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2041892418", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2041892418'><pre>java.lang.Throwable: Method TesteParc006.removerEmpresa()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc006@1f28c152] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.access$000(SuiteRunner.java:40)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:489)
+	at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc006.removerImagemServidor()'><b>removerImagemServidor</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc006</td>
+<td><div><pre>java.lang.Throwable: Method TesteParc006.removerImagemServidor()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc006@1f28c152] depends on not successfully finished methods
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 9 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace760026072", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace760026072'><pre>java.lang.Throwable: Method TesteParc006.removerImagemServidor()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc006@1f28c152] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.access$000(SuiteRunner.java:40)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:489)
+	at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc005.tentarAdicionarRotinaEmSistemaComAcessoTotal()'><b>tentarAdicionarRotinaEmSistemaComAcessoTotal</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc005</td>
+<td><div><pre>java.lang.Throwable: Method TesteParc005.tentarAdicionarRotinaEmSistemaComAcessoTotal()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc005@369f73a2] depends on not successfully finished methods
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 9 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace733928918", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace733928918'><pre>java.lang.Throwable: Method TesteParc005.tentarAdicionarRotinaEmSistemaComAcessoTotal()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc005@369f73a2] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.access$000(SuiteRunner.java:40)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:489)
+	at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc008.verificarSeClienteNaoConsegueAlterar()'><b>verificarSeClienteNaoConsegueAlterar</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc008</td>
+<td><div><pre>java.lang.Throwable: Method TesteParc008.verificarSeClienteNaoConsegueAlterar(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc008@7d907bac] depends on not successfully finished methods
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 9 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2141608470", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2141608470'><pre>java.lang.Throwable: Method TesteParc008.verificarSeClienteNaoConsegueAlterar(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc008@7d907bac] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.access$000(SuiteRunner.java:40)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:489)
+	at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc009.verificarSeObjetoDeNegocioEhExecutado()'><b>verificarSeObjetoDeNegocioEhExecutado</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc009</td>
+<td><div><pre>java.lang.Throwable: Method TesteParc009.verificarSeObjetoDeNegocioEhExecutado()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc009@7791a895] depends on not successfully finished methods
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 9 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1109928900", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1109928900'><pre>java.lang.Throwable: Method TesteParc009.verificarSeObjetoDeNegocioEhExecutado()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc009@7791a895] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.access$000(SuiteRunner.java:40)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:489)
+	at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='br.com.projedata.arcturus.teste.testes.TesteParc002.vincularMenu()'><b>vincularMenu</b><br>Test class: br.com.projedata.arcturus.teste.testes.TesteParc002</td>
+<td><div><pre>java.lang.Throwable: Method TesteParc002.vincularMenu()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc002@5a8e6209] depends on not successfully finished methods
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+... Removed 9 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1118036372", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1118036372'><pre>java.lang.Throwable: Method TesteParc002.vincularMenu()[pri:0, instance:br.com.projedata.arcturus.teste.testes.TesteParc002@5a8e6209] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.access$000(SuiteRunner.java:40)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:489)
+	at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+</table><p>
+</body>
+</html>

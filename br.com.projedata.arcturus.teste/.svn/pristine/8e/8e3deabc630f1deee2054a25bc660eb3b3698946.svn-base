@@ -1,0 +1,433 @@
+package br.com.projedata.arcturus.teste.testes;
+
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.abrirListaAtributos;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.abrirListaRelatorios;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.abrirPropriedadesDoRelatorio;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.atributoFonteGeorgia;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.atributoTimeNewRoman;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.botaoAbrirArvoreComponentes;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.botaoAbrirDetalheCorpoDetalhe;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.botaoAbrirDetalheCorpoRelatorio;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.botaoAdicionarCabecalho;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.botaoAdicionarEvento;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.botaoProcessarFiltros;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.botaoRemoverEvento;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.campoDescricaoTecnicaPropriedades;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.campoNomeAtributoGeorgia;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.condicaoAtributoFonteGeorgia;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.condicaoAtributoTimeNewRoman;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.detalheCampoAssunto;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.detalhesArvoreCabecalho;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.editorSql;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.estaProcessando;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.faixaPeriodoFinal;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.faixaPeriodoInicial;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.fecharAbaRelatorio;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.listaRelatoriosAberta;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.lovSelecionarCabecalho;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.nomeComponenteRecebeAtributo;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.parametroExibirCabecalho;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.propriedadeCabecalho;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.propriedadeElasticidade;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.propriedadeExibirCabecalhoNasPaginas;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.propriedadesDoRelatorioAberta;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.selecionarCabecalhoHorizontal;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.selecionarEvento;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.selecionarRelatorioParaEdicao;
+import static br.com.projedata.arcturus.teste.webelements.GeradorRelatoriosElementos.tipoSaidaRelatorio;
+
+import java.io.IOException;
+
+import org.apache.commons.lang3.StringUtils;
+import org.apache.pdfbox.pdmodel.encryption.InvalidPasswordException;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import br.com.projedata.arcturus.teste.metodosgenericos.GeradorRelatoriosMetodos;
+import br.com.projedata.arcturus.teste.metodosgenericos.LoginMetodos;
+import br.com.projedata.arcturus.teste.recursos.TesteGenerico;
+import br.com.projedata.arcturus.teste.webelements.AtualizadorElementos;
+
+public class TesteGeradorRelatorios extends TesteGenerico {
+
+	LoginMetodos login;
+	AtualizadorElementos atualizador;
+	String paginaConstrutor;
+	GeradorRelatoriosMetodos metodosGerador;
+
+	@Parameters(value = { "login", "senha", "base", "url" })
+	@Test(testName = "id: 1 - Acessar construtor de relatorios")
+	public void acessarConstrutorRelatorios(String usuario, String senha, String base, String url) throws InterruptedException {
+		metodosGerador = new GeradorRelatoriosMetodos(this);
+		LoginMetodos login = new LoginMetodos(this);
+		login.logar(usuario, senha, base);
+		abrirUrl(url + "/admin/#/relatorio");
+		metodosGerador.aguardaProcessarGeradorRelatorios();
+		espera.aguardarElementoEstarVisivel(abrirListaRelatorios);
+		paginaConstrutor = navegador.retornarPaginaAtual();
+	}
+
+	@Test(testName = "id: 2 - Testar a emissao do relatorio com cabecalho padrao do sistema", dependsOnMethods = {
+			"acessarConstrutorRelatorios" })
+	public void cabecalhoPadraoDoSistema() throws InvalidPasswordException, IOException {
+		acao.clicarNoElemento(abrirListaRelatorios);
+		try {
+			espera.aguardarElementoEstarVisivel(listaRelatoriosAberta);
+		} catch (TimeoutException e) {
+			acao.clicarNoElemento(abrirListaRelatorios);
+		}
+		acao.clicarNoElemento(selecionarRelatorioParaEdicao("rger11"));
+		aguardaProcessarConstrutorTelas();
+		acao.clicarNoElemento(abrirPropriedadesDoRelatorio);
+		espera.aguardarElementoEstarVisivel(propriedadesDoRelatorioAberta);
+		acao.limparElemento(campoDescricaoTecnicaPropriedades);
+		acao.escreverNoElemento(campoDescricaoTecnicaPropriedades, "Teste descrição técnica");
+		metodosGerador.salvarAlteracoesRelatorio();
+		aguardaProcessarConstrutorTelas();
+		acao.selecionarNoElemento(propriedadeCabecalho, "Padrão do Sistema");
+		metodosGerador.salvarAlteracoesRelatorio();
+		gerarRelatorioNoConstrutor();
+		rotina.aguardarProcessarRotina();
+		acao.limparElemento(faixaPeriodoInicial);
+		acao.escreverNoElemento(faixaPeriodoInicial, "01011900");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.limparElemento(faixaPeriodoFinal);
+		acao.escreverNoElemento(faixaPeriodoFinal, "21072017");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.selecionarNoElemento(parametroExibirCabecalho, "Sim");
+		rotina.aguardarProcessarRotina();
+		acao.selecionarNoElemento(tipoSaidaRelatorio, "PDF");
+		acao.clicarNoElemento(botaoProcessarFiltros);
+		testar.passouSeValorContem(rotina.retornarConteudoDoPdf(), "PROJEDATA");
+		testar.passouSeValorContem(rotina.retornarConteudoDoPdf(), "TESTE GERADOR RELATÓRIOS");
+		fecharRelatorioEmitido();
+	}
+
+	@Test(testName = "id: 3 - Relatorio possui cabecalho e na hora da emissao parametro esta como Nao mostrar cabecalho", dependsOnMethods = {
+			"cabecalhoPadraoDoSistema" })
+	public void parametroMostrarCabecalhoIgualNao() throws InvalidPasswordException, IOException {
+		acao.limparElemento(faixaPeriodoInicial);
+		acao.escreverNoElemento(faixaPeriodoInicial, "01011900");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.limparElemento(faixaPeriodoFinal);
+		acao.escreverNoElemento(faixaPeriodoFinal, "21072017");
+		teclado.pressionarTeclaDeControle(Keys.TAB);
+		rotina.aguardarProcessarRotina();
+		acao.selecionarNoElemento(parametroExibirCabecalho, "Não");
+		rotina.aguardarProcessarRotina();
+		acao.selecionarNoElemento(tipoSaidaRelatorio, "PDF");
+		acao.clicarNoElemento(botaoProcessarFiltros);
+		testar.passouSeValorNaoContem(rotina.retornarConteudoDoPdf(), "PROJEDATA");
+		testar.passouSeValorNaoContem(rotina.retornarConteudoDoPdf(), "TESTE GERADOR RELATÓRIOS");
+		navegador.retornarPaginaPrincipal(paginaConstrutor);
+	}
+
+	@Test(testName = "id: 4 - Testar a emissao do relatorio informando nas propriedades sem cabecalho", dependsOnMethods = { "parametroMostrarCabecalhoIgualNao" })
+	public void relatorioSemCabecalho() throws InvalidPasswordException, IOException {
+		acao.selecionarNoElemento(propriedadeCabecalho, "Não Exibir");
+		teclado.pressionarConjuntoDeTeclas(Keys.CONTROL, "s");
+		espera.aguardarElementoEstarVisivel(msg.mensagemSucessoGerador);
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		aguardaProcessarConstrutorTelas();
+		gerarRelatorioNoConstrutor();
+		acao.selecionarNoElemento(parametroExibirCabecalho, "Sim");
+		rotina.aguardarProcessarRotina();
+		acao.selecionarNoElemento(tipoSaidaRelatorio, "PDF");
+		acao.clicarNoElemento(botaoProcessarFiltros);
+		testar.passouSeValorNaoContem(rotina.retornarConteudoDoPdf(), "PROJEDATA");
+		testar.passouSeValorNaoContem(rotina.retornarConteudoDoPdf(), "TESTE GERADOR RELATÓRIOS");
+		navegador.retornarPaginaPrincipal(paginaConstrutor);
+	}
+
+	@Test(testName = "id: 5 - Testar a emissao do relatorio com cabecalho customizado", dependsOnMethods = { "relatorioSemCabecalho" })
+	public void cabecalhoCustomizado() throws InvalidPasswordException, IOException {
+		acao.selecionarNoElemento(propriedadeCabecalho, "Customizado");
+		espera.aguardarElementoEstarVisivel(botaoAdicionarCabecalho);
+		acao.clicarNoElemento(botaoAdicionarCabecalho);
+		espera.aguardarElementoEstarVisivel(lovSelecionarCabecalho);
+		acao.clicarNoElemento(selecionarCabecalhoHorizontal);
+		espera.aguardarElementoDesaparecer(lovSelecionarCabecalho);
+		teclado.pressionarConjuntoDeTeclas(Keys.CONTROL, "s");
+		aguardaProcessarConstrutorTelas();
+		gerarRelatorioNoConstrutor();
+		acao.selecionarNoElemento(tipoSaidaRelatorio, "PDF");
+		acao.clicarNoElemento(botaoProcessarFiltros);
+		testar.passouSeValorContem(rotina.retornarConteudoDoPdf(), "PROJEDATA");
+		testar.passouSeValorContem(rotina.retornarConteudoDoPdf(), "TESTE GERADOR RELATÓRIOS");
+		navegador.retornarPaginaPrincipal(paginaConstrutor);
+	}
+
+	@Test(testName = "id: 6 - Selecionar para imprimir o cabecalho apenas na primeira pagina", dependsOnMethods = {
+			"cabecalhoCustomizado" })
+	public void exibirCabecalhoApenasNaPrimeiraPagina() throws IOException {
+		acao.clicarNoElemento(botaoAbrirArvoreComponentes);
+		espera.aguardarElementoEstarVisivel(detalhesArvoreCabecalho);
+		acao.clicarNoElemento(detalhesArvoreCabecalho);
+		espera.aguardarElementoEstarVisivel(propriedadeExibirCabecalhoNasPaginas);
+		acao.selecionarNoElemento(propriedadeExibirCabecalhoNasPaginas, "Não");
+		teclado.pressionarConjuntoDeTeclas(Keys.CONTROL, "s");
+		espera.aguardarElementoEstarVisivel(msg.mensagemSucessoGerador);
+		aguardaProcessarConstrutorTelas();
+		gerarRelatorioNoConstrutor();
+		acao.limparElemento(faixaPeriodoInicial);
+		acao.escreverNoElemento(faixaPeriodoInicial, "01011900");
+		acao.limparElemento(faixaPeriodoFinal);
+		acao.escreverNoElemento(faixaPeriodoFinal, "01012019");
+		acao.clicarNoElemento(botaoProcessarFiltros);
+		espera.aguardarElementoDesaparecer(botaoProcessarFiltros);
+		int total = StringUtils.countMatches(rotina.retornarConteudoDoPdf(), "Número OS Usuário AssuntoInício");
+		testar.passouSeValoresSaoIguais(total, 1);
+		navegador.retornarPaginaPrincipal(paginaConstrutor);
+	}
+
+	@Test(testName = "id: 7 - Selecionar para imprimir o cabecalho em todas as paginas", dependsOnMethods = {
+			"exibirCabecalhoApenasNaPrimeiraPagina" })
+	public void exibirCabecalhoEmTodasPaginas() throws InvalidPasswordException, IOException {
+		acao.selecionarNoElemento(propriedadeExibirCabecalhoNasPaginas, "Sim");
+		paginaConstrutor = navegador.retornarPaginaAtual();
+		teclado.pressionarConjuntoDeTeclas(Keys.CONTROL, "s");
+		aguardaProcessarConstrutorTelas();
+		gerarRelatorioNoConstrutor();
+		acao.limparElemento(faixaPeriodoInicial);
+		acao.escreverNoElemento(faixaPeriodoInicial, "01011900");
+		acao.limparElemento(faixaPeriodoFinal);
+		acao.escreverNoElemento(faixaPeriodoFinal, "09022018");
+		acao.clicarNoElemento(botaoProcessarFiltros);
+		espera.aguardarElementoDesaparecer(botaoProcessarFiltros);
+		int total = StringUtils.countMatches(rotina.retornarConteudoDoPdf(), "Número OS Usuário AssuntoInício");
+		Assert.assertTrue(total > 1);
+		navegador.retornarPaginaPrincipal(paginaConstrutor);
+	}
+
+	@Test(testName = "id: 8 - Evento ImprimirQuando", dependsOnMethods = { "exibirCabecalhoEmTodasPaginas" })
+	public void testeEventoImprimirQuando() throws InvalidPasswordException, IOException {
+		espera.aguardarElementoEstarVisivel(botaoAbrirDetalheCorpoRelatorio);
+		acao.clicarNoElemento(botaoAbrirDetalheCorpoRelatorio);
+		espera.aguardarElementoEstarVisivel(botaoAdicionarEvento);
+		acao.clicarNoElemento(botaoAdicionarEvento);
+		espera.aguardarElementoEstarVisivel(selecionarEvento);
+		acao.clicarNoElemento(selecionarEvento);
+		espera.aguardarElementoDesaparecer(selecionarEvento);
+		String selectAll = Keys.chord(Keys.CONTROL, "a");
+		acao.escreverNoElemento(editorSql, selectAll);
+		acao.escreverNoElemento(editorSql, "!$F{assunto}.contains(\"Carga\")");
+		metodosGerador.salvarAlteracoesRelatorio();
+		gerarRelatorioNoConstrutor();
+		acao.limparElemento(faixaPeriodoInicial);
+		acao.escreverNoElemento(faixaPeriodoInicial, "01011900");
+		acao.limparElemento(faixaPeriodoFinal);
+		acao.escreverNoElemento(faixaPeriodoFinal, "01012019");
+		acao.clicarNoElemento(botaoProcessarFiltros);
+		espera.aguardarElementoDesaparecer(botaoProcessarFiltros);
+		testar.passouSeValorNaoContem(rotina.retornarConteudoDoPdf(), "Carga");
+		navegador.retornarPaginaPrincipal(paginaConstrutor);
+	}
+
+	@Test(testName = "id: 9 - Remover evento ImprimirQuando", dependsOnMethods = { "testeEventoImprimirQuando" })
+	public void removerEventoImprimirQuando() throws InvalidPasswordException, IOException {
+		espera.aguardarElementoEstarVisivel(botaoAbrirDetalheCorpoDetalhe);
+		acao.clicarNoElemento(botaoAbrirDetalheCorpoDetalhe);
+		espera.aguardarElementoEstarVisivel(botaoRemoverEvento);
+		acao.clicarNoElemento(botaoRemoverEvento);
+		metodosGerador.salvarAlteracoesRelatorio();
+		gerarRelatorioNoConstrutor();
+		acao.limparElemento(faixaPeriodoInicial);
+		acao.escreverNoElemento(faixaPeriodoInicial, "01011900");
+		acao.limparElemento(faixaPeriodoFinal);
+		acao.escreverNoElemento(faixaPeriodoFinal, "01012019");
+		acao.clicarNoElemento(botaoProcessarFiltros);
+		espera.aguardarElementoDesaparecer(botaoProcessarFiltros);
+		testar.passouSeValorContem(rotina.retornarConteudoDoPdf(), "Carga");
+		navegador.retornarPaginaPrincipal(paginaConstrutor);
+	}
+
+	@Test(testName = "id: 10 - Selecionar no campo elasticidade o valor expansivel", dependsOnMethods = { "removerEventoImprimirQuando" })
+	public void testarPropriedadeElasticidadeExpansivel() throws InvalidPasswordException, IOException {
+		espera.aguardarElementoEstarVisivel(detalheCampoAssunto);
+		acao.clicarNoElemento(detalheCampoAssunto);
+		espera.aguardarElementoEstarVisivel(propriedadeElasticidade);
+		acao.selecionarNoElemento(propriedadeElasticidade, "Expansível");
+		metodosGerador.salvarAlteracoesRelatorio();
+		gerarRelatorioNoConstrutor();
+		acao.limparElemento(faixaPeriodoInicial);
+		acao.escreverNoElemento(faixaPeriodoInicial, "01011900");
+		acao.limparElemento(faixaPeriodoFinal);
+		acao.escreverNoElemento(faixaPeriodoFinal, "01012019");
+		acao.clicarNoElemento(botaoProcessarFiltros);
+		espera.aguardarElementoDesaparecer(botaoProcessarFiltros);
+		String conteudo = rotina.retornarConteudoDoPdf();
+		testar.passouSeValorContem(conteudo, "1109 8833543900 7623772/1 - PRODUTO H. TESTE\n"
+				+ "DESCRIÇÃO. Pedido 3740. Previsão 20-\n" + "FEV-18. RENATO HEINZEN MATRIZ (Braç\n" + "13/02/2018");
+		navegador.retornarPaginaPrincipal(paginaConstrutor);
+	}
+
+	@Test(testName = "id: 11 - Selecionar no campo elasticidade o valor fixo", dependsOnMethods = {
+			"testarPropriedadeElasticidadeExpansivel" })
+	public void testarPropriedadeElasticidadeFixo() throws InvalidPasswordException, IOException {
+		espera.aguardarElementoEstarVisivel(detalheCampoAssunto);
+		acao.clicarNoElemento(detalheCampoAssunto);
+		espera.aguardarElementoEstarVisivel(propriedadeElasticidade);
+		acao.selecionarNoElemento(propriedadeElasticidade, "Fixo");
+		metodosGerador.salvarAlteracoesRelatorio();
+		gerarRelatorioNoConstrutor();
+		acao.limparElemento(faixaPeriodoInicial);
+		acao.escreverNoElemento(faixaPeriodoInicial, "01011900");
+		acao.limparElemento(faixaPeriodoFinal);
+		acao.escreverNoElemento(faixaPeriodoFinal, "01012019");
+		acao.clicarNoElemento(botaoProcessarFiltros);
+		espera.aguardarElementoDesaparecer(botaoProcessarFiltros);
+		String conteudo = rotina.retornarConteudoDoPdf();
+		testar.passouSeValorContem(conteudo, "1109 8833543900 7623772/1 - PRODUTO H. TESTE13/02/2018");
+		navegador.retornarPaginaPrincipal(paginaConstrutor);
+	}
+
+	@Test(testName = "id: 12 - informar uma condicao no atributo visual do relatorio para que altere a fonte de um campo", dependsOnMethods = {
+			"testarPropriedadeElasticidadeFixo" })
+	public void exibirFormatacaoCondicional() throws InvalidPasswordException, IOException {
+		acao.clicarNoElemento(abrirListaAtributos);
+		espera.aguardarElementoEstarVisivel(atributoTimeNewRoman);
+		acao.clicarNoElemento(atributoTimeNewRoman);
+		espera.aguardarElementoEstarVisivel(condicaoAtributoTimeNewRoman);
+		acao.limparElemento(nomeComponenteRecebeAtributo);
+		acao.limparElemento(condicaoAtributoTimeNewRoman);
+		acao.escreverNoElemento(condicaoAtributoTimeNewRoman, "$F{numero_os}> 1100");
+		espera.aguardarElementoEstarVisivel(nomeComponenteRecebeAtributo);
+		acao.escreverNoElemento(nomeComponenteRecebeAtributo, "detalheNumeroOs");
+		metodosGerador.salvarAlteracoesRelatorio();
+		acao.clicarNoElemento(atributoFonteGeorgia);
+		espera.aguardarElementoEstarVisivel(condicaoAtributoFonteGeorgia);
+		espera.aguardarAtributoDoElementoConterOValor(campoNomeAtributoGeorgia, "value", "fonteGeorgia");
+		acao.limparElemento(nomeComponenteRecebeAtributo);
+		acao.limparElemento(condicaoAtributoFonteGeorgia);
+		acao.escreverNoElemento(condicaoAtributoFonteGeorgia, "$F{assunto}.contains('Carga')");
+		espera.aguardarElementoEstarVisivel(nomeComponenteRecebeAtributo);
+		acao.escreverNoElemento(nomeComponenteRecebeAtributo, "detalheUsuario");
+		metodosGerador.salvarAlteracoesRelatorio();
+		gerarRelatorioNoConstrutor();
+		acao.limparElemento(faixaPeriodoInicial);
+		acao.escreverNoElemento(faixaPeriodoInicial, "01011900");
+		acao.limparElemento(faixaPeriodoFinal);
+		acao.escreverNoElemento(faixaPeriodoFinal, "01012019");
+		acao.clicarNoElemento(botaoProcessarFiltros);
+		espera.aguardarElementoDesaparecer(botaoProcessarFiltros);
+		int i = 0;
+		for (String fontes : rotina.verificarTiposDeFonteNoPDF()) {
+			if (fontes.equals("TimesNewRomanPS-BoldItalicMT")) {
+				i = 0;
+				break;
+			} else {
+				i = 1;
+			}
+		}
+		if (i == 0) {
+			testar.testePassou();
+		} else {
+			testar.testeFalhou();
+		}
+
+		for (String fontes : rotina.verificarTiposDeFonteNoPDF()) {
+			if (fontes.equals("Georgia-Bold")) {
+				i = 0;
+				break;
+			} else {
+				i = 1;
+			}
+		}
+		if (i == 0) {
+			testar.testePassou();
+		} else {
+			testar.testeFalhou();
+		}
+	}
+
+	@Test(testName = "id: 13 - informar uma condicao invalida no atributo visual do relatorio para que nao altere a fonte de um campo", dependsOnMethods = {
+			"exibirFormatacaoCondicional" })
+	public void naoExibirFormatacaoCondicional() throws InvalidPasswordException, IOException {
+		navegador.retornarPaginaPrincipal(paginaConstrutor);
+		espera.aguardarElementoEstarVisivel(atributoTimeNewRoman);
+		acao.clicarNoElemento(atributoTimeNewRoman);
+		espera.aguardarElementoEstarVisivel(condicaoAtributoTimeNewRoman);
+		acao.limparElemento(condicaoAtributoTimeNewRoman);
+		acao.escreverNoElemento(condicaoAtributoTimeNewRoman, "$F{numero_os} < 1");
+		espera.aguardarElementoEstarVisivel(nomeComponenteRecebeAtributo);
+		acao.limparElemento(nomeComponenteRecebeAtributo);
+		acao.escreverNoElemento(nomeComponenteRecebeAtributo, "detalheNumeroOs");
+		metodosGerador.salvarAlteracoesRelatorio();
+		acao.clicarNoElemento(atributoFonteGeorgia);
+		espera.aguardarElementoEstarVisivel(condicaoAtributoFonteGeorgia);
+		acao.limparElemento(condicaoAtributoFonteGeorgia);
+		acao.escreverNoElemento(condicaoAtributoFonteGeorgia, "$F{assunto}.contains('amendoim')");
+		espera.aguardarElementoEstarVisivel(nomeComponenteRecebeAtributo);
+		acao.limparElemento(nomeComponenteRecebeAtributo);
+		acao.escreverNoElemento(nomeComponenteRecebeAtributo, "detalheUsuario");
+		metodosGerador.salvarAlteracoesRelatorio();
+		gerarRelatorioNoConstrutor();
+		acao.limparElemento(faixaPeriodoInicial);
+		acao.escreverNoElemento(faixaPeriodoInicial, "01011900");
+		acao.limparElemento(faixaPeriodoFinal);
+		acao.escreverNoElemento(faixaPeriodoFinal, "01012019");
+		acao.clicarNoElemento(botaoProcessarFiltros);
+		espera.aguardarElementoDesaparecer(botaoProcessarFiltros);
+		int i = 0;
+		for (String fontes : rotina.verificarTiposDeFonteNoPDF()) {
+			if (!fontes.equals("TimesNewRomanPS-BoldItalicMT")) {
+				i = 1;
+			} else {
+				i = 0;
+				break;
+			}
+		}
+		if (i == 1) {
+			testar.testePassou();
+		} else {
+			testar.testeFalhou();
+		}
+		for (String fontes : rotina.verificarTiposDeFonteNoPDF()) {
+			if (!fontes.equals("Georgia-Bold")) {
+				i = 1;
+			} else {
+				i = 0;
+				break;
+			}
+		}
+		if (i == 1) {
+			testar.testePassou();
+		} else {
+			testar.testeFalhou();
+		}
+	}
+
+	public void gerarRelatorioNoConstrutor() {
+		teclado.pressionarConjuntoDeTeclas(Keys.CONTROL, "r");
+		for (String winHandle : webDriver.getWindowHandles()) {
+			webDriver.switchTo().window(winHandle);
+		}
+		aguardaProcessarConstrutorTelas();
+		espera.aguardarElementoEstarVisivel(botaoProcessarFiltros);
+		rotina.aguardarProcessarRotina();
+	}
+
+	public void fecharRelatorioEmitido() {
+		acao.clicarNoElemento(fecharAbaRelatorio);
+		espera.aguardarElementoDesaparecer(fecharAbaRelatorio);
+		rotina.aguardarProcessarRotina();
+		espera.aguardarElementoSerClicavel(botaoProcessarFiltros);
+	}
+
+	public void aguardaProcessarConstrutorTelas() {
+		if (webDriver.findElements(estaProcessando).size() != 0) {
+
+			WebDriverWait wait = new WebDriverWait(webDriver, 30);
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(estaProcessando));
+		}
+	}
+
+}

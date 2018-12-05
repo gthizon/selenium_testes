@@ -1,0 +1,134 @@
+package br.com.projedata.arcturus.teste.testes;
+
+import static br.com.projedata.arcturus.teste.webelements.PainelRelatoriosElementos.abrirPasta;
+import static br.com.projedata.arcturus.teste.webelements.PainelRelatoriosElementos.botaoAbrirModalExcluirPasta;
+import static br.com.projedata.arcturus.teste.webelements.PainelRelatoriosElementos.botaoAbrirPger001;
+import static br.com.projedata.arcturus.teste.webelements.PainelRelatoriosElementos.botaoAtualizarListaRelatorios;
+import static br.com.projedata.arcturus.teste.webelements.PainelRelatoriosElementos.botaoExcluirPasta;
+import static br.com.projedata.arcturus.teste.webelements.PainelRelatoriosElementos.botaoMoverParaPasta;
+import static br.com.projedata.arcturus.teste.webelements.PainelRelatoriosElementos.modalSelecionarGrupo;
+import static br.com.projedata.arcturus.teste.webelements.PainelRelatoriosElementos.navegarParaPastaSeguinte;
+import static br.com.projedata.arcturus.teste.webelements.PainelRelatoriosElementos.selecionarPastaParaMoverRelatorio;
+
+import org.openqa.selenium.Keys;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import br.com.projedata.arcturus.teste.metodosgenericos.LoginMetodos;
+import br.com.projedata.arcturus.teste.metodosgenericos.PainelRelatoriosMetodos;
+import br.com.projedata.arcturus.teste.recursos.TesteGenerico;
+
+public class TestePainelRelatorios extends TesteGenerico {
+
+	LoginMetodos login;
+	String grupo1 = "Grupo 1";
+	String grupo2 = "Grupo 2";
+	String grupo3 = "Grupo 3";
+	PainelRelatoriosMetodos painel;
+
+	@Parameters(value = { "login", "senha", "base" })
+	@Test(testName = "id: 1 - Criar pasta na raiz do painel")
+	public void criarPastaNaRaizDoPainel(String usuario, String senha, String base) {
+		login = new LoginMetodos(this);
+		painel = new PainelRelatoriosMetodos(this);
+		login.logar(usuario, senha, base);
+		espera.aguardarSistemaCarregar();
+		painel.criarPasta(grupo1);
+	}
+	
+	
+	@Test(testName = "id: 2 - Mover relatorio para pasta criada", dependsOnMethods = {"criarPastaNaRaizDoPainel"})
+	public void moverRelatorioParaPastaCriada() {
+		painel.moverRelatorioParaPastaCriada("rger2", grupo1);
+		navegador.atualizarBrowser();
+	}
+	
+	@Test(testName = "id: 3 - Criar subpasta", dependsOnMethods = {"moverRelatorioParaPastaCriada"})
+	public void criarSubPasta() {
+		espera.aguardarElementoEstarVisivel(abrirPasta(grupo1));
+		acao.clicarNoElemento(abrirPasta(grupo1));
+		espera.aguardarElementoDesaparecer(abrirPasta(grupo1));
+		painel.criarPasta(grupo2);
+		navegador.atualizarBrowser();
+		espera.aguardarElementoEstarVisivel(abrirPasta(grupo1));
+		acao.clicarNoElemento(abrirPasta(grupo1));
+		painel.moverRelatorioParaPastaCriadaComSubNivel("rger2", grupo1, grupo2);
+	}
+	
+	@Test(testName = "id: 4 - Criar subpasta da subpasta", dependsOnMethods = {"criarSubPasta"})
+	public void criarSubPastaDentroDaSubPasta() {
+		espera.aguardarElementoDesaparecer(abrirPasta(grupo2));
+		painel.criarPasta(grupo3);
+		navegador.atualizarBrowser();
+		espera.aguardarElementoEstarVisivel(abrirPasta(grupo1));
+		acao.clicarNoElemento(abrirPasta(grupo1));
+		espera.aguardarElementoEstarVisivel(abrirPasta(grupo2));
+		acao.clicarNoElemento(abrirPasta(grupo2));
+		espera.aguardarElementoEstarVisivel(abrirPasta(grupo3));
+		acao.clicarNoElemento(botaoMoverParaPasta("rger2"));
+		espera.aguardarElementoEstarVisivel(modalSelecionarGrupo);                             
+		espera.aguardarElementoEstarVisivel(navegarParaPastaSeguinte(grupo1));         
+		acao.clicarNoElemento(navegarParaPastaSeguinte(grupo1));                       
+		espera.aguardarElementoEstarVisivel(navegarParaPastaSeguinte(grupo2));         
+		acao.clicarNoElemento(navegarParaPastaSeguinte(grupo2));
+		espera.aguardarElementoEstarVisivel(selecionarPastaParaMoverRelatorio(grupo3));  
+		acao.clicarNoElemento(selecionarPastaParaMoverRelatorio(grupo3));                
+		espera.aguardarElementoDesaparecer(modalSelecionarGrupo);                              
+		testar.passouSeElementoNaoExistir(botaoMoverParaPasta("rger2"));                     
+		acao.clicarNoElemento(abrirPasta(grupo3));                                       
+		espera.aguardarElementoEstarVisivel(botaoMoverParaPasta("rger2"));                   
+	}
+	
+	@Test(testName = "id: 5 - Mover relatorio para raiz", dependsOnMethods = {"criarSubPastaDentroDaSubPasta"})
+	public void moverRelatorioParaRaiz() {
+		acao.clicarNoElemento(botaoMoverParaPasta("rger2"));
+		espera.aguardarElementoEstarVisivel(selecionarPastaParaMoverRelatorio("Pasta principal"));
+		acao.clicarNoElemento(selecionarPastaParaMoverRelatorio("Pasta principal"));
+		espera.aguardarElementoDesaparecer(selecionarPastaParaMoverRelatorio("Pasta principal"));
+		acao.clicarNoElemento(botaoAtualizarListaRelatorios);
+		espera.aguardarElementoEstarVisivel(botaoMoverParaPasta("rger2"));
+		espera.aguardarElementoEstarVisivel(abrirPasta(grupo1));
+		
+	}
+	
+	@Test(testName = "id: 6 - Excluir grupos", dependsOnMethods = {"moverRelatorioParaRaiz"})
+	public void excluirGruposComRelatorioDentro() {
+		navegador.atualizarBrowser();
+		espera.aguardarElementoEstarVisivel(botaoAbrirModalExcluirPasta);
+		acao.clicarNoElemento(botaoMoverParaPasta("rger2"));
+		
+		espera.aguardarElementoEstarVisivel(navegarParaPastaSeguinte(grupo1));         
+		acao.clicarNoElemento(navegarParaPastaSeguinte(grupo1));
+		espera.aguardarElementoEstarVisivel(navegarParaPastaSeguinte(grupo2));         
+		acao.clicarNoElemento(navegarParaPastaSeguinte(grupo2));
+		espera.aguardarElementoEstarVisivel(selecionarPastaParaMoverRelatorio(grupo3));         
+		acao.clicarNoElemento(selecionarPastaParaMoverRelatorio(grupo3));
+		espera.aguardarElementoDesaparecer(selecionarPastaParaMoverRelatorio(grupo3));
+		espera.aguardarElementoDesaparecer(botaoMoverParaPasta("rger2"));
+		
+		acao.clicarNoElemento(botaoAbrirModalExcluirPasta);
+		espera.aguardarElementoEstarVisivel(botaoExcluirPasta);
+		acao.clicarNoElemento(botaoExcluirPasta);
+		msg.aguardarMensagem("Deseja excluir a pasta "+ grupo1);
+		acao.clicarNoElemento(msg.simConfirmacao);
+		espera.aguardarElementoDesaparecer(msg.simConfirmacao);
+		msg.aguardarMensagem("Os relatórios dos grupos deletados foram movidos para a pasta principal");
+		testar.passouSeElementoNaoExistir(abrirPasta(grupo1));
+	}
+	
+	@Test(testName = "id: 7 - Recarregar relatorios", dependsOnMethods = {"excluirGruposComRelatorioDentro"})
+	public void recarregarRelatorios() {
+		teclado.pressionarTeclaDeControle(Keys.ESCAPE);
+		msg.aguardarMensagemDesaparecer("Os relatórios dos grupos deletados ");
+		acao.clicarNoElemento(botaoAtualizarListaRelatorios);
+		espera.aguardarElementoEstarVisivel(botaoMoverParaPasta("rger2"));
+		
+	}
+	
+	@Test(testName = "id: 8 - Abrir ger001 pelo painel", dependsOnMethods = {"recarregarRelatorios"})
+	public void abrirGeradorPeloPainel() {
+		acao.clicarNoElemento(botaoAbrirPger001);
+		espera.aguardarElementoEstarVisivel(rotina.retornarRotinaCarregada("ger001"), rotina.verificarRotinaCarregadaMoDoConsulta("ger001"));
+		
+	}
+}

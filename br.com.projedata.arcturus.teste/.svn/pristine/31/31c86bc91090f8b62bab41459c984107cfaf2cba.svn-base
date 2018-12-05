@@ -1,0 +1,117 @@
+package br.com.projedata.arcturus.teste.recursos;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
+
+public class AcoesDriver {
+
+	private WebDriver webDriver = null;
+
+	public AcoesDriver(WebDriver driver) {
+		this.webDriver = driver;
+	}
+
+	public void escreverNoElemento(By elemento, String valor) {
+		webDriver.findElement(elemento).sendKeys(valor);
+	}
+
+	public void escreverNoElemento(By elemento, int posicao, String valor) {
+		webDriver.findElements(elemento).get(posicao).sendKeys(valor);
+	}
+
+	public void clicarNoElemento(By elemento) {
+		webDriver.findElement(elemento).click();
+	}
+
+	public void clicarNoElemento(By elemento, int posicao) {
+		webDriver.findElements(elemento).get(posicao).click();
+	}
+
+	public void selecionarNoElemento(By elemento, String valor) {
+		new Select(webDriver.findElement(elemento)).selectByVisibleText(valor);
+	}
+
+	public void selecionarNoElementoPeloValor(By elemento, String valor) {
+		new Select(webDriver.findElement(elemento)).selectByValue(valor);
+	}
+	
+	public void selecionarNoElementoPeloValor(By elemento, int posicao, String valor) {
+		new Select(webDriver.findElements(elemento).get(posicao)).selectByValue(valor);
+	}
+
+	public void selecionarNoElemento(By elemento, int posicao, String valor) {
+		new Select(webDriver.findElements(elemento).get(posicao)).selectByVisibleText(valor);
+	}
+
+	public Select buscarObjetoTipoSelect(By elemento, int posicao) {
+		Select valor = new Select(webDriver.findElements(elemento).get(posicao));
+		return valor;
+	}
+
+	public void deselecionarNoElemento(By elemento, String valor) {
+		new Select(webDriver.findElement(elemento)).deselectByVisibleText(valor);
+	}
+
+	public void limpar(By elemento) {
+		webDriver.findElement(elemento).sendKeys(Keys.CONTROL + "a");
+		webDriver.findElement(elemento).sendKeys(Keys.DELETE);
+	}
+
+	public void limparParteDeUmTexto(By elemento, String deletar) {
+		String conteudo = webDriver.findElement(elemento).getAttribute("value");
+		webDriver.findElement(elemento).sendKeys(conteudo.replace(deletar, ""));
+
+	}
+
+	public void limpar(By elemento, int posicao) {
+		webDriver.findElements(elemento).get(posicao).sendKeys(Keys.CONTROL + "a");
+		webDriver.findElements(elemento).get(posicao).sendKeys(Keys.DELETE);
+	}
+
+	public void posicionarFocoNoElemento(By el) {
+
+		Rotina rotina = new Rotina(webDriver);
+		String id = webDriver.findElement(el).getAttribute("id");
+		String name = webDriver.findElement(el).getAttribute("name");
+		String classe = webDriver.findElement(el).getAttribute("class");
+		JavascriptExecutor jse = (JavascriptExecutor) webDriver;
+
+		if (!id.isEmpty()) {
+			jse.executeScript("document.getElementById('" + id + "').focus()");
+			rotina.aguardarProcessarRotina();
+		} else if (!name.isEmpty()) {
+			jse.executeScript("document.getElementsByName('" + name + "')[0].focus()");
+			rotina.aguardarProcessarRotina();
+		} else {
+			jse.executeScript("document.getElementsByClassName('" + classe + "')[0].focus()");
+			rotina.aguardarProcessarRotina();
+		}
+	}
+
+	public List<WebElement> encontrarElemento(By elemento) {
+		return webDriver.findElements(elemento);
+	}
+
+	public void clicarNoElementoPorCoordenada(int x, int y) {
+		Actions action = new Actions(webDriver);
+		action.moveByOffset(x, y).click().build().perform();
+	}
+
+	public String retornarValorDoElemento(By elemento, int posicao) {
+		return webDriver.findElements(elemento).get(posicao).getAttribute("value").toString();
+	}
+
+	public String retornarValorSelecionadoNoElemento(By elemento) {
+		Select selecionado = new Select(webDriver.findElement(elemento));
+		String valor = selecionado.getFirstSelectedOption().getText();
+		return valor;
+	}
+
+}

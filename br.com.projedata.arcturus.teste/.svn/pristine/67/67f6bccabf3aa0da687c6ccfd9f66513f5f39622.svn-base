@@ -1,0 +1,26 @@
+package br.com.projedata.arcturus.teste.metodosgenericos;
+
+import org.openqa.selenium.By;
+
+import br.com.projedata.arcturus.teste.recursos.TesteGenerico;
+
+public class MetodosGenericos {
+
+	TesteGenerico teste;
+
+	public MetodosGenericos(TesteGenerico teste) {
+		this.teste = teste;
+	}
+
+	public boolean verificarSeElementoExiste(By elemento) {
+		
+		if(teste.webDriver.findElements(elemento).size() > 0) {
+			return true;
+		} else {
+			return false;
+		}
+
+		
+		
+	}
+}

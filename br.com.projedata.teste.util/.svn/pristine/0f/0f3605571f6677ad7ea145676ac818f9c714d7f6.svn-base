@@ -1,0 +1,300 @@
+package br.com.projedata.teste.util.recursos;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
+
+public class Testar {
+
+	private WebDriver webDriver;
+	private Acao acao;// = new Acao(webDriver);
+
+	public Testar(WebDriver driver, Acao acao) {
+		this.webDriver = driver;
+		this.acao = acao;
+	}
+
+	public void testePassou() {
+		Assert.assertTrue(true);
+	}
+
+	public void testeFalhou() {
+		Assert.assertTrue(false);
+	}
+	
+	public void passouSeElementoNaoExistir(By elemento) {
+		Assert.assertTrue(webDriver.findElements(elemento).size() == 0);
+	}
+
+	public void passouSeElementoNaoExistir(String elemento) {
+		By componente = acao.localizarComponente(elemento);
+		Assert.assertTrue(webDriver.findElements(componente).size() == 0);
+	}
+
+	public void passouSeElementoNaoEstiverVisivel(By elemento) {
+		Assert.assertTrue(!webDriver.findElement(elemento).isDisplayed());
+	}
+
+	public void passouSeElementoNaoEstiverVisivel(String elemento) {
+		By componente = acao.localizarComponente(elemento);
+		Assert.assertTrue(!webDriver.findElement(componente).isDisplayed());
+	}
+
+	public void passouSeElementoEstiverVisivel(By elemento, int posicao) {
+		Assert.assertTrue(webDriver.findElements(elemento).get(posicao).isDisplayed());
+	}
+
+	public void passouSeElementoEstiverVisivel(By elemento) {
+		Assert.assertTrue(webDriver.findElement(elemento).isDisplayed());
+	}
+
+	public void passouSeElementoEstiverVisivel(String elemento) {
+		By componente = acao.localizarComponente(elemento);
+		Assert.assertTrue(webDriver.findElement(componente).isDisplayed());
+	}
+
+	public void passouSeElementoEstiverHabilitado(By elemento) {
+		Assert.assertTrue(webDriver.findElement(elemento).isEnabled());
+	}
+
+	public void passouSeElementoEstiverHabilitado(String elemento) {
+		By componente = acao.localizarComponente(elemento);
+		Assert.assertTrue(webDriver.findElement(componente).isEnabled());
+	}
+
+	public void passouSeElementoEstiverDesabilitado(By elemento) {
+		Assert.assertTrue(!webDriver.findElement(elemento).isEnabled());
+	}
+
+	public void passouSeElementoEstiverDesabilitado(String elemento) {
+		By componente = acao.localizarComponente(elemento);
+		Assert.assertTrue(!webDriver.findElement(componente).isEnabled());
+	}
+
+	public void passouSeElementoEstiverSelecionado(By elemento) {
+		Assert.assertTrue(webDriver.findElement(elemento).isSelected());
+	}
+
+	public void passouSeElementoEstiverSelecionado(String elemento) {
+		By componente = acao.localizarComponente(elemento);
+		Assert.assertTrue(webDriver.findElement(componente).isSelected());
+	}
+
+	public void passouSeElementoNaoEstiverSelecionado(By elemento) {
+		Assert.assertTrue(!webDriver.findElement(elemento).isSelected());
+	}
+
+	public void passouSeElementoNaoEstiverSelecionado(String elemento) {
+		By componente = acao.localizarComponente(elemento);
+		Assert.assertTrue(!webDriver.findElement(componente).isSelected());
+	}
+
+	public void passouSeElementoForIgualA(By elemento, By comparacao) {
+		Assert.assertTrue(webDriver.findElement(elemento).equals(webDriver.findElement(comparacao)));
+	}
+
+	public void passouSeElementoForIgualA(String elemento, String comparacao) {
+		By componente = acao.localizarComponente(elemento);
+		By componente2 = acao.localizarComponente(comparacao);
+		Assert.assertTrue(webDriver.findElement(componente).equals(webDriver.findElement(componente2)));
+	}
+
+	public void passouSeValoresForemIguais(String a, String b) {
+		Assert.assertTrue(a.equals(b));
+	}
+
+	public void passouSeValoresForemIguais(Long a, Long b) {
+		Assert.assertTrue(a.equals(b));
+	}
+
+	public void passouSeValoresForemDiferentes(String a, String b) {
+		Assert.assertTrue(!a.equals(b));
+	}
+
+	public void passouSeValorContem(String a, String b) {
+		Assert.assertTrue(a.contains(b));
+	}
+
+	public void passouSeValorNaoContem(String a, String b) {
+		Assert.assertTrue(!a.contains(b));
+	}
+
+	public void passouSeElementoForDiferenteDe(By elemento, By comparacao) {
+		Assert.assertTrue(!webDriver.findElement(elemento).equals(webDriver.findElement(comparacao)));
+	}
+
+	public void passouSeElementoForDiferenteDe(String elemento, String comparacao) {
+		By componente = acao.localizarComponente(elemento);
+		By componente2 = acao.localizarComponente(comparacao);
+		Assert.assertTrue(!webDriver.findElement(componente).equals(webDriver.findElement(componente2)));
+	}
+
+	public void passouSeAtributoDoElementoForIgualA(By elemento, String atributo, String valor) {
+		Assert.assertTrue(webDriver.findElement(elemento).getAttribute(atributo).equals(valor));
+	}
+
+	public void passouSeAtributoDoElementoForIgualA(String elemento, String atributo, String valor) {
+		By componente = acao.localizarComponente(elemento);
+		Assert.assertTrue(webDriver.findElement(componente).getAttribute(atributo).equals(valor));
+	}
+
+	public void passouSeAtributoDoElementoForIgualA(String elemento, int posicao, String atributo, String valor) {
+		By componente = acao.localizarComponente(elemento);
+		Assert.assertTrue(webDriver.findElements(componente).get(posicao).getAttribute(atributo).equals(valor));
+	}
+
+	public void passouSeAtributoDoElementoForIgualA(By elemento, int posicao, String atributo, String valor) {
+		Assert.assertTrue(webDriver.findElements(elemento).get(posicao).getAttribute(atributo).equals(valor));
+	}
+
+	public void passouSeAtributoDoElementoContem(By elemento, String atributo, String valor) {
+		Assert.assertTrue(webDriver.findElement(elemento).getAttribute(atributo).contains(valor));
+	}
+
+	public void passouSeAtributoDoElementoContem(String elemento, String atributo, String valor) {
+		By componente = acao.localizarComponente(elemento);
+		Assert.assertTrue(webDriver.findElement(componente).getAttribute(atributo).contains(valor));
+	}
+
+	public void passouSeAtributoDoElementoContem(By elemento, int posicao, String atributo, String valor) {
+		Assert.assertTrue(webDriver.findElements(elemento).get(posicao).getAttribute(atributo).contains(valor));
+	}
+
+	public void passouSeAtributoDoElementoContem(String elemento, int posicao, String atributo, String valor) {
+		By componente = acao.localizarComponente(elemento);
+		Assert.assertTrue(webDriver.findElements(componente).get(posicao).getAttribute(atributo).contains(valor));
+	}
+
+	public void passouSeAtributoDoElementoForDiferenteDe(By elemento, String atributo, String valor) {
+		Assert.assertTrue(!webDriver.findElement(elemento).getAttribute(atributo).equals(valor));
+	}
+
+	public void passouSeAtributoDoElementoForDiferenteDe(String elemento, String atributo, String valor) {
+		By componente = acao.localizarComponente(elemento);
+		Assert.assertTrue(!webDriver.findElement(componente).getAttribute(atributo).equals(valor));
+	}
+
+	public void passouSeAtributoDoElementoForDiferenteDe(By elemento, int posicao, String atributo, String valor) {
+		Assert.assertTrue(!webDriver.findElements(elemento).get(posicao).getAttribute(atributo).equals(valor));
+	}
+
+	public void passouSeAtributoDoElementoForDiferenteDe(String elemento, int posicao, String atributo, String valor) {
+		By componente = acao.localizarComponente(elemento);
+		Assert.assertTrue(!webDriver.findElements(componente).get(posicao).getAttribute(atributo).equals(valor));
+	}
+
+	public void passouSeAtributoDoElementoForNulo(By elemento, String atributo) {
+		Assert.assertTrue(webDriver.findElement(elemento).getAttribute(atributo).isEmpty());
+	}
+
+	public void passouSeAtributoDoElementoForNulo(String elemento, String atributo) {
+		By componente = acao.localizarComponente(elemento);
+		Assert.assertTrue(webDriver.findElement(componente).getAttribute(atributo).isEmpty());
+	}
+
+	public void passouSeAtributoDoElementoForNulo(By elemento, int posicao, String atributo) {
+		Assert.assertTrue(webDriver.findElements(elemento).get(posicao).getAttribute(atributo).isEmpty());
+	}
+
+	public void passouSeAtributoDoElementoForNulo(String elemento, int posicao, String atributo) {
+		By componente = acao.localizarComponente(elemento);
+		Assert.assertTrue(webDriver.findElements(componente).get(posicao).getAttribute(atributo).isEmpty());
+	}
+
+	public void passouSeAtributoDoElementoNaoForNulo(By elemento, String atributo) {
+		Assert.assertTrue(!webDriver.findElement(elemento).getAttribute(atributo).isEmpty());
+	}
+
+	public void passouSeAtributoDoElementoNaoForNulo(String elemento, String atributo) {
+		By componente = acao.localizarComponente(elemento);
+		Assert.assertTrue(!webDriver.findElement(componente).getAttribute(atributo).isEmpty());
+	}
+
+	public void passouSeAtributoDoElementoNaoForNulo(By elemento, int posicao, String atributo) {
+		Assert.assertTrue(!webDriver.findElements(elemento).get(posicao).getAttribute(atributo).isEmpty());
+	}
+
+	public void passouSeAtributoDoElementoNaoForNulo(String elemento, int posicao, String atributo) {
+		By componente = acao.localizarComponente(elemento);
+		Assert.assertTrue(!webDriver.findElements(componente).get(posicao).getAttribute(atributo).isEmpty());
+	}
+
+	public void passouSeAtributoDoElementoFocadoFor(String atributoElemento, String valorAtributoElemento) {
+		WebElement el = webDriver.switchTo().activeElement();
+		String atributo = el.getAttribute(atributoElemento);
+		if (atributo.equals(valorAtributoElemento) || atributo.contains(valorAtributoElemento)) {
+			Assert.assertTrue(true);
+		} else {
+			Assert.assertFalse(false);
+		}
+	}
+
+	public void passouSeElementoFocadoFor(By elemento) {
+		WebElement el = webDriver.switchTo().activeElement();
+		Assert.assertTrue(el.equals(webDriver.findElement(elemento)));
+	}
+
+	public void passouSeElementoFocadoFor(String elemento) {
+		By componente = acao.localizarComponente(elemento);
+		WebElement el = webDriver.switchTo().activeElement();
+		Assert.assertTrue(el.equals(webDriver.findElement(componente)));
+	}
+
+	public void passouSeElementoFocadoFor(By elemento, int posicao) {
+		WebElement el = webDriver.switchTo().activeElement();
+		Assert.assertTrue(el.equals(webDriver.findElements(elemento).get(posicao)));
+	}
+
+	public void passouSeElementoFocadoFor(String elemento, int posicao) {
+		By componente = acao.localizarComponente(elemento);
+		WebElement el = webDriver.switchTo().activeElement();
+		Assert.assertTrue(el.equals(webDriver.findElements(componente).get(posicao)));
+	}
+
+	public void passouSeJanelaFocadaFor(String janela) {
+		String janelaFocada = webDriver.findElement(By.xpath("//div[@class='janela-modal-componente']")).getAttribute("id").toString();
+		Assert.assertTrue(janelaFocada.equals(janela));
+	}
+
+	public void passouSeValorDoElementoSelecionadoFor(By elemento, String valor) {
+		Select select = new Select(webDriver.findElement(elemento));
+		Assert.assertTrue(select.getFirstSelectedOption().getText().equals(valor));
+	}
+
+	public void passouSeValorDoElementoSelecionadoFor(String elemento, String valor) {
+		By componente = acao.localizarComponente(elemento);
+		Select select = new Select(webDriver.findElement(componente));
+		Assert.assertTrue(select.getFirstSelectedOption().getText().equals(valor));
+	}
+
+	public void passouSeElementoSelecionadoForNulo(String elemento) {
+		By componente = acao.localizarComponente(elemento);
+		Select select = new Select(webDriver.findElement(componente));
+		Assert.assertTrue(select.getAllSelectedOptions().size() == 0);
+	}
+
+	public void passouSeValoresSaoIguais(int valor1, int valor2) {
+		Assert.assertTrue(valor1 == valor2);
+	}
+
+	public void passouSeTextoDoElementoFor(By elemento, String valor) {
+		Assert.assertTrue(webDriver.findElement(elemento).getText().equals(valor));
+	}
+
+	public void passouSeTextoDoElementoFor(String elemento, String valor) {
+		By componente = acao.localizarComponente(elemento);
+		Assert.assertTrue(webDriver.findElement(componente).getText().equals(valor));
+	}
+
+	public void passouSeTextoDoElementoContem(By elemento, String valor) {
+		Assert.assertTrue(webDriver.findElement(elemento).getText().contains(valor));
+	}
+
+	public void passouSeTextoDoElementoContem(String elemento, String valor) {
+		By componente = acao.localizarComponente(elemento);
+		Assert.assertTrue(webDriver.findElement(componente).getText().contains(valor));
+	}
+
+}
